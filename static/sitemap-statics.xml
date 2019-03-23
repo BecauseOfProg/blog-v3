@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <!-- Pages -->
+   <url>
+      <loc>https://blog.becauseofprog.fr/</loc>
+      <changefreq>daily</changefreq>
+      <priority>1</priority>
+   </url>
+
+   <url>
+      <loc>https://blog.becauseofprog.fr/blog/</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.1</priority>
+   </url>
+
+   <url>
+      <loc>https://blog.becauseofprog.fr/page/links</loc>
+      <priority>0.8</priority>
+      <changefreq>daily</changefreq>
+   </url>
+
+   <!-- Categories -->
+   <url>
+      <loc>https://blog.becauseofprog.fr/categorie/software/</loc>
+      <priority>0.6</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+   <url>
+      <loc>https://blog.becauseofprog.fr/categorie/tutos/</loc>
+      <priority>0.6</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+   <url>
+      <loc>https://blog.becauseofprog.fr/categorie/securite/</loc>
+      <priority>0.6</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+   <url>
+      <loc>https://blog.becauseofprog.fr/categorie/web/</loc>
+      <priority>0.6</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+   <url>
+      <loc>https://blog.becauseofprog.fr/categorie/hardware/</loc>
+      <priority>0.6</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+   <url>
+      <loc>https://blog.becauseofprog.fr/categorie/programmation/</loc>
+      <priority>0.6</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+   <url>
+      <loc>https://blog.becauseofprog.fr/categorie/android/</loc>
+      <priority>0.6</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+   <url>
+      <loc>https://blog.becauseofprog.fr/categorie/linux/</loc>
+      <priority>0.6</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+   <url>
+      <loc>https://blog.becauseofprog.fr/categorie/windows/</loc>
+      <priority>0.6</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <!-- Types -->
+   <url>
+      <loc>https://blog.becauseofprog.fr/type/article/</loc>
+      <priority>0.4</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+   <url>
+      <loc>https://blog.becauseofprog.fr/type/flash/</loc>
+      <priority>0.4</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+   <url>
+      <loc>https://blog.becauseofprog.fr/type/tutorial/</loc>
+      <priority>0.4</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <!-- Statics -->
+   <url>
+      <loc>https://blog.becauseofprog.fr/page/search/</loc>
+      <lastmod>2019-03-01</lastmod>
+      <priority>0.3</priority>
+   </url>
+
+   <url>
+      <loc>https://blog.becauseofprog.fr/page/app</loc>
+      <lastmod>2019-03-01</lastmod>
+      <priority>0.5</priority>
+   </url>
+
+   <url>
+      <loc>https://blog.becauseofprog.fr/page/about</loc>
+      <lastmod>2019-03-01</lastmod>
+      <priority>0.5</priority>
+   </url>
+</urlset>

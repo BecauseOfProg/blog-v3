@@ -1,0 +1,20 @@
+{
+  "types": {
+    "article": "description",
+    "flash": "flash_on",
+    "tutorial":"play_circle_outline"
+  },
+  "categories": {
+    "software": "web", 
+    "security": "https", 
+    "web": "public", 
+    "hardware": "sim_card", 
+    "programming": "code", 
+    "android": "android", 
+    "linux": "developer_board", 
+    "windows": "dashboard",
+    "apple": "more"
+  },
+  "rss_base": "https://gh.becauseofprog.fr/rss-proxy/",
+  "article_selectionne": "linux-sur-android"
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <!--<link rel="apple-touch-icon" sizes="180x180" href="https://image-proxy.becauseofprog.fr/cdn.becauseofprog.fr/logos/bop-transparent.png?resize=180,180">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://image-proxy.becauseofprog.fr/cdn.becauseofprog.fr/logos/bop-transparent.png?resize=32,32">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://image-proxy.becauseofprog.fr/cdn.becauseofprog.fr/logos/bop-transparent.png?resize=16,16">
+    <link rel="mask-icon" href="https://cdn.becauseofprog.fr/icons/new/safari-pinned-tab.svg" color="#b71c1c">
+    <meta name="msapplication-config" content="https://cdn.becauseofprog.fr/icons/new/browserconfig.xml">-->
+    
+    <meta name="apple-mobile-web-app-title" content="BecauseOfProg">
+    <meta name="application-name" content="BecauseOfProg">
+    <meta name="msapplication-TileColor" content="#b71c1c">
+    <meta name="theme-color" content="#b71c1c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="me" href="https://twitter.com/BecauseOfProg">
+
+    <link rel="manifest" href="/static/manifest.json">
+    <link rel="stylesheet" href="https://cdn.becauseofprog.fr/static-v3/materialize.min.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.becauseofprog.fr/static-v3/bop.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="utf-8" />
+    <meta property="og:locale" content="fr_fr">
+    <meta name="twitter:creator" content="@BecauseOfProg">
+
+    <link rel="alternate" type="application/atom+xml" title="BecauseOfprog - Tout le site" href="/tout.rss"/>
+    <link rel="search" type="application/opensearchdescription+xml" title="BecauseOfprog - Blog" href="/static/opensearch.xml" />
+    <link rel="shortcut icon" href="https://cdn.becauseofprog.fr/static-v3/favicon.ico">
+
+<!-- Piwik -->
+    <script type="text/javascript">
+var _paq = _paq || [];
+_paq.push([function() { 
+var self = this; 
+function getOriginalVisitorCookieTimeout() { 
+    var now = new Date(), 
+    nowTs = Math.round(now.getTime() / 1000), 
+    visitorInfo = self.getVisitorInfo(); 
+    var createTs = parseInt(visitorInfo[2]); 
+    var cookieTimeout = 33696000; // 13 mois en secondes 
+    var originalTimeout = createTs + cookieTimeout - nowTs; 
+    return originalTimeout; 
+} 
+this.setVisitorCookieTimeout( getOriginalVisitorCookieTimeout() ); 
+}]);
+_paq.push(['trackPageView']);
+_paq.push(['enableLinkTracking']);
+(function() {
+var u="https://analytics.becauseofprog.fr/";
+_paq.push(['setTrackerUrl', u+'piwik.php']);
+_paq.push(['setSiteId', '4']);
+var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+})();
+    </script>
+    <noscript><p><img src="//analytics.becauseofprog.fr/piwik.php?idsite=4&rec=1" style="border:0;" alt="" /></p></noscript>

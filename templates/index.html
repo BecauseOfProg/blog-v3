@@ -1,0 +1,121 @@
+{% include 'components/head.html' %}
+
+    <title>BecauseOfProg</title>
+    <meta name="twitter:card" content="summary">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://blog.becauseofprog.fr">
+    <meta property="og:title" content="BecauseOfProg">
+    <meta property="og:description" content="Blog de programmation et actualités technologiques">
+    <meta property="og:image" content="https://cdn.becauseofprog.fr/logos/bop-transparent.png">
+    <meta name="author" content="Team BOP">
+  </head>
+  <body>
+    {% include 'components/header.html' %}
+
+    <div class="carousel carousel-slider center">
+      <div class="carousel-item white-text" href="#one!" style="background: url(https://cdn.becauseofprog.fr/syst-images/bg.jpg)">
+          <h3>BecauseOfProg</h3>
+          <h5 class="light grey-text text-lighten-3">Blog autour de la programmation créé par des passionnés</h5>
+          <a class="waves-effect waves-light btn red darken-4 center" href="/page/search">Recherche</a>
+      </div>
+      <div class="carousel-item white-text" href="#two!" style="background: url(https://cdn.becauseofprog.fr/syst-images/dev.jpg)">
+          <h3>Nos outils</h3>
+          <h5 class="light grey-text text-lighten-3">Nous proposons plusieurs outils et services gratuits</h5>
+          <a class="waves-effect waves-light btn red darken-4 center white-text" href="/page/projects">En savoir plus</a>
+      </div>
+      <div class="carousel-item white-text" href="#three!" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ devblog.post.banner }})">
+          <h3>Sur notre devblog...</h3>
+          <h5 class="light white-text text-lighten-3">{{ devblog.post.title }}</h5>
+          <a class="waves-effect waves-light btn red darken-4 center" href="https://becauseofprog.fr/news/{{ devblog.post.url }}">Voir!</a>
+      </div>
+    </div>
+  <div class="container">
+    <div class="section white">
+      <div class="row">
+        <a class="black-text center" href="/article/{{ last[3] }}" id="main">
+          <div class="col-md-2 col-md-offset-5"><p class="btn red darken-4" href="#main">Nouveau!</p></div>
+          <h2>{{ last[0] }}</h2>
+          <p>{{ last[1] }}</p>
+          <img src="{{ image_proxy(last[2], 678, 365) }}" alt="Dernier article" class="center responsive-img">
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="section white">
+    <div class="row">
+      {% for item in lasts %}
+      <div class="col s12 m6 l4 xl4">
+        <div class="card sticky-action hoverable">
+          <div class="card-image">
+            <a class="black-text" href="/article/{{ item.url }}">
+							<img src="{{ image_proxy(item.banner, 800, 449.7) }}" alt="Illustration de {{ item.title }} ">
+						</a>
+						<a href="/type/{{ item.type }}" class="btn-floating halfway-fab waves-effect waves-light red darken-4">
+							<i class="material-icons">{% if item.type=="article" %}description{% elif item.art_type=="tutorial" %}play_circle_outline{% elif item.art_type=="flash" %}flash_on{% else %}more_horiz{% endif%}</i>
+						</a>
+          </div>
+          <div class="card-content">
+            <span class="card-title grey-text text-darken-4">
+							<a class="black-text" href="/article/{{ item.url }}">
+                {{ item.title }} 
+							</a>
+						</span>
+						<p>{{ item.desc }}</p>
+						<p>&nbsp;</p>
+						<a class="no-style-link" href="https://becauseofprog.fr/user/{{ item.author }}">
+              <div class="chip">
+								<img src="{{ image_proxy(item.avatar, 32,32) }}" alt="Photo de profil de l'auteur">
+								{{ item.displayname }}
+              </div>
+            </a>
+            <div class="chip">{{ item.timestamp.strftime('%d/%m/%Y') }}</div>
+            <div class="chip"><a class="no-style-link" href="/categorie/{{ item.category }}">{{ item.category.title() }}</a></div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="section white">
+      <div class="row">
+        <div class="col s12 m6">
+          <ul class="collection with-header z-depth-2">
+            <li class="collection-header grey lighten-3"><h4>Les liens</h4></li>
+            {% for i in range(len_links) %}<li class="collection-item avatar grey lighten-5">
+              <span class="title">{{ links['entries'][i]['title'] }}</span>
+              <p>{{ get_hostname(links['entries'][i]['link']) }}</p>
+              <a href="{{ links['entries'][i]['link'] }}" class="secondary-content red-text text-darken-3"><i class="material-icons">send</i></a>
+            </li>{% endfor %}
+          </ul>
+        </div>
+        <div class="col s12 m6">
+          
+            <ul class="collection z-depth-2">
+              <li class="collection-item grey lighten-4">
+                <h5>Nous suivre</h5>
+                <div class="row">
+                  <div class="col s2"><a href="https://twitter.com/BecauseOfProg"><img src="https://cdn.becauseofprog.fr/static-v3/twitter-300.png" alt="Logo Twitter" class="circle responsive-img"></a></div>
+                  <div class="col s2"><a href="http://discord.becauseofprog.fr"><img src="https://cdn.becauseofprog.fr/static-v3/discord-300.png" alt="Logo Discord" class="circle responsive-img"></a></div>
+                  <div class="col s2"><a href="mailto:?subject=Le%20blog%20BecauseOfProg?body=Je%20vous%20invite%20à%20visiter%20le%20blog%20BecauseOfProg:%20des%20actualités%20et%20découvertes%20publiées%20par%20des%20passionnés%20de%20développement.%20https://becauseofprog.fr"><img src="https://cdn.becauseofprog.fr/static-v3/mail-300.png"   alt="Arobase-email" class="circle responsive-img"></a></div>
+                  <div class="col s2"><a href="https://github.com/BecauseOfProg"><img src="https://cdn.becauseofprog.fr/static-v3/github-300.png"  alt="Logo Github"  class="circle responsive-img"></a></div>
+                </div>
+              </li>
+              <li class="collection-item grey lighten-4">
+                <h5>A propos de nous</h5>
+                <p>BecauseOfProg, c'est 4 développeurs rassemblés autour d'un projet commun. Nous avons créé ce blog et de nombreux autres projets depuis février 2017.
+                  Nous souhaitons avant tout nous améliorer dans nos domaines (développement, administration système, sécurité informatique...) et partager notre passion.
+                  Sur ce blog, nous partageons nos trouvailles, nos projets, notre point de vue.<br>A très vite!
+                </p>
+                <a class="waves-effect waves-light btn red darken-4" href="/page/about"><i class="material-icons right">info</i>Plus</a>
+              </li>
+            </ul>
+        </div>   
+      </div>
+    </div>
+
+  </div>
+  {% include 'components/footer.html' %}

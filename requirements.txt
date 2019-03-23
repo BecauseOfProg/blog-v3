@@ -1,0 +1,8 @@
+bcrypt>=3.1.6
+argon2-cffi>=19.1.0
+PyMySQL>=0.9.3
+pony>=0.7.9
+feedparser>=5.2.1
+flask>=1.0.2
+markdown>=3.0.1
+requests>=2.21.0
