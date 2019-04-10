@@ -1,5 +1,8 @@
-{% for item in links %}<li class="collection-item avatar grey lighten-5">
-  <span class="title">{{ item[0] }}</span>
-  <p>{{ item[2] }}</p>
-  <a href="{{ item[1] }}" class="secondary-content red-text text-darken-3"><i class="material-icons">send</i></a>
+{% for i in range(len_l) %}
+<li class="collection-item avatar grey lighten-5">
+    <span class="title">{{ links['entries'][i]['title'] }}</span>
+    <p>{{ get_hostname(links['entries'][i]['link']) }}</p>
+    <a href="{{ links['entries'][i]['link'] }}" class="secondary-content red-text text-darken-3">
+      <i class="material-icons">send</i>
+    </a>
 </li>{% endfor %}

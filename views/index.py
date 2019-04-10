@@ -17,14 +17,9 @@ def home():
     for item in lasts_art:
         list_of_dict.append(fill_informations(item))
 
-    links = links_list(5, "false")
-    len_links = len(links['entries'])
-
     r = requests.get('https://api.becauseofprog.fr/v1/posts/last')
     devblog = r.json()
     return render_template('index.html',
                            last=last,
                            lasts=list_of_dict,
-                           links=links,
-                           len_links=len_links,
                            devblog=devblog)

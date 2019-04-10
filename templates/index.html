@@ -85,11 +85,7 @@
         <div class="col s12 m6">
           <ul class="collection with-header z-depth-2">
             <li class="collection-header grey lighten-3"><h4>Les liens</h4></li>
-            {% for i in range(len_links) %}<li class="collection-item avatar grey lighten-5">
-              <span class="title">{{ links['entries'][i]['title'] }}</span>
-              <p>{{ get_hostname(links['entries'][i]['link']) }}</p>
-              <a href="{{ links['entries'][i]['link'] }}" class="secondary-content red-text text-darken-3"><i class="material-icons">send</i></a>
-            </li>{% endfor %}
+            <div id="display"></div>
           </ul>
         </div>
         <div class="col s12 m6">
