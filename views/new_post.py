@@ -9,6 +9,7 @@ import time
 @application.route('/new-post', methods=['GET', 'POST'])
 @db_session
 def new_post():
+    '''Checks if user is allowed to access the new post page'''
     u = checklogin()
     if u is not False:
         return create_post(u)
@@ -38,4 +39,6 @@ def create_post(u):
             commit()
             return redirect('/article/'+request.form['url'])
         return render_template('members/new-article.html')
-    return render_template('components/erreur.html', erreur="Vous n'avez pas la permission de visiter cette page (403)"), 403
+
+    erreur = "Vous n'avez pas la permission de visiter cette page (403)"
+    return render_template('components/erreur.html', erreur=erreur), 403

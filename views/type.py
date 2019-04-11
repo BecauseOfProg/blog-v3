@@ -20,10 +20,13 @@ def show_type(article_type, page):
         return render_template('components/erreur.html',
                                erreur="Le type entré est invalide !")
 
-    data = select(a for a in Articles if article_type in a.art_type).order_by(desc(Articles.timestamp))[page*10:page*10+10]
+    data = select(
+        a for a in Articles if article_type in a.art_type
+    ).order_by(desc(Articles.timestamp))[page*10:page*10+10]
     if data == []:
+        erreur = "La page recherchée n'existe pas! (404)"
         return render_template('components/erreur.html',
-                               erreur="La page recherchée n'existe pas! (404)"), 404
+                               erreur=erreur), 404
     data_dict = []
     for item in data:
         data_dict.append(fill_informations(item))

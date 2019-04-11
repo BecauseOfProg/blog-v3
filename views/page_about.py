@@ -11,10 +11,6 @@ def about():
     stafflist = []
     staff = select(p for p in User if p.validate == 1)[:]
     for p in staff:
-        stafflist.append([p.grade,
-                          p.username,
-                          p.description,
-                          p.displayname,
-                          p.avatar
-                          ])
+        stafflist.append([p.grade, p.username, p.description,
+                          p.displayname, p.avatar])
     return render_template('page/about.html', staff=stafflist)

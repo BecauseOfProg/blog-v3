@@ -10,7 +10,7 @@ import markdown
 @application.route("/article/<url>")
 @db_session
 def article(url):
-    '''Displays an article'''
+    '''Displays an article with a given url'''
     try:
         a = Articles.get(url=url)
         u = User.get(username=a.author)
@@ -23,5 +23,6 @@ def article(url):
                                                    extensions=['extra']))
         return render_template('article.html', **locals())
     except:
+        erreur = "La page recherchée n'existe pas! (404)"
         return render_template('components/erreur.html',
-                               erreur="La page recherchée n'existe pas! (404)"), 404
+                               erreur=erreur), 404

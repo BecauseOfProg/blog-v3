@@ -10,10 +10,16 @@ from app import application
 @application.route("/blog/", defaults={'page': 0})
 @db_session
 def show_blog(page):
-    data = select(a for a in Articles).order_by(desc(Articles.timestamp))[page*10:page*10+10]
+    '''Displays list.html with the lasts articles'''
+    data = select(a for a in Articles).order_by(desc(Articles.timestamp))[
+        page * 10: page * 10 + 10
+    ]
     if data == []:
-        return render_template('components/erreur.html', erreur="La page recherchée n'existe pas! (404)"), 404
+        erreur = "La page recherchée n'existe pas! (404)"
+        return render_template('components/erreur.html', erreur=erreur), 404
     data_dict = []
     for item in data:
         data_dict.append(fill_informations(item))
-    return render_template('list.html', template="Blog", type="Tous les articles", data=data_dict, icon="description", page=page)
+    return render_template('list.html', template="Blog",
+                           type="Tous les articles", data=data_dict,
+                           icon="description", page=page)

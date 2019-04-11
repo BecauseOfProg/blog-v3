@@ -12,15 +12,19 @@ from app import application
 @application.route("/page/search/<keyword>/<int:page>")
 @db_session
 def search(keyword, page):
+    '''Search into articles'''
     if keyword is None:
         keyword = request.args.get('s', default="", type=str)
     if page == 0:
         page = request.args.get('page', default=0, type=int)
 
     if keyword != "":
-        data = select(a for a in Articles if keyword in a.title).order_by(desc(Articles.timestamp))[page*10:page*10+10]
+        data = select(
+            a for a in Articles if keyword in a.title
+        ).order_by(desc(Articles.timestamp))[page*10:page*10+10]
         if data == []:
-            return render_template('page/search.html', error="Votre recherche n'a donné aucun résultat. Vous pouvez entrer un autre mot clé :")
+            erreur = "Votre recherche n'a donné aucun résultat. Vous pouvez entrer un autre mot clé :"
+            return render_template('page/search.html', error=erreur)
         data_dict = []
         for item in data:
             data_dict.append(fill_informations(item))

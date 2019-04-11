@@ -11,7 +11,12 @@ from app import application
 @db_session
 def home():
     '''Homepage of your blog'''
-    last = select((a.title, a.desc, a.banner, a.url, a.timestamp) for a in Articles).order_by(-5).first()
+    last = (
+        select(
+            (a.title, a.desc, a.banner, a.url, a.timestamp) for a in Articles)
+        .order_by(-5)
+        .first()
+    )
     lasts_art = select(a for a in Articles).order_by(desc(Articles.timestamp))[1:4]
     list_of_dict = []
     for item in lasts_art:
@@ -19,7 +24,5 @@ def home():
 
     r = requests.get('https://api.becauseofprog.fr/v1/posts/last')
     devblog = r.json()
-    return render_template('index.html',
-                           last=last,
-                           lasts=list_of_dict,
+    return render_template('index.html', last=last, lasts=list_of_dict,
                            devblog=devblog)

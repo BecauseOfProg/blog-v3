@@ -5,10 +5,15 @@ from pony.orm import db_session
 from app import application
 from db.models import User
 
+'''Every page or route related to the account or the user connection
+is included in this file.'''
+
 
 @application.route('/account')
 @db_session
 def show_account():
+    '''Shows the account page (a static page for now) or
+    redirects the user to the login form'''
     u = checklogin()
     if u is not False:
         return render_template('members/account.html', u=u)
@@ -18,6 +23,7 @@ def show_account():
 
 @application.route('/logout')
 def logout():
+    '''Logs out the user, removes cookies'''
     session.pop('username', None)
     session.pop('token', None)
     return redirect('/')
@@ -26,6 +32,8 @@ def logout():
 @application.route('/login', methods=['GET', 'POST'])
 @db_session
 def show_login():
+    '''Display the login form if request is GET,
+    logs in the user with the given informations if request is POST'''
     if 'token' in session:
         return redirect('/')
     if request.method == 'POST':
