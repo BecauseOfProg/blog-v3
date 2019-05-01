@@ -1,7 +1,7 @@
 from utils.fill_informations import fill_informations
 from pony.orm import db_session, select, desc
 from db.models import Articles, User
-from flask import render_template
+from flask import render_template, redirect
 from app import application
 
 
@@ -23,3 +23,10 @@ def show_blog(page):
     return render_template('list.html', template="Blog",
                            type="Tous les articles", data=data_dict,
                            icon="description", page=page)
+
+
+@application.route("/blog/<url>-<int:id>")
+@db_session
+def redirect_old_url_blog(url, id):
+    new_url = "/article/"+url
+    return redirect(new_url)

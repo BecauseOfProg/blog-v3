@@ -5,5 +5,5 @@
   <Image>favicon.ico</Image>
   <Language>fr</Language>
   <InputEncoding>UTF-8</InputEncoding>
-  <Url type="text/html" template="https://blog.becauseofprog.fr/page/search/{searchTerms}"/>
+  <Url type="text/html" template="https://becauseofprog.fr/page/search/{searchTerms}"/>
 </OpenSearchDescription>

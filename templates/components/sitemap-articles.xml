@@ -3,7 +3,7 @@
    <!-- Tous les posts sur BecauseOfProg -->
    {% for item in data %}
    <url>
-      <loc>https://blog.becauseofprog.fr/article/{{ item[0] }}</loc>
+      <loc>https://becauseofprog.fr/article/{{ item[0] }}</loc>
       <lastmod>{{ time_to_rss(item[1]) }}</lastmod>
       <priority>0.7</priority>
    </url>
