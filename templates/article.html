@@ -20,7 +20,7 @@
       <div class="col l1 no-mobile"></div>
       <div class="col l7 upper-content">
         <div class="section white z-depth-2 article-content">
-          <h4>{{ a.desc }}</h4>
+          <h5>{{ a.desc }}</h5>
           <hr>
           {% if htmlarticle %}<div class="markdown-body">{{ htmlarticle | safe }}</div>
           {% else %}<div class="markdown-body">{{ a.content | safe }}</div>{% endif %}
@@ -41,7 +41,7 @@
       </div>
       <div class="col l3 upper-content-no-mobile">
         <ul class="collection z-depth-2">
-          <li class="collection-item grey lighten-4 h300px">Publicité</li>
+          <li class="collection-item grey lighten-4 h300px ads"></li>
           <li class="collection-item grey lighten-3">
             <h5>Partager</h5>
             <div class="row">
