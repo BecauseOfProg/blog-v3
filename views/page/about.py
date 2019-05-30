@@ -9,7 +9,7 @@ from app import application
 def about():
     '''Displays the 'about' page with a list of the staff'''
     stafflist = []
-    staff = select(u for u in User if len(u.permissions) > 0)[:]
+    staff = select(u for u in User if str(u.permissions) != '[]')[:]
     for user in staff:
         stafflist.append({
           'username': user.username,
