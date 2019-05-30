@@ -44,33 +44,33 @@
   
   <div class="section white">
     <div class="row">
-      {% for item in lasts %}
+      {% for post in lasts %}
       <div class="col s12 m6 l4 xl4">
         <div class="card sticky-action hoverable">
           <div class="card-image">
-            <a class="black-text" href="/article/{{ item.url }}">
-							<img src="{{ image_proxy(item.banner, 800, 449.7) }}" alt="Illustration de {{ item.title }} ">
+            <a class="black-text" href="/article/{{ post.url }}">
+							<img src="{{ image_proxy(post.banner, 800, 449.7) }}" alt="Illustration de {{ post.title }} ">
 						</a>
-						<a href="/type/{{ item.type }}" class="btn-floating halfway-fab waves-effect waves-light red darken-4">
-							<i class="material-icons">{% if item.type=="article" %}description{% elif item.art_type=="tutorial" %}play_circle_outline{% elif item.art_type=="flash" %}flash_on{% else %}more_horiz{% endif%}</i>
+						<a href="/type/{{ post.type }}" class="btn-floating halfway-fab waves-effect waves-light red darken-4">
+							<i class="material-icons">{% if post.type=="article" %}description{% elif post.art_type=="tutorial" %}play_circle_outline{% elif post.art_type=="flash" %}flash_on{% else %}more_horiz{% endif%}</i>
 						</a>
           </div>
           <div class="card-content">
             <span class="card-title grey-text text-darken-4">
-							<a class="black-text" href="/article/{{ item.url }}">
-                {{ item.title }} 
+							<a class="black-text" href="/article/{{ post.url }}">
+                {{ post.title }}
 							</a>
 						</span>
-						<p>{{ item.desc }}</p>
+						<p>{{ post.description }}</p>
 						<p>&nbsp;</p>
-						<a class="no-style-link" href="https://becauseofprog.fr/user/{{ item.author }}">
+						<a class="no-style-link" href="https://becauseofprog.fr/user/{{ post.author }}">
               <div class="chip">
-								<img src="{{ image_proxy(item.avatar, 32,32) }}" alt="Photo de profil de l'auteur">
-								{{ item.displayname }}
+								<img src="{{ image_proxy(post.avatar, 32,32) }}" alt="Photo de profil de l'auteur">
+								{{ post.displayname }}
               </div>
             </a>
-            <div class="chip">{{ item.timestamp.strftime('%d/%m/%Y') }}</div>
-            <div class="chip"><a class="no-style-link" href="/categorie/{{ item.category }}">{{ item.category.title() }}</a></div>
+            <div class="chip">{{ post.timestamp.strftime('%d/%m/%Y') }}</div>
+            <div class="chip"><a class="no-style-link" href="/categorie/{{ post.category }}">{{ post.category.title() }}</a></div>
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@
       <div class="col l1 no-mobile"></div>
       <div class="col l7 upper-content">
         <div class="section white z-depth-2 article-content">
-          <h5>{{ a.desc }}</h5>
+          <h5>{{ a.description }}</h5>
           <hr>
           {% if htmlarticle %}<div class="markdown-body">{{ htmlarticle | safe }}</div>
           {% else %}<div class="markdown-body">{{ a.content | safe }}</div>{% endif %}
@@ -36,6 +36,9 @@
             <h5>Publié dans</h5>
             <a class="black-text chip" href="/categorie/{{ a.category }}">{{ a.category.title() }}</a>
             <a class="black-text chip" href="/type/{{ a.art_type }}">{{ a.art_type.title() }}</a>
+            {% for label in a.labels %}
+              <a class="black-text chip">{{ label }}</a>
+            {% endfor %}
           </div>
         </div>
       </div>
@@ -107,7 +110,7 @@
             <div class="card-stacked">
               <div class="card-content">
                 <span class="card-title">{{ u.displayname }}</span>
-                <p><i>{{ u.description }}</i></p>
+                <p><i>{{ u.biography }}</i></p>
               </div>
               <div class="card-action">
                 <a href="https://becauseofprog.fr/user/{{ u.username }}">

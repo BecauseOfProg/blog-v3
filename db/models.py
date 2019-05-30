@@ -1,4 +1,4 @@
-from pony.orm import Required, PrimaryKey, Json
+from pony.orm import Required, Optional, PrimaryKey, Json
 from db.db import db
 
 '''This files contains classes entities derived from the Database.
@@ -11,14 +11,15 @@ which is bound to the db variable.
 class Articles(db.Entity):
     '''This is the entity Articles, matching table "articles" of the database.
     It contains all the attributes related to MySQL columns.'''
-    title = Required(str)
-    art_type = Required(str, column="type")
-    category = Required(str)
-    desc = Required(str)
     url = PrimaryKey(str)
-    banner = Required(str)
+    title = Required(str)
     timestamp = Required(float)
     author = Required(str)
+    art_type = Required(str, column="type")
+    category = Required(str)
+    description = Required(str, column="desc")
+    labels = Required(Json)
+    banner = Required(str)
     content = Required(str, max_len=50000)
     article_language = Required(str)
 
@@ -30,16 +31,18 @@ class User(db.Entity):
     It contains all the attributes related to MySQL columns.'''
     username = PrimaryKey(str)
     displayname = Required(str)
-    avatar = Required(str, column='picture')
-    socials = Required(Json)
+    email = Required(str)
+    hashed = Required(str, column="password")
+    password_type = Required(str)
     permissions = Required(Json)
     token = Required(str)
-    validate = Required(int)
-    description = Required(str)
-    grade = Required(str)
-    email = Required(str)
-    password_type = Required(str)
-    hashed = Required(str, column="password")
+    timestamp = Required(float)
+    avatar = Required(str, column='picture')
+    description = Optional(str)
+    biography = Optional(str)
+    location = Optional(str)
+    socials = Required(Json)
+    is_email_public = Required(bool)
 
     _table_ = "users"
 
