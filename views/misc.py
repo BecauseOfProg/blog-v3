@@ -1,4 +1,4 @@
-from flask import render_template, send_from_directory
+from flask import render_template, send_from_directory, redirect
 from utils.fill_informations import fill_informations
 from pony.orm import db_session, select, desc
 from db.models import Articles
@@ -55,3 +55,30 @@ def blog_sitemap():
     '''Returns a sitemap with all articles (WIP)'''
     data = select((a.url, a.timestamp) for a in Articles)
     return render_template('components/sitemap-articles.xml', data=data)
+
+
+@application.route('/members/')
+@application.route('/community/')
+@application.route('/about/')
+def redirect_about():
+    '''Redirects about page'''
+    return redirect('/page/about')
+
+
+@application.route('/app/')
+def redirect_app():
+    '''Redirects app page'''
+    return redirect('/page/app')
+
+
+@application.route('/account/')
+def redirect_account():
+    '''Redirects account page'''
+    return redirect('/account')
+
+
+@application.route('/courses/')
+@application.route('/courses/<whatever>')
+def redirect_blog(whatever):
+    '''Redirects blog page'''
+    return redirect('/type/tutorial/')
