@@ -13,7 +13,7 @@ def home():
     '''Homepage of your blog'''
     last = (
         select(
-            (a.title, a.desc, a.banner, a.url, a.timestamp) for a in Articles)
+            (a.title, a.description, a.banner, a.url, a.timestamp) for a in Articles)
         .order_by(-5)
         .first()
     )

@@ -28,7 +28,7 @@ def create_post(u):
                 title=request.form['title'],
                 art_type=request.form['type'],
                 category=request.form['category'],
-                desc=request.form['desc'],
+                description=request.form['description'],
                 url=request.form['url'],
                 banner=request.form['banner'],
                 timestamp=time.time(),

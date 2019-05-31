@@ -36,7 +36,7 @@
 			<div class="parallax"><img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg"></div>
 			<img src="https://cdn.becauseofprog.fr/logos/bop-transparent.png" class="responsive-img bop-logo" alt="Logo BOP">
 			<h2 class="header white-text">A propos - BecauseOfProg</h2>
-      <h5 class="subtitle grey-text">Toutes les informations utiles et inutiles</h5>
+      <h5 class="subtitle grey-text">Toutes les informations utiles sur la BecauseOfProg</h5>
 		</div>
 
   <div class="section white">
@@ -48,7 +48,7 @@
       <h3 class="center">Sommaire</h3>
       <div class="collection">
         <a href="#presentation" class="collection-item red-text text-darken-4">Présentation</a>
-        <a href="#staff" class="collection-item red-text text-darken-4">Membres du staff</a>
+        <a href="#staff" class="collection-item red-text text-darken-4">L'équipe</a>
         <a href="#contact" class="collection-item red-text text-darken-4">Contact</a>
         <a href="#credits" class="collection-item red-text text-darken-4">Crédits</a>
         <a href="#cgu" class="collection-item red-text text-darken-4">Conditions générales d'utilisation</a>
@@ -71,31 +71,23 @@
 
   <div class="section white" id="staff">
     <div class="row container">
-      <h3 class="center">Membres du staff</h3>
+      <h3 class="center">L'équipe</h3>
 
-        {% for item in staff %}
-
-                <div class="col s12 m6 l4 xl3">
-                  <div class="card sticky-action large hoverable">
-                    <div class="card-image">
-                      <img class="responsive-img" src="{{ image_proxy(item[4], 400,400) }}">
-                    </div>
-                    <div class="card-content">
-                      <span class="card-title grey-text text-darken-4">{{ item[3] }}</span>
-                      <p>{{ item[0] }}</p>
-                    </div>
-                    <div class="card-action">
-                      <a class="red-text text-darken-4" href="https://becauseofprog.fr/user/{{ item[1] }}">Voir le profil</a><br /><br />
-                      <a class="activator red-text text-darken-4" href="#!">Plus d'infos</a>
-                    </div>
-                    <div class="card-reveal">
-                      <span class="card-title activator grey-text text-darken-4">{{ item[3] }}&nbsp;<i class="material-icons tiny light-green-text text-accent-3 tooltipped"  data-position="bottom" data-delay="50" data-tooltip="Validé\">check</i><i class="material-icons right">close</i></span>
-                      <p>{{ item[2] }}</p>
-                      <p><b>Grade(s) :</b> {{ item[0] }}</p>
-                    </div>
-                  </div>
-                </div>
-
+        {% for user in staff %}
+          <div class="col s12 m6 l4">
+            <div class="card sticky-action large hoverable">
+              <div class="card-image">
+                <img class="responsive-img" src="{{ image_proxy(user['avatar'], 400,400) }}">
+              </div>
+              <div class="card-content">
+                <span class="card-title grey-text text-darken-4">{{ user['displayname'] }}</span>
+                {% for role in user['permissions'] %}
+                  <span class="chip">{{ roles[role] }}</span>
+                {% endfor %}
+                <p>{{ user['description'] }}</p>
+              </div>
+            </div>
+          </div>
         {% endfor %}
 
     </div>

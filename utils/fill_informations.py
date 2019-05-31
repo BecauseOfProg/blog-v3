@@ -16,6 +16,7 @@ def fill_informations(post):
         "displayname": User[post.author].displayname,
         "avatar": User[post.author].avatar,
         "banner": post.banner,
-        "desc": post.desc
+        "description": post.description,
+        "labels": post.labels
     }
     return response

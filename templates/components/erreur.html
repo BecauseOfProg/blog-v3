@@ -1,44 +1,14 @@
-<!DOCTYPE html><html><head><title>Erreur - BecauseOfProg</title></head><body style="background:#ccc"><div style="position:absolute;left: 50%;top: 50%;width: 600px;height: 300px;margin-left: -300px;margin-top: -150px;text-align:center;"><h1 style="font-family:sans-serif;font-weight: 300;font-size:60px;color:#B71C1C">
-  <!--<?php
-switch($_GET['erreur'])
-{
-   case '400':
-   echo 'La syntaxe de la requête est incorrecte. (400)';
-   break;
-   case '401':
-   echo 'L\'accès à la ressource n\'est pas autorisé car le serveur exige une identification de l\'utilisateur (401)';
-   break;
-   case '402':
-   echo 'Un paiement est requis pour accéder à la ressource (402)';
-   break;
-   case '403':
-   echo 'Requête interdite ! (403)';
-   break;
-   case '404':
-   echo 'La page n\'existe pas ! (404)';
-   break;
-   case '405':
-   echo 'Méthode non autorisée. (405)';
-   break;
-   case '500':
-   echo 'Erreur interne au serveur. (500)';
-   break;
-   case '501':
-   echo 'Le serveur ne supporte pas le service demandé. (501)';
-   break;
-   case '502':
-   echo 'Mauvaise passerelle. (502)';
-   break;
-   case '503':
-   echo 'Service indisponible. (503)';
-   break;
-   case '504':
-   echo 'Trop de temps à la réponse. (504)';
-   break;
-   case '505':
-   echo 'Version HTTP non supportée. (505)';
-   break;
-   default:
-   echo 'Erreur !';
-} 
-?>-->{{ erreur }}</h1><p style="font-family:sans-serif;font-weight: 300;font-size:20px;">N'hésite pas a nous contacter si tu pense que c'est un bug!</p></div></body></html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Erreur - BecauseOfProg</title>
+  </head>
+  <body style="background:#ccc">
+    <div style="position:absolute;left: 50%;top: 50%;width: 600px;height: 300px;margin-left: -300px;margin-top: -150px;text-align:center;">
+      <h1 style="font-family:sans-serif;font-weight: 300;font-size:60px;color:#B71C1C">
+        {{ erreur }}
+      </h1>
+      <p style="font-family:sans-serif;font-weight: 300;font-size:20px;">N'hésite pas a nous contacter si tu pense que c'est un bug!</p>
+    </div>
+  </body>
+</html>
