@@ -30,5 +30,5 @@ def show_type(article_type, page):
     data_dict = []
     for item in data:
         data_dict.append(fill_informations(item))
-    return render_template('list.html', template="type", type=article_type,
+    return render_template('blog/list.html', template="type", type=article_type,
                            data=data_dict, icon=icon, page=page)

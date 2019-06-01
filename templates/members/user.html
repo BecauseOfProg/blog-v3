@@ -1,59 +1,58 @@
-{% include 'components/head.html' %}
+{% extends "index.html" %}
+{% block title %}{{ user.displayname }} - Profil BecauseOfProg{% endblock %}
+{% block description %}{{ user.description }}{% endblock %}
+{% block url %}https://becauseofprog.fr/user/{{ user.username }}{% endblock %}
+{% block image %}https://cdn.becauseofprog.fr/logos/bop-transparent.png{% endblock %}
+{% block author %}Équipe BecauseOfProg{% endblock %}
 
-    <title>{{ user.displayname }} - Utilisateur - BecauseOfProg</title>
-    <meta name="twitter:card" content="summary">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://becauseofprog.fr/user/{{ user.username }}">
-    <meta property="og:title" content="{{ user.displayname }}">
-    <meta property="og:description" content="{{ user.description}}">
-    <meta property="og:image" content="https://cdn.becauseofprog.fr/logos/bop-transparent.png">
-    <meta name="author" content="BecauseOfProg">
-  </head>
-  <body>
-    {% include 'components/header.html' %}
+{% block content %}
 
-    <div class="welcome parallax-container">
-      <div class="parallax">
-        <img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg">
-      </div>
-      <img src="{{ user.avatar }}" alt="Avatar de {{ user.displayname }}" class="user-avatar-header responsive-img bop-logo" style="width: 200px; border-radius: 50%;">
-      <h2 class="header white-text">{{ user.displayname }}</h2>
-      <h5 class="subtitle grey-text">{{ user.description }}</h5>
+  <div class="welcome parallax-container">
+    <div class="parallax">
+      <img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg">
     </div>
-    <div class="container row">
-      <p class="bop-breadcrumb">
-        <a href="/" class="black-text">BecauseOfProg</a><i class="material-icons">chevron_right</i>
-        <a class="black-text">Utilisateur</a><i class="material-icons">chevron_right</i>
-        <a href="." class="black-text">{{ user.displayname }}</a>
-      </p>
-      <div class="col l8 s12">
-        {% if error %}<p>{{ error }}</p>{% endif %}
-        <p>Pour profiter de certaines fonctionnalités du site et empêcher le spam, vous devez vous connecter à votre compte BecauseOfProg.</p>
-        <form method="post">
-          <div class="input-field col s12">
-            <input id="username" type="email" class="validate" name=username>
-            <label for="username">E-mail</label>
-          </div>
-          <div class="input-field col s12">
-            <input id="password" type="password" class="validate" name=password>
-            <label for="password">Mot de passe</label>
-          </div>
-          <button class="btn waves-effect waves-light red darken-4" type="submit" name="action">Se connecter
-            <i class="material-icons right">send</i>
-          </button>
-        </form>
-      </div>
-      <div class="col l4 s12">
-        <ul class="collection z-depth-2">
-          <li class="collection-item grey lighten-3">
-            <h5>Votre compte BecauseOfProg</h5>
-            <p>Votre compte est global, utilisable sur le site entier. Nous mettons tout en oeuvre pour assurer la sécurité et la confidentialité de vos données sur nos serveurs.</p>
-            <a class="waves-effect waves-light btn red darken-4" href="/page/about"><i class="material-icons right">info</i>Plus</a><br/>
-          </li>
-          <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/">Accueil</a></li>
-          <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/blog">Blog</a></li>
-          <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/">Projets</a></li>
-        </ul>
-      </div>
+    <img src="{{ user.avatar }}" alt="Avatar de {{ user.displayname }}"
+         class="user-avatar-header responsive-img bop-logo" style="width: 200px; border-radius: 50%;">
+    <h2 class="header white-text">{{ user.displayname }}</h2>
+    <h5 class="subtitle grey-text">{{ user.description }}</h5>
+  </div>
+  <div class="container row">
+    <p class="bop-breadcrumb">
+      <a href="/" class="black-text">BecauseOfProg</a><i class="material-icons">chevron_right</i>
+      <a class="black-text">Utilisateur</a><i class="material-icons">chevron_right</i>
+      <a href="." class="black-text">{{ user.displayname }}</a>
+    </p>
+    <div class="col l8 s12">
+      {% if error %}<p>{{ error }}</p>{% endif %}
+      <p>Pour profiter de certaines fonctionnalités du site et empêcher le spam, vous devez vous connecter à votre
+        compte BecauseOfProg.</p>
+      <form method="post">
+        <div class="input-field col s12">
+          <input id="username" type="email" class="validate" name=username>
+          <label for="username">E-mail</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate" name=password>
+          <label for="password">Mot de passe</label>
+        </div>
+        <button class="btn waves-effect waves-light red darken-4" type="submit" name="action">Se connecter
+          <i class="material-icons right">send</i>
+        </button>
+      </form>
     </div>
-{% include 'components/footer.html' %}
+    <div class="col l4 s12">
+      <ul class="collection z-depth-2">
+        <li class="collection-item grey lighten-3">
+          <h5>Votre compte BecauseOfProg</h5>
+          <p>Votre compte est global, utilisable sur le site entier. Nous mettons tout en oeuvre pour assurer la
+            sécurité et la confidentialité de vos données sur nos serveurs.</p>
+          <a class="waves-effect waves-light btn red darken-4" href="/page/about"><i
+            class="material-icons right">info</i>Plus</a><br/>
+        </li>
+        <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/">Accueil</a></li>
+        <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/blog">Blog</a></li>
+        <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/">Projets</a></li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}

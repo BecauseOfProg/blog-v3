@@ -21,7 +21,7 @@ def article(url):
         if a.article_language == "markdown":
             htmlarticle = Markup(markdown.markdown(a.content,
                                                    extensions=['extra']))
-        return render_template('article.html', **locals())
+        return render_template('blog/article.html', **locals())
     except:
         erreur = "La page recherchée n'existe pas! (404)"
         return render_template('components/erreur.html',

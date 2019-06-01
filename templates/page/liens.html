@@ -1,71 +1,84 @@
-{% include 'components/head.html' %}
-    <title>Liens - BecauseOfProg</title>
-    <meta name="twitter:card" content="summary">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://becauseofprog.fr/page/links">
-    <meta property="og:title" content="Liens - BecauseOfProg">
-    <meta property="og:description" content="Nos liens!">
-    <meta property="og:image" content="https://cdn.becauseofprog.fr/logos/bop-transparent.png">
-    <meta name="author" content="Team BOP">
-  </head>
-  <body>
-    {% include 'components/header.html' %}
-    <div class="welcome parallax-container">
-			<div class="parallax"><img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg"></div>
-			<img src="https://cdn.becauseofprog.fr/logos/bop-transparent.png" class="responsive-img bop-logo" alt="Logo BOP">
-			<h2 class="header white-text">Les liens BecauseOfProg</h2>
-			<h5 class="subtitle grey-text">Nous partageons des liens vers des ressources, des blogs ou des articles intéressants</h5>
-    </div>
+{% extends "index.html" %}
+{% block title %}Liens - BecauseOfProg{% endblock %}
+{% block description %}Nous partageons des liens vers des ressources, des blogs ou des articles
+  intéressants{% endblock %}
+{% block url %}https://becauseofprog.fr/page/links{% endblock %}
+{% block image %}https://cdn.becauseofprog.fr/logos/bop-transparent.png{% endblock %}
+{% block author %}Équipe BecauseOfProg{% endblock %}
 
-    <div class="row">
-      <div class="col l5 m7 s12 offset-l2 offset-m1">
-        <p class="bop-breadcrumb">
-          <a href="/" class="black-text">BecauseOfProg</a><i class="material-icons">chevron_right</i>
-          <a href="#" class="black-text">Liens partagés</a>
-        </p>
-      </div>
+{% block content %}
+  <div class="welcome parallax-container">
+    <div class="parallax"><img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg"></div>
+    <img src="https://cdn.becauseofprog.fr/logos/bop-transparent.png" class="responsive-img bop-logo" alt="Logo BOP">
+    <h2 class="header white-text">Les liens BecauseOfProg</h2>
+    <h5 class="subtitle grey-text">Nous partageons des liens vers des ressources, des blogs ou des articles
+      intéressants</h5>
+  </div>
+
+  <div class="row">
+    <div class="col l5 m7 s12 offset-l2 offset-m1">
+      <p class="bop-breadcrumb">
+        <a href="/" class="black-text">BecauseOfProg</a><i class="material-icons">chevron_right</i>
+        <a href="#" class="black-text">Liens partagés</a>
+      </p>
     </div>
-    <div class="row">
-        <div class="col l2 m1 no-mobile"></div>
-        <div class="col l5 m7 s12">
-          <ul class="collapsible">
-            {% for i in range(len_links) %}
-            <li>
-              <div class="collapsible-header"><i class="material-icons">public</i>{{ links['entries'][i]['title'] }}</div>
-              <div class="collapsible-body"><span>{{ clean_descr(links['entries'][i]['description']) }}
-                <br><br><a class="waves-effect waves-light btn red darken-4" href="{{ links['entries'][i]['link'] }}"><i class="material-icons right">send</i>Lire l'article</a> <span class="grey-text"> Source : {{ get_hostname(links['entries'][i]['link']) }}</span>
+  </div>
+  <div class="row">
+    <div class="col l2 m1 no-mobile"></div>
+    <div class="col l5 m7 s12">
+      <ul class="collapsible">
+        {% for i in range(len_links) %}
+          <li>
+            <div class="collapsible-header"><i class="material-icons">public</i>{{ links['entries'][i]['title'] }}</div>
+            <div class="collapsible-body"><span>{{ clean_descr(links['entries'][i]['description']) }}
+                <br><br><a class="waves-effect waves-light btn red darken-4" href="{{ links['entries'][i]['link'] }}"><i
+                class="material-icons right">send</i>Lire l'article</a> <span
+                class="grey-text"> Source : {{ get_hostname(links['entries'][i]['link']) }}</span>
               </span></div>
-            </li>{% endfor %}
-          </ul>
-        </div>
-        <div class="col l3 m3 s12">
-          <ul class="collection z-depth-2">
-            <li class="collection-item grey lighten-3">
-              <h5>A propos</h5>
-              <p>BecauseOfProg, c'est 4 développeurs rassemblés autour de projets communs : un blog, et des projets. </p>
-              <a class="waves-effect waves-light btn red darken-4" href="/page/about"><i class="material-icons right">info</i>Plus</a>
-            </li>
-            <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/">Accueil</a></li>
-            <li class="collection-item grey lighten-3">
-              <h5>Blogroll</h5>
-            </li>
-            <li class="collection-item grey lighten-4"><a href="https://angristan.fr/" class="black-text">Angristan</a></li>
-            <li class="collection-item grey lighten-4"><a href="http://www.blog-libre.org/" class="black-text">Blog Libre</a></li>
-            <li class="collection-item grey lighten-4"><a href="https://carlchenet.com/" class="black-text">Carl Chenet</a></li>
-            <li class="collection-item grey lighten-4"><a href="https://www.deuchnord.fr/" class="black-text">Deuchnord</a></li>
-            <li class="collection-item grey lighten-4"><a href="https://www.dryusdan.fr/" class="black-text">Dryusdan</a></li>
-            <li class="collection-item grey lighten-4"><a href="https://exybore.becauseofprog.fr/" class="black-text">Exybore</a></li>
-            <li class="collection-item grey lighten-4"><a href="https://gh.becauseofprog.fr/" class="black-text">Gildas GH</a></li>
-            <li class="collection-item grey lighten-4"><a href="https://lehollandaisvolant.net/" class="black-text">Le Hollandais Volant</a></li>
-            <li class="collection-item grey lighten-4"><a href="https://medium.com/tootsuite" class="black-text">Mastodon blog</a></li>
-            <li class="collection-item grey lighten-4"><a href="https://www.microlinux.fr/" class="black-text">Microlinux</a></li>
-            <li class="collection-item grey lighten-4"><a href="https://blog.seboss666.info/" class="black-text">Seboss666</a></li>
-            <li class="collection-item grey lighten-4"><a href="https://tkpx.wordpress.com/" class="black-text">Tpkx</a></li>
-            <li class="collection-item grey lighten-4"><a href="http://www.standblog.org/blog/" class="black-text">Tristan Nitot</a></li>
-            <li class="collection-item grey lighten-4"><a href="https://whaxion.be/" class="black-text">Whaxion</a></li>
-            
-          </ul>
-        </div>
-      <div class="col l2 m1 no-mobile"></div>
+          </li>{% endfor %}
+      </ul>
     </div>
-{% include 'components/footer.html' %}
+    <div class="col l3 m3 s12">
+      <ul class="collection z-depth-2">
+        <li class="collection-item grey lighten-3">
+          <h5>A propos</h5>
+          <p>BecauseOfProg, c'est 4 développeurs rassemblés autour de projets communs : un blog, et des projets. </p>
+          <a class="waves-effect waves-light btn red darken-4" href="/page/about"><i
+            class="material-icons right">info</i>Plus</a>
+        </li>
+        <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/">Accueil</a></li>
+        <li class="collection-item grey lighten-3">
+          <h5>Blogroll</h5>
+        </li>
+        <li class="collection-item grey lighten-4"><a href="https://angristan.fr/" class="black-text">Angristan</a></li>
+        <li class="collection-item grey lighten-4"><a href="http://www.blog-libre.org/" class="black-text">Blog
+          Libre</a></li>
+        <li class="collection-item grey lighten-4"><a href="https://carlchenet.com/" class="black-text">Carl Chenet</a>
+        </li>
+        <li class="collection-item grey lighten-4"><a href="https://www.deuchnord.fr/" class="black-text">Deuchnord</a>
+        </li>
+        <li class="collection-item grey lighten-4"><a href="https://www.dryusdan.fr/" class="black-text">Dryusdan</a>
+        </li>
+        <li class="collection-item grey lighten-4"><a href="https://exybore.becauseofprog.fr/" class="black-text">Exybore</a>
+        </li>
+        <li class="collection-item grey lighten-4"><a href="https://gh.becauseofprog.fr/" class="black-text">Gildas
+          GH</a></li>
+        <li class="collection-item grey lighten-4"><a href="https://lehollandaisvolant.net/" class="black-text">Le
+          Hollandais Volant</a></li>
+        <li class="collection-item grey lighten-4"><a href="https://medium.com/tootsuite" class="black-text">Mastodon
+          blog</a></li>
+        <li class="collection-item grey lighten-4"><a href="https://www.microlinux.fr/"
+                                                      class="black-text">Microlinux</a></li>
+        <li class="collection-item grey lighten-4"><a href="https://blog.seboss666.info/"
+                                                      class="black-text">Seboss666</a></li>
+        <li class="collection-item grey lighten-4"><a href="https://tkpx.wordpress.com/" class="black-text">Tpkx</a>
+        </li>
+        <li class="collection-item grey lighten-4"><a href="http://www.standblog.org/blog/" class="black-text">Tristan
+          Nitot</a></li>
+        <li class="collection-item grey lighten-4"><a href="https://whaxion.be/" class="black-text">Whaxion</a></li>
+
+      </ul>
+    </div>
+    <div class="col l2 m1 no-mobile"></div>
+  </div>
+{% endblock %}

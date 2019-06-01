@@ -28,7 +28,7 @@ def search(keyword, page):
         data_dict = []
         for item in data:
             data_dict.append(fill_informations(item))
-        return render_template('list.html', data=data_dict, template="search",
+        return render_template('blog/list.html', data=data_dict, template="search",
                                type="Recherche", keyword=keyword, page=page)
 
     else:

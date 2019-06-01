@@ -1,94 +1,105 @@
-{% include 'components/head.html' %}
-    <title>Application - BecauseOfProg</title>
-    <meta name="twitter:card" content="summary">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://becauseofprog.fr/page/app">
-    <meta property="og:title" content="Application - BecauseOfProg">
-    <meta property="og:description" content="BecauseOfProg sur votre smartphone!">
-    <meta property="og:image" content="https://cdn.becauseofprog.fr/logos/bop-transparent.png">
-    <meta name="author" content="Team BOP">
-  </head>
-  <body>
-    {% include 'components/header.html' %}
+{% extends "index.html" %}
+{% block title %}Application - BecauseOfProg{% endblock %}
+{% block description %}BecauseOfProg sur votre smartphone!{% endblock %}
+{% block url %}https://becauseofprog.fr/page/app{% endblock %}
+{% block image %}https://cdn.becauseofprog.fr/logos/bop-transparent.png{% endblock %}
+{% block author %}Équipe BecauseOfProg{% endblock %}
 
-      <div class="welcome parallax-container">
-				<div class="parallax"><img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg"></div>
-				<img src="https://cdn.becauseofprog.fr/logos/bop-transparent.png" class="responsive-img bop-logo" alt="Logo BOP">
-				<h2 class="header white-text">Application BecauseOfProg</h2>
-				<h5 class="subtitle grey-text">Pour accéder en 2 secondes sur le site de la BOP</h5>
-      </div>
-      
-      <div class="section white" id="presentation">
-        <div class="row container">
-          <p class="bop-breadcrumb">
-            <a href="/" class="black-text">BecauseOfProg</a><i class="material-icons">chevron_right</i>
-            <a href="#" class="black-text">Application</a>
-          </p>
-        </div>
-      </div>
+{% block content %}
+  <div class="welcome parallax-container">
+    <div class="parallax"><img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg"></div>
+    <img src="https://cdn.becauseofprog.fr/logos/bop-transparent.png" class="responsive-img bop-logo" alt="Logo BOP">
+    <h2 class="header white-text">Application BecauseOfProg</h2>
+    <h5 class="subtitle grey-text">Pour accéder en 2 secondes sur le site de la BOP</h5>
+  </div>
 
-      <div class="section white" id="presentation">
-        <div class="row container center">
+  <div class="section white" id="presentation">
+    <div class="row container">
+      <p class="bop-breadcrumb">
+        <a href="/" class="black-text">BecauseOfProg</a><i class="material-icons">chevron_right</i>
+        <a href="#" class="black-text">Application</a>
+      </p>
+    </div>
+  </div>
 
-          <h3>Comment ça marche?</h3>
+  <div class="section white" id="presentation">
+    <div class="row container center">
 
-          <p>Nous avons intégré le site web dans une applicaton web, c'est un icone sur votre smartphone ou iPhone qui vous permet d'accéder au site, comme si c'était une vraie application comme Twitter.
-		          Nous ne stockons pas les données de l'application sur votre smartphone, c'est donc très léger! Pour l'installer, vous devez posséder juste posséder un navigaeur web récent :D</p>
+      <h3>Comment ça marche?</h3>
 
-        </div>
-	  </div>
+      <p>Nous avons intégré le site web dans une applicaton web, c'est un icone sur votre smartphone ou iPhone qui vous
+        permet d'accéder au site, comme si c'était une vraie application comme Twitter.
+        Nous ne stockons pas les données de l'application sur votre smartphone, c'est donc très léger! Pour l'installer,
+        vous devez posséder juste posséder un navigaeur web récent :D</p>
 
-      <div class="section grey lighten-2" id="procedure">
-        <div class="row container">
+    </div>
+  </div>
 
-          <h3 class="center">Procédure</h3>
+  <div class="section grey lighten-2" id="procedure">
+    <div class="row container">
 
-          <ul class="collection">
-            <li class="collection-item avatar hoverable">
-              <img src="https://image-proxy.becauseofprog.fr/cdn.becauseofprog.fr/syst-icons/chrome.png?resize=42,42" alt="Logo Chrome" class="circle">
-              <span class="title">Sur Chrome</span>
-              <p><b>Si vous êtes sur mobile / tablette :</b> Allez dans les 3 petits points en haut à droite de l'écran et touchez "Ajouter à l'écran d'accueil".</p>
-              <p><b>Si vous êtes sur PC :</b> Allez dans les 3 petits points en haut à droite de l'écran, allez dans "Plus d'outils" et cliquez sur "Ajouter au bureau". N'oubliez pas de cocher la case "Ouvrir dans une fenêtre".<br />
-              Retrouvez-y même sur chrome://apps</p>
-            </li>
+      <h3 class="center">Procédure</h3>
 
-            <li class="collection-item avatar hoverable">
-              <img src="https://image-proxy.becauseofprog.fr/cdn.becauseofprog.fr/syst-icons/android.png?resize=42,42" alt="Logo Android" class="circle">
-              <span class="title">Sur le navigateur android 4.2+</span>
-              <p>Ce navigateur ne supporte pas les applications web !</p>
-            </li>
+      <ul class="collection">
+        <li class="collection-item avatar hoverable">
+          <img src="https://image-proxy.becauseofprog.fr/cdn.becauseofprog.fr/syst-icons/chrome.png?resize=42,42"
+               alt="Logo Chrome" class="circle">
+          <span class="title">Sur Chrome</span>
+          <p><b>Si vous êtes sur mobile / tablette :</b> Allez dans les 3 petits points en haut à droite de l'écran et
+            touchez "Ajouter à l'écran d'accueil".</p>
+          <p><b>Si vous êtes sur PC :</b> Allez dans les 3 petits points en haut à droite de l'écran, allez dans "Plus
+            d'outils" et cliquez sur "Ajouter au bureau". N'oubliez pas de cocher la case "Ouvrir dans une
+            fenêtre".<br/>
+            Retrouvez-y même sur chrome://apps</p>
+        </li>
 
-            <li class="collection-item avatar hoverable">
-              <img src="https://image-proxy.becauseofprog.fr/cdn.becauseofprog.fr/syst-icons/dolphin.png?resize=42,42" alt="Logo Dolphin" class="circle">
-              <span class="title">Sur Dolphin</span>
-              <p>Ce navigateur ne supporte pas encore les fonctionnalités les plus récentes, utilisez plutôt Chrome ou Opera. Allez dans vos favoris et appuyez longuement sur BecauseOfProg. Sur le menu qui s'affiche cliquez sur "Ajouter un raccourci sur l'écran d'accueil"</p>
-            </li>
+        <li class="collection-item avatar hoverable">
+          <img src="https://image-proxy.becauseofprog.fr/cdn.becauseofprog.fr/syst-icons/android.png?resize=42,42"
+               alt="Logo Android" class="circle">
+          <span class="title">Sur le navigateur android 4.2+</span>
+          <p>Ce navigateur ne supporte pas les applications web !</p>
+        </li>
 
-            <li class="collection-item avatar hoverable">
-              <img src="https://image-proxy.becauseofprog.fr/cdn.becauseofprog.fr/syst-icons/firefox.png?resize=42,42" alt="Logo Firefox" class="circle">
-              <span class="title">Sur Firefox</span>
-              <p>Ce navigateur ne supporte pas encore les fonctionnalités les plus récentes, utilisez plutôt Chrome ou Opera. Appuyez longuement sur l'URL et cliquez sur "Ajouter à l'écran d'accueil"</p>
-            </li>
+        <li class="collection-item avatar hoverable">
+          <img src="https://image-proxy.becauseofprog.fr/cdn.becauseofprog.fr/syst-icons/dolphin.png?resize=42,42"
+               alt="Logo Dolphin" class="circle">
+          <span class="title">Sur Dolphin</span>
+          <p>Ce navigateur ne supporte pas encore les fonctionnalités les plus récentes, utilisez plutôt Chrome ou
+            Opera. Allez dans vos favoris et appuyez longuement sur BecauseOfProg. Sur le menu qui s'affiche cliquez sur
+            "Ajouter un raccourci sur l'écran d'accueil"</p>
+        </li>
 
-      			<li class="collection-item avatar hoverable">
-              <img src="https://image-proxy.becauseofprog.fr/cdn.becauseofprog.fr/syst-icons/opera-mini.png?resize=42,42" alt="Logo Opera Mini" class="circle">
-              <span class="title">Sur Opera Mini </span>
-              <p>Ce navigateur ne supporte pas les applications web. Toutefois, vous pouvez prendre la version complète d'Opera (instructions juste en dessous).</p>
-            </li>
+        <li class="collection-item avatar hoverable">
+          <img src="https://image-proxy.becauseofprog.fr/cdn.becauseofprog.fr/syst-icons/firefox.png?resize=42,42"
+               alt="Logo Firefox" class="circle">
+          <span class="title">Sur Firefox</span>
+          <p>Ce navigateur ne supporte pas encore les fonctionnalités les plus récentes, utilisez plutôt Chrome ou
+            Opera. Appuyez longuement sur l'URL et cliquez sur "Ajouter à l'écran d'accueil"</p>
+        </li>
 
-      			<li class="collection-item avatar hoverable">
-              <img src="https://image-proxy.becauseofprog.fr/cdn.becauseofprog.fr/syst-icons/opera.png?resize=42,42" alt="Logo Opera" class="circle">
-              <span class="title">Sur Opera</span>
-              <p>Allez dans les 3 petits points en haut à droite de l'écran et touchez "Ecran d'accueil" tout en bas.</p>
-            </li>
+        <li class="collection-item avatar hoverable">
+          <img src="https://image-proxy.becauseofprog.fr/cdn.becauseofprog.fr/syst-icons/opera-mini.png?resize=42,42"
+               alt="Logo Opera Mini" class="circle">
+          <span class="title">Sur Opera Mini </span>
+          <p>Ce navigateur ne supporte pas les applications web. Toutefois, vous pouvez prendre la version complète
+            d'Opera (instructions juste en dessous).</p>
+        </li>
 
-      			<li class="collection-item avatar hoverable">
-              <img src="https://image-proxy.becauseofprog.fr/cdn.becauseofprog.fr/syst-icons/safari.png?resize=42,42" alt="Logo Safari" class="circle">
-              <span class="title">Sur iOS (avec Safari)</span>
-              <p>Appuyez sur le bouton du milieu en bas de l'écran, et appuyez sur "Ajouter à l'écran d'accueil".</p>
-            </li>
-          </ul>
+        <li class="collection-item avatar hoverable">
+          <img src="https://image-proxy.becauseofprog.fr/cdn.becauseofprog.fr/syst-icons/opera.png?resize=42,42"
+               alt="Logo Opera" class="circle">
+          <span class="title">Sur Opera</span>
+          <p>Allez dans les 3 petits points en haut à droite de l'écran et touchez "Ecran d'accueil" tout en bas.</p>
+        </li>
 
-        </div>
-      </div>
-{% include 'components/footer.html' %}
+        <li class="collection-item avatar hoverable">
+          <img src="https://image-proxy.becauseofprog.fr/cdn.becauseofprog.fr/syst-icons/safari.png?resize=42,42"
+               alt="Logo Safari" class="circle">
+          <span class="title">Sur iOS (avec Safari)</span>
+          <p>Appuyez sur le bouton du milieu en bas de l'écran, et appuyez sur "Ajouter à l'écran d'accueil".</p>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+{% endblock %}

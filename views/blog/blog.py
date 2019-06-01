@@ -20,7 +20,7 @@ def show_blog(page):
     data_dict = []
     for item in data:
         data_dict.append(fill_informations(item))
-    return render_template('list.html', template="Blog",
+    return render_template('blog/list.html', template="Blog",
                            type="Tous les articles", data=data_dict,
                            icon="description", page=page)
 

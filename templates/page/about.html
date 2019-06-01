@@ -1,49 +1,43 @@
-{% include 'components/head.html' %}
+{% extends "index.html" %}
+{% block title %}À propos - BecauseOfProg{% endblock %}
+{% block description %}À propos du site BecauseOfProg{% endblock %}
+{% block url %}https://becauseofprog.fr/page/about{% endblock %}
+{% block image %}https://cdn.becauseofprog.fr/logos/bop-transparent.png{% endblock %}
+{% block author %}Équipe BecauseOfProg{% endblock %}
 
-    <title>A propos - BecauseOfProg</title>
-    <meta name="twitter:card" content="summary">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://becauseofprog.fr/page/about">
-    <meta property="og:title" content="A propos - BecauseOfProg">
-    <meta property="og:description" content="A propos du site BecauseOfProg">
-    <meta property="og:image" content="https://cdn.becauseofprog.fr/logos/bop-transparent.png">
-    <meta name="author" content="Team BOP">
-  </head>
-  <body>
-    {% include 'components/header.html' %}
-
-    <!-- Fenetres-->
+{% block content %}
+  <!-- Fenetres-->
   <div id="cgu-modal" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>Conditions générales d'utilisation</h4>
       <p>{% include 'components/cgu.html' %}</p>
     </div>
-      <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fermer</a>
-      </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fermer</a>
     </div>
-    <div id="privacy-modal" class="modal modal-fixed-footer">
-      <div class="modal-content">
-        <h4>Protection des données personnelles</h4>
-        <p>{% include 'components/privacy.html' %}</p>
-      </div>
-      <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fermer</a>
-      </div>
+  </div>
+  <div id="privacy-modal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Protection des données personnelles</h4>
+      <p>{% include 'components/privacy.html' %}</p>
     </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fermer</a>
+    </div>
+  </div>
 
-    <div class="welcome parallax-container">
-			<div class="parallax"><img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg"></div>
-			<img src="https://cdn.becauseofprog.fr/logos/bop-transparent.png" class="responsive-img bop-logo" alt="Logo BOP">
-			<h2 class="header white-text">A propos - BecauseOfProg</h2>
-      <h5 class="subtitle grey-text">Toutes les informations utiles sur la BecauseOfProg</h5>
-		</div>
+  <div class="welcome parallax-container">
+    <div class="parallax"><img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg"></div>
+    <img src="https://cdn.becauseofprog.fr/logos/bop-transparent.png" class="responsive-img bop-logo" alt="Logo BOP">
+    <h2 class="header white-text">À propos - BecauseOfProg</h2>
+    <h5 class="subtitle grey-text">Toutes les informations utiles sur la BecauseOfProg</h5>
+  </div>
 
   <div class="section white">
     <div class="row container">
       <p class="bop-breadcrumb">
         <a href="/" class="black-text">BecauseOfProg</a><i class="material-icons">chevron_right</i>
-        <a href="#" class="black-text">A propos</a>
+        <a href="#" class="black-text">À propos</a>
       </p>
       <h3 class="center">Sommaire</h3>
       <div class="collection">
@@ -60,10 +54,17 @@
     <div class="row container center">
       <h3>Présentation</h3>
 
-      <p>BecauseOfProg est un groupe de sept développeurs fondé en février 2017. Nous souhaitons réaliser de nombreux projets et de nombreuses créations ensemble.
-        <br/><br/>Ce blog est un de ces projets. Il nous permet de partager nos astuces, nos méthodes et tutoriels dans des domaines divers et variés de l'informatique : la programmation, les réseaux, la cybersécurité ou bien la "culture internet". Ce blog, que nous avons développé nous même est aussi l'occasion de mettre en oeuvre nos compétences.
-        <br/><br/>Le but de ce blog, comme tout blog sur Internet, n'est pas de créer un journal d'information objectif mais plutôt de parler des sujets qui nous intéressent, et éventuellement d'exposer nos points de vue (partiaux) sur les sujets que nous avons choisi. Vous trouverez donc beaucoup de sujets sur l'open-source, par exemple.
-        <br/><br/>Vous pouvez nous rejoindre sur notre discord, ou bien contribuer sur GitHub. Toute aide est la bienvenue et nous nous adorons faire de nouvelles rencontres! 
+      <p>BecauseOfProg est un groupe de sept développeurs fondé en février 2017. Nous souhaitons réaliser de nombreux
+        projets et de nombreuses créations ensemble.
+        <br/><br/>Ce blog est un de ces projets. Il nous permet de partager nos astuces, nos méthodes et tutoriels dans
+        des domaines divers et variés de l'informatique : la programmation, les réseaux, la cybersécurité ou bien la
+        "culture internet". Ce blog, que nous avons développé nous même est aussi l'occasion de mettre en oeuvre nos
+        compétences.
+        <br/><br/>Le but de ce blog, comme tout blog sur Internet, n'est pas de créer un journal d'information objectif
+        mais plutôt de parler des sujets qui nous intéressent, et éventuellement d'exposer nos points de vue (partiaux)
+        sur les sujets que nous avons choisi. Vous trouverez donc beaucoup de sujets sur l'open-source, par exemple.
+        <br/><br/>Vous pouvez nous rejoindre sur notre discord, ou bien contribuer sur GitHub. Toute aide est la
+        bienvenue et nous nous adorons faire de nouvelles rencontres!
         <br/>Bonne lecture, et à bientôt!
       </p>
     </div>
@@ -73,22 +74,22 @@
     <div class="row container">
       <h3 class="center">L'équipe</h3>
 
-        {% for user in staff %}
-          <div class="col s12 m6 l4">
-            <div class="card sticky-action large hoverable">
-              <div class="card-image">
-                <img class="responsive-img" src="{{ image_proxy(user['avatar'], 400,400) }}">
-              </div>
-              <div class="card-content">
-                <span class="card-title grey-text text-darken-4">{{ user['displayname'] }}</span>
-                {% for role in user['permissions'] %}
-                  <span class="chip">{{ roles[role] }}</span>
-                {% endfor %}
-                <p>{{ user['description'] }}</p>
-              </div>
+      {% for user in staff %}
+        <div class="col s12 m6 l4">
+          <div class="card sticky-action large hoverable">
+            <div class="card-image">
+              <img class="responsive-img" src="{{ image_proxy(user['avatar'], 400,400) }}">
+            </div>
+            <div class="card-content">
+              <span class="card-title grey-text text-darken-4">{{ user['displayname'] }}</span>
+              {% for role in user['permissions'] %}
+                <span class="chip">{{ roles[role] }}</span>
+              {% endfor %}
+              <p>{{ user['description'] }}</p>
             </div>
           </div>
-        {% endfor %}
+        </div>
+      {% endfor %}
 
     </div>
   </div>
@@ -108,8 +109,8 @@
           <img src="https://cdn.becauseofprog.fr/static-v3/twitter-300.png" alt="Logo Twitter" class="circle">
           <span class="title">Twitter (membres)</span>
           <p>
-            <a href="https://twitter.com/Gildas_FR">@Gildas_FR</a>, 
-            <a href="https://twitter.com/KOP_OF_TEA">@KOP_OF_TEA (kernoeb)</a>, 
+            <a href="https://twitter.com/Gildas_FR">@Gildas_FR</a>,
+            <a href="https://twitter.com/KOP_OF_TEA">@KOP_OF_TEA (kernoeb)</a>,
             <a href="https://twitter.com/Stengarlis">@Stengarlis</a> et
             <a href="https://twitter.com/mentor6561">@mentor6561</a>‏
           </p>
@@ -124,12 +125,14 @@
         <li class="collection-item avatar hoverable">
           <i class="material-icons circle teal lighten-1">email</i>
           <span class="title">E-Mail</span>
-          <p><script type=text/javascript>
-            var name = "contact";
-            var domain = "becauseofprog.fr";
-            document.write('<a href="mailto:' + name + '@' + domain + '">') ;
-            document.write(name + '@' + domain + '</a>') ;
-          </script></p>
+          <p>
+            <script type=text/javascript>
+              var name = "contact";
+              var domain = "becauseofprog.fr";
+              document.write('<a href="mailto:' + name + '@' + domain + '">');
+              document.write(name + '@' + domain + '</a>');
+            </script>
+          </p>
         </li>
 
       </ul>
@@ -145,16 +148,16 @@
         les différents bugs. Merci à Stengarlis pour la modération.
       </p>
       <p>Remerciements à :
-        <li>Materialize (Alvin Wang et contributeurs) v1.0 - MIT</li>
-        <li>Flask (Armin Ronacher, Pallets Projects et contributeurs) - BSD</li>
-        <li>Python 3.7 (Python Software Foundation, et contributeurs)</li>
-        <li>MariaDB - GPL v2</li>
-        <li>uWSGI (Unbit) - GPL</li>
-        <li>Debian</li>
-        <li>Git, Linus Torvalds</li>
-        <li>Gitea et ses contributeurs</li>
-        <li>GitHub (GitHub Inc.)</li>
-        <li>RSS par Aaron Swartz</li>
+      <li>Materialize (Alvin Wang et contributeurs) v1.0 - MIT</li>
+      <li>Flask (Armin Ronacher, Pallets Projects et contributeurs) - BSD</li>
+      <li>Python 3.7 (Python Software Foundation, et contributeurs)</li>
+      <li>MariaDB - GPL v2</li>
+      <li>uWSGI (Unbit) - GPL</li>
+      <li>Debian</li>
+      <li>Git, Linus Torvalds</li>
+      <li>Gitea et ses contributeurs</li>
+      <li>GitHub (GitHub Inc.)</li>
+      <li>RSS par Aaron Swartz</li>
       </p>
     </div>
   </div>
@@ -163,8 +166,10 @@
     <div class="row container center">
       <h3>Mentions légales</h3>
 
-      <a class="waves-effect waves-light btn red darken-4 modal-trigger" data-target="cgu-modal" href="cgu-modal">Conditions Générales d'utilisation</a>
-      <a class="waves-effect waves-light btn red darken-4 modal-trigger" data-target="privacy-modal" href="privacy-modal">Protection des données personnelles</a>
+      <a class="waves-effect waves-light btn red darken-4 modal-trigger" data-target="cgu-modal" href="cgu-modal">Conditions
+        Générales d'utilisation</a>
+      <a class="waves-effect waves-light btn red darken-4 modal-trigger" data-target="privacy-modal"
+         href="privacy-modal">Protection des données personnelles</a>
     </div>
   </div>
-{% include 'components/footer.html' %}
+{% endblock %}

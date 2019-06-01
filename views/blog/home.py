@@ -24,5 +24,5 @@ def home():
 
     r = requests.get('https://api.becauseofprog.fr/v1/posts/last')
     devblog = r.json()
-    return render_template('index.html', last=last, lasts=list_of_dict,
+    return render_template('blog/home.html', last=last, lasts=list_of_dict,
                            devblog=devblog)

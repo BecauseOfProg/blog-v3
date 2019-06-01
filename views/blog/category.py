@@ -33,5 +33,5 @@ def show_cat(cat_article, page):
     for item in data:
         data_dict.append(fill_informations(item))
 
-    return render_template('list.html', template="Catégorie", type=cat_article,
+    return render_template('blog/list.html', template="Catégorie", type=cat_article,
                            data=data_dict, icon=icon, page=page)
