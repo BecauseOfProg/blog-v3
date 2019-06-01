@@ -27,11 +27,11 @@
           <br><hr>
           <div class="tx-center">
             <h5>Partager sur</h5>
-            <a class="waves-effect waves-light btn blue lighten-2" href="https://twitter.com/intent/tweet?url=https://becauseofprog.fr/article/{{ a.url }}&text={{ a.title }}">Twitter</a>
-            <a class="waves-effect waves-light btn blue darken-4" href="https://www.facebook.com/sharer/sharer.php?u=https://becauseofprog.fr/article/{{ a.url }}" target="_blank">Facebook</a>
-            <a class="waves-effect waves-light btn grey darken-3" href="https://share.diasporafoundation.org/?title={{ a.title }}&url=https://becauseofprog.fr/article/{{ a.url }}" target="_blank"">Diaspora</a>
-            <a class="waves-effect waves-light btn blue darken-2" href="web+mastodon://share?text={{ a.title }}%20-%20https://becauseofprog.fr/article/{{ a.url }}">Mastodon</a>
-            <a class="waves-effect waves-light btn red darken-4" href="mailto:?subject={{ a.title }}&body=https://becauseofprog.fr/article/{{ a.url }}">Mail</a>
+            <a class="waves-effect waves-light btn blue lighten-2 btn-share" href="https://twitter.com/intent/tweet?url=https://becauseofprog.fr/article/{{ a.url }}&text={{ a.title }}">Twitter</a>
+            <a class="waves-effect waves-light btn blue darken-4 btn-share" href="https://www.facebook.com/sharer/sharer.php?u=https://becauseofprog.fr/article/{{ a.url }}" target="_blank">Facebook</a>
+            <a class="waves-effect waves-light btn grey darken-3 btn-share" href="https://share.diasporafoundation.org/?title={{ a.title }}&url=https://becauseofprog.fr/article/{{ a.url }}" target="_blank"">Diaspora</a>
+            <a class="waves-effect waves-light btn blue darken-2 btn-share" href="web+mastodon://share?text={{ a.title }}%20-%20https://becauseofprog.fr/article/{{ a.url }}">Mastodon</a>
+            <a class="waves-effect waves-light btn red darken-4 btn-share" href="mailto:?subject={{ a.title }}&body=https://becauseofprog.fr/article/{{ a.url }}">Mail</a>
             <br>
             <h5>Publié dans</h5>
             <a class="black-text chip" href="/categorie/{{ a.category }}">{{ a.category.title() }}</a>
@@ -46,11 +46,11 @@
         <ul class="collection z-depth-2">
           <li class="collection-item grey lighten-4 h300px ads"></li>
           <li class="collection-item grey lighten-3">
-            <h5>Partager</h5>
+            <h5>Discutons</h5>
             <div class="row">
-              <div class="col s3"><a href="https://twitter.com/intent/tweet?url=https://becauseofprog.fr/article/{{ a.url }}&text={{ a.title }}"><img src="https://cdn.becauseofprog.fr/static-v3/twitter-300.png" alt="Logo Twitter" class="circle responsive-img"></a></div>
+              <div class="col s3"><a href="https://twitter.com/BecauseOfProg"><img src="https://cdn.becauseofprog.fr/static-v3/twitter-300.png" alt="Logo Twitter" class="circle responsive-img"></a></div>
               <div class="col s3"><a href="http://discord.becauseofprog.fr"><img src="https://cdn.becauseofprog.fr/static-v3/discord-300.png" alt="Logo Discord" class="circle responsive-img"></a></div>
-              <div class="col s3"><a href="mailto:?subject={{ a.title }}&body=https://becauseofprog.fr/article/{{ a.url }}"><img src="https://cdn.becauseofprog.fr/static-v3/mail-300.png"  alt="Arobase-email" class="circle responsive-img"></a></div>
+              <div class="col s3"><a href="mailto:contact@becauseofprog.fr"><img src="https://cdn.becauseofprog.fr/static-v3/mail-300.png"  alt="Arobase-email" class="circle responsive-img"></a></div>
               <div class="col s3"><a href="https://github.com/BecauseOfProg"><img src="https://cdn.becauseofprog.fr/static-v3/github-300.png" alt="Logo Github" class="circle responsive-img"></a></div>
             </div>
           </li>
@@ -139,60 +139,13 @@
       </a>
       <ul>
         <li>
-          <a class="btn-floating yellow darken-1" href="mailto:?subject=Le%20blog%20BecauseOfProg?body=Je%20vous%20invite%20à%20visiter%20le%20blog%20BecauseOfProg:%20des%20actualités%20et%20découvertes%20publiées%20par%20des%20passionnés%20de%20développement.%20https://becauseofprog.fr" data-tooltip="Partager par mail">
+          <a class="btn-floating yellow darken-1" href="mailto:?subject={{ a.title }}&body=https://becauseofprog.fr/article/{{ a.url }}" data-tooltip="Partager par mail">
             <i class="material-icons">mail</i>
           </a>
         </li>
-        <li><a class="btn-floating green" href="https://twitter.com/intent/tweet?url=https://becauseofprog.fr&text=Visitez+le+blog+Becauseofprog" data-tooltip="Partager via Twitter"><i class="material-icons">chat_bubble</i></a></li>
+        <li><a class="btn-floating green" href="https://twitter.com/intent/tweet?url=https://becauseofprog.fr/article/{{ a.url }}&text={{ a.title }}" data-tooltip="Partager via Twitter"><i class="material-icons">chat_bubble</i></a></li>
         <li><a class="btn-floating blue" onclick="CopyLink();"><i class="material-icons">content_copy</i></a></li>
       </ul>
     </div>
-    <script>
-(() => {
-    const webShareTestEl = document.querySelector('.web-share');
 
-    // CHECK IF SHARE IS AVAILABLE
-    if (!navigator.share) {
-      document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.fixed-action-btn');
-        var instances = M.FloatingActionButton.init(elems);
-      });
-      return;
-    }
-
-    let resetTimeout;
-
-    // METHODS
-    const resetButton = () => {
-        clearTimeout(resetTimeout);
-        resetTimeout = setTimeout(() => {
-            webShareTestEl.children[0].innerText = 'share';
-        }, 1000);
-    };
-
-    const getOpenGraphData = function (property) {
-        return document.querySelector(`meta[property="${property}"]`).getAttribute('content')
-    };
-
-    const sharePage = () => {
-        navigator.share({
-            title: getOpenGraphData('og:title'),
-            text: getOpenGraphData('og:description'),
-            url: getOpenGraphData('og:url')
-        }).then(() => {
-            webShareTestEl.children[0].innerText = 'done';
-            resetButton();
-        })
-            .catch(error => {
-                console.log('Error sharing:', error);
-
-                webShareTestEl.children[0].innerText = 'error';
-                resetButton();
-            });
-    };
-
-    // EVENTS
-    webShareTestEl.addEventListener('click', sharePage);
-})();
-    </script>
 {% include 'components/footer.html' %}
