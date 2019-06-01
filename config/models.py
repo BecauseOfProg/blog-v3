@@ -1,10 +1,10 @@
 from pony.orm import Required, Optional, PrimaryKey, Json
-from db.db import db
+from core.db import db
 
 '''This files contains classes entities derived from the Database.
 Entity attribute of the Database object. It means that they are not ordinary
 classes, but entities. The entity instances are stored in the database,
-which is bound to the db variable.
+which is bound to the core variable.
 '''
 
 

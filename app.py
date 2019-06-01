@@ -1,7 +1,7 @@
 from flask import Flask
-from utils.image_proxy import image_proxy
-from utils.links import get_hostname, clean_descr
-from utils.time_to_rss import time_to_rss
+from core.utils.image_proxy import image_proxy
+from core.utils.links import get_hostname, clean_descr
+from core.utils.time_to_rss import time_to_rss
 import datetime
 
 

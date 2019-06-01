@@ -1,6 +1,6 @@
 from argon2 import PasswordHasher, exceptions
 from pony.orm import db_session
-from db.models import User
+from config.models import User
 import bcrypt
 
 

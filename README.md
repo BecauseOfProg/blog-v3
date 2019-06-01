@@ -27,4 +27,4 @@
 ## For production
 
 * Compile the CSS and Javascript bundle : `npm run build` or `yarn build`
-* Add a systemd service to serve the blog with uWSGI (a configuration file for uWSGI is included: site-bop-v3.ini)
+* Add a systemd service to serve the blog-old with uWSGI (a configuration file for uWSGI is included: site-bop-v3.ini)

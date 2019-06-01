@@ -1,1 +1,0 @@
-'''This folder contains the page related to the strict-term blog : articles, categories...'''
