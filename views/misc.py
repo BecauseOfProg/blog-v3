@@ -43,7 +43,7 @@ def rss():
     '''Generates the RSS feed'''
     data = (
         select(
-            (a.title, a.desc, a.banner, a.url, a.author, a.timestamp)
+            (a.title, a.description, a.banner, a.url, a.author, a.timestamp)
             for a in Articles).order_by(-6)[:4]
     )
     return render_template('components/flux.xml', data=data)
