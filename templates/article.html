@@ -132,4 +132,64 @@
         <h4>La rubrique commentaires est en travaux</h4>
       </div>
     </div>
+
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large red darken-4 web-share">
+        <i class="large material-icons">share</i>
+      </a>
+      <ul>
+        <li>
+          <a class="btn-floating yellow darken-1" href="mailto:?subject=Le%20blog%20BecauseOfProg?body=Je%20vous%20invite%20à%20visiter%20le%20blog%20BecauseOfProg:%20des%20actualités%20et%20découvertes%20publiées%20par%20des%20passionnés%20de%20développement.%20https://becauseofprog.fr" data-tooltip="Partager par mail">
+            <i class="material-icons">mail</i>
+          </a>
+        </li>
+        <li><a class="btn-floating green" href="https://twitter.com/intent/tweet?url=https://becauseofprog.fr&text=Visitez+le+blog+Becauseofprog" data-tooltip="Partager via Twitter"><i class="material-icons">chat_bubble</i></a></li>
+        <li><a class="btn-floating blue" onclick="CopyLink();"><i class="material-icons">content_copy</i></a></li>
+      </ul>
+    </div>
+    <script>
+(() => {
+    const webShareTestEl = document.querySelector('.web-share');
+
+    // CHECK IF SHARE IS AVAILABLE
+    if (!navigator.share) {
+        webShareTestEl.children[0].innerText = 'error';
+        return;
+    }
+
+    let resetTimeout;
+
+    // METHODS
+    const resetButton = () => {
+        clearTimeout(resetTimeout);
+        resetTimeout = setTimeout(() => {
+            webShareTestEl.children[0].innerText = 'share';
+        }, 1000);
+    };
+
+    const getOpenGraphData = function (property) {
+        return document.querySelector(`meta[property="${property}"]`).getAttribute('content')
+    };
+
+    const sharePage = () => {
+        navigator.share({
+            title: getOpenGraphData('og:title'),
+            text: getOpenGraphData('og:description'),
+            url: getOpenGraphData('og:url')
+        }).then(() => {
+            webShareTestEl.children[0].innerText = 'done';
+            resetButton();
+        })
+            .catch(error => {
+                console.log('Error sharing:', error);
+
+                webShareTestEl.children[0].innerText = 'error';
+                resetButton();
+            });
+    };
+
+    // EVENTS
+    webShareTestEl.addEventListener('click', sharePage);
+})();
+    </script>
 {% include 'components/footer.html' %}

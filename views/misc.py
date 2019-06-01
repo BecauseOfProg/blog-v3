@@ -71,12 +71,6 @@ def redirect_app():
     return redirect('/page/app')
 
 
-@application.route('/account/')
-def redirect_account():
-    '''Redirects account page'''
-    return redirect('/account')
-
-
 @application.route('/courses/')
 @application.route('/courses/<whatever>')
 def redirect_blog(whatever):

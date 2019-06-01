@@ -47,3 +47,11 @@ def show_login():
                                    error="Les identifiants sont invalides")
     else:
         return render_template('members/login.html')
+
+
+@application.route('/user/<username>')
+@db_session
+def userpage(username):
+    '''User page'''
+    u = User.get(username=username)
+    return render_template('members/user.html', user=u)
