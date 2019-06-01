@@ -153,8 +153,11 @@
 
     // CHECK IF SHARE IS AVAILABLE
     if (!navigator.share) {
-        webShareTestEl.children[0].innerText = 'error';
-        return;
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.fixed-action-btn');
+        var instances = M.FloatingActionButton.init(elems);
+      });
+      return;
     }
 
     let resetTimeout;
