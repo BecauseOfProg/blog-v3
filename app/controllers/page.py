@@ -7,6 +7,7 @@ from core.utils.links import links_list
 import json
 
 BLOGROLL = json.loads(open('resources/data/blogroll.json', 'r').read())
+PROJECTS = json.loads(open('resources/data/projects.json', 'r', encoding='utf-8').read())
 
 class PageController:
   @staticmethod
@@ -52,7 +53,7 @@ class PageController:
   @staticmethod
   def projects():
     '''Returns a static file'''
-    return render_template('page/projects.html')
+    return render_template('page/projects.html', projects=PROJECTS)
 
   @staticmethod
   @db_session

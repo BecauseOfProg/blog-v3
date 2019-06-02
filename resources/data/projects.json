@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Youtube Podcast",
+    "link": "https://podcast.becauseofprog.fr"
+  },
+  {
+    "name": "Nos projets sur Github",
+    "link": "https://github.com/BecauseOfProg"
+  },
+  {
+    "name": "Notre API",
+    "link": "https://github.com/BecauseOfProg/api-docs"
+  },
+  {
+    "name": "Notre robot Discord",
+    "link": "https://github.com/BecauseOfProg/boite-a-bois"
+  },
+  {
+    "name": "Une implémentation de l'API d'OpenWeatherMap en Ruby",
+    "link": "https://github.com/BecauseOfProg/openweathermap-ruby"
+  }
+]
