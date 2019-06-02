@@ -1,7 +1,8 @@
 from core.utils.fill_informations import fill_informations
 from pony.orm import db_session, select, desc
 from flask import render_template, request
-from config.models import Articles, User
+from app.models.article import Articles
+from app.models.user import User
 from core.utils.links import links_list
 
 class PageController:

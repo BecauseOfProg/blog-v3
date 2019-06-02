@@ -1,9 +1,9 @@
-from app import application
-from views.blog import BlogController
-from views.redirects import RedirectsController
-from views.page import PageController
-from views.members import MembersController
-from views.staff import StaffController
+from core.app import application
+from app.controllers.blog import BlogController
+from app.controllers.redirects import RedirectsController
+from app.controllers.page import PageController
+from app.controllers.members import MembersController
+from app.controllers.staff import StaffController
 
 # ----------------- BLOG -----------------
 

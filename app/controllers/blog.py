@@ -1,6 +1,7 @@
 from core.utils.fill_informations import fill_informations
 from pony.orm import db_session, select, desc
-from config.models import Articles, User
+from app.models.article import Articles
+from app.models.user import User
 from flask import render_template
 from flask import Markup
 import requests

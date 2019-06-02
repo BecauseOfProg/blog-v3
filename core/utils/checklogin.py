@@ -1,5 +1,5 @@
 from pony.orm import db_session
-from config.models import User
+from app.models.user import User
 from flask import session
 
 '''This files contains the function checklogin(),

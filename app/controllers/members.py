@@ -2,7 +2,7 @@ from flask import render_template, request, session, redirect
 from core.utils.valid_login import valid_login
 from core.utils.checklogin import checklogin
 from pony.orm import db_session
-from config.models import User
+from app.models.user import User
 
 class MembersController:
   @staticmethod

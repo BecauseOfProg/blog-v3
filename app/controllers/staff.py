@@ -1,7 +1,7 @@
 from flask import render_template, request, redirect
 from pony.orm import db_session, commit
 from core.utils.checklogin import checklogin
-from config.models import Articles
+from app.models.article import Articles
 import time
 
 class StaffController:

@@ -1,5 +1,5 @@
 from datetime import datetime
-from config.models import User
+from app.models.user import User
 
 '''This file contains the function fill_informations'''
 

@@ -3,7 +3,7 @@
 __pycache__/
 node_modules/
 
-config.json
+config/database.py
 static/bundle.js
 static/bundle.css
 .pyc
