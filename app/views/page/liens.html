@@ -50,33 +50,9 @@
         <li class="collection-item grey lighten-3">
           <h5>Blogroll</h5>
         </li>
-        <li class="collection-item grey lighten-4"><a href="https://angristan.fr/" class="black-text">Angristan</a></li>
-        <li class="collection-item grey lighten-4"><a href="http://www.blog-libre.org/" class="black-text">Blog
-          Libre</a></li>
-        <li class="collection-item grey lighten-4"><a href="https://carlchenet.com/" class="black-text">Carl Chenet</a>
-        </li>
-        <li class="collection-item grey lighten-4"><a href="https://www.deuchnord.fr/" class="black-text">Deuchnord</a>
-        </li>
-        <li class="collection-item grey lighten-4"><a href="https://www.dryusdan.fr/" class="black-text">Dryusdan</a>
-        </li>
-        <li class="collection-item grey lighten-4"><a href="https://exybore.becauseofprog.fr/" class="black-text">Exybore</a>
-        </li>
-        <li class="collection-item grey lighten-4"><a href="https://gh.becauseofprog.fr/" class="black-text">Gildas
-          GH</a></li>
-        <li class="collection-item grey lighten-4"><a href="https://lehollandaisvolant.net/" class="black-text">Le
-          Hollandais Volant</a></li>
-        <li class="collection-item grey lighten-4"><a href="https://medium.com/tootsuite" class="black-text">Mastodon
-          blog</a></li>
-        <li class="collection-item grey lighten-4"><a href="https://www.microlinux.fr/"
-                                                      class="black-text">Microlinux</a></li>
-        <li class="collection-item grey lighten-4"><a href="https://blog.seboss666.info/"
-                                                      class="black-text">Seboss666</a></li>
-        <li class="collection-item grey lighten-4"><a href="https://tkpx.wordpress.com/" class="black-text">Tpkx</a>
-        </li>
-        <li class="collection-item grey lighten-4"><a href="http://www.standblog.org/blog/" class="black-text">Tristan
-          Nitot</a></li>
-        <li class="collection-item grey lighten-4"><a href="https://whaxion.be/" class="black-text">Whaxion</a></li>
-
+        {% for blog in blogroll %}
+          <li class="collection-item grey lighten-4"><a href="{{blog.link}}" class="black-text">{{blog.name}}</a></li>
+        {% endfor %}
       </ul>
     </div>
     <div class="col l2 m1 no-mobile"></div>

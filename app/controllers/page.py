@@ -4,6 +4,9 @@ from flask import render_template, request
 from app.models.article import Articles
 from app.models.user import User
 from core.utils.links import links_list
+import json
+
+BLOGROLL = json.loads(open('resources/data/blogroll.json', 'r').read())
 
 class PageController:
   @staticmethod
@@ -44,7 +47,7 @@ class PageController:
     '''Displays links from an RSS feed (see function links_list(). )'''
     links = links_list(20, "true")
     len_links = len(links['entries'])
-    return render_template('page/liens.html', links=links, len_links=len_links)
+    return render_template('page/liens.html', links=links, len_links=len_links, blogroll=BLOGROLL)
 
   @staticmethod
   def projects():

@@ -5,7 +5,7 @@ from core.utils.time_to_rss import time_to_rss
 import datetime
 
 
-application = Flask(__name__, template_folder='../app/views')
+application = Flask(__name__, template_folder='../app/views', static_folder='../resources/static')
 application.secret_key = 'HYP_7qbKg(*+A+h:'
 
 application.add_template_global(name='image_proxy', f=image_proxy)
