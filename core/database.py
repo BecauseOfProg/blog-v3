@@ -10,3 +10,7 @@ For more technical informations, see Pony docs at https://docs.ponyorm.org/.
 db = Database()
 db.bind(provider='mysql', host=database_config['host'], port=database_config['port'],
         user=database_config['user'], passwd=database_config['password'], db=database_config['database'])
+
+from app.models import article, user, post
+
+db.generate_mapping(create_tables=False)
