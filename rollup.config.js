@@ -1,4 +1,5 @@
-import svelte from 'rollup-plugin-svelte';
+import stylus from 'rollup-plugin-stylus-compiler';
+import css from 'rollup-plugin-css-porter';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
@@ -7,7 +8,7 @@ import { terser } from 'rollup-plugin-terser';
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-	input: 'resources/static/js/index.js',
+	input: 'resources/static/index.js',
 	output: {
 		sourcemap: true,
 		format: 'iife',
@@ -15,16 +16,11 @@ export default {
 		file: 'resources/static/bundle.js'
 	},
 	plugins: [
-		svelte({
-			// enable run-time checks when not in production
-			dev: !production,
-			// we'll extract any component CSS out into
-			// a separate file  better for performance
-			css: css => {
-				css.write('resources/static/bundle.css');
-			}
-		}),
-
+    stylus(),
+    css({
+      raw: false,
+      'minified': 'resources/static/bundle.css'
+    }),
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
 		// some cases you'll need additional configuration 
