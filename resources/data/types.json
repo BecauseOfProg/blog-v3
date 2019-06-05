@@ -1,0 +1,14 @@
+{
+  "article": {
+    "name": "Article",
+    "icon": "description"
+  },
+  "flash": {
+    "name": "Flash",
+    "icon": "flash_on"
+  },
+  "tutorial": {
+    "name": "Tutoriel",
+    "icon": "play_circle_outline"
+  }
+}

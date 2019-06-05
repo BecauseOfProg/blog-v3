@@ -10,11 +10,9 @@ def fill_informations(post):
         "timestamp": datetime.fromtimestamp(post.timestamp),
         "title": post.title,
         "url": post.url,
-        "type": post.art_type,
+        "type": post.type,
         "category": post.category,
-        "author": post.author,
-        "displayname": User[post.author].displayname,
-        "avatar": User[post.author].avatar,
+        "author": User[post.author],
         "banner": post.banner,
         "description": post.description,
         "labels": post.labels

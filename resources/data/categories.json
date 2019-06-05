@@ -1,0 +1,38 @@
+{
+  "software": {
+    "name": "Software",
+    "icon": "web"
+  },
+  "security": {
+    "name": "Sécurité",
+    "icon": "https"
+  },
+  "web": {
+    "name": "Web",
+    "icon": "public"
+  },
+  "hardware": {
+    "name": "Hardware",
+    "icon": "sim_card"
+  },
+  "programming": {
+    "name": "Programmation",
+    "icon": "code"
+  },
+  "android": {
+    "name": "Android",
+    "icon": "android"
+  },
+  "linux": {
+    "name": "Linux",
+    "icon": "developer_board"
+  },
+  "windows": {
+    "name": "Windows",
+    "icon": "dashboard"
+  },
+  "apple": {
+    "name": "Apple",
+    "icon": "more"
+  }
+}

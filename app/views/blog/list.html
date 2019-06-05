@@ -1,18 +1,12 @@
 {% extends "index.html" %}
-{% block title %}{{ type.title() }} - BecauseOfProg{% endblock %}
-{% block description %}Tous les articles tagués {{ type.title() }} sur le blog.{% endblock %}
+{% block title %}{{ name }} - BecauseOfProg{% endblock %}
+{% block description %}Tous les articles tagués {{ type }} sur le blog.{% endblock %}
 {% block url %}https://becauseofprog.fr{% endblock %}
 {% block image %}https://cdn.becauseofprog.fr/logos/bop-transparent.png{% endblock %}
 {% block author %}Équipe BecauseOfProg{% endblock %}
 
 {% block content %}
 
-  {% if template != "search" %}
-    <div class="welcome parallax-container h250px">
-      <div class="parallax"><img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg"></div>
-      <h4 class="header white-text"><i class="material-icons md-48">{{ icon }}</i><br>{{ template.title() }}
-        - {{ type.title() }} - BecauseOfProg</h4>
-    </div>{% endif %}
   {% if template == "search" %}
     <div class="welcome parallax-container">
       <div class="parallax"><img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg"></div>
@@ -30,54 +24,79 @@
         </div>
       </nav>
     </div>
+  {% else %}
+    <div class="welcome parallax-container h250px">
+      <div class="parallax"><img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg"></div>
+      <h4 class="header white-text">
+        <i class="material-icons md-48">{{ icon }}</i><br>
+        {{ template.title() }} - {{ name }} - BecauseOfProg</h4>
+    </div>
   {% endif %}
 
   <div class="container">
     <p class="bop-breadcrumb">
       <a href="/" class="black-text">BecauseOfProg</a><i class="material-icons">chevron_right</i>
       <a class="black-text">{{ template.title() }}</a><i class="material-icons">chevron_right</i>
-      <a href=".." class="black-text">{{ type.title() }}</a>
+      <a href=".." class="black-text">{{ name }}</a>
     </p>
     <div class="row">
       <div class="col m9">
-        {% for item in data %}
+        {% for article in articles %}
           <div class="card">
             <div class="card-image">
-              <img src="{{ image_proxy(item.banner, 477,268) }}">
+              <a href="/article/{{ article.url }}">
+                <img src="{{ image_proxy(article.banner, 477,268) }}" alt="{{article.title}}">
+              </a>
             </div>
             <div class="card-stacked">
               <div class="card-content">
               <span class="card-title grey-text text-darken-4">
-                <a class="black-text" href="/article/{{ item.url }}">
-                  {{ item.title }}
+                <a class="black-text" href="/article/{{ article.url }}">
+                  {{ article.title }}
                 </a>
               </span>
-                <a class="no-style-link" href="https://becauseofprog.fr/user/{{ item.author }}">
+                <a class="no-style-link" href="/user/{{ article.author.username }}">
                   <div class="chip">
-                    <img src="{{ image_proxy(item.avatar, 32,32) }}" alt="Photo de profil de l'auteur">
-                    {{ item.displayname }}
+                    <img src="{{ image_proxy(article.author.avatar, 32,32) }}" alt="Photo de profil de l'auteur">
+                    {{ article.author.displayname }}
                   </div>
                 </a>
-                {% if template == "type" or template == "Blog" %}
-                  <div class="chip"><a class="no-style-link"
-                                       href="/categorie/{{ item.category }}">{{ item.category.title() }}</a></div>
-                {% elif template == "Catégorie" %}
-                  <div class="chip"><a class="no-style-link" href="/type/{{ item.type }}">{{ item.type.title() }}</a>
-                  </div>{% endif %}
-                <div class="chip">{{ item.timestamp.strftime('%d/%m/%Y') }}</div>
-              </div>
-              <div class="card-action">
-                <a class="red-text text-darken-4" href="/article/{{ item.url }}">Lire</a>
+                {% if template != "type" %}
+                  <div class="chip">
+                    <a class="no-style-link" href="/type/{{ article.type }}">
+                      {{ types[article.type].name }}
+                    </a>
+                  </div>
+                {% endif %}
+                {% if template != "Catégorie" %}
+                  <div class="chip">
+                    <a class="no-style-link" href="/categorie/{{ article.category }}">
+                      {{ categories[article.category].name }}
+                      </a>
+                  </div>
+                {% endif %}
+                <div class="chip">{{ article.timestamp.strftime('%d/%m/%Y') }}</div>
               </div>
             </div>
           </div>
         {% endfor %}
         {% if data|length > 9 %}
-          <a class="waves-effect waves-light btn red darken-4" href="{{ page+1 }}"><i class="material-icons right">keyboard_arrow_right</i>Page
-            suivante</a>{% endif %}
+          <a class="waves-effect waves-light btn red darken-4" href="{{ page+1 }}">
+            <i class="material-icons right">keyboard_arrow_right</i>
+            Page suivante
+          </a>
+        {% endif %}
       </div>
       <div class="col m3">
         <ul class="collection z-depth-2">
+          {% for url, category in categories.items() %}
+            <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/categorie/{{url}}"><i
+            class="material-icons left">{{category.icon}}</i>{{category.name}}</a></li>
+          {% endfor %}
+          {% for url, type in types.items() %}
+            <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/type/{{url}}"><i
+            class="material-icons left">{{type.icon}}</i>{{type.name}}</a></li>
+          {% endfor %}
           <li class="collection-item grey lighten-3">
             <h5>Nous suivre</h5>
             <div class="row">
@@ -96,55 +115,21 @@
                 class="circle responsive-img"></a></div>
             </div>
           </li>
-          <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/">Accueil</a></li>
           <li class="collection-item grey lighten-3">
             <h5>A propos</h5>
-            <p>BecauseOfProg, c'est 4 développeurs rassemblés autour de projets communs : un blog, et des projets. </p>
+            <p>BecauseOfProg, c'est des développeurs rassemblés autour de projets communs tels que le blog. </p>
             <a class="waves-effect waves-light btn red darken-4" href="/page/about"><i
-              class="material-icons right">info</i>Plus</a>
+              class="material-icons right">info</i>En savoir plus</a>
           </li>
-          <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/categorie/software"><i
-            class="material-icons left">web</i>Software</a></li>
-          <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/categorie/tutos"><i
-            class="material-icons left">code</i>Tutoriels</a></li>
-          <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/categorie/securite"><i
-            class="material-icons left">https</i>Sécurité</a></li>
-          <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/categorie/web"><i
-            class="material-icons left">public</i>Web</a></li>
-          <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/categorie/hardware"><i
-            class="material-icons left">sim_card</i>Hardware</a></li>
-          <li class="collection-item grey lighten-4"><a class="red-text text-darken-4"
-                                                        href="/categorie/programmation"><i class="material-icons left">code</i>Programmation</a>
-          </li>
-          <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/categorie/android"><i
-            class="material-icons left">android</i>Android</a></li>
-          <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/categorie/linux"><i
-            class="material-icons left">developer_board</i>Linux</a></li>
-          <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/categorie/windows"><i
-            class="material-icons left">dashboard</i>Windows</a></li>
-          <li class="collection-item grey lighten-3 h170px">
-            <h5>Plus</h5>
-            <ul class="col m6">
-              <li><a class="grey-text text-darken-3" href="/page/projects">Outils et projets</a></li>
-              <li><a class="grey-text text-darken-3" href="/blog">Blog</a></li>
-              <li><a class="grey-text text-darken-3" href="/page/app">Application</a></li>
-              <li><a class="grey-text text-darken-3" href="/page/about">About</a></li>
-            </ul>
-            <ul class="col m6">
-              <li><a class="grey-text text-darken-3" href="https://discord.becauseofprog.fr">Discord</a></li>
-              <li><a class="grey-text text-darken-3" href="https://twitter.com/BecauseOfProg">Twitter</a></li>
-              <li><a class="grey-text text-darken-3" href="https://mstdn.io/@bop">Mastodon</a></li>
-              <li><a class="grey-text text-darken-3" href="https://instagram.com/becauseofprog/">Instagram</a></li>
-              <li>
-                <script type=text/javascript>
-                  var name = "contact";
-                  var domain = "becauseofprog.fr";
-                  document.write('<a class="grey-text text-darken-3" href="mailto:' + name + '@' + domain + '">');
-                  document.write('Email</a>');
-                </script>
-              </li>
-            </ul>
-          </li>
+          <!--<li class="collection-item grey lighten-3">
+            <h5>Sur le devblog...</h5>
+            <p>{{ devblog.title }}</p>
+            <a class="waves-effect waves-light btn red darken-4"
+               href="https://becauseofprog.fr/news/{{ devblog.url }}">
+              <i class="material-icons right">info</i>
+              Lire
+            </a>
+            </li>-->
         </ul>
       </div>
     </div>

@@ -8,7 +8,7 @@ class Articles(db.Entity):
   title = Required(str)
   timestamp = Required(float)
   author = Required(str)
-  art_type = Required(str, column="type")
+  type = Required(str)
   category = Required(str)
   description = Required(str, column="desc")
   labels = Required(Json)

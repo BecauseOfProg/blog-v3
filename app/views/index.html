@@ -96,11 +96,11 @@
     <li>
       <div class="divider"></div>
     </li>
-    <li><a href="/page/about"><i class="material-icons left">info</i>A propos</a></li>
-    <li><a href="/blog"><i class="material-icons left">description</i>Derniers articles</a></li>
+    <li><a href="/blog"><i class="material-icons left">description</i>Tous les articles</a></li>
+    <li><a href="/page/search"><i class="material-icons left">search</i>Rechercher</a></li>
     <li><a href="/page/projects"><i class="material-icons left">library_books</i>Projets</a></li>
     <li><a href="/page/links"><i class="material-icons left">link</i>Liens</a></li>
-    <li><a href="/page/search"><i class="material-icons left">search</i>Rechercher</a></li>
+    <li><a href="/page/about"><i class="material-icons left">info</i>A propos</a></li>
     <li><a class="waves-effect waves-light btn red darken-3" href="/login">Connexion</a></li>
     <li><a class="waves-effect" data-target="mobile-demo" class="sidenav-trigger" href="#"><i
       class="material-icons left">close</i>Fermer le menu</a></li>
@@ -111,14 +111,14 @@
     <nav>
       <div class="nav-wrapper red darken-4">
         <a href="/" class="logo brand-logo">
-                <span class="no-mobile">
-                  <img src="https://cdn.becauseofprog.fr/logos/bop-transparent.png" alt="Logo BOP">
-                </span>
+          <span class="no-mobile">
+            <img src="https://cdn.becauseofprog.fr/logos/bop-transparent.png" alt="Logo BOP">
+          </span>
           &nbsp;BecauseOfProg
         </a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="/blog"><i class="material-icons left">description</i>Derniers articles</a></li>
+          <li><a href="/blog"><i class="material-icons left">description</i>Tous les articles</a></li>
           <li><a href="/page/projects"><i class="material-icons left">library_books</i>Projets</a></li>
           <li><a href="/page/links"><i class="material-icons left">link</i>Liens</a></li>
           <li><a href="/page/search"><i class="material-icons left">search</i></a></li>
@@ -128,88 +128,19 @@
     </nav>
   </div>
 
-  <div class="navbar-fixed no-mobile">
-    <nav class="semitransparent">
-      <div class="nav-wrapper semitransparent">
-        <ul class="center hide-on-med-and-down">
-          <li><a href="/categorie/software"><i class="material-icons left">web</i>Software</a></li>
-          <li><a href="/type/tutorial"><i class="material-icons left">code</i>Tutoriels</a></li>
-          <li><a href="/categorie/security"><i class="material-icons left">https</i>Sécurité</a></li>
-          <li><a href="/categorie/web"><i class="material-icons left">public</i>Web</a></li>
-          <li><a href="/categorie/hardware"><i class="material-icons left">sim_card</i>Hardware</a></li>
-          <li><a href="/categorie/programming"><i class="material-icons left">code</i>Programmation</a></li>
-          <li><a href="/categorie/android"><i class="material-icons left">android</i>Android</a></li>
-          <li><a href="/categorie/linux"><i class="material-icons left">developer_board</i>Linux</a></li>
-          <li><a href="/categorie/windows"><i class="material-icons left">dashboard</i>Windows</a></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
+
 {% endblock %}
 
 {% block content %}{% endblock %}
 
 {% block footer %}
   <footer class="page-footer red darken-4">
-    <div class="container">
-      <div class="row">
-        <div class="col l3 m6 s12">
-          <h5 class="white-text">BecauseOfProg</h5>
-          <p class="grey-text text-lighten-4">Retrouvez sur ce blog des articles originaux autour des nouvelles
-            technologies, de la programmation, ainsi que nos principaux projets.</p>
-        </div>
-        <div class="col l3 offset-l2 m6 s12">
-          <h5 class="white-text">Plan du site</h5>
-          <ul>
-            <li><a class="grey-text text-lighten-3" href="/page/links">Nos liens</a></li>
-            <li><a class="grey-text text-lighten-3" href="/page/projects">Nos projets</a></li>
-            <li><a class="grey-text text-lighten-3" href="/blog">Derniers articles</a></li>
-            <li><a class="grey-text text-lighten-3" href="/page/app">Application</a></li>
-            <li><a class="grey-text text-lighten-3" href="/page/about">À propos</a></li>
-          </ul>
-        </div>
-        <div class="col l3 offset-l1 m6 s12">
-          <h5 class="white-text">Discutons !</h5>
-          <ul>
-            <li><a class="grey-text text-lighten-3" href="https://discord.becauseofprog.fr">Discord</a></li>
-            <li><a class="grey-text text-lighten-3" href="https://twitter.com/BecauseOfProg">Twitter</a></li>
-            <li><a class="grey-text text-lighten-3" href="https://mstdn.io/@bop">Mastodon</a></li>
-            <li><a class="grey-text text-lighten-3" href="https://instagram.com/becauseofprog/">Instagram</a></li>
-            <li>
-              <script type=text/javascript>
-                var name = "contact";
-                var domain = "becauseofprog.fr";
-                document.write('<a class="grey-text text-lighten-3" href="mailto:' + name + '@' + domain + '">');
-                document.write('Email</a>');
-              </script>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright red darken-4">
-      <div class="container">
-        <a class="grey-text text-lighten-4" href="/page/about#cgu">Conditions d'utilisation</a>
-        <span class="right">Créé par Gildas GH et Exybore</span>
-      </div>
+    <div class="container" style="padding-bottom: 20px;">
+      Réalisé par l'équipe BecauseOfProg
+      <a class="grey-text text-lighten-4 right" href="/page/about">À propos</a>
     </div>
   </footer>
 {% endblock %}
-<!--<div class="fixed-action-btn">
-  <a class="btn-floating btn-large red darken-4">
-    <i class="large material-icons">share</i>
-  </a>
-  <ul>
-    <li>
-      <a class="btn-floating yellow darken-1" href="mailto:?subject=Le%20blog%20BecauseOfProg?body=Je%20vous%20invite%20à%20visiter%20le%20blog%20BecauseOfProg:%20des%20actualités%20et%20découvertes%20publiées%20par%20des%20passionnés%20de%20développement.%20https://becauseofprog.fr" data-tooltip="Partager par mail">
-        <i class="material-icons">mail</i>
-      </a>
-    </li>
-    <li><a class="btn-floating green" href="https://twitter.com/intent/tweet?url=https://becauseofprog.fr&text=Visitez+le+blog+Becauseofprog" data-tooltip="Partager via Twitter"><i class="material-icons">chat_bubble</i></a></li>
-    <li><a class="btn-floating blue" onclick="CopyLink();"><i class="material-icons">content_copy</i></a></li>
-  </ul>
-</div>-->
-
 <script src="https://cdn.becauseofprog.fr/static-v3/materialize.min.js"></script>
 <script src="/static/bundle.js"></script>
 </body>

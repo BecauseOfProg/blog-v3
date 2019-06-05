@@ -6,6 +6,23 @@
 {% block author %}Équipe BecauseOfProg{% endblock %}
 
 {% block content %}
+  <!-- Categories bar -->
+  <div class="navbar-fixed no-mobile">
+    <nav class="semitransparent">
+      <div class="nav-wrapper semitransparent">
+        <ul class="center hide-on-med-and-down">
+          {% for url, category in categories.items() %}
+            <li><a href="/categorie/{{url}}"><i class="material-icons left">{{category.icon}}</i>{{category.name}}</a></li>
+          {% endfor %}
+          {% for url, type in types.items() %}
+            <li><a href="/type/{{url}}"><i class="material-icons left">{{type.icon}}</i>{{type.name}}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Presentation carousel -->
   <div class="carousel carousel-slider center">
     <div class="carousel-item white-text" href="#one!"
          style="background: url(https://cdn.becauseofprog.fr/syst-images/bg.jpg)">
@@ -27,6 +44,8 @@
          href="https://becauseofprog.fr/news/{{ devblog.post.url }}">Voir!</a>
     </div>
   </div>
+
+  <!-- Last article -->
   <div class="container">
     <div class="section white">
       <div class="row">
@@ -50,27 +69,29 @@
                 <img src="{{ image_proxy(post.banner, 800, 449.7) }}" alt="Illustration de {{ post.title }} ">
               </a>
               <a href="/type/{{ post.type }}" class="btn-floating halfway-fab waves-effect waves-light red darken-4">
-                <i class="material-icons">{% if post.type=="article" %}description{% elif post.art_type=="tutorial" %}
-                  play_circle_outline{% elif post.art_type=="flash" %}flash_on{% else %}more_horiz{% endif %}</i>
+                <i class="material-icons">{{types[post.type].icon}}</i>
               </a>
             </div>
             <div class="card-content">
-            <span class="card-title grey-text text-darken-4">
-							<a class="black-text" href="/article/{{ post.url }}">
-                {{ post.title }}
-							</a>
-						</span>
+              <span class="card-title grey-text text-darken-4">
+                <a class="black-text" href="/article/{{ post.url }}">
+                  {{ post.title }}
+                </a>
+              </span>
               <p>{{ post.description }}</p>
               <p>&nbsp;</p>
-              <a class="no-style-link" href="https://becauseofprog.fr/user/{{ post.author }}">
+              <a class="no-style-link" href="https://becauseofprog.fr/user/{{ post.author.username }}">
                 <div class="chip">
-                  <img src="{{ image_proxy(post.avatar, 32,32) }}" alt="Photo de profil de l'auteur">
-                  {{ post.displayname }}
+                  <img src="{{ image_proxy(post.author.avatar, 32,32) }}" alt="Photo de profil de l'auteur">
+                  {{ post.author.displayname }}
                 </div>
               </a>
               <div class="chip">{{ post.timestamp.strftime('%d/%m/%Y') }}</div>
-              <div class="chip"><a class="no-style-link"
-                                   href="/categorie/{{ post.category }}">{{ post.category.title() }}</a></div>
+              <div class="chip">
+                <a class="no-style-link" href="/categorie/{{ post.category }}">
+                  {{ categories[post.category].name }}
+                </a>
+              </div>
             </div>
           </div>
         </div>
