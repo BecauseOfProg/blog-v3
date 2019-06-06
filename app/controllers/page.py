@@ -1,35 +1,26 @@
-from core.utils.fill_informations import fill_informations
-from pony.orm import db_session, select, desc
+from pony.orm import db_session
 from flask import render_template, request
-from app.models.article import Articles
 from app.models.user import User
+from app.controllers.blog import BlogController
 from core.utils.links import links_list
 import json
 
 BLOGROLL = json.loads(open('resources/data/blogroll.json', 'r').read())
 PROJECTS = json.loads(open('resources/data/projects.json', 'r', encoding='utf-8').read())
 
+
 class PageController:
   @staticmethod
   @db_session
   def about():
     '''Displays the 'about' page with a list of the staff'''
-    stafflist = []
     roles = {
       "POST_WRITE": "Membre",
       "BLOG_WRITE": "Rédacteur",
       "USER_WRITE": "Modérateur"
     }
-    staff = select(u for u in User if str(u.permissions) != '[]')[:]
-    for user in staff:
-      stafflist.append({
-        'username': user.username,
-        'displayname': user.displayname,
-        'description': user.description,
-        'avatar': user.avatar,
-        'permissions': user.permissions
-      })
-    return render_template('page/about.html', staff=stafflist, roles=roles)
+    staff = User.select(lambda u: str(u.permissions) != '[]')[:]
+    return render_template('page/about.html', staff=staff, roles=roles)
 
   @staticmethod
   def app():
@@ -63,19 +54,7 @@ class PageController:
       keyword = request.args.get('s', default="", type=str)
     if page == 0:
       page = request.args.get('page', default=0, type=int)
-
     if keyword != "":
-      data = select(
-        a for a in Articles if keyword in a.title
-      ).order_by(desc(Articles.timestamp))[page * 10:page * 10 + 10]
-      if data == []:
-        erreur = "Votre recherche n'a donné aucun résultat. Vous pouvez entrer un autre mot clé :"
-        return render_template('page/search.html', error=erreur)
-      data_dict = []
-      for item in data:
-        data_dict.append(fill_informations(item))
-      return render_template('blog/list.html', data=data_dict, template="search",
-                             type="Recherche", keyword=keyword, page=page)
-
+      return BlogController.show_search(keyword, page)
     else:
       return render_template('page/search.html')

@@ -9,66 +9,57 @@
   <div class="welcome parallax-container">
     <div class="parallax"><img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg"></div>
     <img src="https://cdn.becauseofprog.fr/logos/bop-transparent.png" class="responsive-img bop-logo" alt="Logo BOP">
-    <h2 class="header white-text">Ecrire un article</h2>
+    <h2 class="header white-text">Écrire un article</h2>
   </div>
 
-  <div class="section white">
-    <div class="row container">
-      <!--<p class="center">Votre article a bien été publié !<br />
-        <a href="https://becauseofprog.fr/blog/#articles">Accéder</a>
-      </p>-->
-      <form class="col s12" method="post">
-        <div class="row">
-          <div class="input-field col s12 m6">
-            <input type="text" name="title" id="title" required data-length="100"/>
-            <label for="title">Titre</label>
-          </div>
-          <div class="input-field col s12 center">
-            <select name="category" id="category">
-              <option value="" disabled selected>Catégorie</option>
-              <option value="software">Software</option>
-              <option value="tutos">Tutoriels</option>
-              <option value="securite">Sécurité</option>
-              <option value="web">Web</option>
-              <option value="hardware">Hardware</option>
-              <option value="programmation">Programmation</option>
-              <option value="android">Android</option>
-              <option value="linux">Linux</option>
-              <option value="windows">Windows</option>
-              <option value="apple">Apple</option>
-            </select>
-          </div>
-          <div class="input-field col s12 m6">
-            <input type="text" name="url" id="url" required data-length="50"/>
-            <label for="url">URL (Sans accents, séparés avec tirets)</label>
-          </div>
-          <div class="input-field col s12 m6">
-            <input type="url" name="banner" id="banner" required/>
-            <label for="banner">Lien vers la bannière (https obligatoire)</label>
-          </div>
-          <div class="input-field col s12 center">
-            <select name="type" id="type">
-              <option value="article" disabled selected>Type</option>
-              <option value="article">Article</option>
-              <option value="flash">Billet/Flash</option>
-              <option value="tutorial">Tutoriel/Cours</option>
-            </select>
-          </div>
-          <div class="input-field col s12">
-            <textarea cols="250" rows="10" name="md-editor" id="md-editor"></textarea>
-          </div>
-          <div class="input-field col s12">
-            <textarea id="description" name="description" class="materialize-textarea" required
-                      data-length="255"></textarea>
-            <label for="description">Description</label>
-          </div>
-          <div class="input-field col s12 center">
-            <button class="btn waves-effect waves-light red darken-4" type="submit" name="action">Publier</button>
-          </div>
-        </div>
-      </form>
+<div class="row container">
+  <!--<p class="center">Votre article a bien été publié !<br />
+    <a href="https://becauseofprog.fr/blog/#articles">Accéder</a>
+  </p>-->
+  <form class="col s12" method="post">
+    <div class="row">
+      <div class="input-field col s12 m6">
+        <input type="text" name="title" id="title" required data-length="100"/>
+        <label for="title">Titre</label>
+      </div>
+      <div class="input-field col s12 center">
+        <select name="category" id="category">
+          <option value="" disabled selected>Catégorie</option>
+          {% for url, category in categories.items() %}
+            <option value="{{url}}">{{category.name}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="input-field col s12 m6">
+        <input type="text" name="url" id="url" required data-length="50"/>
+        <label for="url">URL (Sans accents, séparés avec tirets)</label>
+      </div>
+      <div class="input-field col s12 m6">
+        <input type="url" name="banner" id="banner" required/>
+        <label for="banner">Lien vers la bannière (https obligatoire)</label>
+      </div>
+      <div class="input-field col s12 center">
+        <select name="type" id="type">
+          <option value="" disabled selected>Type</option>
+          {% for url, type in types.items() %}
+            <option value="{{url}}">{{type.name}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="input-field col s12">
+        <textarea cols="250" rows="10" name="md-editor" id="md-editor"></textarea>
+      </div>
+      <div class="input-field col s12">
+        <textarea id="description" name="description" class="materialize-textarea" required
+                  data-length="255"></textarea>
+        <label for="description">Description</label>
+      </div>
+      <div class="input-field col s12 center">
+        <button class="btn waves-effect waves-light red darken-4" type="submit" name="action">Publier</button>
+      </div>
     </div>
-  </div>
+  </form>
+</div>
 
   <!--<script src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script>-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">

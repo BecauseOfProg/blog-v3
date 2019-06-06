@@ -10,9 +10,9 @@ class MembersController:
   def show_account():
     '''Shows the account page (a static page for now) or
     redirects the user to the login form'''
-    u = checklogin()
-    if u is not False:
-      return render_template('members/account.html', u=u)
+    user = checklogin()
+    if user is not False:
+      return render_template('members/account.html', user=user)
     else:
       return redirect('/login')
 
@@ -46,5 +46,5 @@ class MembersController:
   @db_session
   def show_user_page(username):
     '''User profile page'''
-    u = User.get(username=username)
-    return render_template('members/user.html', user=u)
+    user = User.get(username=username)
+    return render_template('members/user.html', user=user)

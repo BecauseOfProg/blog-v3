@@ -10,13 +10,11 @@
     <div class="parallax"><img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg"></div>
     <img src="https://cdn.becauseofprog.fr/logos/bop-transparent.png" class="responsive-img bop-logo" alt="Logo BOP">
     <h2 class="header white-text">Rechercher sur le blog</h2>
-    <h5 class="subtitle grey-text">Pour accéder en un instant à toutes nos publications</h5>
-  </div>
-  {% if error %}
-    <div class="container row center"><p>{{ error }}</p></div>{% endif %}
-  <div class="section white" id="presentation">
+    {% if error %}
+      <div class="container row center"><p>{{ error }}</p></div>
+    {% endif %}
     <nav class="container row center">
-      <div class="nav-wrapper red darken-3">
+      <div class="nav-wrapper red darken-4">
         <form action="/page/search">
           <div class="input-field">
             <input id="search" type="search" name="s" value="{{ keyword }}" required>

@@ -17,29 +17,39 @@
   </div>
   <div class="container row">
     <div class="col l8 s12">
-      {% if error %}<p>{{ error }}</p>{% endif %}
-      <p>Bienvenue sur votre compte BecauseOfProg, {{ u.displayname }}. Cette page sera complétée ultérieurement.</p>
-      <a href="/new-post">Ecrire un article</a></p>
-      <a href="/logout">Se déconnecter</a></p>
-      <a href="/">Le site BecauseOfProg</a></p>
+      <div class="card hoverable">
+        <div class="card-content">
+          <p>Bienvenue sur votre compte BecauseOfProg, {{ user.displayname }}. Cette page sera complétée ultérieurement.</p>
+          {% if "BLOG_WRITE" in user.permissions %}
+            <a class="btn red darken-4" href="/new-post">
+              <i class="material-icons left">edit</i>
+              Écrire un article
+            </a>
+          {% endif %}
+          <a class="btn red darken-4" href="/logout">
+            <i class="material-icons left">power_settings_new</i>
+            Se déconnecter
+          </a>
+        </div>
+      </div>
 
       <div class="card author-card horizontal">
         <div class="card-image">
-          <img src="{{ u.avatar }}">
+          <img src="{{ user.avatar }}">
         </div>
         <div class="card-stacked">
           <div class="card-content">
-            <span class="card-title">{{ u.displayname }}</span>
-            <p><i>{{ u.description }}</i></p>
+            <span class="card-title">{{ user.displayname }}</span>
+            <p><i>{{ user.description }}</i></p>
           </div>
           <div class="card-action">
-            <a href="https://becauseofprog.fr/user/{{ u.username }}">
+            <a href="/user/{{ user.username }}">
               <img src="https://cdn.becauseofprog.fr/logos/bop-transparent.png">
             </a>
-            <!--{% if u.socials != "Non renseigné" %}<a href="https://twitter.com/{{ u.socials }}">
+            <!--{% if user.socials != "Non renseigné" %}<a href="https://twitter.com/{{ user.socials }}">
                 <img src="https://cdn.becauseofprog.fr/syst-icons/twitter.png">
               </a>{% endif %}
-              {% if u.socials != "Non renseigné"%}<a href="https://github.com/{{ u.socials }}">
+              {% if user.socials != "Non renseigné"%}<a href="https://github.com/{{ user.socials }}">
                 <img src="https://cdn.becauseofprog.fr/syst-icons/github.png">
               </a>{% endif %}-->
           </div>
@@ -48,16 +58,11 @@
     </div>
     <div class="col l4 s12">
       <ul class="collection z-depth-2">
-        <li class="collection-item grey lighten-3">
+        <li class="collection-item">
           <h5>Votre compte BecauseOfProg</h5>
           <p>Votre compte est global, utilisable sur le site entier. Nous mettons tout en oeuvre pour assurer la
             sécurité et la confidentialité de vos données sur nos serveurs.</p>
-          <a class="waves-effect waves-light btn red darken-4" href="/page/about"><i
-            class="material-icons right">info</i>Plus</a><br/>
         </li>
-        <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/">Accueil</a></li>
-        <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/blog">Blog</a></li>
-        <li class="collection-item grey lighten-4"><a class="red-text text-darken-4" href="/">Projets</a></li>
       </ul>
     </div>
   </div>
