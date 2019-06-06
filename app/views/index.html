@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  {% block head %}
+    <meta charset="utf-8"/>
+
+    <meta name="apple-mobile-web-app-title" content="BecauseOfProg">
+    <meta name="application-name" content="BecauseOfProg">
+    <meta name="msapplication-TileColor" content="#b71c1c">
+    <meta name="theme-color" content="#b71c1c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="me" href="https://twitter.com/BecauseOfProg">
+
+    <link rel="manifest" href="/static/manifest.json">
+    <link rel="stylesheet" href="https://cdn.becauseofprog.fr/static-v3/materialize.min.css">
+    <link type="text/css" rel="stylesheet" href="/static/bundle.css"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta property="og:locale" content="fr_fr">
+    <meta name="twitter:creator" content="@BecauseOfProg">
+
+    <link rel="alternate" type="application/atom+xml" title="BecauseOfprog - Tout le site" href="/tout.rss"/>
+    <link rel="search" type="application/opensearchdescription+xml" title="BecauseOfprog - Blog"
+          href="/static/opensearch.xml"/>
+    <link rel="shortcut icon" href="https://cdn.becauseofprog.fr/static-v3/favicon.ico">
+
+    <meta name="twitter:card" content="summary">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{% block url %}{% endblock %}">
+    <meta property="og:title" content="{{ self.title() }}">
+    <meta property="og:description" content="{% block description %}{% endblock %}">
+    <meta property="og:image" content="{% block image %}{% endblock %}">
+    <meta name="author" content="{% block author %}{% endblock %}">
+
+    <!-- Piwik -->
+    <script>
+      var _paq = _paq || [];
+      _paq.push([function () {
+        var self = this;
+
+        function getOriginalVisitorCookieTimeout() {
+          var now = new Date(),
+            nowTs = Math.round(now.getTime() / 1000),
+            visitorInfo = self.getVisitorInfo();
+          var createTs = parseInt(visitorInfo[2]);
+          var cookieTimeout = 33696000; // 13 mois en secondes
+          var originalTimeout = createTs + cookieTimeout - nowTs;
+          return originalTimeout;
+        }
+
+        this.setVisitorCookieTimeout(getOriginalVisitorCookieTimeout());
+      }]);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function () {
+        var u = "https://analytics.becauseofprog.fr/";
+        _paq.push(['setTrackerUrl', u + 'piwik.php']);
+        _paq.push(['setSiteId', '4']);
+        var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+        g.type = 'text/javascript';
+        g.async = true;
+        g.defer = true;
+        g.src = u + 'piwik.js';
+        s.parentNode.insertBefore(g, s);
+      })();
+    </script>
+
+    <title>{% block title %}{% endblock %}</title>
+  {% endblock %}
+</head>
+<body>
+<noscript><img src="//analytics.becauseofprog.fr/piwik.php?idsite=4&rec=1" style="border:0;" alt=""/></noscript>
+{% block header %}
+  <!-- NAVBAR SUR MOBILE -->
+  <ul id="mobile-demo" class="sidenav">
+    <li>
+      <div class="user-view">
+        <div class="background">
+          <img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg" alt="Background"/>
+        </div>
+        <a href="#">
+          <img class="circle" src="https://cdn.becauseofprog.fr/logos/bop-transparent.png" alt="Logo BOP"/>
+        </a>
+        <a href="/"><span class="white-text name">BecauseOfProg</span></a>
+        <a href="/"><span class="white-text email">Le site</span></a>
+      </div>
+    </li>
+    <li><a href="/categorie/software"><i class="material-icons left">web</i>Software</a></li>
+    <li><a href="/type/tutorial"><i class="material-icons left">code</i>Tutoriels</a></li>
+    <li><a href="/categorie/security"><i class="material-icons left">https</i>Sécurité</a></li>
+    <li><a href="/categorie/web"><i class="material-icons left">public</i>Web</a></li>
+    <li><a href="/categorie/hardware"><i class="material-icons left">sim_card</i>Hardware</a></li>
+    <li><a href="/categorie/programming"><i class="material-icons left">code</i>Programmation</a></li>
+    <li><a href="/categorie/android"><i class="material-icons left">android</i>Android</a></li>
+    <li><a href="/categorie/linux"><i class="material-icons left">developer_board</i>Linux</a></li>
+    <li><a href="/categorie/windows"><i class="material-icons left">dashboard</i>Windows</a></li>
+    <li>
+      <div class="divider"></div>
+    </li>
+    <li><a href="/blog"><i class="material-icons left">description</i>Tous les articles</a></li>
+    <li><a href="/page/search"><i class="material-icons left">search</i>Rechercher</a></li>
+    <li><a href="/page/projects"><i class="material-icons left">library_books</i>Projets</a></li>
+    <li><a href="/page/links"><i class="material-icons left">link</i>Liens</a></li>
+    <li><a href="/page/about"><i class="material-icons left">info</i>A propos</a></li>
+    <li><a class="waves-effect waves-light btn red darken-3" href="/login">Connexion</a></li>
+    <li><a class="waves-effect sidenav-trigger" data-target="mobile-demo" href="#">
+      <i class="material-icons left">close</i>
+      Fermer le menu
+    </a></li>
+  </ul>
+  <!-- NAVBAR SUR PC -->
+
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper red darken-4">
+        <a href="/" class="logo brand-logo">
+          <span class="no-mobile">
+            <img src="https://cdn.becauseofprog.fr/logos/bop-transparent.png" alt="Logo BOP">
+          </span>
+          &nbsp;BecauseOfProg
+        </a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/blog"><i class="material-icons left">description</i>Tous les articles</a></li>
+          <li><a href="/page/projects"><i class="material-icons left">library_books</i>Projets</a></li>
+          <li><a href="/page/links"><i class="material-icons left">link</i>Liens</a></li>
+          <li><a href="/page/search"><i class="material-icons left">search</i></a></li>
+          <li><a class="waves-effect waves-light btn red darken-2" href="/account">Mon compte</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+
+{% endblock %}
+
+{% block content %}{% endblock %}
+
+{% block footer %}
+  <footer class="page-footer red darken-4">
+    <div class="container" style="padding-bottom: 20px;">
+      Réalisé par l'équipe BecauseOfProg
+      <a class="grey-text text-lighten-4 right" href="/page/about">À propos</a>
+    </div>
+  </footer>
+{% endblock %}
+<script src="https://cdn.becauseofprog.fr/static-v3/materialize.min.js"></script>
+<script src="/static/bundle.js"></script>
+</body>
+</html>

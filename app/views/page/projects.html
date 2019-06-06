@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+{% block title %}Projets - BecauseOfProg{% endblock %}
+{% block description %}Les projets BecauseOfProg{% endblock %}
+{% block url %}https://becauseofprog.fr/page/projects{% endblock %}
+{% block image %}https://cdn.becauseofprog.fr/logos/bop-transparent.png{% endblock %}
+{% block author %}Équipe BecauseOfProg{% endblock %}
+
+{% block content %}
+<div class="welcome parallax-container">
+  <div class="parallax">
+    <img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg" alt="Fond BecauseOfProg"/>
+  </div>
+  <img src="https://cdn.becauseofprog.fr/logos/bop-transparent.png" class="responsive-img bop-logo" alt="Logo BOP">
+  <h2 class="header white-text">Projets - BecauseOfProg</h2>
+  <h5 class="subtitle grey-text">Tous les projets menés par les membres de la team BecauseOfProg</h5>
+</div>
+
+<div class="row container">
+  <p class="bop-breadcrumb">
+    <a href="/" class="black-text">BecauseOfProg</a><i class="material-icons">chevron_right</i>
+    <a href="#" class="black-text">Projets</a>
+  </p>
+  <p>Cette page sera complétée ultérieurement</p>
+  <div class="collection">
+    {% for project in projects %}
+      <a href="{{project.link}}" class="collection-item red-text text-darken-4">{{project.name}}</a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

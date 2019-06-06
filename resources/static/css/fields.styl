@@ -1,0 +1,25 @@
+/*
+ * This file contains the form fields coloration, so they fit on our design.
+ */
+
+// Importing the file in which our color is saved
+@import 'colors.styl'
+
+// Adding a border to form fields
+.file-path-wrapper input[class=file-path]:focus
+.input-field textarea[class=materialize-textarea]:focus
+.input-field input[type=email]:focus
+.input-field input[type=password]:focus
+.input-field input[type=url]:focus
+.input-field input[type=text]:focus
+  border-bottom: 1px solid primary
+  box-shadow: 0 1px 0 0 primary
+
+// Coloring the label of form fields into the theme color
+.input-field textarea[class=materialize-textarea]:focus + label
+.input-field select option
+.input-field input[type=email]:focus + label
+.input-field input[type=password]:focus + label
+.input-field input[type=url]:focus + label
+.input-field input[type=text]:focus + label
+  color: primary

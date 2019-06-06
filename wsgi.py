@@ -1,8 +1,7 @@
-from app import application
+from core.database import db
+from core.app import application
 
-from views import index, article, blog, category, type, misc
-from views.page import about, app, links, search, projects
-from views.members import account, new_post
+from config import routes
 
 if __name__ == '__main__':
-    application.run()
+  application.run()

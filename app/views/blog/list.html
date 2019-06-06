@@ -1,0 +1,139 @@
+{% extends "index.html" %}
+{% block title %}{{ name }} - BecauseOfProg{% endblock %}
+{% block description %}Tous les articles tagués {{ type }} sur le blog.{% endblock %}
+{% block url %}https://becauseofprog.fr{% endblock %}
+{% block image %}https://cdn.becauseofprog.fr/logos/bop-transparent.png{% endblock %}
+{% block author %}Équipe BecauseOfProg{% endblock %}
+
+{% block content %}
+
+  {% if template == "search" %}
+    <div class="welcome parallax-container">
+      <div class="parallax">
+        <img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg" alt="Fond BecauseOfProg"/>
+      </div>
+      <h4 class="header white-text"><i class="material-icons md-48">search</i></h4>
+      <h3 class="header white-text">Rechercher sur le blog</h3>
+      <nav class="container">
+        <div class="nav-wrapper red darken-3">
+          <form action="/page/search">
+            <div class="input-field">
+              <input id="search" type="search" name="s" value="{{ keyword }}" required>
+              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
+            </div>
+          </form>
+        </div>
+      </nav>
+    </div>
+  {% else %}
+    <div class="welcome parallax-container h250px">
+      <div class="parallax"><img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg"></div>
+      <h4 class="header white-text">
+        <i class="material-icons md-48">{{ icon }}</i><br>
+        {{ template.title() }} - {{ name }} - BecauseOfProg</h4>
+    </div>
+  {% endif %}
+
+  <div class="container">
+    <p class="bop-breadcrumb">
+      <a href="/" class="black-text">BecauseOfProg</a><i class="material-icons">chevron_right</i>
+      <a class="black-text">{{ template.title() }}</a><i class="material-icons">chevron_right</i>
+      <a href=".." class="black-text">{{ name }}</a>
+    </p>
+    <div class="row">
+      <div class="col m9">
+        {% for article in articles %}
+          <div class="card">
+            <div class="card-image">
+              <a href="/article/{{ article.url }}">
+                <img src="{{ image_proxy(article.banner, 477,268) }}" alt="{{article.title}}">
+              </a>
+            </div>
+            <div class="card-stacked">
+              <div class="card-content">
+              <span class="card-title grey-text text-darken-4">
+                <a class="black-text" href="/article/{{ article.url }}">
+                  {{ article.title }}
+                </a>
+              </span>
+                <a class="no-style-link" href="/user/{{ article.author.username }}">
+                  <div class="chip">
+                    <img src="{{ image_proxy(article.author.avatar, 32,32) }}" alt="Photo de profil de l'auteur">
+                    {{ article.author.displayname }}
+                  </div>
+                </a>
+                {% if template != "type" %}
+                  <div class="chip">
+                    <a class="no-style-link" href="/type/{{ article.type }}">
+                      {{ types[article.type].name }}
+                    </a>
+                  </div>
+                {% endif %}
+                {% if template != "Catégorie" %}
+                  <div class="chip">
+                    <a class="no-style-link" href="/categorie/{{ article.category }}">
+                      {{ categories[article.category].name }}
+                      </a>
+                  </div>
+                {% endif %}
+                <div class="chip">{{ article.timestamp.strftime('%d/%m/%Y') }}</div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        {% if data|length > 9 %}
+          <a class="waves-effect waves-light btn red darken-4" href="{{ page+1 }}">
+            <i class="material-icons right">keyboard_arrow_right</i>
+            Page suivante
+          </a>
+        {% endif %}
+      </div>
+      <div class="col m3">
+        <ul class="collection z-depth-2">
+          {% for url, category in categories.items() %}
+            <li class="collection-item"><a class="red-text text-darken-4" href="/categorie/{{url}}"><i
+            class="material-icons left">{{category.icon}}</i>{{category.name}}</a></li>
+          {% endfor %}
+          {% for url, type in types.items() %}
+            <li class="collection-item"><a class="red-text text-darken-4" href="/type/{{url}}"><i
+            class="material-icons left">{{type.icon}}</i>{{type.name}}</a></li>
+          {% endfor %}
+          <li class="collection-item">
+            <h5>Nous suivre</h5>
+            <div class="row">
+              <div class="col s4 m6"><a href="https://twitter.com/BecauseOfProg"><img
+                src="https://cdn.becauseofprog.fr/static-v3/twitter-300.png" alt="Logo Twitter"
+                class="circle responsive-img"></a></div>
+              <div class="col s4 m6"><a href="http://discord.becauseofprog.fr"><img
+                src="https://cdn.becauseofprog.fr/static-v3/discord-300.png" alt="Logo Discord"
+                class="circle responsive-img"></a></div>
+              <div class="col s4 m6"><a
+                href="mailto:?subject=Le%20blog%20BecauseOfProg?body=Je%20vous%20invite%20à%20visiter%20le%20blog%20BecauseOfProg:%20des%20actualités%20et%20découvertes%20publiées%20par%20des%20passionnés%20de%20développement.%20https://becauseofprog.fr"><img
+                src="https://cdn.becauseofprog.fr/static-v3/mail-300.png" alt="Arobase-email"
+                class="circle responsive-img"></a></div>
+              <div class="col s4 m6"><a href="https://github.com/BecauseOfProg"><img
+                src="https://cdn.becauseofprog.fr/static-v3/github-300.png" alt="Logo Github"
+                class="circle responsive-img"></a></div>
+            </div>
+          </li>
+          <li class="collection-item">
+            <h5>A propos</h5>
+            <p>BecauseOfProg, c'est des développeurs rassemblés autour de projets communs tels que le blog. </p>
+            <a class="waves-effect waves-light btn red darken-4" href="/page/about"><i
+              class="material-icons right">info</i>En savoir plus</a>
+          </li>
+          <!--<li class="collection-item">
+            <h5>Sur le devblog...</h5>
+            <p>{{ devblog.title }}</p>
+            <a class="waves-effect waves-light btn red darken-4"
+               href="https://becauseofprog.fr/news/{{ devblog.url }}">
+              <i class="material-icons right">info</i>
+              Lire
+            </a>
+            </li>-->
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}

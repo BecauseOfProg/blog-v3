@@ -1,0 +1,51 @@
+{% extends "index.html" %}
+{% block title %}Connexion - Compte BecauseOfProg{% endblock %}
+{% block description %}Connectez vous sur le site de BecauseOfProg{% endblock %}
+{% block url %}https://becauseofprog.fr/login{% endblock %}
+{% block image %}https://cdn.becauseofprog.fr/logos/bop-transparent.png{% endblock %}
+{% block author %}Équipe BecauseOfProg{% endblock %}
+
+{% block content %}
+  <div class="welcome parallax-container h250px">
+    <div class="parallax">
+      <img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg" alt="Fond BecauseOfProg"/>
+    </div>
+    <h4 class="header white-text">
+      <i class="material-icons md-48">account_circle</i>
+      <br>Connexion - BecauseOfProg
+    </h4>
+  </div>
+  <div class="container row">
+    <div class="col l8 s12">
+      <div class="card hoverable">
+        <div class="card-content">
+          {% if error %}<p>{{ error }}</p>{% endif %}
+          <p>Pour profiter de certaines fonctionnalités du site et empêcher le spam, vous devez vous connecter à votre
+            compte BecauseOfProg.</p>
+          <form method="post">
+            <div class="input-field col s12">
+              <input id="username" type="email" class="validate" name=username>
+              <label for="username">E-mail</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="password" type="password" class="validate" name=password>
+              <label for="password">Mot de passe</label>
+            </div>
+            <button class="btn waves-effect waves-light red darken-4" type="submit" name="action">Se connecter
+              <i class="material-icons right">send</i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col l4 s12">
+      <ul class="collection z-depth-2">
+        <li class="collection-item">
+          <h5>Votre compte BecauseOfProg</h5>
+          <p>Votre compte est global, utilisable sur le site entier. Nous mettons tout en oeuvre pour assurer la
+            sécurité et la confidentialité de vos données sur nos serveurs.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
