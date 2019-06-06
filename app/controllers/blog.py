@@ -17,13 +17,8 @@ class BlogController:
   @db_session
   def show_home():
     '''Homepage of your blog-old'''
-    last = (
-      select(
-        (a.title, a.description, a.banner, a.url, a.timestamp) for a in Articles)
-        .order_by(-5)
-        .first()
-    )
-    lasts_art = select(a for a in Articles).order_by(desc(Articles.timestamp))[1:4]
+    last = Articles.select().order_by(desc(Articles.timestamp)).first()
+    lasts_art = Articles.select().order_by(desc(Articles.timestamp))[1:4]
     list_of_dict = []
     for item in lasts_art:
       list_of_dict.append(fill_informations(item))

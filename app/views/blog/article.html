@@ -12,7 +12,9 @@
 
 {% block content %}
   <div class="welcome parallax-container darker-bg">
-    <div class="parallax"><img src="{{ article.banner }}"></div>
+    <div class="parallax">
+      <img src="{{ article.banner }}" alt="{{ article.title }}"/>
+    </div>
     <h2 class="header white-text lower-title">{{ article.title }}</h2>
     <h5 class="subtitle grey-text lower-title">Publié par <b>{{ author.displayname }}</b>
       le {{ datetime.datetime.utcfromtimestamp(article.timestamp).strftime('%d/%m/%Y à %H:%M') }}</h5>
@@ -111,7 +113,7 @@
       <div class="col s12">
         <div class="card author-card horizontal">
           <div class="card-image">
-            <img src="{{ author.avatar }}">
+            <img src="{{ author.avatar }}" alt="Photo de profil de {{ author.displayname }}"/>
           </div>
           <div class="card-stacked">
             <div class="card-content">
@@ -120,7 +122,7 @@
             </div>
             <div class="card-action">
               <a href="https://becauseofprog.fr/user/{{ article.author.username }}">
-                <img src="https://cdn.becauseofprog.fr/logos/bop-transparent.png">
+                <img src="https://cdn.becauseofprog.fr/logos/bop-transparent.png" alt="Logo BecauseOfProg"/>
               </a>
               <!--{% if author.socials != "Non renseigné" %}<a href="https://twitter.com/{{ author.socials }}">
                   <img src="https://cdn.becauseofprog.fr/syst-icons/twitter.png">

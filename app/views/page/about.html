@@ -27,7 +27,9 @@
   </div>
 
   <div class="welcome parallax-container">
-    <div class="parallax"><img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg"></div>
+    <div class="parallax">
+      <img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg" alt="Fond BecauseOfProg"/>
+    </div>
     <img src="https://cdn.becauseofprog.fr/logos/bop-transparent.png" class="responsive-img bop-logo" alt="Logo BOP">
     <h2 class="header white-text">À propos - BecauseOfProg</h2>
     <h5 class="subtitle grey-text">Toutes les informations utiles sur la BecauseOfProg</h5>
@@ -72,7 +74,8 @@
       <div class="col s12 m6 l4">
         <div class="card sticky-action large hoverable" style="height:auto">
           <div class="card-image">
-            <img class="responsive-img" src="{{ image_proxy(user.avatar, 400,400) }}">
+            <img class="responsive-img" src="{{ image_proxy(user.avatar, 400,400) }}"
+              alt="Photo de profil de {{ user.displayname }}"/>
             <span class="card-title" style="background-color: rgba(50, 54, 56, 0.4)">{{ user.displayname }}</span>
           </div>
           <div class="card-content">
@@ -139,7 +142,7 @@
             Des mises à jour régulières sont effectuées grâce à la communauté qui rapporte
             les différents bugs. Merci à Stengarlis pour la modération.
           </p>
-          <p>Remerciements à :
+          <p>Remerciements à : </p>
             <li>Materialize (Alvin Wang et contributeurs) v1.0 - MIT</li>
             <li>Flask (Armin Ronacher, Pallets Projects et contributeurs) - BSD</li>
             <li>Python 3.7 (Python Software Foundation, et contributeurs)</li>
@@ -150,7 +153,6 @@
             <li>Gitea et ses contributeurs</li>
             <li>GitHub (GitHub Inc.)</li>
             <li>RSS par Aaron Swartz</li>
-          </p>
         </div>
       </div>
     </div>

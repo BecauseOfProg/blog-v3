@@ -24,20 +24,18 @@
 
 <!-- Presentation carousel -->
 <div class="carousel carousel-slider center">
-  <div class="carousel-item white-text" href="#one!"
-     style="background: url(https://cdn.becauseofprog.fr/syst-images/bg.jpg)">
+  <div class="carousel-item white-text" style="background: url(https://cdn.becauseofprog.fr/syst-images/bg.jpg)">
     <h3>BecauseOfProg</h3>
     <h5 class="light grey-text text-lighten-3">Blog autour de la programmation créé par des passionnés</h5>
     <a class="waves-effect waves-light btn red darken-4 center" href="/page/search">Recherche</a>
   </div>
-  <div class="carousel-item white-text" href="#two!"
-     style="background: url(https://cdn.becauseofprog.fr/syst-images/dev.jpg)">
+  <div class="carousel-item white-text" style="background: url(https://cdn.becauseofprog.fr/syst-images/dev.jpg)">
     <h3>Nos outils</h3>
     <h5 class="light grey-text text-lighten-3">Nous proposons plusieurs outils et services gratuits</h5>
     <a class="waves-effect waves-light btn red darken-4 center white-text" href="/page/projects">En savoir plus</a>
   </div>
-  <div class="carousel-item white-text" href="#three!"
-     style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ devblog.banner }})">
+  <div class="carousel-item white-text"
+    style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ devblog.banner }})">
     <h3>Sur notre devblog...</h3>
     <h5 class="light white-text text-lighten-3">{{ devblog.title }}</h5>
     <a class="waves-effect waves-light btn red darken-4 center"
@@ -46,19 +44,21 @@
 </div>
 
 <!-- Last article -->
-<div class="container">
-  <div class="row">
-    <a class="black-text center" href="/article/{{ last[3] }}" id="main">
-      <div class="col-md-2 col-md-offset-5">
-        <p class="btn red darken-4">
-          <i class="material-icons left">history</i>
-          Nouveau!
-        </p>
-      </div>
-      <h2 class="bop-title">{{ last[0] }}</h2>
-      <p>{{ last[1] }}</p>
-      <img src="{{ image_proxy(last[2], 678, 365) }}" alt="Dernier article" class="center responsive-img">
-    </a>
+<div class="row container">
+  <div class="card hoverable">
+    <div class="card-content">
+      <a class="black-text center" href="/article/{{ last.url }}" id="main">
+        <div class="col-md-2 col-md-offset-5">
+          <p class="btn red darken-4">
+            <i class="material-icons left">history</i>
+            Nouveau!
+          </p>
+        </div>
+        <h2 class="bop-title">{{ last.title }}</h2>
+        <p>{{ last.description }}</p>
+        <img src="{{ image_proxy(last.banner, 678, 365) }}" alt="{{last.title}}" class="center responsive-img">
+      </a>
+    </div>
   </div>
 </div>
 
