@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <!-- Tous les posts sur BecauseOfProg -->
-   {% for item in data %}
+   {% for article in articles %}
    <url>
-      <loc>https://becauseofprog.fr/article/{{ item[0] }}</loc>
-      <lastmod>{{ time_to_rss(item[1]) }}</lastmod>
+      <loc>https://becauseofprog.fr/article/{{ article.url }}</loc>
+      <lastmod>{{ time_to_rss(article.timestamp) }}</lastmod>
       <priority>0.7</priority>
    </url>
    {% endfor %}

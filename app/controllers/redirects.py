@@ -17,6 +17,6 @@ class RedirectsController:
     return redirect('/page/app')
 
   @staticmethod
-  def redirect_courses(whatever):
+  def redirect_courses(_):
     '''Redirects blog-old page'''
     return redirect('/type/tutorial/')

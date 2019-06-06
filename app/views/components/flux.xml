@@ -5,18 +5,18 @@
     <description>Flux RSS de l'intégralité du site de la BecauseOfProg.</description>
     <link>https://becauseofprog.fr</link>
     <atom:link href="https://becauseofprog.fr/tout.rss" rel="self" type="application/rss+xml" />
-    {% for item in data %}
+    {% for article in articles %}
     <item>
-        <title>{{ item[0] }} </title>
-        <link>https://blog.becauseofprog.fr/article/{{ item[3] }}</link>
-        <guid isPermaLink="true">https://blog.becauseofprog.fr/article/{{ item[3] }}</guid>
-        <dc:creator>{{ item[4].title() }}</dc:creator>
-        <pubDate>{{ time_to_rss(item[5]) }}</pubDate>
-        <comments>https://blog.becauseofprog.fr/article/{{ item[3] }}</comments>
+        <title>{{ article.title }} </title>
+        <link>https://becauseofprog.fr/article/{{ article.url }}</link>
+        <guid isPermaLink="true">https://becauseofprog.fr/article/{{ article.url }}</guid>
+        <dc:creator>{{ article.author.title() }}</dc:creator>
+        <pubDate>{{ time_to_rss(article.timestamp) }}</pubDate>
+        <comments>https://becauseofprog.fr/article/{{ article.url }}</comments>
         <description>
-            {{ item[1] }}
+            {{ article.description }}
         </description>
-        <enclosure url="{{ item[2] }}" type="image/jpeg" />
+        <enclosure url="{{ article.banner }}" type="image/jpeg" />
     </item>
     {% endfor %}
   </channel>

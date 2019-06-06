@@ -1,9 +1,11 @@
+from flask import render_template
 from core.app import application
 from app.controllers.blog import BlogController
 from app.controllers.redirects import RedirectsController
 from app.controllers.page import PageController
 from app.controllers.members import MembersController
 from app.controllers.staff import StaffController
+from app.controllers.misc import MiscController
 
 # ----------------- BLOG -----------------
 
@@ -47,3 +49,17 @@ application.add_url_rule('/app/', None, RedirectsController.redirect_app)
 application.add_url_rule('/members/', None, RedirectsController.redirect_about)
 application.add_url_rule('/community/', None, RedirectsController.redirect_about)
 application.add_url_rule('/about/', None, RedirectsController.redirect_about)
+
+# ----------------- MISC -----------------
+
+application.add_url_rule('/pwabuilder-sw.js', None, MiscController.get_pwa)
+application.add_url_rule('/blog.rss', None, MiscController.get_rss)
+application.add_url_rule('/tout.rss', None, MiscController.get_rss)
+application.add_url_rule('/sitemap-articles.xml', None, MiscController.get_sitemap)
+
+@application.errorhandler(404)
+def page_not_found(_):
+  '''Returns the 404 error page'''
+  erreur = "La page recherchée n'existe pas! (404)"
+  return render_template('components/erreur.html',
+                         erreur=erreur), 404
