@@ -37,3 +37,7 @@ utils/__pycache__/
 doc/
 
 config.json
+
+resources/static/bundle.css
+resources/static/bundle.js
+resources/static/bundle.js.map
