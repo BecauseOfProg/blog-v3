@@ -57,9 +57,9 @@ application.add_url_rule('/blog.rss', None, MiscController.get_rss)
 application.add_url_rule('/tout.rss', None, MiscController.get_rss)
 application.add_url_rule('/sitemap-articles.xml', None, MiscController.get_sitemap)
 
+
 @application.errorhandler(404)
 def page_not_found(_):
-  '''Returns the 404 error page'''
-  erreur = "La page recherchée n'existe pas! (404)"
-  return render_template('components/erreur.html',
-                         erreur=erreur), 404
+    '''Returns the 404 error page'''
+    erreur = "La page recherchée n'existe pas! (404)"
+    return render_template('components/erreur.html', erreur=erreur), 404

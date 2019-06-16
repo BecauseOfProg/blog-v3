@@ -39,7 +39,7 @@
     <p class="bop-breadcrumb">
       <a href="/" class="black-text">BecauseOfProg</a><i class="material-icons">chevron_right</i>
       <a class="black-text">{{ template.title() }}</a><i class="material-icons">chevron_right</i>
-      <a href=".." class="black-text">{{ name }}</a>
+      <a href="#" class="black-text">{{ name }}</a>
     </p>
     <div class="row">
       <div class="col m9">
@@ -83,7 +83,10 @@
           </div>
         {% endfor %}
         {% if articles|length > 9 %}
-          <a class="waves-effect waves-light btn red darken-4" href="{{ page+1 }}">
+          {% if template == "Catégorie" %}<a class="waves-effect waves-light btn red darken-4" href="/categorie/{{ type }}/{{ page+1 }}">{% endif %}
+          {% if template == "type" %}<a class="waves-effect waves-light btn red darken-4" href="/type/{{ type }}/{{ page+1 }}">{% endif %}
+          {% if template == "search" %}<a class="waves-effect waves-light btn red darken-4" href="/page/search/{{ keyword }}/{{ page+1 }}">{% endif %}
+          {% if template == "Blog" %}<a class="waves-effect waves-light btn red darken-4" href="/blog/{{ page+1 }}">{% endif %}
             <i class="material-icons right">keyboard_arrow_right</i>
             Page suivante
           </a>
