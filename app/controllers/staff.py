@@ -37,6 +37,7 @@ class StaffController:
           timestamp=time.time(),
           author=username,
           content=request.form['md-editor'],
+          labels=request.form['labels'].split(','),
           article_language="markdown"
         )
         commit()
