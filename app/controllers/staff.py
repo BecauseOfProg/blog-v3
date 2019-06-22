@@ -29,7 +29,7 @@ class StaffController:
         # On envoie les données à MySQL
         a = Articles(
           title=request.form['title'],
-          art_type=request.form['type'],
+          type=request.form['type'],
           category=request.form['category'],
           description=request.form['description'],
           url=request.form['url'],
