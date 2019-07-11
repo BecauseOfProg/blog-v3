@@ -1,5 +1,5 @@
 from pony.orm import db_session
-from flask import render_template, request
+from flask import render_template, request, redirect
 from app.models.user import User
 from app.controllers.blog import BlogController
 from core.utils.links import links_list
@@ -51,10 +51,10 @@ class PageController:
   def search(keyword, page):
     '''Search into articles'''
     if keyword is None:
-      keyword = request.args.get('s', default="", type=str)
+      keyword = request.args.get('q', default="", type=str)
     if page == 0:
       page = request.args.get('page', default=0, type=int)
     if keyword != "":
       return BlogController.show_search(keyword, page)
     else:
-      return render_template('page/search.html')
+      return redirect('/')

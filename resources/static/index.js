@@ -2,6 +2,7 @@
 
 import './js/links-request'
 import './js/materialize-inits'
+import './js/search-bar'
 import './js/service-worker'
 import './js/sharing'
 

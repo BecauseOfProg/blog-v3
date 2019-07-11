@@ -121,12 +121,27 @@
           &nbsp;BecauseOfProg
         </a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="/blog"><i class="material-icons left">description</i>Tous les articles</a></li>
-          <li><a href="/page/projects"><i class="material-icons left">library_books</i>Projets</a></li>
-          <li><a href="/page/links"><i class="material-icons left">link</i>Liens</a></li>
-          <li><a href="/page/search"><i class="material-icons left">search</i></a></li>
-          <li><a class="waves-effect waves-light btn red darken-2" href="/account">Mon compte</a></li>
+        <ul class="row right hide-on-med-and-down">
+          <div id="navbar-links-container">
+            <li><a href="/blog"><i class="material-icons left">description</i>Tous les articles</a></li>
+            <li><a href="/page/projects"><i class="material-icons left">library_books</i>Projets</a></li>
+            <li><a href="/page/links"><i class="material-icons left">link</i>Liens</a></li>
+            <li><a id="search-field-open"><i class="material-icons left">search</i></a></li>
+            <li><a class="waves-effect waves-light btn red darken-2" href="/account">Mon compte</a></li>
+          </div>
+          <div class="col s12 hide" id="search-field-container">
+            <form action="/page/search">
+              <li><input
+                   id="search-field"
+                   type="search"
+                   name="q"
+                   class="validate"
+                   required
+                   placeholder="Recherche..."
+                   style="box-shadow: 0 2px 0 0 white !important; border-bottom: none !important; color: white;"></li>
+              <li><a id="search-field-close"><i class="material-icons left">close</i></a></li>
+            </form>
+          </div>
         </ul>
       </div>
     </nav>

@@ -94,7 +94,7 @@ class BlogController:
     articles = []
     for item in data:
       articles.append(fill_informations(item))
-    return render_template('blog/list.html', articles=articles, template="search",
+    return render_template('blog/list.html', articles=articles, template="site",
                            type="Recherche", name="Recherche", icon="search", keyword=keyword, page=page,
                            types=TYPES, categories=CATEGORIES, devblog=BlogController.get_devblog())
 
