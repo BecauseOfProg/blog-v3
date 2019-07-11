@@ -6,25 +6,87 @@
 {% block author %}Équipe BecauseOfProg{% endblock %}
 
 {% block content %}
-  <div class="welcome parallax-container">
-    <div class="parallax">
-      <img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg" alt="Fond BecauseOfProg"/>
-    </div>
-    <img src="https://cdn.becauseofprog.fr/logos/bop-transparent.png" class="responsive-img bop-logo" alt="Logo BOP">
-    <h2 class="header white-text">Rechercher sur le blog</h2>
-    {% if error %}
-      <div class="container row center"><p>{{ error }}</p></div>
-    {% endif %}
-    <nav class="container row center">
-      <div class="nav-wrapper red darken-4">
-        <form action="/page/search">
-          <div class="input-field">
-            <input id="search" type="search" name="s" value="{{ keyword }}" required>
-            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-            <i class="material-icons">close</i>
+  <div class="welcome parallax-container h250px">
+    <div class="parallax"><img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg"></div>
+    <h4 class="header white-text">
+      <i class="material-icons md-48">search</i><br>
+      Recherche - BecauseOfProg</h4>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <div class="card">
+          <div class="card-content">
+            {% if error %}
+              <p>{{ error }}</p>
+            {% endif %}
+            <form action="/page/search">
+              <div class="input-field">
+                <img
+                  class="prefix"
+                  src="https://www.qwant.com/img/v4/qwant-logo-mini.svg"
+                  style="width: 32px !important"
+                  alt="Logo de Qwant"
+                  />
+                <input
+                  id="search-field"
+                  type="search"
+                  name="q"
+                  class="validate"
+                  required
+                  placeholder="Recherche..."
+                  style="box-shadow: 0 2px 0 0 #b71c1c !important; border-bottom: none !important; color: black;"
+                  />
+              </div>
+            </form>
+            <h5>Catégories suggérées</h5>
+            {% for url, category in categories.items() %}
+            <a class="black-text chip" href="/categorie/{{url}}">
+              <i class="material-icons left icon-chip">{{category.icon}}</i>
+              {{category.name}}
+            </a>
+          {% endfor %}
           </div>
-        </form>
+        </div>
       </div>
-    </nav>
+    </div>
+
+    <div class="row">
+      {% for post in lasts %}
+        <div class="col s12 m6 l4 xl4">
+          <div class="card sticky-action hoverable">
+            <div class="card-image">
+              <a class="black-text" href="/article/{{ post.url }}">
+                <img src="{{ image_proxy(post.banner, 800, 449.7) }}" alt="Illustration de {{ post.title }} ">
+              </a>
+              <a href="/type/{{ post.type }}" class="btn-floating halfway-fab waves-effect waves-light red darken-4">
+                <i class="material-icons">{{types[post.type].icon}}</i>
+              </a>
+            </div>
+            <div class="card-content">
+              <span class="card-title grey-text text-darken-4">
+                <a class="black-text" href="/article/{{ post.url }}">
+                  {{ post.title }}
+                </a>
+              </span>
+              <p>{{ post.description }}</p>
+              <p>&nbsp;</p>
+              <a class="no-style-link" href="https://becauseofprog.fr/user/{{ post.author.username }}">
+                <div class="chip">
+                  <img src="{{ image_proxy(post.author.avatar, 32,32) }}" alt="Photo de profil de l'auteur">
+                  {{ post.author.displayname }}
+                </div>
+              </a>
+              <div class="chip">{{ post.timestamp.strftime('%d/%m/%Y') }}</div>
+              <div class="chip">
+                <a class="no-style-link" href="/categorie/{{ post.category }}">
+                  {{ categories[post.category].name }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
   </div>
 {% endblock %}

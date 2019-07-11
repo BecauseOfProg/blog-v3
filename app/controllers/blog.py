@@ -84,22 +84,6 @@ class BlogController:
 
   @staticmethod
   @db_session
-  def show_search(keyword, page):
-    keyword = keyword.lower()
-    data = Articles.select(lambda a: keyword in a.title.lower() or keyword in a.description.lower()).order_by(
-      desc(Articles.timestamp))[page * 10:page * 10 + 10]
-    if data == []:
-      erreur = "Votre recherche n'a donné aucun résultat. Vous pouvez entrer un autre mot clé :"
-      return render_template('page/search.html', error=erreur)
-    articles = []
-    for item in data:
-      articles.append(fill_informations(item))
-    return render_template('blog/list.html', articles=articles, template="site",
-                           type="Recherche", name="Recherche", icon="search", keyword=keyword, page=page,
-                           types=TYPES, categories=CATEGORIES, devblog=BlogController.get_devblog())
-
-  @staticmethod
-  @db_session
   def show_article(url):
     '''Displays an article with a given url'''
     try:
