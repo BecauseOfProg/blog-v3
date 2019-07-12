@@ -12,7 +12,7 @@
   <div class="nav-wrapper semitransparent">
     <ul class="center hide-on-med-and-down">
       {% for url, category in categories.items() %}
-        <li>
+        <li class="waves-effect waves-light">
           <a href="/categorie/{{url}}">
             <i class="material-icons left">
               <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
@@ -22,7 +22,7 @@
         </li>
       {% endfor %}
       {% for url, type in types.items() %}
-        <li>
+        <li class="waves-effect waves-light">
           <a href="/type/{{url}}">
             <i class="material-icons left">
               <span class="iconify" data-icon="mdi-{{type.icon}}"></span>
@@ -96,13 +96,13 @@
           <p>{{ post.description }}</p>
           <p>&nbsp;</p>
           <a class="no-style-link" href="https://becauseofprog.fr/user/{{ post.author.username }}">
-            <div class="chip">
+            <div class="chip waves-effect">
               <img src="{{ image_proxy(post.author.avatar, 32,32) }}" alt="Photo de profil de {{ post.author.displayname }}">
               {{ post.author.displayname }}
             </div>
           </a>
           <div class="chip">{{ post.timestamp.strftime('%d/%m/%Y') }}</div>
-          <div class="chip">
+          <div class="chip waves-effect">
             <a class="no-style-link" href="/categorie/{{ post.category }}">
               {{ categories[post.category].name }}
             </a>
@@ -117,7 +117,7 @@
   <div class="row">
     <div class="col s12 m6">
       <ul class="collection with-header z-depth-2">
-        <li class="collection-header"><h4>Les liens</h4></li>
+        <li class="collection-header"><h4 class="red-text text-darken-4">Les liens</h4></li>
         <div id="display"></div>
       </ul>
     </div>
@@ -125,31 +125,38 @@
 
       <ul class="collection z-depth-2">
         <li class="collection-item">
-          <h5>Nous suivre</h5>
+          <h5 class="red-text text-darken-4">Nous suivre</h5>
           <div class="row">
-            <div class="col s2"><a href="https://twitter.com/BecauseOfProg"><img
-              src="https://cdn.becauseofprog.fr/static-v3/twitter-300.png" alt="Logo Twitter"
-              class="circle responsive-img"></a></div>
-            <div class="col s2"><a href="http://discord.becauseofprog.fr"><img
-              src="https://cdn.becauseofprog.fr/static-v3/discord-300.png" alt="Logo Discord"
-              class="circle responsive-img"></a></div>
-            <div class="col s2"><a
-              href="mailto:?subject=Le%20blog%20BecauseOfProg?body=Je%20vous%20invite%20à%20visiter%20le%20blog%20BecauseOfProg:%20des%20actualités%20et%20découvertes%20publiées%20par%20des%20passionnés%20de%20développement.%20https://becauseofprog.fr"><img
-              src="https://cdn.becauseofprog.fr/static-v3/mail-300.png" alt="Arobase-email"
-              class="circle responsive-img"></a></div>
-            <div class="col s2"><a href="https://github.com/BecauseOfProg"><img
-              src="https://cdn.becauseofprog.fr/static-v3/github-300.png" alt="Logo Github"
-              class="circle responsive-img"></a></div>
+            <a class="blue-text text-lighten-2" href="https://twitter.com/BecauseOfProg">
+              <i class="material-icons large">
+                <span class="iconify" data-icon="mdi-twitter"></span>
+              </i>
+            </a>
+            <a class="blue-text text-darken-1" href="https://discord.becauseofprog.fr">
+              <i class="material-icons large">
+                <span class="iconify" data-icon="mdi-discord"></span>
+              </i>
+            </a>
+            <a class="teal-text" href="https://mstdn.io/@bop">
+              <i class="material-icons large">
+                <span class="iconify" data-icon="mdi-mastodon"></span>
+              </i>
+            </a>
+            <a class="black-text" href="https://github.com/BecauseOfProg">
+              <i class="material-icons large">
+                <span class="iconify" data-icon="mdi-github-circle"></span>
+              </i>
+            </a>
           </div>
         </li>
         <li class="collection-item">
-          <h5>A propos de nous</h5>
+          <h5 class="red-text text-darken-4">A propos de nous</h5>
           <p>La BecauseOfProg, c'est plusieurs développeurs rassemblés autour de projets communs, dont ce blog, depuis février 2017.
             Nous souhaitons avant tout nous améliorer dans nos domaines (développement, administration système,
             sécurité informatique...) et partager notre passion.
             Sur ce blog, nous partageons nos trouvailles, nos projets, notre point de vue.
           </p>
-          <a class="waves-effect waves-light btn red darken-4" href="/page/about">
+          <a class="btn-flat waves-effect red-text text-darken-4" href="/page/about">
             <i class="material-icons right">
               <span class="iconify" data-icon="mdi-information-outline"></span>
             </i>

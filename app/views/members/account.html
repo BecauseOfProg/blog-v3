@@ -23,14 +23,14 @@
         <div class="card-content">
           <p>Bienvenue sur votre compte BecauseOfProg, {{ user.displayname }}. Cette page sera complétée ultérieurement.</p>
           {% if "BLOG_WRITE" in user.permissions %}
-            <a class="btn red darken-4" href="/new-post">
+            <a class="btn-flat waves-effect red-text text-darken-4" href="/new-post">
               <i class="material-icons left">
                 <span class="iconify" data-icon="mdi-pencil"></span>
               </i>
               Écrire un article
             </a>
           {% endif %}
-          <a class="btn red darken-4" href="/logout">
+          <a class="btn-flat waves-effect red-text text-darken-4" href="/logout">
             <i class="material-icons left">
               <span class="iconify" data-icon="mdi-logout"></span>
             </i>
@@ -65,7 +65,7 @@
     <div class="col l4 s12">
       <ul class="collection z-depth-2">
         <li class="collection-item">
-          <h5>Votre compte BecauseOfProg</h5>
+          <h5 class="red-text text-darken-4">Votre compte BecauseOfProg</h5>
           <p>Votre compte est global, utilisable sur le site entier. Nous mettons tout en oeuvre pour assurer la
             sécurité et la confidentialité de vos données sur nos serveurs.</p>
         </li>

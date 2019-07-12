@@ -32,7 +32,7 @@
       <ul class="collapsible">
         {% for i in range(len_links) %}
           <li>
-            <div class="collapsible-header">
+            <div class="collapsible-header waves-effect">
               <i class="material-icons">
                 <span class="iconify" data-icon="mdi-earth"></span>
               </i>
@@ -58,9 +58,9 @@
     <div class="col l3 m3 s12">
       <ul class="collection z-depth-2">
         <li class="collection-item">
-          <h5>A propos</h5>
+          <h5 class="red-text text-darken-4">A propos</h5>
           <p>BecauseOfProg, c'est des développeurs rassemblés autour de projets communs tels que le blog.</p>
-          <a class="waves-effect waves-light btn red darken-4" href="/page/about">
+          <a class="btn-flat waves-effect red-text text-darken-4" href="/page/about">
             <i class="material-icons right">
               <span class="iconify" data-icon="mdi-information-outline"></span>
             </i>
@@ -68,7 +68,7 @@
           </a>
         </li>
         <li class="collection-item">
-          <h5>Blogroll</h5>
+          <h5 class="red-text text-darken-4">Blogroll</h5>
         </li>
         {% for blog in blogroll %}
           <li class="collection-item hoverable"><a href="{{blog.link}}" class="black-text">{{blog.name}}</a></li>

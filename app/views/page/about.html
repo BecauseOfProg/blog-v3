@@ -69,7 +69,9 @@
     </div>
   </div>
   <div class="row container">
-    <h3 class="center">L'équipe</h3>
+    <h3 class="center red-text text-darken-4">
+      L'équipe
+    </h3>
     {% for user in staff %}
       <div class="col s12 m6 l4">
         <div class="card sticky-action large" style="height:auto">
@@ -92,7 +94,7 @@
     <div class="col s12 m6">
       <div class="card">
         <div class="card-content">
-          <h5 class="no-margin">Contact</h5>
+          <h5 class="no-margin red-text text-darken-4">Contact</h5>
           <ul class="collection no-border">
             <li class="collection-item avatar">
               <i class="material-icons circle blue lighten-2">
@@ -144,7 +146,7 @@
     <div class="col s12 m6">
       <div class="card">
         <div class="card-content">
-          <h5 class="no-margin">Crédits</h5>
+          <h5 class="no-margin red-text text-darken-4">Crédits</h5>
           <p>Ce blog a été développé par Exybore et Gildas GH.
             Logo "BecauseOfProg" créé par kernoeb.
             Des mises à jour régulières sont effectuées grâce à la communauté qui rapporte
@@ -173,10 +175,24 @@
       <div class="card-content">
         <h5 class="no-margin">Mentions légales</h5>
         <br/>
-        <a class="waves-effect waves-light btn red darken-4 modal-trigger" data-target="cgu-modal" href="cgu-modal">Conditions
-          Générales d'utilisation</a>
-        <a class="waves-effect waves-light btn red darken-4 modal-trigger" data-target="privacy-modal"
-           href="privacy-modal">Protection des données personnelles</a>
+        <a
+          class="btn-flat waves-effect red-text text-darken-4 modal-trigger"
+          data-target="cgu-modal"
+          href="cgu-modal">
+          <i class="material-icons left">
+            <span class="iconify" data-icon="mdi-file-search-outline"></span>
+          </i>
+          Conditions Générales d'utilisation
+        </a>
+        <a
+          class="btn-flat waves-effect red-text text-darken-4 modal-trigger"
+          data-target="privacy-modal"
+          href="privacy-modal">
+          <i class="material-icons left">
+            <span class="iconify" data-icon="mdi-shield-account-outline"></span>
+          </i>
+          Protection des données personnelles
+        </a>
       </div>
     </div>
   </div>

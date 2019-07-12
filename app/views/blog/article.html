@@ -90,26 +90,34 @@
       <ul class="collection z-depth-2">
         <li class="collection-item h300px ads" style="display: none"></li>
         <li class="collection-item">
-          <h5>Nous suivre</h5>
+          <h5 class="red-text text-darken-4">Nous suivre</h5>
           <div class="row">
-            <div class="col s3"><a href="https://twitter.com/BecauseOfProg"><img
-              src="https://cdn.becauseofprog.fr/static-v3/twitter-300.png" alt="Logo Twitter"
-              class="circle responsive-img"></a></div>
-            <div class="col s3"><a href="http://discord.becauseofprog.fr"><img
-              src="https://cdn.becauseofprog.fr/static-v3/discord-300.png" alt="Logo Discord"
-              class="circle responsive-img"></a></div>
-            <div class="col s3"><a href="mailto:contact@becauseofprog.fr"><img
-              src="https://cdn.becauseofprog.fr/static-v3/mail-300.png" alt="Arobase-email"
-              class="circle responsive-img"></a></div>
-            <div class="col s3"><a href="https://github.com/BecauseOfProg"><img
-              src="https://cdn.becauseofprog.fr/static-v3/github-300.png" alt="Logo Github"
-              class="circle responsive-img"></a></div>
+            <a class="blue-text text-lighten-2" href="https://twitter.com/BecauseOfProg">
+              <i class="material-icons large">
+                <span class="iconify" data-icon="mdi-twitter"></span>
+              </i>
+            </a>
+            <a class="blue-text text-darken-1" href="https://discord.becauseofprog.fr">
+              <i class="material-icons large">
+                <span class="iconify" data-icon="mdi-discord"></span>
+              </i>
+            </a>
+            <a class="teal-text" href="https://mstdn.io/@bop">
+              <i class="material-icons large">
+                <span class="iconify" data-icon="mdi-mastodon"></span>
+              </i>
+            </a>
+            <a class="black-text" href="https://github.com/BecauseOfProg">
+              <i class="material-icons large">
+                <span class="iconify" data-icon="mdi-github-circle"></span>
+              </i>
+            </a>
           </div>
         </li>
         <li class="collection-item">
-          <h5>A propos</h5>
+          <h5 class="red-text text-darken-4">À propos</h5>
           <p>BecauseOfProg, c'est des développeurs rassemblés autour de projets communs tels que le blog.</p>
-          <a class="waves-effect waves-light btn red darken-4" href="/page/about">
+          <a class="btn-flat waves-effect red-text text-darken-4" href="/page/about">
             <i class="material-icons right">
               <span class="iconify" data-icon="mdi-information-outline"></span>
             </i>
@@ -117,9 +125,9 @@
           </a>
         </li>
         <li class="collection-item">
-          <h5>Catégories</h5>
+          <h5 class="red-text text-darken-4">Catégories</h5>
           {% for url, category in categories.items() %}
-            <a class="black-text chip" href="/categorie/{{url}}">
+            <a class="black-text chip waves-effect" href="/categorie/{{url}}">
               <i class="material-icons left icon-chip">
                 <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
               </i>
