@@ -39,7 +39,7 @@ class BlogController:
     for item in data:
       articles.append(fill_informations(item))
     return render_template('blog/list.html', template="Blog", type='Tous les articles', name='Tous les articles',
-                           articles=articles, icon="description", page=page, types=TYPES, categories=CATEGORIES,
+                           articles=articles, icon="file-document-box-multiple-outline", page=page, types=TYPES, categories=CATEGORIES,
                            devblog=BlogController.get_devblog())
 
   @staticmethod

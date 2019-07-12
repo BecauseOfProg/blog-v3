@@ -9,14 +9,19 @@
   <div class="welcome parallax-container h250px">
     <div class="parallax"><img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg"></div>
     <h4 class="header white-text">
-      <i class="material-icons md-48">{{ icon }}</i><br>
+      <i class="material-icons md-48">
+        <span class="iconify" data-icon="mdi-{{icon}}"></span>
+      </i>
+      <br/>
       {{ template.title() }} - {{ name }} - BecauseOfProg</h4>
   </div>
 
   <div class="container">
     <p class="bop-breadcrumb">
-      <a href="/" class="black-text">BecauseOfProg</a><i class="material-icons">chevron_right</i>
-      <a class="black-text">{{ template.title() }}</a><i class="material-icons">chevron_right</i>
+      <a href="/" class="black-text">BecauseOfProg</a>
+      <i class="material-icons"><span class="iconify" data-icon="mdi-chevron-right"></span></i>
+      <a class="black-text">{{ template.title() }}</a>
+      <i class="material-icons"><span class="iconify" data-icon="mdi-chevron-right"></span></i>
       <a href="#" class="black-text">{{ name }}</a>
     </p>
     <div class="row">
@@ -73,12 +78,24 @@
       <div class="col m3">
         <ul class="collection z-depth-2">
           {% for url, category in categories.items() %}
-            <li class="collection-item"><a class="red-text text-darken-4" href="/categorie/{{url}}"><i
-            class="material-icons left">{{category.icon}}</i>{{category.name}}</a></li>
+            <li class="collection-item">
+              <a class="red-text text-darken-4" href="/categorie/{{url}}">
+                <i class="material-icons left">
+                  <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
+                </i>
+                {{category.name}}
+              </a>
+            </li>
           {% endfor %}
           {% for url, type in types.items() %}
-            <li class="collection-item"><a class="red-text text-darken-4" href="/type/{{url}}"><i
-            class="material-icons left">{{type.icon}}</i>{{type.name}}</a></li>
+            <li class="collection-item">
+              <a class="red-text text-darken-4" href="/type/{{url}}">
+                <i class="material-icons left">
+                  <span class="iconify" data-icon="mdi-{{type.icon}}"></span>
+                </i>
+                {{type.name}}
+              </a>
+            </li>
           {% endfor %}
           <li class="collection-item">
             <h5>Nous suivre</h5>
@@ -101,8 +118,12 @@
           <li class="collection-item">
             <h5>A propos</h5>
             <p>BecauseOfProg, c'est des développeurs rassemblés autour de projets communs tels que le blog. </p>
-            <a class="waves-effect waves-light btn red darken-4" href="/page/about"><i
-              class="material-icons right">info</i>En savoir plus</a>
+            <a class="waves-effect waves-light btn red darken-4" href="/page/about">
+              <i class="material-icons right">
+                <span class="iconify" data-icon="mdi-info-outline"></span>
+              </i>
+              En savoir plus
+            </a>
           </li>
           <!--<li class="collection-item">
             <h5>Sur le devblog...</h5>

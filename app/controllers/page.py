@@ -76,5 +76,5 @@ class PageController:
       lasts = Articles.get_articles_in_range(0, 3)
       return render_template('page/search.html', error=erreur, categories=CATEGORIES, types=TYPES, lasts=lasts)
     return render_template('blog/list.html', articles=articles, template="site",
-                           type="Recherche", name="Recherche", icon="search", keyword=keyword, page=page,
+                           type="Recherche", name="Recherche", icon="magnify", keyword=keyword, page=page,
                            types=TYPES, categories=CATEGORIES, devblog=BlogController.get_devblog())

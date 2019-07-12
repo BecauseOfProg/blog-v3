@@ -9,7 +9,10 @@
   <div class="welcome parallax-container h250px">
     <div class="parallax"><img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg"></div>
     <h4 class="header white-text">
-      <i class="material-icons md-48">search</i><br>
+      <i class="material-icons md-48">
+        <span class="iconify" data-icon="mdi-magnify"></span>
+      </i>
+      <br/>
       Recherche - BecauseOfProg</h4>
   </div>
   <div class="container">
@@ -42,7 +45,9 @@
             <h5>Catégories suggérées</h5>
             {% for url, category in categories.items() %}
             <a class="black-text chip" href="/categorie/{{url}}">
-              <i class="material-icons left icon-chip">{{category.icon}}</i>
+              <i class="material-icons left icon-chip">
+                <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
+              </i>
               {{category.name}}
             </a>
           {% endfor %}
@@ -60,7 +65,9 @@
                 <img src="{{ image_proxy(post.banner, 800, 449.7) }}" alt="Illustration de {{ post.title }} ">
               </a>
               <a href="/type/{{ post.type }}" class="btn-floating halfway-fab waves-effect waves-light red darken-4">
-                <i class="material-icons">{{types[post.type].icon}}</i>
+                <i class="material-icons">
+                  <span class="iconify" data-icon="mdi-{{types[post.type].icon}}"></span>
+                </i>
               </a>
             </div>
             <div class="card-content">
@@ -73,7 +80,7 @@
               <p>&nbsp;</p>
               <a class="no-style-link" href="https://becauseofprog.fr/user/{{ post.author.username }}">
                 <div class="chip">
-                  <img src="{{ image_proxy(post.author.avatar, 32,32) }}" alt="Photo de profil de l'auteur">
+                  <img src="{{ image_proxy(post.author.avatar, 32,32) }}" alt="Photo de profil de {{post.author.username}}">
                   {{ post.author.displayname }}
                 </div>
               </a>

@@ -1,14 +1,14 @@
 {
   "article": {
     "name": "Article",
-    "icon": "description"
+    "icon": "file-document-outline"
   },
   "flash": {
     "name": "Flash",
-    "icon": "flash_on"
+    "icon": "flash"
   },
   "tutorial": {
     "name": "Tutoriel",
-    "icon": "play_circle_outline"
+    "icon": "play-circle-outline"
   }
 }

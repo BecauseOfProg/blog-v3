@@ -66,6 +66,8 @@
       })();
     </script>
 
+    <script src="//code.iconify.design/1/1.0.0-rc1/iconify.min.js"></script>
+
     <title>{% block title %}{% endblock %}</title>
   {% endblock %}
 </head>
@@ -86,28 +88,27 @@
         <a href="/"><span class="white-text email">Le site</span></a>
       </div>
     </li>
-    <li><a href="/categorie/software"><i class="material-icons left">web</i>Software</a></li>
-    <li><a href="/type/tutorial"><i class="material-icons left">code</i>Tutoriels</a></li>
-    <li><a href="/categorie/security"><i class="material-icons left">https</i>Sécurité</a></li>
-    <li><a href="/categorie/web"><i class="material-icons left">public</i>Web</a></li>
-    <li><a href="/categorie/hardware"><i class="material-icons left">sim_card</i>Hardware</a></li>
-    <li><a href="/categorie/programming"><i class="material-icons left">code</i>Programmation</a></li>
-    <li><a href="/categorie/android"><i class="material-icons left">android</i>Android</a></li>
-    <li><a href="/categorie/linux"><i class="material-icons left">developer_board</i>Linux</a></li>
-    <li><a href="/categorie/windows"><i class="material-icons left">dashboard</i>Windows</a></li>
+    <li><a href="/categorie/software"><i class="material-icons left"><span class="iconify" data-icon="mdi-web"></span></i>Software</a></li>
+    <li><a href="/categorie/security"><i class="material-icons left"><span class="iconify" data-icon="mdi-lock-outline"></span></i>Sécurité</a></li>
+    <li><a href="/categorie/web"><i class="material-icons left"><span class="iconify" data-icon="mdi-public"></span></i>Web</a></li>
+    <li><a href="/categorie/hardware"><i class="material-icons left"><span class="iconify" data-icon="mdi-sim"></span></i>Hardware</a></li>
+    <li><a href="/categorie/programming"><i class="material-icons left"><span class="iconify" data-icon="mdi-code-tags"></span></i>Programmation</a></li>
+    <li><a href="/categorie/android"><i class="material-icons left"><span class="iconify" data-icon="mdi-android"></span></i>Android</a></li>
+    <li><a href="/categorie/linux"><i class="material-icons left"><span class="iconify" data-icon="mdi-linux"></span></i>Linux</a></li>
+    <li><a href="/categorie/windows"><i class="material-icons left"><span class="iconify" data-icon="mdi-windows"></span></i>Windows</a></li>
+    <li><a href="/categorie/apple"><i class="material-icons left"><span class="iconify" data-icon="mdi-apple"></span></i>Apple</a></li>
     <li>
       <div class="divider"></div>
     </li>
-    <li><a href="/blog"><i class="material-icons left">description</i>Tous les articles</a></li>
-    <li><a href="/page/search"><i class="material-icons left">search</i>Rechercher</a></li>
-    <li><a href="/page/projects"><i class="material-icons left">library_books</i>Projets</a></li>
-    <li><a href="/page/links"><i class="material-icons left">link</i>Liens</a></li>
-    <li><a href="/page/about"><i class="material-icons left">info</i>A propos</a></li>
+    <li><a href="/blog"><i class="material-icons left"><span class="iconify" data-icon="mdi-file-document-box-multiple-outline"></span></i>Tous les articles</a></li>
+    <li><a href="/page/search"><i class="material-icons left"><span class="iconify" data-icon="mdi-magnify"></span></i>Rechercher</a></li>
+    <li><a href="/page/projects"><i class="material-icons left"><span class="iconify" data-icon="mdi-package-variant"></span></i>Projets</a></li>
+    <li><a href="/page/links"><i class="material-icons left"><span class="iconify" data-icon="mdi-link"></span></i>Liens</a></li>
+    <li><a href="/page/about"><i class="material-icons left"><span class="iconify" data-icon="mdi-information-outline"></span></i>A propos</a></li>
     <li><a class="waves-effect waves-light btn red darken-3" href="/login">Connexion</a></li>
-    <li><a class="waves-effect sidenav-trigger" data-target="mobile-demo" href="#">
-      <i class="material-icons left">close</i>
-      Fermer le menu
-    </a></li>
+    <li>
+      &nbsp;
+    </li>
   </ul>
   <!-- NAVBAR SUR PC -->
 
@@ -120,14 +121,46 @@
           </span>
           &nbsp;BecauseOfProg
         </a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+          <i class="material-icons">
+            <span class="iconify" data-icon="mdi-menu"></span>
+          </i>
+        </a>
         <ul class="row right hide-on-med-and-down">
-          <div id="navbar-links-container">
-            <li><a href="/blog"><i class="material-icons left">description</i>Tous les articles</a></li>
-            <li><a href="/page/projects"><i class="material-icons left">library_books</i>Projets</a></li>
-            <li><a href="/page/links"><i class="material-icons left">link</i>Liens</a></li>
-            <li><a id="search-field-open"><i class="material-icons left">search</i></a></li>
-            <li><a class="waves-effect waves-light btn red darken-2" href="/account">Mon compte</a></li>
+          <div id='navbar-links-container'>
+            <li>
+              <a href="/blog">
+                <i class="material-icons left">
+                  <span class="iconify" data-icon="mdi-file-document-box-multiple-outline"></span>
+                </i>
+                Tous les articles
+              </a>
+            </li>
+            <li>
+              <a href="/page/projects">
+                <i class="material-icons left">
+                  <span class="iconify" data-icon="mdi-package-variant"></span>
+                </i>
+                Projets
+              </a>
+            </li>
+            <li>
+              <a href="/page/links">
+                <i class="material-icons left">
+                  <span class="iconify" data-icon="mdi-link"></span>
+                </i>
+                Liens
+              </a>
+            </li>
+            <li>
+              <a id="search-field-open">
+                <i class="material-icons left">
+                  <span class="iconify" data-icon="mdi-magnify"></span>
+                </i>
+              </a>
+            </li>
+            <li>
+            <a class="waves-effect waves-light btn red darken-2" href="/account">Mon compte</a></li>
           </div>
           <div class="col s12 hide" id="search-field-container">
             <form action="/page/search">
@@ -139,7 +172,7 @@
                    required
                    placeholder="Recherche..."
                    style="box-shadow: 0 2px 0 0 white !important; border-bottom: none !important; color: white;"></li>
-              <li><a id="search-field-close"><i class="material-icons left">close</i></a></li>
+              <li><a id="search-field-close"><i class="material-icons left"><span class="iconify" data-icon="mdi-close"></span></i></a></li>
             </form>
           </div>
         </ul>

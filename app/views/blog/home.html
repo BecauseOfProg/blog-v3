@@ -12,10 +12,24 @@
   <div class="nav-wrapper semitransparent">
     <ul class="center hide-on-med-and-down">
       {% for url, category in categories.items() %}
-        <li><a href="/categorie/{{url}}"><i class="material-icons left">{{category.icon}}</i>{{category.name}}</a></li>
+        <li>
+          <a href="/categorie/{{url}}">
+            <i class="material-icons left">
+              <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
+            </i>
+            {{category.name}}
+          </a>
+        </li>
       {% endfor %}
       {% for url, type in types.items() %}
-        <li><a href="/type/{{url}}"><i class="material-icons left">{{type.icon}}</i>{{type.name}}</a></li>
+        <li>
+          <a href="/type/{{url}}">
+            <i class="material-icons left">
+              <span class="iconify" data-icon="mdi-{{type.icon}}"></span>
+            </i>
+            {{type.name}}
+          </a>
+        </li>
       {% endfor %}
     </ul>
   </div>
@@ -47,7 +61,9 @@
   <a class="black-text center" href="/article/{{ last.url }}" id="main">
     <div class="col-md-2 col-md-offset-5">
       <p class="btn red darken-4">
-        <i class="material-icons left">history</i>
+        <i class="material-icons left">
+          <span class="iconify" data-icon="mdi-clock-outline"></span>
+        </i>
         Nouveau!
       </p>
     </div>
@@ -63,10 +79,12 @@
       <div class="card sticky-action hoverable">
         <div class="card-image">
           <a class="black-text" href="/article/{{ post.url }}">
-            <img src="{{ image_proxy(post.banner, 800, 449.7) }}" alt="Illustration de {{ post.title }} ">
+            <img src="{{ image_proxy(post.banner, 800, 449.7) }}" alt="Illustration de l'article">
           </a>
           <a href="/type/{{ post.type }}" class="btn-floating halfway-fab waves-effect waves-light red darken-4">
-            <i class="material-icons">{{types[post.type].icon}}</i>
+            <i class="material-icons">
+              <span class="iconify" data-icon="mdi-{{types[post.type].icon}}"></span>
+            </i>
           </a>
         </div>
         <div class="card-content">
@@ -79,7 +97,7 @@
           <p>&nbsp;</p>
           <a class="no-style-link" href="https://becauseofprog.fr/user/{{ post.author.username }}">
             <div class="chip">
-              <img src="{{ image_proxy(post.author.avatar, 32,32) }}" alt="Photo de profil de l'auteur">
+              <img src="{{ image_proxy(post.author.avatar, 32,32) }}" alt="Photo de profil de {{ post.author.displayname }}">
               {{ post.author.displayname }}
             </div>
           </a>
@@ -132,7 +150,9 @@
             Sur ce blog, nous partageons nos trouvailles, nos projets, notre point de vue.
           </p>
           <a class="waves-effect waves-light btn red darken-4" href="/page/about">
-            <i class="material-icons right">info</i>
+            <i class="material-icons right">
+              <span class="iconify" data-icon="mdi-information-outline"></span>
+            </i>
             En savoir plus
           </a>
         </li>
