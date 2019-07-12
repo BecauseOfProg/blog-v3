@@ -27,7 +27,7 @@
     <div class="row">
       <div class="col m9">
         {% for article in articles %}
-          <div class="card">
+          <div class="card hoverable">
             <div class="card-image">
               <a href="/article/{{ article.url }}">
                 <img src="{{ image_proxy(article.banner, 477,268) }}" alt="{{article.title}}">

@@ -11,28 +11,38 @@
       <img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg" alt="Fond BecauseOfProg"/>
     </div>
     <h4 class="header white-text">
-      <i class="material-icons md-48">account_circle</i>
+      <i class="material-icons md-48">
+        <span class="iconify" data-icon="mdi-account-circle-outline"></span>
+      </i>
       <br>Connexion - BecauseOfProg
     </h4>
   </div>
   <div class="container row">
     <div class="col l8 s12">
-      <div class="card hoverable">
+      <div class="card">
         <div class="card-content">
-          {% if error %}<p>{{ error }}</p>{% endif %}
+          {% if error %}<p>Erreur : {{ error }}</p><br />{% endif %}
           <p>Pour profiter de certaines fonctionnalités du site et empêcher le spam, vous devez vous connecter à votre
             compte BecauseOfProg.</p>
           <form method="post">
             <div class="input-field col s12">
+              <i class="prefix material-icons red-text text-darken-4">
+                <span class="iconify" data-icon="mdi-email-outline"></span>
+              </i>
               <input id="username" type="email" class="validate" name=username>
               <label for="username">E-mail</label>
             </div>
             <div class="input-field col s12">
+            <i class="prefix material-icons red-text text-darken-4">
+                <span class="iconify" data-icon="mdi-key-outline"></span>
+              </i>
               <input id="password" type="password" class="validate" name=password>
               <label for="password">Mot de passe</label>
             </div>
             <button class="btn waves-effect waves-light red darken-4" type="submit" name="action">Se connecter
-              <i class="material-icons right">send</i>
+              <i class="material-icons right">
+                <span class="iconify" data-icon="mdi-login"></span>
+              </i>
             </button>
           </form>
         </div>

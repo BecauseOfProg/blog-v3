@@ -11,23 +11,29 @@
       <img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg" alt="Fond BecauseOfProg"/>
     </div>
     <h4 class="header white-text">
-      <i class="material-icons md-48">account_circle</i>
+      <i class="material-icons md-48">
+        <span class="iconify" data-icon="mdi-account-circle-outline"></span>
+      </i>
       <br>Mon compte - BecauseOfProg
     </h4>
   </div>
   <div class="container row">
     <div class="col l8 s12">
-      <div class="card hoverable">
+      <div class="card">
         <div class="card-content">
           <p>Bienvenue sur votre compte BecauseOfProg, {{ user.displayname }}. Cette page sera complétée ultérieurement.</p>
           {% if "BLOG_WRITE" in user.permissions %}
             <a class="btn red darken-4" href="/new-post">
-              <i class="material-icons left">edit</i>
+              <i class="material-icons left">
+                <span class="iconify" data-icon="mdi-pencil"></span>
+              </i>
               Écrire un article
             </a>
           {% endif %}
           <a class="btn red darken-4" href="/logout">
-            <i class="material-icons left">power_settings_new</i>
+            <i class="material-icons left">
+              <span class="iconify" data-icon="mdi-logout"></span>
+            </i>
             Se déconnecter
           </a>
         </div>
