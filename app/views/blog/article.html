@@ -167,8 +167,10 @@
               <p><i>{{ author.biography }}</i></p>
             </div>
             <div class="card-action">
-              <a href="https://becauseofprog.fr/user/{{ article.author.username }}">
-                <img src="https://cdn.becauseofprog.fr/logos/bop-transparent.png" alt="Logo BecauseOfProg"/>
+              <a href="/user/{{ article.author.username }}">
+                <img
+                  src="https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/logos/bop.min.svg"
+                  alt="Logo BecauseOfProg"/>
               </a>
               <!--{% if author.socials != "Non renseigné" %}<a href="https://twitter.com/{{ author.socials }}">
                   <img src="https://cdn.becauseofprog.fr/syst-icons/twitter.png">

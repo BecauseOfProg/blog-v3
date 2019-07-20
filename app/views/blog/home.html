@@ -38,7 +38,9 @@
 
 <!-- Presentation carousel -->
 <div class="carousel carousel-slider center">
-  <div class="carousel-item white-text" style="background: url(https://cdn.becauseofprog.fr/syst-images/bg.jpg)">
+  <div
+    class="carousel-item white-text"
+    style="background: url(https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/background.jpg)">
     <h3 class="carousel-bop-homepage-title">BecauseOfProg</h3>
     <h5 class="light grey-text text-lighten-3">Blog autour de la programmation créé par des passionnés</h5>
   </div>
@@ -95,9 +97,11 @@
           </span>
           <p>{{ post.description }}</p>
           <p>&nbsp;</p>
-          <a class="no-style-link" href="https://becauseofprog.fr/user/{{ post.author.username }}">
+          <a class="no-style-link" href="/user/{{ post.author.username }}">
             <div class="chip waves-effect">
-              <img src="{{ image_proxy(post.author.avatar, 32,32) }}" alt="Photo de profil de {{ post.author.displayname }}">
+              <img
+                src="{{ image_proxy(post.author.avatar, 32,32) }}"
+                alt="Photo de profil de {{ post.author.displayname }}"/>
               {{ post.author.displayname }}
             </div>
           </a>
