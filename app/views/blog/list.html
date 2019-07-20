@@ -19,13 +19,7 @@
   </div>
 
   <div class="container">
-    <p class="bop-breadcrumb">
-      <a href="/" class="black-text">BecauseOfProg</a>
-      <i class="material-icons"><span class="iconify" data-icon="mdi-chevron-right"></span></i>
-      <a class="black-text">{{ template.title() }}</a>
-      <i class="material-icons"><span class="iconify" data-icon="mdi-chevron-right"></span></i>
-      <a href="#" class="black-text">{{ name }}</a>
-    </p>
+    {{ breadcrumb([template.title(), name])|safe }}
     <div class="row">
       <div class="col m9">
         {% for article in articles %}
