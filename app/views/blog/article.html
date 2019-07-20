@@ -69,7 +69,7 @@
              Mastodon
           </a>
           <a
-            class="waves-effect waves-light btn red darken-4 btn-share"
+            class="waves-effect waves-light btn primary btn-share"
             href="mailto:?subject={{ article.title }}&body=https://becauseofprog.fr/article/{{ article.url }}">
             <i class="material-icons left">
               <span class="iconify" data-icon="mdi-email"></span>
@@ -90,7 +90,7 @@
       <ul class="collection z-depth-2">
         <li class="collection-item h300px ads" style="display: none"></li>
         <li class="collection-item">
-          <h5 class="red-text text-darken-4">Nous suivre</h5>
+          <h5 class="primary--text">Nous suivre</h5>
           <div class="row">
             <a class="blue-text text-lighten-2" href="https://twitter.com/BecauseOfProg">
               <i class="material-icons large">
@@ -115,9 +115,9 @@
           </div>
         </li>
         <li class="collection-item">
-          <h5 class="red-text text-darken-4">À propos</h5>
+          <h5 class="primary--text">À propos</h5>
           <p>BecauseOfProg, c'est des développeurs rassemblés autour de projets communs tels que le blog.</p>
-          <a class="btn-flat waves-effect red-text text-darken-4" href="/page/about">
+          <a class="btn-flat waves-effect primary--text" href="/page/about">
             <i class="material-icons right">
               <span class="iconify" data-icon="mdi-information-outline"></span>
             </i>
@@ -125,7 +125,7 @@
           </a>
         </li>
         <li class="collection-item">
-          <h5 class="red-text text-darken-4">Catégories</h5>
+          <h5 class="primary--text">Catégories</h5>
           {% for url, category in categories.items() %}
             <a class="black-text chip waves-effect" href="/categorie/{{url}}">
               <i class="material-icons left icon-chip">
@@ -146,7 +146,7 @@
         <!--<li class="collection-item">
           <h5>Sur le devblog...</h5>
           <p>{{ devblog.title }}</p>
-          <a class="waves-effect waves-light btn red darken-4"
+          <a class="waves-effect waves-light btn primary"
              href="https://becauseofprog.fr/news/{{ devblog.url }}"><i
             class="material-icons right">info</i>Lire</a>
         </li>-->

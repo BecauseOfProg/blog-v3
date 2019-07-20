@@ -66,10 +66,10 @@
           </div>
         {% endfor %}
         {% if articles|length > 9 %}
-          {% if template == "Catégorie" %}<a class="waves-effect waves-light btn red darken-4" href="/categorie/{{ type }}/{{ page+1 }}">{% endif %}
-          {% if template == "type" %}<a class="waves-effect waves-light btn red darken-4" href="/type/{{ type }}/{{ page+1 }}">{% endif %}
-          {% if template == "search" %}<a class="waves-effect waves-light btn red darken-4" href="/page/search/{{ keyword }}/{{ page+1 }}">{% endif %}
-          {% if template == "Blog" %}<a class="waves-effect waves-light btn red darken-4" href="/blog/{{ page+1 }}">{% endif %}
+          {% if template == "Catégorie" %}<a class="waves-effect waves-light btn primary" href="/categorie/{{ type }}/{{ page+1 }}">{% endif %}
+          {% if template == "type" %}<a class="waves-effect waves-light btn primary" href="/type/{{ type }}/{{ page+1 }}">{% endif %}
+          {% if template == "search" %}<a class="waves-effect waves-light btn primary" href="/page/search/{{ keyword }}/{{ page+1 }}">{% endif %}
+          {% if template == "Blog" %}<a class="waves-effect waves-light btn primary" href="/blog/{{ page+1 }}">{% endif %}
             <i class="material-icons right">keyboard_arrow_right</i>
             Page suivante
           </a>
@@ -79,7 +79,7 @@
         <ul class="collection z-depth-2">
           {% for url, category in categories.items() %}
             <li class="collection-item">
-              <a class="red-text text-darken-4" href="/categorie/{{url}}">
+              <a class="primary--text" href="/categorie/{{url}}">
                 <i class="material-icons left">
                   <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
                 </i>
@@ -89,7 +89,7 @@
           {% endfor %}
           {% for url, type in types.items() %}
             <li class="collection-item">
-              <a class="red-text text-darken-4" href="/type/{{url}}">
+              <a class="primary--text" href="/type/{{url}}">
                 <i class="material-icons left">
                   <span class="iconify" data-icon="mdi-{{type.icon}}"></span>
                 </i>
@@ -98,7 +98,7 @@
             </li>
           {% endfor %}
           <li class="collection-item">
-            <h5 class="red-text text-darken-4">Nous suivre</h5>
+            <h5 class="primary--text">Nous suivre</h5>
             <div class="row">
               <div class="s12">
                 <a class="blue-text text-lighten-2" href="https://twitter.com/BecauseOfProg">
@@ -127,9 +127,9 @@
             </div>
           </li>
           <li class="collection-item">
-            <h5 class="red-text text-darken-4">À propos</h5>
+            <h5 class="primary--text">À propos</h5>
             <p>BecauseOfProg, c'est des développeurs rassemblés autour de projets communs tels que le blog. </p>
-            <a class="btn-flat waves-effect red-text text-darken-4" href="/page/about">
+            <a class="btn-flat waves-effect primary--text" href="/page/about">
               <i class="material-icons right">
                 <span class="iconify" data-icon="mdi-info-outline"></span>
               </i>
@@ -139,7 +139,7 @@
           <!--<li class="collection-item">
             <h5>Sur le devblog...</h5>
             <p>{{ devblog.title }}</p>
-            <a class="waves-effect waves-light btn red darken-4"
+            <a class="waves-effect waves-light btn primary"
                href="https://becauseofprog.fr/news/{{ devblog.url }}">
               <i class="material-icons right">info</i>
               Lire
