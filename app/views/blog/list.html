@@ -66,12 +66,9 @@
           </div>
         {% endfor %}
         {% if articles|length > 9 %}
-          {% if template == "Catégorie" %}<a class="waves-effect waves-light btn primary" href="/categorie/{{ type }}/{{ page+1 }}">{% endif %}
-          {% if template == "type" %}<a class="waves-effect waves-light btn primary" href="/type/{{ type }}/{{ page+1 }}">{% endif %}
-          {% if template == "search" %}<a class="waves-effect waves-light btn primary" href="/page/search/{{ keyword }}/{{ page+1 }}">{% endif %}
-          {% if template == "Blog" %}<a class="waves-effect waves-light btn primary" href="/blog/{{ page+1 }}">{% endif %}
-            <i class="material-icons right">keyboard_arrow_right</i>
+          <a class="waves-effect waves-light btn primary" href="{{ page+1 }}">
             Page suivante
+            <i class="material-icons right"><span class="iconify" data-icon="mdi-chevron-right"></span></i>
           </a>
         {% endif %}
       </div>
@@ -79,7 +76,7 @@
         <ul class="collection z-depth-2">
           {% for url, category in categories.items() %}
             <li class="collection-item">
-              <a class="primary--text" href="/categorie/{{url}}">
+              <a class="collection-link primary--text" href="/categorie/{{url}}">
                 <i class="material-icons left">
                   <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
                 </i>
@@ -89,7 +86,7 @@
           {% endfor %}
           {% for url, type in types.items() %}
             <li class="collection-item">
-              <a class="primary--text" href="/type/{{url}}">
+              <a class="collection-link primary--text" href="/type/{{url}}">
                 <i class="material-icons left">
                   <span class="iconify" data-icon="mdi-{{type.icon}}"></span>
                 </i>
