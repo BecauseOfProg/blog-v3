@@ -83,14 +83,14 @@
             src="https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/background.jpg"
             alt="Background"/>
         </div>
-        <a href="#">
+        <a href="/">
           <img
-            class="circle"
+            width="64px"
             src="https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/logos/bop.min.svg"
-            alt="Logo BOP"/>
+            alt="Logo BecauseOfProg"/>
         </a>
-        <a href="/"><span class="white-text name">BecauseOfProg</span></a>
-        <a href="/"><span class="white-text email">Le site</span></a>
+        <span class="white-text name">BecauseOfProg</span>
+        <span class="white-text email">Menu de navigation</span>
       </div>
     </li>
     <li><a href="/categorie/software"><i class="material-icons left"><span class="iconify" data-icon="mdi-web"></span></i>Software</a></li>
@@ -161,13 +161,23 @@
             </li>
             <li>
               <a id="search-field-open">
-                <i class="material-icons left">
+                <i class="material-icons">
                   <span class="iconify" data-icon="mdi-magnify"></span>
                 </i>
               </a>
             </li>
             <li>
-            <a class="waves-effect waves-light btn red darken-2" href="/account">Mon compte</a></li>
+              <a
+                class="account-button"
+                href="/account">
+                <i
+                  class="material-icons tooltipped"
+                  data-position="bottom"
+                  data-tooltip="Mon compte">
+                  <span class="iconify" data-icon="mdi-account-circle-outline"></span>
+                </i>
+              </a>
+            </li>
           </div>
           <div class="col s12 hide" id="search-field-container">
             <form action="/page/search">

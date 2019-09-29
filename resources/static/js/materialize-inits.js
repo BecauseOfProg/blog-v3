@@ -7,10 +7,14 @@ M.AutoInit()
 
 // Initialize the home page carousel, to display multiple pictures
 document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.carousel')
-  var instances = M.Carousel.init(elems, {
+  let carousel = document.querySelectorAll('.carousel')
+  let carouselInstance = M.Carousel.init(carousel, {
     fullWidth: true,
-    indicators: true,
-    duration: 3000
+    indicators: true
+  })
+
+  let tooltip = document.querySelectorAll('.account-button .tooltipped')
+  let tooltipInstance = M.Tooltip.init(tooltip, {
+    margin: 0
   })
 })
