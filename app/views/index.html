@@ -6,8 +6,8 @@
 
     <meta name="apple-mobile-web-app-title" content="BecauseOfProg">
     <meta name="application-name" content="BecauseOfProg">
-    <meta name="msapplication-TileColor" content="#bb0b0b">
-    <meta name="theme-color" content="#bb0b0b">
+    <meta name="msapplication-TileColor" content="#ff514c">
+    <meta name="theme-color" content="#ff514c">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="me" href="https://twitter.com/BecauseOfProg">
@@ -73,8 +73,9 @@
 </head>
 <body>
 <noscript><img src="//analytics.becauseofprog.fr/piwik.php?idsite=4&rec=1" style="border:0;" alt=""/></noscript>
+
 {% block header %}
-  <!-- NAVBAR SUR MOBILE -->
+  <!-- Mobile drawer -->
   <ul id="mobile-demo" class="sidenav">
     <li>
       <div class="user-view">
@@ -111,12 +112,10 @@
       &nbsp;
     </li>
   </ul>
-  <!-- NAVBAR SUR PC -->
 
   <div class="navbar-fixed topbar">
     <nav class="primary"></nav>
   </div>
-
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
@@ -196,8 +195,6 @@
       </div>
     </nav>
   </div>
-
-
 {% endblock %}
 
 {% block content %}{% endblock %}
@@ -210,7 +207,9 @@
     </div>
   </footer>
 {% endblock %}
+
 <script src="https://cdn.becauseofprog.fr/static-v3/materialize.min.js"></script>
 <script src="/static/bundle.js"></script>
+
 </body>
 </html>

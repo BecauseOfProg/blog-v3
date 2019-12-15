@@ -8,8 +8,9 @@ import requests
 import markdown
 import json
 
-TYPES = json.loads(open('resources/data/types.json', 'r').read())
-CATEGORIES = json.loads(open('resources/data/categories.json', 'r', encoding="utf-8").read())
+TYPES = json.loads(open('resources/data/types.json', 'r', encoding='utf-8').read())
+CATEGORIES = json.loads(open('resources/data/categories.json', 'r', encoding='utf-8').read())
+SOCIALS = json.loads(open('resources/data/socials.json', 'r', encoding='utf-8').read())
 
 
 class BlogController:
@@ -22,7 +23,12 @@ class BlogController:
     list_of_dict = []
     for item in lasts_art:
       list_of_dict.append(fill_informations(item))
-    return render_template('blog/home.html', last=last, lasts=list_of_dict, types=TYPES, categories=CATEGORIES,
+    return render_template('blog/home.html',
+                           last=last,
+                           lasts=list_of_dict,
+                           types=TYPES,
+                           categories=CATEGORIES,
+                           socials=SOCIALS,
                            devblog=BlogController.get_devblog())
 
   @staticmethod
@@ -38,8 +44,15 @@ class BlogController:
     articles = []
     for item in data:
       articles.append(fill_informations(item))
-    return render_template('blog/list.html', template="Blog", type='Tous les articles', name='Tous les articles',
-                           articles=articles, icon="file-document-box-multiple-outline", page=page, types=TYPES, categories=CATEGORIES,
+    return render_template('blog/list.html',
+                           template="Blog",
+                           type='Tous les articles',
+                           name='Tous les articles',
+                           articles=articles,
+                           icon="file-document-box-multiple-outline",
+                           page=page,
+                           types=TYPES,
+                           categories=CATEGORIES,
                            devblog=BlogController.get_devblog())
 
   @staticmethod
@@ -59,9 +72,16 @@ class BlogController:
     for item in data:
       articles.append(fill_informations(item))
 
-    return render_template('blog/list.html', template="Catégorie", type=category, name=category_data['name'],
-                           icon=category_data['icon'], articles=articles, page=page, types=TYPES,
-                           categories=CATEGORIES, devblog=BlogController.get_devblog())
+    return render_template('blog/list.html',
+                           template="Catégorie",
+                           type=category,
+                           name=category_data['name'],
+                           icon=category_data['icon'],
+                           articles=articles,
+                           page=page,
+                           types=TYPES,
+                           categories=CATEGORIES,
+                           devblog=BlogController.get_devblog())
 
   @staticmethod
   @db_session
@@ -79,8 +99,16 @@ class BlogController:
     articles = []
     for item in data:
       articles.append(fill_informations(item))
-    return render_template('blog/list.html', template="type", type=type, icon=type_data['icon'], name=type_data['name'],
-                           articles=articles, page=page, types=TYPES, categories=CATEGORIES, devblog=BlogController.get_devblog())
+    return render_template('blog/list.html',
+                           template="type",
+                           type=type,
+                           icon=type_data['icon'],
+                           name=type_data['name'],
+                           articles=articles,
+                           page=page,
+                           types=TYPES,
+                           categories=CATEGORIES,
+                           devblog=BlogController.get_devblog())
 
   @staticmethod
   @db_session
@@ -94,8 +122,13 @@ class BlogController:
         htmlarticle = Markup(markdown.markdown(article.content, extensions=['extra']))
       else:
         htmlarticle = ''
-      return render_template('blog/article.html', devblog=BlogController.get_devblog(), article=article, author=author,
-                             htmlarticle=htmlarticle, categories=CATEGORIES, types=TYPES)
+      return render_template('blog/article.html',
+                             devblog=BlogController.get_devblog(),
+                             article=article,
+                             author=author,
+                             htmlarticle=htmlarticle,
+                             categories=CATEGORIES,
+                             types=TYPES)
     except Exception as e:
       print(e)
       erreur = "La page recherchée n'existe pas! (404)"

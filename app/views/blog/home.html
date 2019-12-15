@@ -8,32 +8,32 @@
 {% block content %}
 <!-- Categories bar -->
 <div class="navbar-fixed no-mobile">
-<nav class="semitransparent">
-  <div class="nav-wrapper semitransparent">
-    <ul class="center hide-on-med-and-down">
-      {% for url, category in categories.items() %}
-        <li class="waves-effect waves-light">
-          <a href="/categorie/{{url}}">
-            <i class="material-icons left">
-              <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
-            </i>
-            {{category.name}}
-          </a>
-        </li>
-      {% endfor %}
-      {% for url, type in types.items() %}
-        <li class="waves-effect waves-light">
-          <a href="/type/{{url}}">
-            <i class="material-icons left">
-              <span class="iconify" data-icon="mdi-{{type.icon}}"></span>
-            </i>
-            {{type.name}}
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
-</nav>
+  <nav class="semitransparent">
+    <div class="nav-wrapper semitransparent">
+      <ul class="center hide-on-med-and-down">
+        {% for url, category in categories.items() %}
+          <li class="waves-effect waves-light">
+            <a href="/categorie/{{url}}">
+              <i class="material-icons left">
+                <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
+              </i>
+              {{category.name}}
+            </a>
+          </li>
+        {% endfor %}
+        {% for url, type in types.items() %}
+          <li class="waves-effect waves-light">
+            <a href="/type/{{url}}">
+              <i class="material-icons left">
+                <span class="iconify" data-icon="mdi-{{type.icon}}"></span>
+              </i>
+              {{type.name}}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </nav>
 </div>
 
 <!-- Presentation carousel -->
@@ -83,7 +83,7 @@
 </div>
 
 <div class="row container">
-  {% for i in range(lasts.__len__()-1) %}
+  {% for i in range(2) %}
     <div class="col s12 m6 l6 xl6">
       <div class="card sticky-action hoverable">
         <div class="card-image">
@@ -157,45 +157,53 @@
 
 <!-- Projects carousel -->
 <div class="carousel carousel-slider center">
-    <div
-      class="carousel-item white-text"
-      style="background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/background-projects-5.jpg')">
-      <h3 class="carousel-bop-homepage-title shadow">Nos projets</h3>
-      <h5 class="light grey-text text-lighten-3 shadow">BecauseOfProg, c'est aussi de nombreux projets</h5>
-      <a class="waves-effect waves-light btn primary center white-text" href="/page/projects">En savoir plus</a>
-    </div>
-    <div class="carousel-item white-text" style="background: url('https://cdn.becauseofprog.fr/v2/projects/yt-podcast/bg-min-2.jpg')">
-      <h3 class="carousel-bop-homepage-title">YouTube Podcasts</h3>
-      <h5 class="light grey-text text-lighten-3">Transformez une chaîne YouTube ou une playlist en podcast</h5>
-      <a class="waves-effect waves-light btn primary center white-text" href="https://podcast.becauseofprog.fr">Créer mon podcast</a>
-    </div>
-    <div class="carousel-item white-text"
-      style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ devblog.banner }})">
-      <h3 class="carousel-bop-homepage-title">Sur notre devblog...</h3>
-      <h5 class="light white-text text-lighten-3">{{ devblog.title }}</h5>
-      <a class="waves-effect waves-light btn primary center"
-       href="https://becauseofprog.fr/news/{{ devblog.url }}">Voir!</a>
-    </div>
+  <div
+    class="carousel-item white-text"
+    style="background: url('https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/background-projects-5.jpg')">
+    <h3 class="carousel-bop-homepage-title shadow">Nos projets</h3>
+    <h5 class="light grey-text text-lighten-3 shadow">BecauseOfProg, c'est aussi de nombreux projets</h5>
+    <a class="waves-effect waves-light btn primary center white-text" href="/page/projects">En savoir plus</a>
   </div>
+  <div
+    class="carousel-item white-text"
+    style="background: url('https://cdn.becauseofprog.fr/v2/projects/yt-podcast/bg-min-2.jpg')">
+    <h3 class="carousel-bop-homepage-title">YouTube Podcasts</h3>
+    <h5 class="light grey-text text-lighten-3">Transformez une chaîne YouTube ou une playlist en podcast</h5>
+    <a
+      class="waves-effect waves-light btn primary center white-text"
+      href="https://podcast.becauseofprog.fr">
+      Créer mon podcast
+    </a>
+  </div>
+  <div
+    class="carousel-item white-text"
+    style="background: url({{ devblog.banner }})">
+    <h3 class="carousel-bop-homepage-title">Sur notre devblog...</h3>
+    <h5 class="light white-text text-lighten-3">{{ devblog.title }}</h5>
+    <a
+      class="waves-effect waves-light btn primary center"
+      href="https://becauseofprog.fr/news/{{ devblog.url }}">Voir!</a>
+  </div>
+</div>
 
-  <div class="container row carousel-bop-homepage-title">
-    <div id="links" onload="requestembed('links')">
-      <div class="preloader-wrapper big active">
-        <div class="spinner-layer spinner-blue-only">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div><div class="gap-patch">
-            <div class="circle"></div>
-          </div><div class="circle-clipper right">
-            <div class="circle"></div>
-          </div>
+<div class="container row carousel-bop-homepage-title">
+  <div id="links" onload="requestembed('links')">
+    <div class="preloader-wrapper big active">
+      <div class="spinner-layer spinner-blue-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
         </div>
       </div>
     </div>
   </div>
-
-  <hr class="primary">
-
+</div>
+<hr class="primary">
 <div class="container carousel-bop-homepage-title">
   <div class="row">
     <div class="col s12 m5">
@@ -203,24 +211,12 @@
         <div class="card-content">
           <h5 class="primary--text">Nos réseaux sociaux</h5>
           <p>Nous postons régulièrement des nouvelles, des tips et des astuces. Suivez-nous! </p>
-
           <br/>
-          <a href="https://twitter.com/BecauseOfProg">
-            <span class="iconify" data-icon="mdi-twitter" data-inline="false" data-width="75px" style="color: black;"></span>
-          </a>
-          <a href="https://discord.becauseofprog.fr">
-            <span class="iconify" data-icon="mdi:discord" data-inline="false" data-width="75px" style="color: black;"></span>
-          </a>
-          <a class="teal-text" href="https://mstdn.io/@bop">
-            <span class="iconify" data-icon="mdi:mastodon" data-inline="false" data-width="75px" style="color: black;"></span>
-          </a>
-          <a class="black-text" href="https://github.com/BecauseOfProg">
-            <span class="iconify" data-icon="mdi:github-circle" data-inline="false" data-width="75px" style="color: black;"></span>
-          </a>
-          <a class="black-text" href="https://instagram.com/BecauseOfProg">
-            <span class="iconify" data-icon="mdi:instagram" data-inline="false" data-width="75px" style="color: black;"></span>
-          </a>
-
+          {% for social in socials %}
+            <a class="black-text" href="{{social['link']}}">
+              <span class="iconify" data-icon="mdi-{{social['icon']}}" data-inline="false" data-width="75px"></span>
+            </a>
+          {% endfor %}
         </div>
         <div class="card-tabs">
           <ul class="tabs tabs-fixed-width">
@@ -236,17 +232,16 @@
         </div>
       </div>
     </div>
-
     <div class="col s12 m7">
       <div class="card">
         <div class="card-image">
           <img src="https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/new-banner.png">
-          <span class="card-title shadow">A propos de nous</span>
+          <span class="card-title shadow">À propos de nous</span>
         </div>
         <div class="card-content">
           <p>La BecauseOfProg, c'est plusieurs développeurs rassemblés autour de projets communs, dont ce blog, depuis février 2017.
-            Nous souhaitons avant tout nous améliorer dans nos domaines (développement, administration système,
-            sécurité informatique...) et partager notre passion.
+            Nous souhaitons avant tout nous améliorer dans divers domaines (développement, administration système,
+            sécurité informatique...) et partager nos passions.
             Sur ce blog, nous partageons nos trouvailles, nos projets, notre point de vue.
           </p>
         </div>
