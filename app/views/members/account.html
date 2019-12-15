@@ -7,11 +7,7 @@
 
 {% block content %}
   <div class="welcome parallax-container h250px">
-    <div class="parallax">
-      <img
-        src="https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/background.jpg"
-        alt="Fond BecauseOfProg"/>
-    </div>
+    <div class="parallax primary"></div>
     <h4 class="header white-text">
       <i class="material-icons md-48">
         <span class="iconify" data-icon="mdi-account-circle-outline"></span>
@@ -19,11 +15,19 @@
       <br>Mon compte - BecauseOfProg
     </h4>
   </div>
+
+  <div class="container">
+    {{ breadcrumb(['Compte', 'Mon compte'])|safe }}
+  </div>
+  
   <div class="container row">
     <div class="col l8 s12">
       <div class="card">
         <div class="card-content">
-          <p>Bienvenue sur votre compte BecauseOfProg, {{ user.displayname }}. Cette page sera complétée ultérieurement.</p>
+          <span class="card-title">Bienvenue sur votre compte BecauseOfProg, {{ user.displayname }}.</span> 
+          <p>Cette page sera complétée ultérieurement.</p>
+        </div>
+        <div class="card-action card-action-bop-links">
           {% if "BLOG_WRITE" in user.permissions %}
             <a class="btn-flat waves-effect primary--text" href="/new-post">
               <i class="material-icons left">
@@ -43,12 +47,12 @@
 
       <div class="card author-card horizontal">
         <div class="card-image">
-          <img src="{{ user.avatar }}">
+          <img src="{{ user.avatar }}" alt="Photo de profil de {{ user.displayname }}">
         </div>
-        <div class="card-stacked">
+        <div class="card-stacked center">
           <div class="card-content">
             <span class="card-title">{{ user.displayname }}</span>
-            <p><i>{{ user.description }}</i></p>
+            <p><i>{{ user.biography }}</i></p>
           </div>
           <div class="card-action">
             <a href="/user/{{ user.username }}">
@@ -63,15 +67,36 @@
           </div>
         </div>
       </div>
+
+      <div class="card shadow-elem">
+        <div class="card-content">
+          <span class="card-title">Modifier mon compte</span>
+          <p>Cette fonctionnalité n'est pas encore disponible.</p>
+        </div>
+      </div>
     </div>
     <div class="col l4 s12">
-      <ul class="collection z-depth-2">
-        <li class="collection-item">
-          <h5 class="primary--text">Votre compte BecauseOfProg</h5>
+      <div class="card shadow-elem primary">
+        <div class="card-content white-text">
+          <span class="card-title">Votre compte BecauseOfProg</span>
           <p>Votre compte est global, utilisable sur le site entier. Nous mettons tout en oeuvre pour assurer la
-            sécurité et la confidentialité de vos données sur nos serveurs.</p>
-        </li>
-      </ul>
+              sécurité et la confidentialité de vos données sur nos serveurs.</p>
+        </div>
+        <div class="card-action white-text">
+          <a href="/page/about" class="white-text">A propos</a>
+          <a href="/" class="white-text">Blog</a>
+        </div>
+      </div>
+
+      <div class="card shadow-elem">
+        <div class="card-content">
+          <span class="card-title">Mes données</span>
+          <p>Le RGPD (Règlement général sur la protection des données) est entré en application en mai 2018. Il vous permet d'accéder, de rectifier et de supprimer l'ensemble des données que vous nous avez confié. Vous pouvez nous envoyer un mail ou un message (tout simple), et nous procéderons votre requête sous un délai d'un mois.</p>
+        </div>
+        <div class="card-action">
+          <a href="mailto:contact@becauseofprog.fr" class="primary--text">Nous contacter</a>
+        </div>
+      </div>
     </div>
   </div>
 {% endblock %}

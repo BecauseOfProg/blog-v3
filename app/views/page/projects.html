@@ -7,9 +7,7 @@
 
 {% block content %}
 <div class="welcome parallax-container h250px">
-  <div class="parallax">
-    <img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg" alt="Fond BecauseOfProg"/>
-  </div>
+  <div class="parallax primary"></div>
   <h4 class="header white-text">
       <i class="material-icons md-48">
         <span class="iconify" data-icon="mdi-package-variant"></span>
@@ -23,11 +21,32 @@
   <p class="bop-breadcrumb">
     {{ breadcrumb(['Projets'])|safe }}
   </p>
-  <p>Cette page sera complétée ultérieurement</p>
-  <div class="collection">
-    {% for project in projects %}
-      <a href="{{project.link}}" class="collection-item primary--text">{{project.name}}</a>
-    {% endfor %}
+
+  <div class="col s12 m4">
+    <div class="card shadow-elem primary">
+      <div class="card-content white-text card-content-bop-links">
+        <span class="card-title">Les projets BecauseOfProg</span>
+        <p>BecauseOfProg, c'est une équipe de développeurs créant divers projets que nous allons vous présenter sur cette page</p>
+      </div>
+      <div class="card-action white-text card-action-bop-links">
+        <a href="/page/about" class="white-text">A propos</a>
+        <a href="/" class="white-text">Blog</a>
+      </div>
+    </div>
   </div>
+  {% for project in projects %}
+  <div class="col s12 m4">
+    <div class="card shadow-elem hoverable">
+      <div class="card-content card-content-bop-links">
+        <span class="card-title primary--text">{{project.name}}</span>
+        <p>{{project.description}}</p>
+      </div>
+      <div class="card-action primary--text card-action-bop-links">
+        <a href="{{project.link}}" class="primary--text">En savoir plus</a>
+        <a href="#" class="primary--text">J'aime</a>
+      </div>
+    </div>
+  </div>{% endfor %}
 </div>
+
 {% endblock %}

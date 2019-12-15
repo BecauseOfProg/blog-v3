@@ -7,11 +7,7 @@
 
 {% block content %}
   <div class="welcome parallax-container h250px">
-    <div class="parallax">
-      <img
-        src="https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/background.jpg"
-        alt="Fond BecauseOfProg"/>
-    </div>
+    <div class="parallax primary"></div>
     <h4 class="header white-text">
       <i class="material-icons md-48">
         <span class="iconify" data-icon="mdi-account-circle-outline"></span>
@@ -19,6 +15,11 @@
       <br>Connexion - BecauseOfProg
     </h4>
   </div>
+
+  <div class="container">
+    {{ breadcrumb(['Compte', 'Se connecter'])|safe }}
+  </div>
+
   <div class="container row">
     <div class="col l8 s12">
       <div class="card">
@@ -51,13 +52,19 @@
       </div>
     </div>
     <div class="col l4 s12">
-      <ul class="collection z-depth-2">
-        <li class="collection-item">
-          <h5 class="primary--text">Votre compte BecauseOfProg</h5>
+      <div class="card shadow-elem primary">
+        <div class="card-content white-text">
+          <span class="card-title">Votre compte BecauseOfProg</span>
           <p>Votre compte est global, utilisable sur le site entier. Nous mettons tout en oeuvre pour assurer la
-            sécurité et la confidentialité de vos données sur nos serveurs.</p>
-        </li>
-      </ul>
+              sécurité et la confidentialité de vos données sur nos serveurs.</p>
+        </div>
+        <div class="card-action white-text">
+          <a href="/page/about" class="white-text">A propos</a>
+          <a href="/" class="white-text">Blog</a>
+        </div>
+      </div>
     </div>
   </div>
+
+  <div class="container h250px"></div>
 {% endblock %}

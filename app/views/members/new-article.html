@@ -7,11 +7,7 @@
 
 {% block content %}
   <div class="welcome parallax-container h250px">
-    <div class="parallax">
-      <img
-        src="https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/background.jpg"
-        alt="Fond BecauseOfProg"/>
-    </div>
+    <div class="parallax primary"></div>
     <h4 class="header white-text">
       <i class="material-icons md-48">
         <span class="iconify" data-icon="mdi-pencil"></span>
@@ -20,10 +16,22 @@
     </h4>
   </div>
 
+  <div class="container">
+    {{ breadcrumb(['Compte', 'Equipe', 'Publier un article'])|safe }}
+  </div>
 <div class="row container">
   <!--<p class="center">Votre article a bien été publié !<br />
     <a href="https://becauseofprog.fr/blog/#articles">Accéder</a>
   </p>-->
+  <div class="col m12">
+  <div class="card shadow-elem hoverable">
+    <div class="card-content">
+      <span class="card-title">Attention</span>
+      <p>Fonctionnalité réservée aux rédacteurs. Relisez-vous bien !</p>
+    </div>
+  </div>
+</div>
+
   <form class="col s12" method="post">
     <div class="row">
       <div class="input-field col s12 m6">
