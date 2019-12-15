@@ -1,16 +1,25 @@
-{% for i in range(len_l) %}
-<li class="collection-item avatar">
-  <div class="row">
-    <div class="col s11">
-      <span class="title links-embed-title">{{ links['entries'][i]['title'] }}</span>
-      <p>{{ get_hostname(links['entries'][i]['link']) }}</p>
+<div class="col s12 m4">
+  <div class="card shadow-elem primary">
+    <div class="card-content white-text">
+      <span class="card-title">Les liens</span>
+      <p>Les dernières actualités sélectionnées pour vous</p>
     </div>
-    <div class="col s1">
-      <a href="{{ links['entries'][i]['link'] }}" class="secondary-content red-text text-darken-3">
-        <i class="material-icons">
-          <span class="iconify" data-icon="mdi-open-in-new"></span>
-        </i>
-      </a>
+    <div class="card-action white-text">
+      <a href="#" class="white-text">Twitter</a>
+      <a href="#" class="white-text">RSS</a>
     </div>
   </div>
-</li>{% endfor %}
+</div>
+{% for i in range(len_l) %}
+<div class="col s12 m4">
+  <div class="card shadow-elem hoverable">
+    <div class="card-content card-content-bop-links">
+      <span class="card-title primary--text">{{ links['entries'][i]['title'] }}</span>
+      <p>Paru sur {{ get_hostname(links['entries'][i]['link']) }}</p>
+    </div>
+    <div class="card-action primary--text card-action-bop-links">
+      <a href="{{ links['entries'][i]['link'] }}" class="primary--text">Lire</a>
+      <a href="#" class="primary--text">J'aime</a>
+    </div>
+  </div>
+</div>{% endfor %}

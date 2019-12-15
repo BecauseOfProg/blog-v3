@@ -117,10 +117,14 @@
   </ul>
   <!-- NAVBAR SUR PC -->
 
+  <div class="navbar-fixed topbar">
+    <nav class="primary"></nav>
+  </div>
+
   <div class="navbar-fixed">
     <nav>
-      <div class="nav-wrapper primary">
-        <a href="/" class="logo brand-logo">
+      <div class="nav-wrapper">
+        <a href="/" class="logo brand-logo primary--text">
           <span class="no-mobile">
             <img
               src="https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/logos/bop.min.svg"
@@ -136,7 +140,7 @@
         <ul class="row right hide-on-med-and-down">
           <div id='navbar-links-container'>
             <li class="waves-effect waves-light">
-              <a href="/blog">
+              <a href="/blog" class="primary--text">
                 <i class="material-icons left">
                   <span class="iconify" data-icon="mdi-file-document-box-multiple-outline"></span>
                 </i>
@@ -144,7 +148,7 @@
               </a>
             </li>
             <li class="waves-effect waves-light">
-              <a href="/page/projects">
+              <a href="/page/projects" class="primary--text">
                 <i class="material-icons left">
                   <span class="iconify" data-icon="mdi-package-variant"></span>
                 </i>
@@ -152,7 +156,7 @@
               </a>
             </li>
             <li class="waves-effect waves-light">
-              <a href="/page/links">
+              <a href="/page/links" class="primary--text">
                 <i class="material-icons left">
                   <span class="iconify" data-icon="mdi-link"></span>
                 </i>
@@ -160,7 +164,7 @@
               </a>
             </li>
             <li>
-              <a id="search-field-open">
+              <a id="search-field-open" class="primary--text">
                 <i class="material-icons">
                   <span class="iconify" data-icon="mdi-magnify"></span>
                 </i>
@@ -168,7 +172,7 @@
             </li>
             <li>
               <a
-                class="account-button"
+                class="account-button primary--text"
                 href="/account">
                 <i
                   class="material-icons tooltipped"
@@ -204,9 +208,9 @@
 
 {% block footer %}
   <footer class="page-footer primary">
-    <div class="container" style="padding-bottom: 20px;">
+    <div class="container shadow" style="padding-bottom: 20px;">
       Réalisé par l'équipe BecauseOfProg
-      <a class="grey-text text-lighten-4 right" href="/page/about">À propos</a>
+      <a class="right grey-text text-lighten-4" href="/page/about">À propos</a>
     </div>
   </footer>
 {% endblock %}

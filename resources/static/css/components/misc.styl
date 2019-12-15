@@ -1,5 +1,5 @@
 body
-  background-color: #e0e0e0
+  background-color: #fafafa
 
 div.divider {
   background-color: #9e9e9e !important
@@ -11,6 +11,23 @@ ul li img.avatar-img
   position: relative
   top: 9px
   float: left
+
+.shadow
+  text-shadow: 0 0 9px #555
+
+.card, .shadow-elem
+  border-radius: 20px
+  transition: box-shadow .3s, transform .25s
+  box-shadow: 0.25rem .25rem 1.25rem rgba(146,125,250,0.1)
+
+.card.horizontal .card-image img
+  max-width: initial
+
+.border-radius-top
+  border-radius: 20px 20px 0px 0px!important
+
+.border-radius-left
+  border-radius: 20px 0px 0px 20px!important
 
 img.center
   display: block
@@ -56,3 +73,13 @@ img.center
 
 .carousel-bop-homepage-title
   margin-top: 64px;
+
+.card-action-bop-links
+  background-color: unset!important
+
+.card-content-bop-links
+  min-height: 174.5px
+
+hr
+  border: none
+  height: 15px;
