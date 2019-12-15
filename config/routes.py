@@ -30,7 +30,7 @@ application.add_url_rule('/user/<string:username>', None, MembersController.show
 application.add_url_rule('/page/about', None, PageController.about)
 application.add_url_rule('/page/application', None, PageController.app)
 application.add_url_rule('/page/links', None, PageController.links)
-application.add_url_rule('/page/links-embed', None, PageController.links_embed)
+application.add_url_rule('/page/embed/<string:source>', None, PageController.rss_embed)
 application.add_url_rule('/page/projects', None, PageController.projects)
 application.add_url_rule('/page/search/', None, PageController.show_search, defaults={'keyword': None, 'page': 0})
 application.add_url_rule('/page/search/<string:keyword>/', None, PageController.show_search, defaults={'page': 0})

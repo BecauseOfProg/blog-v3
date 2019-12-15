@@ -30,10 +30,14 @@ def get_hostname(url):
     return hostname
 
 
-def links_list(length, description):
+def links_list(source, length, description):
     '''Returns a dictionnary of linksfrom the an rss feed proxy:
     it can remove some entries or remove all descriptions (faster loading)
-    Description is True or False.'''
-    feed_url = "https://gh.becauseofprog.fr/rss-proxy/"
-    d = feedparser.parse(feed_url+str(length)+'/'+description)
+    Description is True or False. Source parameter can be links, twitter, mastodon, instagram'''
+    if source == "links": feed_url = "https://gh.becauseofprog.fr/rss-proxy/"+str(length)+'/'+description
+    if source == "twitter": feed_url = "http://twitrss.me/twitter_user_to_rss/?user=BecauseOfProg"
+    if source == "mastodon": feed_url = "https://mstdn.io/@bop.rss"
+    if source == "instagram": feed_url = "https://gh.becauseofprog.fr/rss-bridge/?action=display&bridge=Instagram&context=Username&u=becauseofprog&media_type=all&format=Atom"
+
+    d = feedparser.parse(feed_url)
     return d

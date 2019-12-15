@@ -34,11 +34,11 @@ class PageController:
     return render_template('page/app.html')
 
   @staticmethod
-  def links_embed():
-    '''Returns a small HTML file, inserted into the home page with some JS'''
-    links = links_list(5, "false")
-    len_l = len(links['entries'])
-    return render_template('page/links_embed.html', links=links, len_l=len_l)
+  def rss_embed(source):
+    '''Returns a small HTML file, inserted into the home page with some JS. Source parameter can be links, twitter, mastodon, instagram'''
+    feed = links_list(source, 5, "false")
+    len_l = len(feed['entries'])
+    return render_template('page/links_embed.html', links=feed, len_l=len_l)
 
   @staticmethod
   def links():
