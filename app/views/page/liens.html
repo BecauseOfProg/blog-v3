@@ -7,84 +7,74 @@
 {% block author %}Équipe BecauseOfProg{% endblock %}
 
 {% block content %}
-  <div class="welcome parallax-container h250px">
-    <div class="parallax">
-      <img
-        src="https://cdn.becauseofprog.fr/syst-images/bg.jpg"
-        alt="Fond BecauseOfProg"/>
-    </div>
-    <h4 class="header white-text">
-      <i class="material-icons md-48">
-        <span class="iconify" data-icon="mdi-link-variant"></span>
-      </i>
-      <br/>
-      Site - Liens - BecauseOfProg
-    </h4>
-  </div>
+<div class="welcome parallax-container h250px">
+  <div class="parallax primary"></div>
+  <h4 class="header white-text">
+    <i class="material-icons md-48">
+      <span class="iconify" data-icon="mdi-link-variant"></span>
+    </i>
+    <br/>
+    Site - Liens - BecauseOfProg
+  </h4>
+</div>
 
-  <div class="row">
-    <div class="col l5 m7 s12 offset-l2 offset-m1">
-      {{ breadcrumb(['Liens partagés'])|safe }}
-    </div>
+<div class="container">
+  {{ breadcrumb(['Liens partagés'])|safe }}
+</div>
+
+<div class=" container row">
+  <div class="col m8 s12">
+      {% for i in range(len_links) %}
+      <div class="card shadow-elem hoverable">
+        <div class="card-content">
+          <span class="card-title primary--text">{{ links['entries'][i]['title'] }}</span>
+          <p>Paru sur {{ get_hostname(links['entries'][i]['link']) }}</p>
+        </div>
+        <div class="card-action primary--text card-action-bop-links">
+          <a href="{{ links['entries'][i]['link'] }}" class="primary--text">Lire</a>
+          <a href="#" class="primary--text">J'aime</a>
+        </div>
+      </div>
+      {% endfor %}
+    </ul>
   </div>
-  <div class="row">
-    <div class="col l2 m1 no-mobile"></div>
-    <div class="col l5 m7 s12">
-      <ul class="collapsible">
-        {% for i in range(len_links) %}
-          <li>
-            <div class="collapsible-header waves-effect">
-              <i class="material-icons">
-                <span class="iconify" data-icon="mdi-earth"></span>
-              </i>
-              {{ links['entries'][i]['title'] }}
-            </div>
-            <div class="collapsible-body">
-              <div class="row">
-                <div class="col s12">
-                  <p>{{ clean_descr(links['entries'][i]['description']) }}</p>
-                </div>
-                <div class="col s12">
-                  <a
-                    class="btn-flat waves-effect primary--text"
-                    href="{{ links['entries'][i]['link'] }}">
-                    <i class="material-icons right"><span class="iconify" data-icon="mdi-open-in-new"></span></i>
-                    Lire l'article
-                  </a>
-                  <div class="chip">
-                    {{ get_hostname(links['entries'][i]['link']) }}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-        {% endfor %}
-      </ul>
+  <div class="col m4 s12">
+    <div class="card shadow-elem primary">
+      <div class="card-content white-text">
+        <span class="card-title">Les liens BecauseOfProg</span>
+        <p>Nous partageons des liens vers des ressources, des blogs ou des articles intéressants, afin que vous puissiez vous aussi les découvrir.</p>
+      </div>
+      <div class="card-action white-text">
+        <a href="https://twitter.com/BecauseOfProg/" class="white-text">Twitter</a>
+        <a href="#" class="white-text">RSS</a>
+      </div>
     </div>
-    <div class="col l3 m3 s12">
-      <ul class="collection z-depth-2">
-      <li class="collection-item">
-          <h5 class="primary--text">Les liens BecauseOfProg</h5>
-          <p>Nous partageons des liens vers des ressources, des blogs ou des articles intéressants, afin que vous puissiez vous aussi les découvrir.</p>
-        </li>
-        <li class="collection-item">
-          <h5 class="primary--text">À propos</h5>
-          <p>BecauseOfProg, c'est des développeurs rassemblés autour de projets communs tels que le blog.</p>
-          <a class="btn-flat waves-effect primary--text" href="/page/about">
-            <i class="material-icons right">
-              <span class="iconify" data-icon="mdi-information-outline"></span>
-            </i>
-            En savoir plus
-          </a>
-        </li>
-        <li class="collection-item">
-          <h5 class="primary--text">Blogroll</h5>
-        </li>
+    <div class="card shadow-elem">
+      <div class="card-content">
+        <span class="card-title">À propos</span>
+        <p>BecauseOfProg, c'est des développeurs rassemblés autour de projets communs tels que le blog.</p>
+      </div>
+      <div class="card-action white-text card-action-bop-links">
+        <a class="btn-flat waves-effect primary--text" href="/page/about">
+          <i class="material-icons right">
+            <span class="iconify" data-icon="mdi-information-outline"></span>
+          </i>
+          En savoir plus
+        </a>
+      </div>
+    </div>
+    <div class="card shadow-elem">
+      <div class="card-content">
+        <span class="card-title">Blogroll</span>
+        <p>Les sites et les blogs que nous apprécions et que nous souhaitons vous partager</p>
+      </div>
+      <div class="card-action card-action-bop-links">
         {% for blog in blogroll %}
-          <li class="collection-item hoverable"><a href="{{blog.link}}" class="black-text">{{blog.name}}</a></li>
+          <a href="{{blog.link}}" class="black-text chip shadow-elem">{{blog.name}}</a><br/>
         {% endfor %}
-      </ul>
+      </div>
     </div>
-    <div class="col l2 m1 no-mobile"></div>
   </div>
+  <div class="col l2 m1 no-mobile"></div>
+</div>
 {% endblock %}

@@ -43,7 +43,7 @@ class PageController:
   @staticmethod
   def links():
     '''Displays links from an RSS feed (see function links_list(). )'''
-    links = links_list(20, "true")
+    links = links_list("links", 20, "true")
     len_links = len(links['entries'])
     return render_template('page/liens.html', links=links, len_links=len_links, blogroll=BLOGROLL)
 
