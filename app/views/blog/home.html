@@ -59,14 +59,16 @@
 
 <!-- Last article -->
 <div class="row container">
-  <a class="black-text center" href="/article/{{ last.url }}" id="main">
-    <div class="card horizontal hoverable">
-      <div class="card-image">
-        <img src="{{ image_proxy(last.banner, 678, 365) }}" class="border-radius-left">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <a class="btn primary" href="/article/{{ last.url }}">
+  <div class="card hoverable">
+
+      <div class="row">
+        <div class="col s12 m6 l6">
+          <a class="black-text center" href="/article/{{ last.url }}" id="main">
+            <img src="{{ image_proxy(last.banner, 678, 365) }}" width="100%" class="border-radius-left">
+          </a>
+        </div>
+        <div class="col s12 m6 l6">
+          <a class="btn primary no-mobile" href="/article/{{ last.url }}">
             <i class="material-icons left">
               <span class="iconify" data-icon="mdi-clock-outline"></span>
             </i>
@@ -78,8 +80,8 @@
           <p>{{ last.description }}</p>
         </div>
       </div>
-    </div>
-  </a>
+
+  </div>
 </div>
 
 <div class="row container">
