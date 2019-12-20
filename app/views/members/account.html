@@ -2,7 +2,7 @@
 {% block title %}Compte BecauseOfProg{% endblock %}
 {% block description %}Votre compte sur le site de BecauseOfProg{% endblock %}
 {% block url %}https://becauseofprog.fr/account{% endblock %}
-{% block image %}https://cdn.becauseofprog.fr/logos/bop-transparent.png{% endblock %}
+{% block image %}https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/logos/bop.min.svg{% endblock %}
 {% block author %}Équipe BecauseOfProg{% endblock %}
 
 {% block content %}
@@ -47,7 +47,7 @@
 
       <div class="card author-card horizontal">
         <div class="card-image">
-          <img src="{{ user.avatar }}" alt="Photo de profil de {{ user.displayname }}">
+          <img src="{{ image_proxy(user.avatar, 400,400) }}" alt="Photo de profil de {{ user.displayname }}">
         </div>
         <div class="card-stacked center">
           <div class="card-content">
