@@ -43,13 +43,13 @@
     <h3 class="carousel-bop-homepage-title">BecauseOfProg</h3>
     <h5 class="light grey-text text-lighten-3">Blog autour de la programmation créé par des passionnés</h5>
   </div>
-  <div class="carousel-item white-text" style="background: url(https://cdn.becauseofprog.fr/syst-images/dev.jpg)">
+  <div class="carousel-item white-text" style="background: url({{ image_proxy('https://cdn.becauseofprog.fr/syst-images/dev.jpg', 1920, 0) }})">
     <h3 class="carousel-bop-homepage-title">Nos outils</h3>
     <h5 class="light grey-text text-lighten-3">Nous proposons plusieurs outils et services gratuits</h5>
     <a class="waves-effect waves-light btn primary center white-text" href="/page/projects">En savoir plus</a>
   </div>
   <div class="carousel-item white-text"
-    style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ devblog.banner }})">
+    style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ image_proxy(devblog.banner, 1920, 0) }})">
     <h3 class="carousel-bop-homepage-title">Sur notre devblog...</h3>
     <h5 class="light white-text text-lighten-3">{{ devblog.title }}</h5>
     <a class="waves-effect waves-light btn primary center"
@@ -62,20 +62,20 @@
   <div class="card hoverable">
 
       <div class="row">
-        <div class="col s12 m6 l6">
+        <div class="col s12 m12 l6">
           <a class="black-text center" href="/article/{{ last.url }}" id="main">
-            <img src="{{ image_proxy(last.banner, 678, 365) }}" width="100%" class="border-radius-left">
+            <img src="{{ image_proxy(last.banner, 617.5, 0) }}" width="100%" class="border-radius-left">
           </a>
         </div>
-        <div class="col s12 m6 l6">
-          <a class="btn primary no-mobile" href="/article/{{ last.url }}">
+        <div class="col s12 m12 l6">
+          <a class="btn primary no-mobile new-button" href="/article/{{ last.url }}">
             <i class="material-icons left">
               <span class="iconify" data-icon="mdi-clock-outline"></span>
             </i>
             Nouveau!
           </a>
           <a class="black-text" href="/article/{{ last.url }}">
-            <h2>{{ last.title }}</h2>
+            <h2 class="main-title">{{ last.title }}</h2>
           </a>
           <p>{{ last.description }}</p>
         </div>
@@ -90,7 +90,7 @@
       <div class="card sticky-action hoverable">
         <div class="card-image">
           <a class="black-text" href="/article/{{ lasts[i].url }}">
-            <img class="border-radius-top" src="{{ image_proxy(lasts[i].banner, 800, 449.7) }}" alt="Illustration de l'article">
+            <img class="border-radius-top" src="{{ image_proxy(lasts[i].banner, 617, 347) }}" alt="Illustration de l'article">
           </a>
           <a href="/type/{{ lasts[i].type }}" class="btn-floating halfway-fab waves-effect waves-light primary">
             <i class="material-icons">
@@ -161,14 +161,14 @@
 <div class="carousel carousel-slider center">
   <div
     class="carousel-item white-text"
-    style="background: url('https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/background-projects-5.jpg')">
+    style="background: url(' {{ image_proxy('https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/background-projects-5.jpg', 1920, 0) }}')">
     <h3 class="carousel-bop-homepage-title shadow">Nos projets</h3>
     <h5 class="light grey-text text-lighten-3 shadow">BecauseOfProg, c'est aussi de nombreux projets</h5>
     <a class="waves-effect waves-light btn primary center white-text" href="/page/projects">En savoir plus</a>
   </div>
   <div
     class="carousel-item white-text"
-    style="background: url('https://cdn.becauseofprog.fr/v2/projects/yt-podcast/bg-min-2.jpg')">
+    style="background: url('{{ image_proxy('https://cdn.becauseofprog.fr/v2/projects/yt-podcast/bg-min-2.jpg', 1920, 0) }}')">
     <h3 class="carousel-bop-homepage-title">YouTube Podcasts</h3>
     <h5 class="light grey-text text-lighten-3">Transformez une chaîne YouTube ou une playlist en podcast</h5>
     <a
@@ -179,7 +179,7 @@
   </div>
   <div
     class="carousel-item white-text"
-    style="background: url({{ devblog.banner }})">
+    style="background: url({{ image_proxy(devblog.banner, 1920, 0) }})">
     <h3 class="carousel-bop-homepage-title">Sur notre devblog...</h3>
     <h5 class="light white-text text-lighten-3">{{ devblog.title }}</h5>
     <a
@@ -189,7 +189,7 @@
 </div>
 
 <div class="container row carousel-bop-homepage-title">
-  <div id="links" onload="requestembed('links')">
+  <div id="links">
     <div class="preloader-wrapper big active">
       <div class="spinner-layer spinner-blue-only">
         <div class="circle-clipper left">
@@ -221,24 +221,24 @@
           {% endfor %}
         </div>
         <div class="card-tabs">
-          <ul class="tabs tabs-fixed-width">
+          <ul class="tabs tabs-fixed-width no-autoinit tab-reseauxsociaux" id="tab-reseauxsociaux">
             <li class="tab"><a href="#twitter" class="primary--text">Twitter</a></li>
             <li class="tab"><a class="active primary--text" href="#mastodon">Mastodon</a></li>
             <li class="tab"><a href="#instagram" class="primary--text">Instagram</a></li>
           </ul>
         </div>
         <div class="card-content grey lighten-4">
-          <div id="twitter" onclick="requestembed('twitter')">Timeline intégrée?</div>
-          <div id="mastodon" onload="requestembed('mastodon')">Timeline intégrée?</div>
-          <div id="instagram" onclick="requestembed('instagram')">Timeline intégrée?</div>
+          <div id="twitter">Timeline intégrée?</div>
+          <div id="mastodon">Timeline intégrée?</div>
+          <div id="instagram">Timeline intégrée?</div>
         </div>
       </div>
     </div>
     <div class="col s12 m7">
       <div class="card">
         <div class="card-image">
-          <img src="https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/new-banner.png">
-          <span class="card-title shadow">À propos de nous</span>
+          <img src="{{ image_proxy('https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/new-banner.png', 724.167, 0) }}" class="border-radius-top">
+          <span class="card-title shadow no-mobile">À propos de nous</span>
         </div>
         <div class="card-content">
           <p>La BecauseOfProg, c'est plusieurs développeurs rassemblés autour de projets communs, dont ce blog, depuis février 2017.
@@ -247,7 +247,7 @@
             Sur ce blog, nous partageons nos trouvailles, nos projets, notre point de vue.
           </p>
         </div>
-        <div class="card-action">
+        <div class="card-action card-action-bop-links">
           <a href="/page/about" class="primary--text">En savoir plus</a>
         </div>
       </div>
