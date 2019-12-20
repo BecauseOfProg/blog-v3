@@ -35,9 +35,7 @@ def links_list(source, length, description):
     it can remove some entries or remove all descriptions (faster loading)
     Description is True or False. Source parameter can be links, twitter, mastodon, instagram'''
     if source == "links": feed_url = "https://gh.becauseofprog.fr/rss-proxy/"+str(length)+'/'+description
-    if source == "twitter": feed_url = "http://twitrss.me/twitter_user_to_rss/?user=BecauseOfProg"
-    if source == "mastodon": feed_url = "https://mstdn.io/@bop.rss"
-    if source == "instagram": feed_url = "https://gh.becauseofprog.fr/rss-bridge/?action=display&bridge=Instagram&context=Username&u=becauseofprog&media_type=all&format=Atom"
+    else: feed_url = source
 
     d = feedparser.parse(feed_url)
     return d

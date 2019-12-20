@@ -13,3 +13,11 @@ function requestembed(source) {
   };
   req.send(null);
 }
+
+var handler = function(event) {
+  requestembed('links');
+  removeEventListener('scroll', handler, false);
+};
+
+window.addEventListener('scroll', handler, false);
+

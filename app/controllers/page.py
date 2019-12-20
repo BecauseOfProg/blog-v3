@@ -14,6 +14,8 @@ PROJECTS = json.loads(open('resources/data/projects.json', 'r', encoding='utf-8'
 TYPES = json.loads(open('resources/data/types.json', 'r').read())
 CATEGORIES = json.loads(open('resources/data/categories.json', 'r', encoding="utf-8").read())
 
+EMBED_PARAMS = json.loads(open('resources/data/embeds.json', 'r', encoding='utf-8').read())
+
 
 class PageController:
   @staticmethod
@@ -36,9 +38,11 @@ class PageController:
   @staticmethod
   def rss_embed(source):
     '''Returns a small HTML file, inserted into the home page with some JS. Source parameter can be links, twitter, mastodon, instagram'''
-    feed = links_list(source, 5, "false")
+    params = EMBED_PARAMS[source]
+    feed = links_list(params["source"], 5, "false")
     len_l = len(feed['entries'])
-    return render_template('page/links_embed.html', links=feed, len_l=len_l)
+
+    return render_template('page/links_embed.html', links=feed, len_l=len_l, params=params)
 
   @staticmethod
   def links():

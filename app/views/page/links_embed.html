@@ -1,21 +1,40 @@
-<div class="col s12 m4">
+{% if params.title_card %}
+<div class="col {{ params.columns }}">
   <div class="card shadow-elem primary">
     <div class="card-content white-text">
-      <span class="card-title">Les liens</span>
-      <p>Les dernières actualités sélectionnées pour vous</p>
+      <span class="card-title">{{ params.name }}</span>
+      <p>{{ params.description }}</p>
     </div>
     <div class="card-action white-text">
-      <a href="#" class="white-text">Twitter</a>
-      <a href="#" class="white-text">RSS</a>
+      {% for button in params.buttons %}
+      <a href="{{ button.link }}" class="white-text">{{ button.text }}</a>
+      {% endfor %}
     </div>
   </div>
 </div>
-{% for i in range(len_l) %}
-<div class="col s12 m4">
+{% endif %}
+{% for i in range(5) %}
+<div class="col {{ params.columns }}">
   <div class="card shadow-elem hoverable">
-    <div class="card-content card-content-bop-links">
-      <span class="card-title primary--text">{{ links['entries'][i]['title'] }}</span>
+    
+    {% if params.include_enclosure %}
+    <div class="card-image">
+      <img src="{{ image_proxy(links['entries'][0].enclosures[0]['href'], 200, 200) }}">
+    </div>
+    {% endif %}
+    
+    <div class="card-content {% if params.fixed_height %} card-content-bop-links {% endif %}">
+      {% if params.custom_title %}<span class="card-title primary--text">{{ params.custom_title_text }}</span>
+      {% else %}<span class="card-title primary--text">{{ links['entries'][i]['title'] }}</span>{% endif %}
+      
+      {% if params.domain_as_descr %}
       <p>Paru sur {{ get_hostname(links['entries'][i]['link']) }}</p>
+      {% elif params.include_enclosure %}
+      <p>{{ params.description }}</p>
+      {% else %}
+      <p>{{ links['entries'][i]['description'] | safe }}</p>
+      
+      {% endif %}
     </div>
     <div class="card-action primary--text card-action-bop-links">
       <a href="{{ links['entries'][i]['link'] }}" class="primary--text">Lire</a>
