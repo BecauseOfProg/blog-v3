@@ -17,6 +17,7 @@
     <link type="text/css" rel="stylesheet" href="/static/bundle.css"/>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="initial-scale=1, viewport-fit=cover"/>
     <meta property="og:locale" content="fr_fr">
     <meta name="twitter:creator" content="@BecauseOfProg">
 
@@ -77,7 +78,7 @@
 {% block header %}
   <!-- Mobile drawer -->
   <ul id="mobile-demo" class="sidenav">
-    <li>
+    <li class="header">
       <div class="user-view">
         <div class="background primary"></div>
         <a href="/">
@@ -106,13 +107,10 @@
     <li><a href="/page/search"><i class="material-icons left"><span class="iconify" data-icon="mdi-magnify"></span></i>Rechercher</a></li>
     <li><a href="/page/projects"><i class="material-icons left"><span class="iconify" data-icon="mdi-package-variant"></span></i>Projets</a></li>
     <li><a href="/page/links"><i class="material-icons left"><span class="iconify" data-icon="mdi-link"></span></i>Liens</a></li>
-    <li><a href="/page/about"><i class="material-icons left"><span class="iconify" data-icon="mdi-information-outline"></span></i>A propos</a></li>
+    <li><a href="/page/about"><i class="material-icons left"><span class="iconify" data-icon="mdi-information-outline"></span></i>À propos</a></li>
     <li><a class="waves-effect waves-light btn primary" href="/login">Connexion</a></li>
-    <li>
-      &nbsp;
-    </li>
+    <li>&nbsp;</li>
   </ul>
-
   <div class="navbar-fixed topbar">
     <nav class="primary"></nav>
   </div>
@@ -180,15 +178,23 @@
           </div>
           <div class="col s12 hide" id="search-field-container">
             <form action="/page/search">
-              <li><input
+              <li>
+                <input
                    id="search-field"
                    type="search"
                    name="q"
                    class="validate"
                    required
                    placeholder="Recherche..."
-                   style="box-shadow: 0 2px 0 0 #ccc !important; border-bottom: none !important; color: black;"></li>
-              <li><a id="search-field-close"><i class="material-icons left"><span class="iconify primary--text" data-icon="mdi-close"></span></i></a></li>
+                   style="box-shadow: 0 2px 0 0 #ccc !important; border-bottom: none !important; color: black;">
+                </li>
+              <li>
+                <a id="search-field-close">
+                  <i class="material-icons left">
+                    <span class="iconify primary--text" data-icon="mdi-close"></span>
+                  </i>
+                </a>
+              </li>
             </form>
           </div>
         </ul>
@@ -210,6 +216,5 @@
 
 <script src="https://cdn.becauseofprog.fr/v2/libs/materialize/materialize.min.js"></script>
 <script src="/static/bundle.js"></script>
-
 </body>
 </html>
