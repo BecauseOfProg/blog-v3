@@ -4,10 +4,19 @@
 .card-content-bop-links
   min-height: 174.5px
 
-.card, .shadow-elem
+.card
+.shadow-elem
   border-radius: 20px
   transition: box-shadow .3s, transform .25s
   box-shadow: 0.25rem .25rem 1.25rem rgba(146,125,250,0.1)
 
 .card.horizontal .card-image img
   max-width: initial
+
+@media screen and (max-width: 600px)
+  .card.horizontal
+    display: block
+    a div.card-image
+      max-width: 100% !important
+      img
+        width: 100%

@@ -68,16 +68,18 @@
           </a>
         </div>
         <div class="col s12 m12 l6">
-          <a class="btn primary no-mobile new-button" href="/article/{{ last.url }}">
-            <i class="material-icons left">
-              <span class="iconify" data-icon="mdi-clock-outline"></span>
-            </i>
-            Nouveau!
-          </a>
-          <a class="black-text" href="/article/{{ last.url }}">
-            <h2 class="main-title">{{ last.title }}</h2>
-          </a>
-          <p>{{ last.description }}</p>
+          <div class="card-content">
+            <a class="btn primary no-mobile new-button" href="/article/{{ last.url }}">
+              <i class="material-icons left">
+                <span class="iconify" data-icon="mdi-clock-outline"></span>
+              </i>
+              Nouveau!
+            </a>
+            <a class="black-text" href="/article/{{ last.url }}">
+              <h2 class="main-title">{{ last.title }}</h2>
+            </a>
+            <p>{{ last.description }}</p>
+          </div>
         </div>
       </div>
 
@@ -115,11 +117,11 @@
             </div>
           </a>
           <div class="chip">{{ lasts[i].timestamp.strftime('%d/%m/%Y') }}</div>
-          <div class="chip waves-effect">
-            <a class="no-style-link grey-text text-darken-4" href="/categorie/{{ lasts[i].category }}">
-              {{ categories[lasts[i].category].name }}
-            </a>
-          </div>
+          <a href="/categorie/{{ lasts[i].category }}">
+            <div class="chip waves-effect">
+                {{ categories[lasts[i].category].name }}
+            </div>
+          </a>
         </div>
       </div>
     </div>
