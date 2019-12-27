@@ -1,89 +1,98 @@
 {% extends "index.html" %}
 {% block title %}{{ name }} - BecauseOfProg{% endblock %}
-{% block description %}Tous les articles tagués {{ type }} sur le blog.{% endblock %}
+{% block description %}
+  {% if type == 'Tous les articles' %}
+    Tous les articles publiés sur le blog.
+  {% else %}
+    Tous les articles tagués {{ type }} sur le blog.
+  {% endif %}
+{% endblock %}
 {% block url %}https://becauseofprog.fr{% endblock %}
 {% block image %}https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/logos/bop.min.svg{% endblock %}
 {% block author %}Équipe BecauseOfProg{% endblock %}
 
 {% block content %}
-  <div class="welcome parallax-container h250px">
-    <div class="parallax primary"></div>
-    <h4 class="header white-text">
-      <i class="material-icons md-48">
-        <span class="iconify" data-icon="mdi-{{icon}}"></span>
-      </i>
-      <br/>
-      {{ template.title() }} - {{ name }} - BecauseOfProg
-    </h4>
-  </div>
+<div class="welcome parallax-container h250px">
+  <div class="parallax primary"></div>
+  <h4 class="header white-text">
+    <i class="material-icons md-48">
+      <span class="iconify" data-icon="mdi-{{icon}}"></span>
+    </i>
+    <br/>
+    {{ template.title() }} - {{ name }} - BecauseOfProg
+  </h4>
+</div>
 
-  <div class="container">
-    {{ breadcrumb([template.title(), name])|safe }}
-    <div class="row">
-      <div class="col m9">
-        {% for article in articles %}
-          <div class="card hoverable">
-            <div class="card-image">
-              <a href="/article/{{ article.url }}">
-                <img src="{{ image_proxy(article.banner, 477,268) }}" alt="{{article.title}}">
+<div class="container">
+  {{ breadcrumb([template.title(), name])|safe }}
+  <div class="row">
+    <div class="col m9">
+      {% for article in articles %}
+        <div class="card hoverable">
+          <div class="card-image">
+            <a href="/article/{{ article.url }}">
+              <img src="{{ image_proxy(article.banner, 477,268) }}" alt="{{article.title}}">
+            </a>
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+            <span class="card-title grey-text text-darken-4">
+              <a class="black-text" href="/article/{{ article.url }}">
+                {{ article.title }}
               </a>
-            </div>
-            <div class="card-stacked">
-              <div class="card-content">
-              <span class="card-title grey-text text-darken-4">
-                <a class="black-text" href="/article/{{ article.url }}">
-                  {{ article.title }}
-                </a>
-              </span>
-                <a class="no-style-link" href="/user/{{ article.author.username }}">
+            </span>
+              <a class="no-style-link" href="/user/{{ article.author.username }}">
+                <div class="chip waves-effect">
+                  <img src="{{ image_proxy(article.author.avatar, 32,32) }}" alt="Photo de profil de l'auteur">
+                  {{ article.author.displayname }}
+                </div>
+              </a>
+              {% if template != "type" %}
+                <a class="no-style-link" href="/type/{{ article.type }}">
                   <div class="chip waves-effect">
-                    <img src="{{ image_proxy(article.author.avatar, 32,32) }}" alt="Photo de profil de l'auteur">
-                    {{ article.author.displayname }}
+                    {{ types[article.type].name }}
                   </div>
                 </a>
-                {% if template != "type" %}
+              {% endif %}
+              {% if template != "Catégorie" %}
+                <a class="no-style-link" href="/categorie/{{ article.category }}">
                   <div class="chip waves-effect">
-                    <a class="no-style-link" href="/type/{{ article.type }}">
-                      {{ types[article.type].name }}
-                    </a>
+                    {{ categories[article.category].name }}
                   </div>
-                {% endif %}
-                {% if template != "Catégorie" %}
-                  <div class="chip waves-effect">
-                    <a class="no-style-link" href="/categorie/{{ article.category }}">
-                      {{ categories[article.category].name }}
-                      </a>
-                  </div>
-                {% endif %}
-                <div class="chip">{{ article.timestamp.strftime('%d/%m/%Y') }}</div>
-              </div>
+                </a>
+              {% endif %}
+              <div class="chip">{{ article.timestamp.strftime('%d/%m/%Y') }}</div>
             </div>
           </div>
-        {% endfor %}
-        {% if articles|length > 9 %}
-          <a class="waves-effect waves-light btn primary" href="{{ page+1 }}">
-            Page suivante
-            <i class="material-icons right"><span class="iconify" data-icon="mdi-chevron-right"></span></i>
-          </a>
-        {% endif %}
-      </div>
-      <div class="col m3">
-        <ul class="collection z-depth-2">
+        </div>
+      {% endfor %}
+      {% if articles|length > 9 %}
+        <a class="waves-effect waves-light btn primary" href="{{ page + 1 }}">
+          Page suivante
+          <i class="material-icons right">
+            <span class="iconify" data-icon="mdi-chevron-right"></span>
+          </i>
+        </a>
+      {% endif %}
+    </div>
+    <div class="col m3">
+      <div class="card">
+        <ul class="collection">
           {% for url, category in categories.items() %}
             <li class="collection-item">
-              <a class="collection-link primary--text" href="/categorie/{{url}}">
+              <a class="collection-link primary--text" href="/categorie/{{ url }}">
                 <i class="material-icons left">
-                  <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
+                  <span class="iconify" data-icon="mdi-{{ category.icon }}"></span>
                 </i>
-                {{category.name}}
+                {{ category.name }}
               </a>
             </li>
           {% endfor %}
           {% for url, type in types.items() %}
             <li class="collection-item">
-              <a class="collection-link primary--text" href="/type/{{url}}">
+              <a class="collection-link primary--text" href="/type/{{ url }}">
                 <i class="material-icons left">
-                  <span class="iconify" data-icon="mdi-{{type.icon}}"></span>
+                  <span class="iconify" data-icon="mdi-{{ type.icon }}"></span>
                 </i>
                 {{type.name}}
               </a>
@@ -128,7 +137,8 @@
               En savoir plus
             </a>
           </li>
-          <!--<li class="collection-item">
+          <!--
+          <li class="collection-item">
             <h5>Sur le devblog...</h5>
             <p>{{ devblog.title }}</p>
             <a class="waves-effect waves-light btn primary"
@@ -136,9 +146,11 @@
               <i class="material-icons right">info</i>
               Lire
             </a>
-            </li>-->
+          </li>
+          -->
         </ul>
       </div>
     </div>
   </div>
+</div>
 {% endblock %}

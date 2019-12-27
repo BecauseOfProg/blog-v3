@@ -16,24 +16,23 @@
 {% for i in range(5) %}
 <div class="col {{ params.columns }}">
   <div class="card shadow-elem hoverable">
-    
     {% if params.include_enclosure %}
     <div class="card-image">
       <img src="{{ image_proxy(links['entries'][0].enclosures[0]['href'], 200, 200) }}">
     </div>
     {% endif %}
-    
     <div class="card-content {% if params.fixed_height %} card-content-bop-links {% endif %}">
-      {% if params.custom_title %}<span class="card-title primary--text">{{ params.custom_title_text }}</span>
-      {% else %}<span class="card-title primary--text">{{ links['entries'][i]['title'] }}</span>{% endif %}
-      
-      {% if params.domain_as_descr %}
-      <p>Paru sur {{ get_hostname(links['entries'][i]['link']) }}</p>
-      {% elif params.include_enclosure %}
-      <p>{{ params.description }}</p>
+      {% if params.custom_title %}
+        <span class="card-title primary--text">{{ params.custom_title_text }}</span>
       {% else %}
-      <p>{{ links['entries'][i]['description'] | safe }}</p>
-      
+        <span class="card-title primary--text">{{ links['entries'][i]['title'] }}</span>
+      {% endif %}
+      {% if params.domain_as_descr %}
+        <p>Paru sur {{ get_hostname(links['entries'][i]['link']) }}</p>
+      {% elif params.include_enclosure %}
+        <p>{{ params.description }}</p>
+      {% else %}
+        <p>{{ links['entries'][i]['description'] | safe }}</p>
       {% endif %}
     </div>
     <div class="card-action primary--text card-action-bop-links">
@@ -41,4 +40,5 @@
       <a href="#" class="primary--text">J'aime</a>
     </div>
   </div>
-</div>{% endfor %}
+</div>
+{% endfor %}

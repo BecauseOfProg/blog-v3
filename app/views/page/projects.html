@@ -13,7 +13,7 @@
         <span class="iconify" data-icon="mdi-package-variant"></span>
       </i>
       <br/>
-      Site - Projets - BecauseOfProg
+      Projets - BecauseOfProg
     </h4>
 </div>
 
@@ -35,18 +35,18 @@
     </div>
   </div>
   {% for project in projects %}
-  <div class="col s12 m4">
-    <div class="card shadow-elem hoverable">
-      <div class="card-content card-content-bop-links">
-        <span class="card-title primary--text">{{project.name}}</span>
-        <p>{{project.description}}</p>
-      </div>
-      <div class="card-action primary--text card-action-bop-links">
-        <a href="{{project.link}}" class="primary--text">En savoir plus</a>
-        <a href="#" class="primary--text">J'aime</a>
+    <div class="col s12 m4">
+      <div class="card shadow-elem hoverable">
+        <div class="card-content card-content-bop-links">
+          <span class="card-title primary--text">{{project.name}}</span>
+          <p>{{project.description}}</p>
+        </div>
+        <div class="card-action primary--text card-action-bop-links">
+          <a href="{{project.link}}" class="primary--text">En savoir plus</a>
+          <a href="#" class="primary--text">J'aime</a>
+        </div>
       </div>
     </div>
-  </div>{% endfor %}
+  {% endfor %}
 </div>
-
 {% endblock %}

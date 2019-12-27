@@ -38,17 +38,17 @@
                   class="validate"
                   required
                   placeholder="Recherche..."
-                  style="box-shadow: 0 2px 0 0 #b71c1c !important; border-bottom: none !important; color: black;"
+                  style="box-shadow: 0 2px 0 0 #ff514c !important; border-bottom: none !important; color: black;"
                   />
               </div>
             </form>
-            <h5>Catégories suggérées</h5>
+            <h5 class="primary--text">Catégories suggérées</h5>
             {% for url, category in categories.items() %}
-            <a class="black-text chip" href="/categorie/{{url}}">
+            <a class="chip" href="/categorie/{{url}}">
               <i class="material-icons left icon-chip">
                 <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
               </i>
-              {{category.name}}
+              {{ category.name }}
             </a>
           {% endfor %}
           </div>
@@ -66,7 +66,7 @@
               </a>
               <a href="/type/{{ post.type }}" class="btn-floating halfway-fab waves-effect waves-light primary">
                 <i class="material-icons">
-                  <span class="iconify" data-icon="mdi-{{types[post.type].icon}}"></span>
+                  <span class="iconify" data-icon="mdi-{{ types[post.type].icon }}"></span>
                 </i>
               </a>
             </div>

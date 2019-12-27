@@ -22,7 +22,7 @@
   <div class="row">
     <div class="col l1 no-mobile"></div>
     <div class="col l7 upper-content">
-      <div class="section white z-depth-2 article-content">
+      <div class="card section article-content">
         <h5>{{ article.description }}</h5>
         <hr/>
         {% if htmlarticle %}
@@ -87,74 +87,74 @@
       </div>
     </div>
     <div class="col l3 upper-content-no-mobile">
-      <ul class="collection z-depth-2">
-        <li class="collection-item h300px ads" style="display: none"></li>
-        <li class="collection-item">
-          <h5 class="primary--text">Nous suivre</h5>
-          <div class="row">
-            <a class="blue-text text-lighten-2" href="https://twitter.com/BecauseOfProg">
-              <i class="material-icons large">
-                <span class="iconify" data-icon="mdi-twitter"></span>
+      <div class="card">
+        <ul class="collection">
+          <li class="collection-item h300px ads" style="display: none"></li>
+          <li class="collection-item">
+            <h5 class="primary--text">Nous suivre</h5>
+            <div class="row">
+              <a class="blue-text text-lighten-2" href="https://twitter.com/BecauseOfProg">
+                <i class="material-icons large">
+                  <span class="iconify" data-icon="mdi-twitter"></span>
+                </i>
+              </a>
+              <a class="blue-text text-darken-1" href="https://discord.becauseofprog.fr">
+                <i class="material-icons large">
+                  <span class="iconify" data-icon="mdi-discord"></span>
+                </i>
+              </a>
+              <a class="teal-text" href="https://mstdn.io/@bop">
+                <i class="material-icons large">
+                  <span class="iconify" data-icon="mdi-mastodon"></span>
+                </i>
+              </a>
+              <a class="black-text" href="https://github.com/BecauseOfProg">
+                <i class="material-icons large">
+                  <span class="iconify" data-icon="mdi-github-circle"></span>
+                </i>
+              </a>
+            </div>
+          </li>
+          <li class="collection-item">
+            <h5 class="primary--text">À propos</h5>
+            <p>BecauseOfProg, c'est des développeurs rassemblés autour de projets communs tels que le blog.</p>
+            <a class="btn-flat waves-effect primary--text" href="/page/about">
+              <i class="material-icons right">
+                <span class="iconify" data-icon="mdi-information-outline"></span>
               </i>
+              En savoir plus
             </a>
-            <a class="blue-text text-darken-1" href="https://discord.becauseofprog.fr">
-              <i class="material-icons large">
-                <span class="iconify" data-icon="mdi-discord"></span>
-              </i>
-            </a>
-            <a class="teal-text" href="https://mstdn.io/@bop">
-              <i class="material-icons large">
-                <span class="iconify" data-icon="mdi-mastodon"></span>
-              </i>
-            </a>
-            <a class="black-text" href="https://github.com/BecauseOfProg">
-              <i class="material-icons large">
-                <span class="iconify" data-icon="mdi-github-circle"></span>
-              </i>
-            </a>
-          </div>
-        </li>
-        <li class="collection-item">
-          <h5 class="primary--text">À propos</h5>
-          <p>BecauseOfProg, c'est des développeurs rassemblés autour de projets communs tels que le blog.</p>
-          <a class="btn-flat waves-effect primary--text" href="/page/about">
-            <i class="material-icons right">
-              <span class="iconify" data-icon="mdi-information-outline"></span>
-            </i>
-            En savoir plus
-          </a>
-        </li>
-        <li class="collection-item">
-          <h5 class="primary--text">Catégories</h5>
-          {% for url, category in categories.items() %}
-            <a class="black-text chip waves-effect" href="/categorie/{{url}}">
-              <i class="material-icons left icon-chip">
-                <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
-              </i>
-              {{category.name}}
-            </a>
-          {% endfor %}
-          {% for url, type in types.items() %}
-            <a class="black-text chip" href="/type/{{url}}">
-              <i class="material-icons left icon-chip">
-                <span class="iconify" data-icon="mdi-{{type.icon}}"></span>
-              </i>
-              {{type.name}}
-            </a>
-          {% endfor %}
-        </li>
-        <!--<li class="collection-item">
-          <h5>Sur le devblog...</h5>
-          <p>{{ devblog.title }}</p>
-          <a class="waves-effect waves-light btn primary"
-             href="https://becauseofprog.fr/news/{{ devblog.url }}"><i
-            class="material-icons right">info</i>Lire</a>
-        </li>-->
-      </ul>
+          </li>
+          <li class="collection-item">
+            <h5 class="primary--text">Catégories</h5>
+            {% for url, category in categories.items() %}
+              <a class="black-text chip waves-effect" href="/categorie/{{url}}">
+                <i class="material-icons left icon-chip">
+                  <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
+                </i>
+                {{category.name}}
+              </a>
+            {% endfor %}
+            {% for url, type in types.items() %}
+              <a class="black-text chip" href="/type/{{url}}">
+                <i class="material-icons left icon-chip">
+                  <span class="iconify" data-icon="mdi-{{type.icon}}"></span>
+                </i>
+                {{type.name}}
+              </a>
+            {% endfor %}
+          </li>
+          <!--<li class="collection-item">
+            <h5>Sur le devblog...</h5>
+            <p>{{ devblog.title }}</p>
+            <a class="waves-effect waves-light btn primary"
+               href="https://becauseofprog.fr/news/{{ devblog.url }}"><i
+              class="material-icons right">info</i>Lire</a>
+          </li>-->
+        </ul>
+      </div>
     </div>
     <div class="col l1 no-mobile"></div>
-  </div>
-  <div class="section center grey lighten-2">
     <div class="row container center">
       <div class="col s12">
         <div class="card author-card horizontal">
@@ -183,8 +183,7 @@
         </div>
       </div>
     </div>
-
-    <div class="col l10 offset-l1">
+    <div class="col s12 center">
       <h4>La rubrique commentaires est en travaux</h4>
     </div>
   </div>

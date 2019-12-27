@@ -13,7 +13,7 @@
       <p>{% include 'components/cgu.html' %}</p>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fermer</a>
+      <a href="#!" class="btn-flat waves-effect primary--text modal-action modal-close">Fermer</a>
     </div>
   </div>
   <div id="privacy-modal" class="modal modal-fixed-footer">
@@ -22,7 +22,7 @@
       <p>{% include 'components/privacy.html' %}</p>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fermer</a>
+      <a href="#!" class="btn-flat waves-effect primary--text modal-action modal-close">Fermer</a>
     </div>
   </div>
 
@@ -74,7 +74,7 @@
     </h3>
     {% for user in staff %}
       <div class="col s12 m6 l4">
-        <div class="card sticky-action large hoverable">
+        <div class="card sticky-action large">
           <div class="card-image">
             <img class="responsive-img border-radius-top" src="{{ image_proxy(user.avatar, 400,400) }}"
               alt="Photo de profil de {{ user.displayname }}"/>
