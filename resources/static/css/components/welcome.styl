@@ -5,16 +5,13 @@
 
 .welcome
   height: 574px
-  
-.welcome .header
-  font-weight: 600
-  text-align: center
-
-.welcome .subtitle
-  text-align: center
-
-.welcome p
-  text-align: center
+  .header
+    font-weight: 600
+    text-align: center
+  .subtitle
+    text-align: center
+  p
+    text-align: center
 
 @media screen and (max-width: 500px)
   .welcome .header
@@ -31,12 +28,11 @@
 @media only screen and (min-width: 1000px)
   .welcome-bop-carousel
     top: -64px !important
+    .carousel-item
+      padding-top: 85px
 
   .welcome
     padding-top: 50px
-
-  .welcome-bop-carousel .carousel-item 
-    padding-top: 85px;
 
 .carousel-bop-homepage-title
   margin-top: 64px

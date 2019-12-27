@@ -5,6 +5,8 @@
   overflow: hidden
   position: relative
   padding: 0.5rem 2rem 1rem 2rem
+  h4
+    font-weight: 300
 
 .markdown-body
   margin-top: 20px
@@ -12,24 +14,19 @@
 .markdown-body ul
 .markdown-body li
   list-style-type: unset !important
-
-.article-content h4
-  font-weight: 300
   
-div.card.author-card div.card-image img
-  width: 220px
-  border-radius: 20px 0 0 20px
-
-div.card.author-card div.card-stacked div.card-action a img
-  width: 40px
-
-div.card.author-card div.card-stacked div.card-action
-  padding: 5px
+div.card.author-card
+  div.card-image img
+    width: 220px
+    border-radius: 20px 0 0 20px
+  div.card-stacked div.card-action
+    padding: 5px
+    a img
+      width: 40px
 
 @media screen and (max-width: 740px)
   div.card.author-card
     display: block
-
-  div.card.author-card div.card-image img
-    min-width: 200%
-    border-radius: 20px 20px 0 00px
+    div.card-image img
+      min-width: 200%
+      border-radius: 20px 20px 0 00px

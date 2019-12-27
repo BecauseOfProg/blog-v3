@@ -20,4 +20,3 @@ var handler = function(event) {
 };
 
 window.addEventListener('scroll', handler, false);
-
