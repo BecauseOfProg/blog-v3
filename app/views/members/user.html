@@ -2,7 +2,7 @@
 {% block title %}{{ user.displayname }} - Profil BecauseOfProg{% endblock %}
 {% block description %}{{ user.description }}{% endblock %}
 {% block url %}https://becauseofprog.fr/user/{{ user.username }}{% endblock %}
-{% block image %}https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/logos/bop.min.svg{% endblock %}
+{% block image %}{{user.avatar}}{% endblock %}
 {% block author %}Équipe BecauseOfProg{% endblock %}
 
 {% block content %}
@@ -15,7 +15,7 @@
       class="user-avatar-header responsive-img bop-logo"
       style="width: 200px; border-radius: 50%;">
     <h2 class="header white-text">{{ user.displayname }}</h2>
-    <h5 class="subtitle grey-text">{{ user.description }}</h5>
+    <h5 class="subtitle grey-text text-lighten-3">{{ user.description }}</h5>
   </div>
   <div class="container row">
     <p class="bop-breadcrumb">
@@ -25,8 +25,9 @@
       <i class="material-icons"><span class="iconify" data-icon="mdi-chevron-right"></span></i>
       <a href="" class="black-text">{{ user.displayname }}</a>
     </p>
-    <div class="col l8 s12">
-      <h2>La page utilisateur est en travaux.</h2>
-    </div>
+  </div>
+  <div class="container row">
+    {{ user.biography }}
+  </div>
   </div>
 {% endblock %}

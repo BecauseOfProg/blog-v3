@@ -88,70 +88,77 @@
     </div>
     <div class="col l3 upper-content-no-mobile">
       <div class="card">
-        <ul class="collection">
-          <li class="collection-item h300px ads" style="display: none"></li>
-          <li class="collection-item">
-            <h5 class="primary--text">Nous suivre</h5>
-            <div class="row">
-              <a class="blue-text text-lighten-2" href="https://twitter.com/BecauseOfProg">
-                <i class="material-icons large">
-                  <span class="iconify" data-icon="mdi-twitter"></span>
-                </i>
-              </a>
-              <a class="blue-text text-darken-1" href="https://discord.becauseofprog.fr">
-                <i class="material-icons large">
-                  <span class="iconify" data-icon="mdi-discord"></span>
-                </i>
-              </a>
-              <a class="teal-text" href="https://mstdn.io/@bop">
-                <i class="material-icons large">
-                  <span class="iconify" data-icon="mdi-mastodon"></span>
-                </i>
-              </a>
-              <a class="black-text" href="https://github.com/BecauseOfProg">
-                <i class="material-icons large">
-                  <span class="iconify" data-icon="mdi-github-circle"></span>
-                </i>
-              </a>
-            </div>
-          </li>
-          <li class="collection-item">
-            <h5 class="primary--text">À propos</h5>
-            <p>BecauseOfProg, c'est des développeurs rassemblés autour de projets communs tels que le blog.</p>
-            <a class="btn-flat waves-effect primary--text" href="/page/about">
-              <i class="material-icons right">
-                <span class="iconify" data-icon="mdi-information-outline"></span>
-              </i>
-              En savoir plus
-            </a>
-          </li>
-          <li class="collection-item">
-            <h5 class="primary--text">Catégories</h5>
-            {% for url, category in categories.items() %}
-              <a class="black-text chip waves-effect" href="/categorie/{{url}}">
-                <i class="material-icons left icon-chip">
-                  <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
-                </i>
-                {{category.name}}
-              </a>
-            {% endfor %}
-            {% for url, type in types.items() %}
-              <a class="black-text chip" href="/type/{{url}}">
-                <i class="material-icons left icon-chip">
-                  <span class="iconify" data-icon="mdi-{{type.icon}}"></span>
-                </i>
-                {{type.name}}
-              </a>
-            {% endfor %}
-          </li>
-          <!--<li class="collection-item">
-            <h5>Sur le devblog...</h5>
-            <p>{{ devblog.title }}</p>
-            <a class="waves-effect waves-light btn primary"
-               href="https://becauseofprog.fr/news/{{ devblog.url }}"><i
-              class="material-icons right">info</i>Lire</a>
-          </li>-->
-        </ul>
+        <div class="card-content">
+          <h5 class="primary--text">Nos réseaux sociaux</h5>
+          <p>Nous postons régulièrement des nouvelles, des tips et des astuces. Suivez-nous! </p>
+          <br/>
+          <a class="blue-text text-lighten-2" href="https://twitter.com/BecauseOfProg">
+            <i class="material-icons large">
+              <span class="iconify" data-icon="mdi-twitter" data-inline="false" data-width="40" data-height="40"></span>
+            </i>
+          </a>
+          <a class="blue-text text-darken-1" href="https://discord.becauseofprog.fr">
+            <i class="material-icons large">
+              <span class="iconify" data-icon="mdi-discord" data-inline="false" data-width="40" data-height="40"></span>
+            </i>
+          </a>
+          <a class="teal-text" href="https://mstdn.io/@bop">
+            <i class="material-icons large">
+              <span class="iconify" data-icon="mdi-mastodon" data-inline="false" data-width="40" data-height="40"></span>
+            </i>
+          </a>
+          <a class="black-text" href="https://github.com/BecauseOfProg">
+            <i class="material-icons large">
+              <span class="iconify" data-icon="mdi-github-circle" data-inline="false" data-width="40" data-height="40" style="color: #e33733;"></span>
+            </i>
+          </a>
+        </div>
+      </div>
+      <div class="card shadow-elem">
+        <div class="card-content">
+          <span class="card-title">À propos</span>
+          <p>BecauseOfProg, c'est des développeurs rassemblés autour de projets communs tels que le blog.</p>
+        </div>
+        <div class="card-action white-text card-action-bop-links">
+          <a class="btn-flat waves-effect primary--text" href="/page/about">
+            <i class="material-icons right">
+              <span class="iconify" data-icon="mdi-information-outline"></span>
+            </i>
+            En savoir plus
+          </a>
+        </div>
+      </div>
+      <div class="card shadow-elem primary">
+        <div class="card-content white-text">
+          <span class="card-title">Les liens BecauseOfProg</span>
+          <p>Nous partageons des liens vers des ressources, des blogs ou des articles intéressants, afin que vous puissiez vous aussi les découvrir.</p>
+        </div>
+        <div class="card-action white-text">
+          <a href="https://twitter.com/BecauseOfProg/" class="white-text">Twitter</a>
+          <a href="#" class="white-text">RSS</a>
+        </div>
+      </div>
+
+      <div class="card shadow-elem">
+        <div class="card-content">
+          <span class="card-title">Catégories</span>
+        </div>
+        <div class="card-action card-action-bop-links">
+          {% for url, category in categories.items() %}
+            <a href="/categorie/{{url}}" class="black-text chip shadow-elem">
+              <i class="material-icons left icon-chip">
+                <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
+              </i>{{category.name}}
+            </a><br/>
+          {% endfor %}
+          {% for url, type in types.items() %}
+            <a href="/categorie/{{url}}" class="black-text chip shadow-elem">
+              <i class="material-icons left icon-chip">
+                <span class="iconify" data-icon="mdi-{{type.icon}}"></span>
+              </i>{{type.name}}
+            </a><br/>
+          {% endfor %}
+        </div>
       </div>
     </div>
     <div class="col l1 no-mobile"></div>
@@ -164,10 +171,10 @@
           <div class="card-stacked">
             <div class="card-content">
               <span class="card-title">{{ author.displayname }}</span>
-              <p><i>{{ author.biography }}</i></p>
+              <p><i>{{ author.description }}</i></p>
             </div>
             <div class="card-action">
-              <a href="/user/{{ article.author.username }}">
+              <a href="/user/{{ author.username }}">
                 <img
                   src="https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/logos/bop.min.svg"
                   alt="Logo BecauseOfProg"/>
