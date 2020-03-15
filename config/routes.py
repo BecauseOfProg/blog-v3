@@ -31,6 +31,7 @@ application.add_url_rule('/page/about', None, PageController.about)
 application.add_url_rule('/page/application', None, PageController.app)
 application.add_url_rule('/page/links', None, PageController.links)
 application.add_url_rule('/page/embed/<string:source>', None, PageController.rss_embed)
+application.add_url_rule('/page/embed.js', None, PageController.js_embed)
 application.add_url_rule('/page/projects', None, PageController.projects)
 application.add_url_rule('/page/search/', None, PageController.show_search, defaults={'keyword': None, 'page': 0})
 application.add_url_rule('/page/search/<string:keyword>/', None, PageController.show_search, defaults={'page': 0})
@@ -52,7 +53,6 @@ application.add_url_rule('/about/', None, RedirectsController.redirect_about)
 
 # ----------------- MISC -----------------
 
-application.add_url_rule('/pwabuilder-sw.js', None, MiscController.get_pwa)
 application.add_url_rule('/blog.rss', None, MiscController.get_rss)
 application.add_url_rule('/tout.rss', None, MiscController.get_rss)
 application.add_url_rule('/sitemap-articles.xml', None, MiscController.get_sitemap)

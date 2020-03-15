@@ -1,5 +1,5 @@
 from pony.orm import db_session, desc
-from flask import render_template, request
+from flask import render_template, request, jsonify
 from core.exceptions import NoArticlesFound
 from core.utils.fill_informations import fill_informations
 from core.utils.links import links_list
@@ -7,6 +7,8 @@ from app.models.article import Articles
 from app.models.user import User
 from app.controllers.blog import BlogController
 import json
+
+import feedparser
 
 BLOGROLL = json.loads(open('resources/data/blogroll.json', 'r').read())
 PROJECTS = json.loads(open('resources/data/projects.json', 'r', encoding='utf-8').read())
@@ -39,10 +41,23 @@ class PageController:
   def rss_embed(source):
     '''Returns a small HTML file, inserted into the home page with some JS. Source parameter can be links, twitter, mastodon, instagram'''
     params = EMBED_PARAMS[source]
-    feed = links_list(params["source"], 5, "false")
+    feed = links_list(params["source"], 8, "false")
     len_l = len(feed['entries'])
 
     return render_template('page/links_embed.html', links=feed, len_l=len_l, params=params)
+
+  @staticmethod
+  def js_embed():
+    '''Returns json data'''
+    RSS_URLS = []
+    for source in EMBED_PARAMS:
+      RSS_URLS.append(EMBED_PARAMS[source]["source"])
+
+    posts = []
+    for url in RSS_URLS:
+      posts.extend(feedparser.parse(url).entries)
+
+    return jsonify(sorted(posts, key = lambda i: i.published_parsed, reverse = True))
 
   @staticmethod
   def links():

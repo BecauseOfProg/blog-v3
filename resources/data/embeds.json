@@ -7,7 +7,7 @@
       {"text": "RSS", "link": "#"}
     ],
     "title_card": true,
-    "source": "https://gh.becauseofprog.fr/rss-proxy/5/false",
+    "source": "https://gh.becauseofprog.fr/links/?do=atom",
     "columns": "s12 m4",
     "fixed_height": true,
     "domain_as_descr": true,
