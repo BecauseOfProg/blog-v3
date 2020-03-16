@@ -1,4 +1,4 @@
-from flask import render_template, send_from_directory
+from flask import render_template, send_from_directory, make_response
 from pony.orm import db_session, desc
 from app.models.article import Articles
 
@@ -15,7 +15,10 @@ class MiscController:
   def get_rss():
     '''Generates the RSS feed'''
     articles = Articles.select().order_by(desc(Articles.timestamp))
-    return render_template('components/flux.xml', articles=articles)
+    rss_xml = render_template('components/flux.xml', articles=articles)
+    response = make_response(rss_xml)
+    response.headers['Content-Type'] = 'application/xml'
+    return response
 
   @staticmethod
   @db_session
