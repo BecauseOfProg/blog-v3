@@ -190,8 +190,25 @@
         </div>
       </div>
     </div>
-    <div class="col s12 center">
-      <h4>La rubrique commentaires est en travaux</h4>
+
+    <div class="row container">
+      <div class="col s12">
+        <div class="card">
+          <div class="card-stacked">
+            <div class="card-content">
+              <span class="card-title">Commentaires sur l'article</span>
+              <script data-isso="https://comments.becauseofprog.fr/"
+                data-isso-lang="fr"
+                data-isso-require-author="true"
+                data-isso-require-email="true"
+                data-isso-css="false"
+                src="https://comments.becauseofprog.fr/js/embed.min.js"></script>
+
+              <section id="isso-thread" data-title="Commentaires sur l'article"></section>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 {% endblock %}
