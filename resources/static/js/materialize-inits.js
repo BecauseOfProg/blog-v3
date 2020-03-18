@@ -17,19 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var elems = document.querySelectorAll('.sidenav')
   var instances = M.Sidenav.init(elems)
+
+  // Auto initializer, for components that don't need additional configuration
+  M.AutoInit()
 })
-
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.tab-reseauxsociaux');
-  var instances = M.Tabs.init(elems, {onShow: function(elems) {
-    var elem = document.getElementById('tab-reseauxsociaux');
-    var instance = M.Tabs.getInstance(elem);
-    var active_tab = instance.$activeTabLink[0];
-    var to_embed = active_tab.innerText;
-    requestembed(to_embed.toLowerCase());
-  }});
-});
-
-
-// Auto initializer, for components that don't need additional configuration
-M.AutoInit()
