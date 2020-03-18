@@ -1,8 +1,43 @@
-{% for i in range(len_l) %}
-<li class="collection-item avatar">
-    <span class="title links-embed-title">{{ links['entries'][i]['title'] }}</span>
-    <p>{{ get_hostname(links['entries'][i]['link']) }}</p>
-    <a href="{{ links['entries'][i]['link'] }}" class="secondary-content red-text text-darken-3">
-      <i class="material-icons">send</i>
-    </a>
-</li>{% endfor %}
+{% if params.title_card %}
+<div class="col {{ params.columns }}">
+  <div class="card shadow-elem primary">
+    <div class="card-content white-text">
+      <span class="card-title">{{ params.name }}</span>
+      <p>{{ params.description }}</p>
+    </div>
+    <div class="card-action white-text">
+      {% for button in params.buttons %}
+      <a href="{{ button.link }}" class="white-text">{{ button.text }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+{% for i in range(8) %}
+<div class="col {{ params.columns }}">
+  <div class="card shadow-elem hoverable">
+    {% if params.include_enclosure %}
+    <div class="card-image">
+      <img src="{{ image_proxy(links['entries'][0].enclosures[0]['href'], 200, 200) }}">
+    </div>
+    {% endif %}
+    <div class="card-content {% if params.fixed_height %} card-content-bop-links {% endif %}">
+      {% if params.custom_title %}
+        <span class="card-title primary--text">{{ params.custom_title_text }}</span>
+      {% else %}
+        <span class="card-title primary--text">{{ links['entries'][i]['title'] }}</span>
+      {% endif %}
+      {% if params.domain_as_descr %}
+        <p>Paru sur {{ get_hostname(links['entries'][i]['link']) }}</p>
+      {% elif params.include_enclosure %}
+        <p>{{ params.description }}</p>
+      {% else %}
+        <p>{{ links['entries'][i]['description'] | safe }}</p>
+      {% endif %}
+    </div>
+    <div class="card-action primary--text card-action-bop-links">
+      <a href="{{ links['entries'][i]['link'] }}" class="primary--text">Lire</a>
+    </div>
+  </div>
+</div>
+{% endfor %}

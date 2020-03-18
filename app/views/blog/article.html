@@ -22,7 +22,7 @@
   <div class="row">
     <div class="col l1 no-mobile"></div>
     <div class="col l7 upper-content">
-      <div class="section white z-depth-2 article-content">
+      <div class="card section article-content">
         <h5>{{ article.description }}</h5>
         <hr/>
         {% if htmlarticle %}
@@ -34,18 +34,48 @@
         <hr/>
         <div class="tx-center">
           <h5>Partager l'article sur</h5>
-          <a class="waves-effect waves-light btn blue lighten-2 btn-share"
-             href="https://twitter.com/intent/tweet?url=https://becauseofprog.fr/article/{{ article.url }}&text={{ article.title }}">Twitter</a>
-          <a class="waves-effect waves-light btn blue darken-4 btn-share"
-             href="https://www.facebook.com/sharer/sharer.php?u=https://becauseofprog.fr/article/{{ article.url }}"
-             target="_blank">Facebook</a>
-          <a class="waves-effect waves-light btn grey darken-3 btn-share"
-             href="https://share.diasporafoundation.org/?title={{ article.title }}&url=https://becauseofprog.fr/article/{{ article.url }}"
-             target="_blank">Diaspora</a>
-          <a class="waves-effect waves-light btn blue darken-2 btn-share"
-             href="web+mastodon://share?text={{ article.title }}%20-%20https://becauseofprog.fr/article/{{ article.url }}">Mastodon</a>
-          <a class="waves-effect waves-light btn red darken-4 btn-share"
-             href="mailto:?subject={{ article.title }}&body=https://becauseofprog.fr/article/{{ article.url }}">Mail</a>
+          <a
+            class="waves-effect waves-light btn blue lighten-2 btn-share"
+            href="https://twitter.com/intent/tweet?url=https://becauseofprog.fr/article/{{ article.url }}&text={{ article.title }}">
+            <i class="material-icons left">
+              <span class="iconify" data-icon="mdi-twitter"></span>
+            </i>
+            Twitter
+          </a>
+          <a
+            class="waves-effect waves-light btn blue darken-4 btn-share"
+            href="https://www.facebook.com/sharer/sharer.php?u=https://becauseofprog.fr/article/{{ article.url }}"
+            target="_blank">
+            <i class="material-icons left">
+              <span class="iconify" data-icon="mdi-facebook"></span>
+            </i>
+             Facebook
+          </a>
+          <a
+            class="waves-effect waves-light btn grey darken-3 btn-share"
+            href="https://share.diasporafoundation.org/?title={{ article.title }}&url=https://becauseofprog.fr/article/{{ article.url }}"
+            target="_blank">
+            <i class="material-icons left">
+              <span class="iconify" data-icon="mdi-asterisk"></span>
+            </i>
+             Diaspora
+          </a>
+          <a
+            class="waves-effect waves-light btn blue darken-2 btn-share"
+            href="web+mastodon://share?text={{ article.title }}%20-%20https://becauseofprog.fr/article/{{ article.url }}">
+            <i class="material-icons left">
+              <span class="iconify" data-icon="mdi-mastodon"></span>
+            </i>
+             Mastodon
+          </a>
+          <a
+            class="waves-effect waves-light btn primary btn-share"
+            href="mailto:?subject={{ article.title }}&body=https://becauseofprog.fr/article/{{ article.url }}">
+            <i class="material-icons left">
+              <span class="iconify" data-icon="mdi-email"></span>
+            </i>
+             Mail
+          </a>
           <br>
           <h5>Publié dans</h5>
           <a class="black-text chip" href="/categorie/{{ article.category }}">{{ categories[article.category].name }}</a>
@@ -57,72 +87,97 @@
       </div>
     </div>
     <div class="col l3 upper-content-no-mobile">
-      <ul class="collection z-depth-2">
-        <li class="collection-item h300px ads" style="display: none"></li>
-        <li class="collection-item">
-          <h5>Nous suivre</h5>
-          <div class="row">
-            <div class="col s3"><a href="https://twitter.com/BecauseOfProg"><img
-              src="https://cdn.becauseofprog.fr/static-v3/twitter-300.png" alt="Logo Twitter"
-              class="circle responsive-img"></a></div>
-            <div class="col s3"><a href="http://discord.becauseofprog.fr"><img
-              src="https://cdn.becauseofprog.fr/static-v3/discord-300.png" alt="Logo Discord"
-              class="circle responsive-img"></a></div>
-            <div class="col s3"><a href="mailto:contact@becauseofprog.fr"><img
-              src="https://cdn.becauseofprog.fr/static-v3/mail-300.png" alt="Arobase-email"
-              class="circle responsive-img"></a></div>
-            <div class="col s3"><a href="https://github.com/BecauseOfProg"><img
-              src="https://cdn.becauseofprog.fr/static-v3/github-300.png" alt="Logo Github"
-              class="circle responsive-img"></a></div>
-          </div>
-        </li>
-        <li class="collection-item">
-          <h5>A propos</h5>
+      <div class="card">
+        <div class="card-content">
+          <h5 class="primary--text">Nos réseaux sociaux</h5>
+          <p>Nous postons régulièrement des nouvelles, des tips et des astuces. Suivez-nous! </p>
+          <br/>
+          <a class="blue-text text-lighten-2" href="https://twitter.com/BecauseOfProg">
+            <i class="material-icons large">
+              <span class="iconify" data-icon="mdi-twitter" data-inline="false" data-width="40" data-height="40"></span>
+            </i>
+          </a>
+          <a class="blue-text text-darken-1" href="https://discord.becauseofprog.fr">
+            <i class="material-icons large">
+              <span class="iconify" data-icon="mdi-discord" data-inline="false" data-width="40" data-height="40"></span>
+            </i>
+          </a>
+          <a class="teal-text" href="https://mstdn.io/@bop">
+            <i class="material-icons large">
+              <span class="iconify" data-icon="mdi-mastodon" data-inline="false" data-width="40" data-height="40"></span>
+            </i>
+          </a>
+          <a class="black-text" href="https://github.com/BecauseOfProg">
+            <i class="material-icons large">
+              <span class="iconify" data-icon="mdi-github-circle" data-inline="false" data-width="40" data-height="40" style="color: #e33733;"></span>
+            </i>
+          </a>
+        </div>
+      </div>
+      <div class="card shadow-elem">
+        <div class="card-content">
+          <span class="card-title">À propos</span>
           <p>BecauseOfProg, c'est des développeurs rassemblés autour de projets communs tels que le blog.</p>
-          <a class="waves-effect waves-light btn red darken-4" href="/page/about"><i
-            class="material-icons right">info</i>En savoir plus</a>
-        </li>
-        <li class="collection-item">
-          <h5>Catégories</h5>
+        </div>
+        <div class="card-action white-text card-action-bop-links">
+          <a class="btn-flat waves-effect primary--text" href="/page/about">
+            <i class="material-icons right">
+              <span class="iconify" data-icon="mdi-information-outline"></span>
+            </i>
+            En savoir plus
+          </a>
+        </div>
+      </div>
+      <div class="card shadow-elem primary">
+        <div class="card-content white-text">
+          <span class="card-title">Les liens BecauseOfProg</span>
+          <p>Nous partageons des liens vers des ressources, des blogs ou des articles intéressants, afin que vous puissiez vous aussi les découvrir.</p>
+        </div>
+        <div class="card-action white-text">
+          <a href="https://twitter.com/BecauseOfProg/" class="white-text">Twitter</a>
+          <a href="#" class="white-text">RSS</a>
+        </div>
+      </div>
+
+      <div class="card shadow-elem">
+        <div class="card-content">
+          <span class="card-title">Catégories</span>
+        </div>
+        <div class="card-action card-action-bop-links">
           {% for url, category in categories.items() %}
-            <a class="black-text chip" href="/categorie/{{url}}">
-              <i class="material-icons left icon-chip">{{category.icon}}</i>
-              {{category.name}}
-            </a>
+            <a href="/categorie/{{url}}" class="black-text chip shadow-elem">
+              <i class="material-icons left icon-chip">
+                <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
+              </i>{{category.name}}
+            </a><br/>
           {% endfor %}
           {% for url, type in types.items() %}
-            <a class="black-text chip" href="/type/{{url}}">
-              <i class="material-icons left icon-chip">{{type.icon}}</i>
-              {{type.name}}
-            </a>
+            <a href="/categorie/{{url}}" class="black-text chip shadow-elem">
+              <i class="material-icons left icon-chip">
+                <span class="iconify" data-icon="mdi-{{type.icon}}"></span>
+              </i>{{type.name}}
+            </a><br/>
           {% endfor %}
-        </li>
-        <!--<li class="collection-item">
-          <h5>Sur le devblog...</h5>
-          <p>{{ devblog.title }}</p>
-          <a class="waves-effect waves-light btn red darken-4"
-             href="https://becauseofprog.fr/news/{{ devblog.url }}"><i
-            class="material-icons right">info</i>Lire</a>
-        </li>-->
-      </ul>
+        </div>
+      </div>
     </div>
     <div class="col l1 no-mobile"></div>
-  </div>
-  <div class="section center grey lighten-2">
     <div class="row container center">
       <div class="col s12">
         <div class="card author-card horizontal">
           <div class="card-image">
-            <img src="{{ author.avatar }}" alt="Photo de profil de {{ author.displayname }}"/>
+            <img lazy="{{ author.avatar }}" alt="Photo de profil de {{ author.displayname }}"/>
           </div>
           <div class="card-stacked">
             <div class="card-content">
               <span class="card-title">{{ author.displayname }}</span>
-              <p><i>{{ author.biography }}</i></p>
+              <p><i>{{ author.description }}</i></p>
             </div>
             <div class="card-action">
-              <a href="https://becauseofprog.fr/user/{{ article.author.username }}">
-                <img src="https://cdn.becauseofprog.fr/logos/bop-transparent.png" alt="Logo BecauseOfProg"/>
+              <a href="/user/{{ author.username }}">
+                <img
+                  src="https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/logos/bop.min.svg"
+                  alt="Logo BecauseOfProg"/>
               </a>
               <!--{% if author.socials != "Non renseigné" %}<a href="https://twitter.com/{{ author.socials }}">
                   <img src="https://cdn.becauseofprog.fr/syst-icons/twitter.png">
@@ -136,8 +191,24 @@
       </div>
     </div>
 
-    <div class="col l10 offset-l1">
-      <h4>La rubrique commentaires est en travaux</h4>
+    <div class="row container">
+      <div class="col s12">
+        <div class="card">
+          <div class="card-stacked">
+            <div class="card-content">
+              <span class="card-title">Commentaires sur l'article</span>
+              <script data-isso="https://comments.becauseofprog.fr/"
+                data-isso-lang="fr"
+                data-isso-require-author="true"
+                data-isso-require-email="true"
+                data-isso-css="false"
+                src="https://comments.becauseofprog.fr/js/embed.min.js"></script>
+
+              <section id="isso-thread" data-title="Commentaires sur l'article"></section>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 {% endblock %}

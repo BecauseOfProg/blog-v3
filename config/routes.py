@@ -28,13 +28,14 @@ application.add_url_rule('/user/<string:username>', None, MembersController.show
 # ----------------- PAGES -----------------
 
 application.add_url_rule('/page/about', None, PageController.about)
-application.add_url_rule('/page/app', None, PageController.app)
+application.add_url_rule('/page/application', None, PageController.app)
 application.add_url_rule('/page/links', None, PageController.links)
-application.add_url_rule('/page/links-embed', None, PageController.links_embed)
+application.add_url_rule('/page/embed/<string:source>', None, PageController.rss_embed)
+application.add_url_rule('/page/embed.js', None, PageController.js_embed)
 application.add_url_rule('/page/projects', None, PageController.projects)
-application.add_url_rule('/page/search/', None, PageController.search, defaults={'keyword': None, 'page': 0})
-application.add_url_rule('/page/search/<string:keyword>/', None, PageController.search, defaults={'page': 0})
-application.add_url_rule('/page/search/<string:keyword>/<int:page>/', None, PageController.search)
+application.add_url_rule('/page/search/', None, PageController.show_search, defaults={'keyword': None, 'page': 0})
+application.add_url_rule('/page/search/<string:keyword>/', None, PageController.show_search, defaults={'page': 0})
+application.add_url_rule('/page/search/<string:keyword>/<int:page>/', None, PageController.show_search)
 
 # ----------------- STAFF -----------------
 
@@ -52,14 +53,13 @@ application.add_url_rule('/about/', None, RedirectsController.redirect_about)
 
 # ----------------- MISC -----------------
 
-application.add_url_rule('/pwabuilder-sw.js', None, MiscController.get_pwa)
 application.add_url_rule('/blog.rss', None, MiscController.get_rss)
 application.add_url_rule('/tout.rss', None, MiscController.get_rss)
 application.add_url_rule('/sitemap-articles.xml', None, MiscController.get_sitemap)
 
+
 @application.errorhandler(404)
 def page_not_found(_):
-  '''Returns the 404 error page'''
-  erreur = "La page recherchée n'existe pas! (404)"
-  return render_template('components/erreur.html',
-                         erreur=erreur), 404
+    '''Returns the 404 error page'''
+    erreur = "La page recherchée n'existe pas! (404)"
+    return render_template('components/erreur.html', erreur=erreur), 404

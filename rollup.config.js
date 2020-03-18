@@ -13,13 +13,13 @@ export default {
 		sourcemap: true,
 		format: 'iife',
 		name: 'app',
-		file: 'resources/static/bundle.js'
+		file: 'resources/static/build/bundle.js'
 	},
 	plugins: [
     stylus(),
     css({
       raw: false,
-      'minified': 'resources/static/bundle.css'
+      'minified': 'resources/static/build/bundle.css'
     }),
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In

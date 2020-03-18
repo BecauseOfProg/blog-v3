@@ -5,7 +5,7 @@
   },
   "security": {
     "name": "Sécurité",
-    "icon": "https"
+    "icon": "lock-outline"
   },
   "web": {
     "name": "Web",
@@ -13,11 +13,11 @@
   },
   "hardware": {
     "name": "Hardware",
-    "icon": "sim_card"
+    "icon": "sim"
   },
   "programming": {
     "name": "Programmation",
-    "icon": "code"
+    "icon": "code-tags"
   },
   "android": {
     "name": "Android",
@@ -25,14 +25,14 @@
   },
   "linux": {
     "name": "Linux",
-    "icon": "developer_board"
+    "icon": "linux"
   },
   "windows": {
     "name": "Windows",
-    "icon": "dashboard"
+    "icon": "windows"
   },
   "apple": {
     "name": "Apple",
-    "icon": "more"
+    "icon": "apple"
   }
 }

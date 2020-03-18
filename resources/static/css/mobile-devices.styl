@@ -1,0 +1,16 @@
+@css {
+  @supports (margin: max(0px)) {
+    div.nav-wrapper a.sidenav-trigger {
+      margin-left: max(18px, env(safe-area-inset-left)) !important;
+    }
+    ul.sidenav {
+      width: max(300px, calc(300px + env(safe-area-inset-left))) !important;
+    }
+    ul.sidenav li:not(.header) {
+      padding-left: env(safe-area-inset-left);
+    }
+    ul.sidenav li.header div.user-view {
+      padding-left: max(16px, env(safe-area-inset-left));
+    }
+  }
+}

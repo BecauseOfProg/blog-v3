@@ -3,20 +3,37 @@
  * Font files are located in the resources/static/font directory
  */
 
-// Registering the font
-@font-face
-  font-family: 'Material Icons'
-  font-style: normal
-  font-weight: 400
-  src: local('Material Icons'),
-    local('MaterialIcons-Regular'),
-    url('font/MaterialIcons-Regular.woff2') format('woff2'),
-    url('font/MaterialIcons-Regular.woff') format('woff'),
-    url('font/MaterialIcons-Regular.ttf') format('truetype')
+// Icon sizes
+
+i.material-icons.tiny svg
+  width: 1rem
+  height: 1rem
+
+i.material-icons.small svg
+  width: 2rem
+  height: 2rem
+
+i.material-icons.medium svg
+  width: 4rem
+  height: 4rem
+
+i.material-icons.large svg
+  width: 6rem
+  height: 6rem
+
+// Special cases
+
+.btn i.material-icons svg
+.avatar i.material-icons.circle svg
+.btn-flat i.material-icons svg
+.avatar i.material-icons.circle svg
+  vertical-align: -0.2em !important
+
+.collection-item a.collection-link i.material-icons svg
+  vertical-align: 0em !important
 
 // Registering the CSS class
 .material-icons
-  font-family: 'Material Icons'
   font-weight: normal
   font-style: normal
   font-size: 24px // Preferred icon size
@@ -38,5 +55,6 @@
   font-feature-settings: 'liga'
 
 // Support for large icons
-.material-icons.md-48
-  font-size: 100px
+.material-icons.md-48 > svg
+  width: 100px
+  height: 100px

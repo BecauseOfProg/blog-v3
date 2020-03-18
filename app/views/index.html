@@ -6,24 +6,25 @@
 
     <meta name="apple-mobile-web-app-title" content="BecauseOfProg">
     <meta name="application-name" content="BecauseOfProg">
-    <meta name="msapplication-TileColor" content="#b71c1c">
-    <meta name="theme-color" content="#b71c1c">
+    <meta name="msapplication-TileColor" content="#ff514c">
+    <meta name="theme-color" content="#ff514c">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="me" href="https://twitter.com/BecauseOfProg">
 
-    <link rel="manifest" href="/static/manifest.json">
-    <link rel="stylesheet" href="https://cdn.becauseofprog.fr/static-v3/materialize.min.css">
-    <link type="text/css" rel="stylesheet" href="/static/bundle.css"/>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="https://cdn.becauseofprog.fr/v2/libs/materialize/materialize.min.css">
+    <link type="text/css" rel="stylesheet" href="/build/bundle.css"/>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="initial-scale=1, viewport-fit=cover"/>
     <meta property="og:locale" content="fr_fr">
     <meta name="twitter:creator" content="@BecauseOfProg">
 
     <link rel="alternate" type="application/atom+xml" title="BecauseOfprog - Tout le site" href="/tout.rss"/>
     <link rel="search" type="application/opensearchdescription+xml" title="BecauseOfprog - Blog"
-          href="/static/opensearch.xml"/>
-    <link rel="shortcut icon" href="https://cdn.becauseofprog.fr/static-v3/favicon.ico">
+          href="/opensearch.xml"/>
+    <link rel="shortcut icon" href="https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/logos/favicon.ico">
 
     <meta name="twitter:card" content="summary">
     <meta property="og:type" content="website">
@@ -66,86 +67,156 @@
       })();
     </script>
 
+    <script src="https://cdn.becauseofprog.fr/v2/libs/iconify.min.js"></script>
+
     <title>{% block title %}{% endblock %}</title>
   {% endblock %}
 </head>
 <body>
 <noscript><img src="//analytics.becauseofprog.fr/piwik.php?idsite=4&rec=1" style="border:0;" alt=""/></noscript>
+
 {% block header %}
-  <!-- NAVBAR SUR MOBILE -->
+  <!-- Mobile drawer -->
   <ul id="mobile-demo" class="sidenav">
-    <li>
+    <li class="header">
       <div class="user-view">
-        <div class="background">
-          <img src="https://cdn.becauseofprog.fr/syst-images/bg.jpg" alt="Background"/>
-        </div>
-        <a href="#">
-          <img class="circle" src="https://cdn.becauseofprog.fr/logos/bop-transparent.png" alt="Logo BOP"/>
+        <div class="background primary"></div>
+        <a href="/">
+          <img
+            width="64px"
+            src="https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/logos/bop.min.svg"
+            alt="Logo BecauseOfProg"/>
         </a>
-        <a href="/"><span class="white-text name">BecauseOfProg</span></a>
-        <a href="/"><span class="white-text email">Le site</span></a>
+        <span class="white-text name">BecauseOfProg</span>
+        <span class="white-text email">Menu de navigation</span>
       </div>
     </li>
-    <li><a href="/categorie/software"><i class="material-icons left">web</i>Software</a></li>
-    <li><a href="/type/tutorial"><i class="material-icons left">code</i>Tutoriels</a></li>
-    <li><a href="/categorie/security"><i class="material-icons left">https</i>Sécurité</a></li>
-    <li><a href="/categorie/web"><i class="material-icons left">public</i>Web</a></li>
-    <li><a href="/categorie/hardware"><i class="material-icons left">sim_card</i>Hardware</a></li>
-    <li><a href="/categorie/programming"><i class="material-icons left">code</i>Programmation</a></li>
-    <li><a href="/categorie/android"><i class="material-icons left">android</i>Android</a></li>
-    <li><a href="/categorie/linux"><i class="material-icons left">developer_board</i>Linux</a></li>
-    <li><a href="/categorie/windows"><i class="material-icons left">dashboard</i>Windows</a></li>
+    <li><a href="/categorie/software"><i class="material-icons left"><span class="iconify" data-icon="mdi-web"></span></i>Software</a></li>
+    <li><a href="/categorie/security"><i class="material-icons left"><span class="iconify" data-icon="mdi-lock-outline"></span></i>Sécurité</a></li>
+    <li><a href="/categorie/web"><i class="material-icons left"><span class="iconify" data-icon="mdi-public"></span></i>Web</a></li>
+    <li><a href="/categorie/hardware"><i class="material-icons left"><span class="iconify" data-icon="mdi-sim"></span></i>Hardware</a></li>
+    <li><a href="/categorie/programming"><i class="material-icons left"><span class="iconify" data-icon="mdi-code-tags"></span></i>Programmation</a></li>
+    <li><a href="/categorie/android"><i class="material-icons left"><span class="iconify" data-icon="mdi-android"></span></i>Android</a></li>
+    <li><a href="/categorie/linux"><i class="material-icons left"><span class="iconify" data-icon="mdi-linux"></span></i>Linux</a></li>
+    <li><a href="/categorie/windows"><i class="material-icons left"><span class="iconify" data-icon="mdi-windows"></span></i>Windows</a></li>
+    <li><a href="/categorie/apple"><i class="material-icons left"><span class="iconify" data-icon="mdi-apple"></span></i>Apple</a></li>
     <li>
       <div class="divider"></div>
     </li>
-    <li><a href="/blog"><i class="material-icons left">description</i>Tous les articles</a></li>
-    <li><a href="/page/search"><i class="material-icons left">search</i>Rechercher</a></li>
-    <li><a href="/page/projects"><i class="material-icons left">library_books</i>Projets</a></li>
-    <li><a href="/page/links"><i class="material-icons left">link</i>Liens</a></li>
-    <li><a href="/page/about"><i class="material-icons left">info</i>A propos</a></li>
-    <li><a class="waves-effect waves-light btn red darken-3" href="/login">Connexion</a></li>
-    <li><a class="waves-effect sidenav-trigger" data-target="mobile-demo" href="#">
-      <i class="material-icons left">close</i>
-      Fermer le menu
-    </a></li>
+    <li><a href="/blog"><i class="material-icons left"><span class="iconify" data-icon="mdi-file-document-box-multiple-outline"></span></i>Tous les articles</a></li>
+    <li><a href="/page/search"><i class="material-icons left"><span class="iconify" data-icon="mdi-magnify"></span></i>Rechercher</a></li>
+    <li><a href="/page/projects"><i class="material-icons left"><span class="iconify" data-icon="mdi-package-variant"></span></i>Projets</a></li>
+    <li><a href="/page/links"><i class="material-icons left"><span class="iconify" data-icon="mdi-link"></span></i>Liens</a></li>
+    <li><a href="/page/about"><i class="material-icons left"><span class="iconify" data-icon="mdi-information-outline"></span></i>À propos</a></li>
+    <li><a class="waves-effect waves-light btn primary" href="/login">Connexion</a></li>
+    <li>&nbsp;</li>
   </ul>
-  <!-- NAVBAR SUR PC -->
-
+  <div class="navbar-fixed topbar">
+    <nav class="primary"></nav>
+  </div>
   <div class="navbar-fixed">
     <nav>
-      <div class="nav-wrapper red darken-4">
-        <a href="/" class="logo brand-logo">
+      <div class="nav-wrapper">
+        <a href="/" class="logo brand-logo primary--text">
           <span class="no-mobile">
-            <img src="https://cdn.becauseofprog.fr/logos/bop-transparent.png" alt="Logo BOP">
+            <img
+              src="https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/logos/bop.min.svg"
+              alt="Logo BOP">
           </span>
           &nbsp;BecauseOfProg
         </a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="/blog"><i class="material-icons left">description</i>Tous les articles</a></li>
-          <li><a href="/page/projects"><i class="material-icons left">library_books</i>Projets</a></li>
-          <li><a href="/page/links"><i class="material-icons left">link</i>Liens</a></li>
-          <li><a href="/page/search"><i class="material-icons left">search</i></a></li>
-          <li><a class="waves-effect waves-light btn red darken-2" href="/account">Mon compte</a></li>
+        <a href="#!" data-target="mobile-demo" class="sidenav-trigger">
+          <i class="material-icons">
+            <span class="iconify primary--text" data-icon="mdi-menu"></span>
+          </i>
+        </a>
+        <ul class="row right hide-on-med-and-down">
+          <div id='navbar-links-container'>
+            <li class="waves-effect waves-light">
+              <a href="/blog" class="primary--text">
+                <i class="material-icons left">
+                  <span class="iconify" data-icon="mdi-file-document-box-multiple-outline"></span>
+                </i>
+                Tous les articles
+              </a>
+            </li>
+            <li class="waves-effect waves-light">
+              <a href="/page/projects" class="primary--text">
+                <i class="material-icons left">
+                  <span class="iconify" data-icon="mdi-package-variant"></span>
+                </i>
+                Projets
+              </a>
+            </li>
+            <li class="waves-effect waves-light">
+              <a href="/page/links" class="primary--text">
+                <i class="material-icons left">
+                  <span class="iconify" data-icon="mdi-link"></span>
+                </i>
+                Liens
+              </a>
+            </li>
+            <li>
+              <a id="search-field-open" class="primary--text">
+                <i class="material-icons">
+                  <span class="iconify" data-icon="mdi-magnify"></span>
+                </i>
+              </a>
+            </li>
+            <li>
+              <a
+                class="account-button primary--text"
+                href="/account">
+                <i
+                  class="material-icons tooltipped"
+                  data-position="bottom"
+                  data-tooltip="Mon compte">
+                  <span class="iconify" data-icon="mdi-account-circle-outline"></span>
+                </i>
+              </a>
+            </li>
+          </div>
+          <div class="col s12 hide" id="search-field-container">
+            <form action="/page/search">
+              <li>
+                <input
+                   id="search-field"
+                   type="search"
+                   name="q"
+                   class="validate"
+                   required
+                   placeholder="Recherche..."
+                   style="box-shadow: 0 2px 0 0 #ccc !important; border-bottom: none !important; color: black;">
+                </li>
+              <li>
+                <a id="search-field-close">
+                  <i class="material-icons left">
+                    <span class="iconify primary--text" data-icon="mdi-close"></span>
+                  </i>
+                </a>
+              </li>
+            </form>
+          </div>
         </ul>
       </div>
     </nav>
   </div>
-
-
 {% endblock %}
 
 {% block content %}{% endblock %}
 
 {% block footer %}
-  <footer class="page-footer red darken-4">
-    <div class="container" style="padding-bottom: 20px;">
+  <footer class="page-footer primary">
+    <div class="container shadow" style="padding-bottom: 20px;">
       Réalisé par l'équipe BecauseOfProg
-      <a class="grey-text text-lighten-4 right" href="/page/about">À propos</a>
+      <a class="right grey-text text-lighten-4" href="/page/about">À propos</a>
     </div>
   </footer>
 {% endblock %}
-<script src="https://cdn.becauseofprog.fr/static-v3/materialize.min.js"></script>
-<script src="/static/bundle.js"></script>
+
+<script src="https://cdn.becauseofprog.fr/v2/libs/materialize/materialize.min.js"></script>
+<script src="/build/bundle.js"></script>
+<!--<script src="/js/lazy-load.js"></script>-->
+<!--<script src="/js/search-bar.js"></script>-->
 </body>
 </html>

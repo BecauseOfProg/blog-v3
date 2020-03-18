@@ -1,0 +1,41 @@
+/*
+ * This file contains the style of the welcome part of all pages.
+ * Including the media queries for responsive display
+ */
+
+.welcome
+  text-align: center
+  .header
+    font-weight: 600
+    text-align: center
+  .subtitle
+    text-align: center
+  p
+    text-align: center
+
+@media screen and (max-width: 500px)
+  .welcome .header
+    font-size: 40px
+
+@media screen and (max-width: 800px)
+  .welcome
+    height: 600px
+
+@media screen and (max-width: 600px)
+  .welcome
+    height: 650px
+
+@media only screen and (min-width: 1000px)
+  .welcome-bop-carousel
+    top: -64px !important
+    .carousel-item
+      padding-top: 85px
+
+  .welcome
+    padding-top: 50px
+
+.carousel-bop-homepage-title
+  margin-top: 64px
+
+h3.carousel-bop-homepage-title
+  font-size: 3.5rem
