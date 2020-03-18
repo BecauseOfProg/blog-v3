@@ -33,6 +33,6 @@ document.addEventListener("DOMContentLoaded",function(){
   var elems = document.querySelectorAll('.sidenav')
   var instances = M.Sidenav.init(elems)
 
-  // Auto initializer, for components that don't need additional configuration
-  M.AutoInit()
+  var elems = document.querySelectorAll('.modal');
+  var instances = M.Modal.init(elems);
 });
