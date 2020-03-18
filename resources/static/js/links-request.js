@@ -4,14 +4,16 @@
 
 function requestembed(source) {
   var destination = document.getElementById(source);
-  var req = new XMLHttpRequest();
-  req.open('GET', '/page/embed/'+source, true);
-  req.onreadystatechange = function (aEvt) {
-    if (req.readyState == 4 && req.status == 200) {
-      destination.innerHTML = req.responseText;
-    }
+  if (destination != null) {
+    var req = new XMLHttpRequest();
+    req.open('GET', '/page/embed/'+source, true);
+    req.onreadystatechange = function (aEvt) {
+      if (req.readyState == 4 && req.status == 200) {
+        destination.innerHTML = req.responseText;
+      }
+    };
+    req.send(null);
   };
-  req.send(null);
 }
 
 var handler = function(event) {

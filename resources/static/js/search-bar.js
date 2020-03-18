@@ -1,4 +1,4 @@
-window.onload = () => {
+document.addEventListener("DOMContentLoaded",function(){
 
   let searchBarContainer = document.getElementById('search-field-container')
   let navbarLinksContainer = document.getElementById('navbar-links-container')
@@ -12,4 +12,4 @@ window.onload = () => {
     searchBarContainer.className = 'hide'
     navbarLinksContainer.className = ''
   })
-}
+});
