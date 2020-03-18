@@ -31,7 +31,7 @@
         <div class="card hoverable">
           <div class="card-image">
             <a href="/article/{{ article.url }}">
-              <img src="{{ image_proxy(article.banner, 940,530) }}" alt="{{article.title}}">
+              <img lazy="{{ image_proxy(article.banner, 940,530) }}" alt="{{article.title}}">
             </a>
           </div>
           <div class="card-stacked">
@@ -43,7 +43,7 @@
             </span>
               <a class="no-style-link" href="/user/{{ article.author.username }}">
                 <div class="chip waves-effect">
-                  <img src="{{ image_proxy(article.author.avatar, 32,32) }}" alt="Photo de profil de l'auteur">
+                  <img lazy="{{ image_proxy(article.author.avatar, 32,32) }}" alt="Photo de profil de l'auteur">
                   {{ article.author.displayname }}
                 </div>
               </a>
@@ -137,17 +137,6 @@
               En savoir plus
             </a>
           </li>
-          <!--
-          <li class="collection-item">
-            <h5>Sur le devblog...</h5>
-            <p>{{ devblog.title }}</p>
-            <a class="waves-effect waves-light btn primary"
-               href="https://becauseofprog.fr/news/{{ devblog.url }}">
-              <i class="material-icons right">info</i>
-              Lire
-            </a>
-          </li>
-          -->
         </ul>
       </div>
     </div>

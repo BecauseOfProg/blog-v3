@@ -43,7 +43,7 @@
     <h3 class="carousel-bop-homepage-title">BecauseOfProg</h3>
     <h5 class="light grey-text text-lighten-3">Blog autour de la programmation créé par des passionnés</h5>
   </div>
-  <div class="carousel-item white-text" style="background: url({{ image_proxy('https://cdn.becauseofprog.fr/syst-images/dev.jpg', 1920, 0) }})">
+  <div class="carousel-item white-text" lazy="{{ image_proxy('https://cdn.becauseofprog.fr/syst-images/dev.jpg', 1920, 0) }}">
     <h3 class="carousel-bop-homepage-title">Nos outils</h3>
     <h5 class="light grey-text text-lighten-3">Nous proposons plusieurs outils et services gratuits</h5>
     <a class="waves-effect waves-light btn primary center white-text" href="/page/projects">En savoir plus</a>
@@ -85,7 +85,7 @@
       <div class="card sticky-action hoverable">
         <div class="card-image">
           <a class="black-text" href="/article/{{ lasts[i].url }}">
-            <img class="border-radius-top" src="{{ image_proxy(lasts[i].banner, 617, 347) }}" alt="Illustration de l'article">
+            <img class="border-radius-top" lazy="{{ image_proxy(lasts[i].banner, 617, 347) }}" alt="Illustration de l'article">
           </a>
           <a href="/type/{{ lasts[i].type }}" class="btn-floating halfway-fab waves-effect waves-light primary">
             <i class="material-icons">
@@ -104,7 +104,7 @@
           <a class="no-style-link" href="/user/{{ lasts[i].author.username }}">
             <div class="chip waves-effect">
               <img
-                src="{{ image_proxy(lasts[i].author.avatar, 32,32) }}"
+                lazy="{{ image_proxy(lasts[i].author.avatar, 32,32) }}"
                 alt="Photo de profil de {{ lasts[i].author.displayname }}"/>
               {{ lasts[i].author.displayname }}
             </div>
@@ -125,7 +125,7 @@
   <a class="black-text center" href="/article/{{ lasts[2].url }}" id="main">
     <div class="card horizontal hoverable">
       <div class="card-image">
-        <img src="{{ image_proxy(lasts[2].banner, 226, 121) }}" class="border-radius-left">
+        <img lazy="{{ image_proxy(lasts[2].banner, 226, 121) }}" class="border-radius-left">
       </div>
       <div class="card-stacked">
         <div class="card-content">
@@ -135,7 +135,7 @@
           <a class="no-style-link" href="/user/{{ lasts[2].author.username }}">
             <div class="chip waves-effect">
               <img
-                src="{{ image_proxy(lasts[2].author.avatar, 32,32) }}"
+                lazy="{{ image_proxy(lasts[2].author.avatar, 32,32) }}"
                 alt="Photo de profil de {{ lasts[2].author.displayname }}"/>
               {{ lasts[2].author.displayname }}
             </div>
@@ -156,14 +156,14 @@
 <div class="carousel carousel-slider center">
   <div
     class="carousel-item white-text"
-    style="background: url(' {{ image_proxy('https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/background-projects-5.jpg', 1920, 0) }}')">
+    lazy="{{ image_proxy('https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/background-projects-5.jpg', 1920, 0) }}">
     <h3 class="carousel-bop-homepage-title shadow">Nos projets</h3>
     <h5 class="light grey-text text-lighten-3 shadow">BecauseOfProg, c'est aussi de nombreux projets</h5>
     <a class="waves-effect waves-light btn primary center white-text" href="/page/projects">En savoir plus</a>
   </div>
   <div
     class="carousel-item white-text"
-    style="background: url('{{ image_proxy('https://cdn.becauseofprog.fr/v2/projects/yt-podcast/bg-min-2.jpg', 1920, 0) }}')">
+    lazy="{{ image_proxy('https://cdn.becauseofprog.fr/v2/projects/yt-podcast/bg-min-2.jpg', 1920, 0) }}">
     <h3 class="carousel-bop-homepage-title">YouTube Podcasts</h3>
     <h5 class="light grey-text text-lighten-3">Transformez une chaîne YouTube ou une playlist en podcast</h5>
     <a
@@ -211,7 +211,7 @@
     <div class="col s12 m7">
       <div class="card">
         <div class="card-image">
-          <img src="{{ image_proxy('https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/new-banner.png', 724.167, 0) }}" class="border-radius-top">
+          <img lazy="{{ image_proxy('https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/new-banner.png', 724.167, 0) }}" class="border-radius-top">
           <span class="card-title shadow no-mobile">À propos de nous</span>
         </div>
         <div class="card-content">
@@ -228,5 +228,4 @@
     </div>
   </div>
 </div>
-<!--<script src="/js/links-request.js"></script>-->
 {% endblock %}
