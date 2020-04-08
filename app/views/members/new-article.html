@@ -39,7 +39,7 @@
         <label for="title">Titre</label>
       </div>
       <div class="input-field col s12 center">
-        <select name="category" id="category">
+        <select name="category" id="category" class="browser-default">
           <option value="" disabled selected>Catégorie</option>
           {% for url, category in categories.items() %}
             <option value="{{url}}">{{category.name}}</option>
@@ -55,7 +55,7 @@
         <label for="banner">Lien vers la bannière (https obligatoire)</label>
       </div>
       <div class="input-field col s12 center">
-        <select name="type" id="type">
+        <select name="type" id="type" class="browser-default">
           <option value="" disabled selected>Type</option>
           {% for url, type in types.items() %}
             <option value="{{url}}">{{type.name}}</option>
