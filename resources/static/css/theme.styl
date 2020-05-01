@@ -1,0 +1,59 @@
+@css {
+  :root {
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --background: #fafafa;
+      --sheets: #fff;
+      --text: #000;
+      --chips: #e4e4e4;
+      --borders: #e0e0e0;
+      --shadows: rgba(146,125,160,0.2);
+      --shadows-hover: rgba(0,0,0,0.2);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #000;
+      --sheets: #2E2E2E;
+      --text: #fff;
+      --chips: #383838;
+      --borders: hsla(0,0%,100%,.12);
+      --shadows: rgba(0,0,0,0.2);
+      --shadows-hover: rgba(146,125,160,0.2);
+    }
+  }
+
+  body, .nav-wrapper:not(.semitransparent) {
+    background-color: var(--background) !important;
+  }
+
+  .card, .collection-item {
+    background-color: var(--sheets) !important;
+  }
+
+  .hoverable {
+    box-shadow: 0.25rem 0.25rem 1.25rem var(--shadows);
+  }
+
+  .hoverable:hover {
+    box-shadow: 0 8px 17px 0 var(--shadows-hover), 0 6px 20px 0 var(--shadows-hover);
+  }
+
+  .collection, .collection-item, .article-content {
+    border-color: var(--borders) !important;
+  }
+
+  p, span, .normal-text, .markdown-body, .chip, .icon-chip svg path, input {
+    color: var(--text) !important;
+  }
+
+  .chip {
+    background-color: var(--chips) !important;
+  }
+
+  input:focus {
+    background-color: inherit !important;
+  }
+}
