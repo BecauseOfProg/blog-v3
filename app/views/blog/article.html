@@ -23,7 +23,7 @@
     <div class="col l1 no-mobile"></div>
     <div class="col l7 upper-content">
       <div class="card section article-content">
-        <h5>{{ article.description }}</h5>
+        <h5 class="normal-text">{{ article.description }}</h5>
         <hr/>
         {% if htmlarticle %}
           <div class="markdown-body">{{ htmlarticle | safe }}</div>
@@ -33,7 +33,7 @@
         <br/>
         <hr/>
         <div class="tx-center">
-          <h5>Partager l'article sur</h5>
+          <h5 class="normal-text">Partager l'article sur</h5>
           <a
             class="waves-effect waves-light btn blue lighten-2 btn-share"
             href="https://twitter.com/intent/tweet?url=https://becauseofprog.fr/article/{{ article.url }}&text={{ article.title }}">
@@ -77,7 +77,7 @@
              Mail
           </a>
           <br>
-          <h5>Publié dans</h5>
+          <h5 class="normal-text">Publié dans</h5>
           <a class="black-text chip" href="/categorie/{{ article.category }}">{{ categories[article.category].name }}</a>
           <a class="black-text chip" href="/type/{{ article.type }}">{{ types[article.type].name }}</a>
           {% for label in article.labels %}
@@ -145,14 +145,14 @@
         </div>
         <div class="card-action card-action-bop-links">
           {% for url, category in categories.items() %}
-            <a href="/categorie/{{url}}" class="black-text chip shadow-elem">
+            <a href="/categorie/{{url}}" class="chip shadow-elem">
               <i class="material-icons left icon-chip">
                 <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
               </i>{{category.name}}
             </a><br/>
           {% endfor %}
           {% for url, type in types.items() %}
-            <a href="/categorie/{{url}}" class="black-text chip shadow-elem">
+            <a href="/categorie/{{url}}" class="chip shadow-elem">
               <i class="material-icons left icon-chip">
                 <span class="iconify" data-icon="mdi-{{type.icon}}"></span>
               </i>{{type.name}}

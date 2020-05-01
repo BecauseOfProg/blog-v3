@@ -68,7 +68,7 @@
               </i>
               Nouveau!
             </a>
-            <a class="black-text" href="/article/{{ last.url }}">
+            <a class="normal-text" href="/article/{{ last.url }}">
               <h2 class="main-title">{{ last.title }}</h2>
             </a>
             <p>{{ last.description }}</p>
@@ -84,7 +84,7 @@
     <div class="col s12 m6 l6 xl6">
       <div class="card sticky-action hoverable">
         <div class="card-image">
-          <a class="black-text" href="/article/{{ lasts[i].url }}">
+          <a class="normal-text" href="/article/{{ lasts[i].url }}">
             <img class="border-radius-top" lazy="{{ image_proxy(lasts[i].banner, 617, 347) }}" alt="Illustration de l'article">
           </a>
           <a href="/type/{{ lasts[i].type }}" class="btn-floating halfway-fab waves-effect waves-light primary">
@@ -95,7 +95,7 @@
         </div>
         <div class="card-content">
           <span class="card-title grey-text text-darken-4">
-            <a class="black-text" href="/article/{{ lasts[i].url }}">
+            <a class="normal-text" href="/article/{{ lasts[i].url }}">
               {{ lasts[i].title }}
             </a>
           </span>
@@ -129,7 +129,7 @@
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <a class="black-text card-title" href="/article/{{ lasts[2].url }}">
+          <a class="normal-text card-title" href="/article/{{ lasts[2].url }}">
             {{ lasts[2].title }}
           </a>
           <a class="no-style-link" href="/user/{{ lasts[2].author.username }}">
@@ -142,7 +142,7 @@
           </a>
           <div class="chip">{{ lasts[2].timestamp.strftime('%d/%m/%Y') }}</div>
           <div class="chip waves-effect">
-            <a class="no-style-link grey-text text-darken-4" href="/categorie/{{ lasts[2].category }}">
+            <a class="no-style-link normal-text" href="/categorie/{{ lasts[2].category }}">
               {{ categories[lasts[2].category].name }}
             </a>
           </div>
