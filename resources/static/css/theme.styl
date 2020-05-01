@@ -11,6 +11,7 @@
       --borders: #e0e0e0;
       --shadows: rgba(146,125,160,0.2);
       --shadows-hover: rgba(0,0,0,0.2);
+      --codes: #f6f8fa;
     }
   }
   @media (prefers-color-scheme: dark) {
@@ -22,6 +23,7 @@
       --borders: hsla(0,0%,100%,.12);
       --shadows: rgba(0,0,0,0.2);
       --shadows-hover: rgba(146,125,160,0.2);
+      --codes: #242424;
     }
   }
 
@@ -55,5 +57,9 @@
 
   input:focus {
     background-color: inherit !important;
+  }
+
+  pre {
+    background-color: var(--codes) !important;
   }
 }
