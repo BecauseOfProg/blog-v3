@@ -13,6 +13,7 @@
       --shadows-hover: rgba(0,0,0,0.2);
       --codes: #f6f8fa;
       --nav: var(--sheets);
+      --transparent: rgba(0,0,0,0.1);
     }
   }
   @media (prefers-color-scheme: dark) {
@@ -26,6 +27,7 @@
       --shadows-hover: rgba(146,125,160,0.2);
       --codes: #242424;
       --nav: var(--background);
+      --transparent: rgba(0,0,0,0.3);
     }
   }
 
@@ -34,6 +36,9 @@
   }
   .nav-wrapper:not(.semitransparent) {
     background-color: var(--nav) !important;
+  }
+  .semitransparent {
+    background: var(--transparent);
   }
 
   .card:not(.primary), .collection-item {
