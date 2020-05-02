@@ -24,7 +24,16 @@
     <div class="col l8 s12">
       <div class="card">
         <div class="card-content">
-          {% if error %}<p>Erreur : {{ error }}</p><br />{% endif %}
+          {% if error %}
+            <div style="margin-bottom: 5px">
+              <strong>
+                <i class="material-icons left">
+                  <span class="iconify" data-icon="mdi-error-outline"></span>
+                </i>
+                Erreur : {{ error }}<br>
+              </strong>
+            </div>
+          {% endif %}
           <p>Pour profiter de certaines fonctionnalités du site et empêcher le spam, vous devez vous connecter à votre
             compte BecauseOfProg.</p>
           <form method="post">
@@ -53,9 +62,9 @@
     </div>
     <div class="col l4 s12">
       <div class="card shadow-elem primary">
-        <div class="card-content white-text">
-          <span class="card-title">Votre compte BecauseOfProg</span>
-          <p>Votre compte est global, utilisable sur le site entier. Nous mettons tout en oeuvre pour assurer la
+        <div class="card-content">
+          <span class="card-title white-text">Votre compte BecauseOfProg</span>
+          <p class="white-text">Votre compte est global, utilisable sur le site entier. Nous mettons tout en oeuvre pour assurer la
               sécurité et la confidentialité de vos données sur nos serveurs.</p>
         </div>
         <div class="card-action white-text">
