@@ -102,8 +102,8 @@
     <li class="divider"></li>
     <span class="subheader">Thème</span>
     <li onclick="setTheme('auto')"><a href="#!"><i class="material-icons left"><span class="iconify" data-icon="mdi-theme-light-dark"/></i>Automatique</a></li>
-    <li onclick="setTheme('light')"><a href="#!">Clair</a></li>
-    <li onclick="setTheme('dark')"><a href="#!">Sombre</a></li>
+    <li onclick="setTheme('light')"><a href="#!"><i class="material-icons left"><span class="iconify" data-icon="mdi-weather-sunny"/></i>Clair</a></li>
+    <li onclick="setTheme('dark')"><a href="#!"><i class="material-icons left"><span class="iconify" data-icon="mdi-weather-night"/></i>Sombre</a></li>
   </ul>
   <div class="navbar-fixed topbar">
     <nav class="primary"></nav>
@@ -151,11 +151,17 @@
               <li class="divider" tabindex="-1"></li>
               <li>
                 <a href="#!" class="primary--text" onclick="setTheme('light')">
+                  <i class="material-icons">
+                    <span class="iconify" data-icon="mdi-weather-sunny"></span>
+                  </i>
                   Clair
                 </a>
               </li>
               <li>
                 <a href="#!" class="primary--text" onclick="setTheme('dark')">
+                  <i class="material-icons">
+                    <span class="iconify" data-icon="mdi-weather-night"></span>
+                  </i>
                   Sombre
                 </a>
               </li>
