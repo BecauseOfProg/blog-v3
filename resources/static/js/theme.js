@@ -8,6 +8,16 @@ window.onload = () => {
   }
 }
 
+function setTheme(mode) {
+  let strings = {
+    auto: "Thème réglé pour s'ajuster à celui de l'appareil.",
+    light: 'Thème réglé en mode clair.',
+    dark: 'Thème réglé en mode sombre.'
+  }
+  setPreferredColorScheme(mode)
+  M.toast({ html: strings[mode] })
+}
+
 function setPreferredColorScheme(mode) {
   let rule
   for (let i = document.styleSheets[2].rules.length-1; i >= 0; i--) {

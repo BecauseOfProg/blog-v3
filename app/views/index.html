@@ -79,18 +79,10 @@
   <!-- Mobile drawer -->
   <ul id="mobile-demo" class="sidenav">
     <li class="header">
-      <div class="user-view">
-        <div class="background primary"></div>
-        <a href="/">
-          <img
-            width="64px"
-            src="https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/logos/bop.min.svg"
-            alt="Logo BecauseOfProg"/>
-        </a>
-        <span class="white-text name">BecauseOfProg</span>
-        <span class="white-text email">Menu de navigation</span>
-      </div>
+      <img lazy="{{ image_proxy('https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/new-banner.png', 724.167, 0) }}" height="100px"/>
     </li>
+    <li><a class="waves-effect waves-light btn primary white-text" href="/account">Mon compte</a></li>
+    <span class="subheader">Catégories</span>
     <li><a href="/categorie/software"><i class="material-icons left"><span class="iconify" data-icon="mdi-web"></span></i>Software</a></li>
     <li><a href="/categorie/security"><i class="material-icons left"><span class="iconify" data-icon="mdi-lock-outline"></span></i>Sécurité</a></li>
     <li><a href="/categorie/web"><i class="material-icons left"><span class="iconify" data-icon="mdi-public"></span></i>Web</a></li>
@@ -100,16 +92,18 @@
     <li><a href="/categorie/linux"><i class="material-icons left"><span class="iconify" data-icon="mdi-linux"></span></i>Linux</a></li>
     <li><a href="/categorie/windows"><i class="material-icons left"><span class="iconify" data-icon="mdi-windows"></span></i>Windows</a></li>
     <li><a href="/categorie/apple"><i class="material-icons left"><span class="iconify" data-icon="mdi-apple"></span></i>Apple</a></li>
-    <li>
-      <div class="divider"></div>
-    </li>
+    <li class="divider"></li>
+    <span class="subheader">Pages</span>
     <li><a href="/blog"><i class="material-icons left"><span class="iconify" data-icon="mdi-file-document-box-multiple-outline"></span></i>Tous les articles</a></li>
     <li><a href="/page/search"><i class="material-icons left"><span class="iconify" data-icon="mdi-magnify"></span></i>Rechercher</a></li>
     <li><a href="/page/projects"><i class="material-icons left"><span class="iconify" data-icon="mdi-package-variant"></span></i>Projets</a></li>
     <li><a href="/page/links"><i class="material-icons left"><span class="iconify" data-icon="mdi-link"></span></i>Liens</a></li>
     <li><a href="/page/about"><i class="material-icons left"><span class="iconify" data-icon="mdi-information-outline"></span></i>À propos</a></li>
-    <li><a class="waves-effect waves-light btn primary" href="/login">Connexion</a></li>
-    <li>&nbsp;</li>
+    <li class="divider"></li>
+    <span class="subheader">Thème</span>
+    <li onclick="setTheme('auto')"><a href="#!"><i class="material-icons left"><span class="iconify" data-icon="mdi-theme-light-dark"/></i>Automatique</a></li>
+    <li onclick="setTheme('light')"><a href="#!">Clair</a></li>
+    <li onclick="setTheme('dark')"><a href="#!">Sombre</a></li>
   </ul>
   <div class="navbar-fixed topbar">
     <nav class="primary"></nav>
@@ -147,7 +141,7 @@
             </li>
             <ul id='theme-dropdown' class='dropdown-content' style="width: auto">
               <li>
-                <a href="#!" class="primary--text" onclick="setPreferredColorScheme('auto');">
+                <a href="#!" class="primary--text" onclick="setTheme('auto')">
                   <i class="material-icons">
                     <span class="iconify" data-icon="mdi-theme-light-dark"></span>
                   </i>
@@ -156,12 +150,12 @@
               </li>
               <li class="divider" tabindex="-1"></li>
               <li>
-                <a href="#!" class="primary--text" onclick="setPreferredColorScheme('light');">
+                <a href="#!" class="primary--text" onclick="setTheme('light')">
                   Clair
                 </a>
               </li>
               <li>
-                <a href="#!" class="primary--text" onclick="setPreferredColorScheme('dark');">
+                <a href="#!" class="primary--text" onclick="setTheme('dark')">
                   Sombre
                 </a>
               </li>
