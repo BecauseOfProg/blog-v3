@@ -13,6 +13,7 @@
     --nav: var(--sheets);
     --transparent: rgba(0,0,0,0.1);
     --list-hover: #eee;
+    --subheader: rgba(0,0,0,.6);
   }
 
   @media (prefers-color-scheme: dark) {
@@ -28,6 +29,7 @@
       --nav: var(--sheets) !important;
       --transparent: rgba(0,0,0,0.3) !important;
       --list-hover: #2e2e2e !important;
+      --subheader: hsla(0,0%,100%,.7);
     }
   }
 
@@ -41,7 +43,7 @@
     background: var(--transparent);
   }
 
-  .card:not(.primary), .collection-item, ul.dropdown-content {
+  .card:not(.primary), .collection-item, ul.dropdown-content, ul.sidenav {
     background-color: var(--sheets) !important;
   }
   ul.dropdown-content li:hover {
@@ -51,7 +53,6 @@
   .hoverable {
     box-shadow: 0.25rem 0.25rem 1.25rem var(--shadows);
   }
-
   .hoverable:hover {
     box-shadow: 0 8px 17px 0 var(--shadows-hover), 0 6px 20px 0 var(--shadows-hover);
   }
@@ -64,7 +65,7 @@
     border-color: var(--borders) !important;
   }
 
-  p, span, .normal-text, .markdown-body, .chip, .icon-chip svg path, input {
+  p, span, .normal-text, .markdown-body, .chip, .icon-chip svg path, input, .sidenav li * {
     color: var(--text) !important;
   }
 
