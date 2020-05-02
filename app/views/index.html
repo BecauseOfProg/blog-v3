@@ -79,9 +79,11 @@
   <!-- Mobile drawer -->
   <ul id="mobile-demo" class="sidenav">
     <li class="header">
-      <img lazy="{{ image_proxy('https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/new-banner.png', 724.167, 0) }}" height="100px"/>
+      <a href="/" style="display: inline; padding: 0">
+        <img lazy="{{ image_proxy('https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/new-banner.png', 724.167, 0) }}" height="100px"/>
+      </a>
     </li>
-    <li><a class="waves-effect waves-light btn primary white-text" href="/account">Mon compte</a></li>
+    <li><a class="waves-effect waves-light btn primary" href="/account" style="color: white !important">Mon compte</a></li>
     <span class="subheader">Catégories</span>
     <li><a href="/categorie/software"><i class="material-icons left"><span class="iconify" data-icon="mdi-web"></span></i>Software</a></li>
     <li><a href="/categorie/security"><i class="material-icons left"><span class="iconify" data-icon="mdi-lock-outline"></span></i>Sécurité</a></li>
