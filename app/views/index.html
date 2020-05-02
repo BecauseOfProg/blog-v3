@@ -132,12 +132,46 @@
         </a>
         <ul class="row right hide-on-med-and-down">
           <div id='navbar-links-container'>
+            <li class="divided">
+              <a
+                class="primary--text dropdown-trigger account-button"
+                href="#!"
+                data-target="theme-dropdown">
+                <i
+                  class="material-icons tooltipped"
+                  data-position="bottom"
+                  data-tooltip="Thème">
+                  <span class="iconify" data-icon="mdi-theme-light-dark"></span>
+                </i>
+              </a>
+            </li>
+            <ul id='theme-dropdown' class='dropdown-content' style="width: auto">
+              <li>
+                <a href="#!" class="primary--text" onclick="setPreferredColorScheme('auto');">
+                  <i class="material-icons">
+                    <span class="iconify" data-icon="mdi-theme-light-dark"></span>
+                  </i>
+                  Automatique
+                </a>
+              </li>
+              <li class="divider" tabindex="-1"></li>
+              <li>
+                <a href="#!" class="primary--text" onclick="setPreferredColorScheme('light');">
+                  Clair
+                </a>
+              </li>
+              <li>
+                <a href="#!" class="primary--text" onclick="setPreferredColorScheme('dark');">
+                  Sombre
+                </a>
+              </li>
+            </ul>
             <li class="waves-effect waves-light">
               <a href="/blog" class="primary--text">
                 <i class="material-icons left">
                   <span class="iconify" data-icon="mdi-file-document-box-multiple-outline"></span>
                 </i>
-                Tous les articles
+                Articles
               </a>
             </li>
             <li class="waves-effect waves-light">
@@ -148,7 +182,7 @@
                 Projets
               </a>
             </li>
-            <li class="waves-effect waves-light">
+            <li class="waves-effect waves-light divided">
               <a href="/page/links" class="primary--text">
                 <i class="material-icons left">
                   <span class="iconify" data-icon="mdi-link"></span>
