@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded",function() {
+window.onload = () => {
   let theme = localStorage.getItem('theme')
   if (theme === undefined) {
     localStorage.setItem('theme', 'auto')
@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded",function() {
   } else {
     setPreferredColorScheme(theme)
   }
-})
+}
 
 function setPreferredColorScheme(mode) {
   let rule
@@ -23,8 +23,8 @@ function setPreferredColorScheme(mode) {
             break
           case 'dark':
             localStorage.setItem('theme', 'dark')
+            rule.appendMedium('(prefers-color-scheme: light)')
             rule.appendMedium('(prefers-color-scheme: dark)')
-            if (rule.mediaText.includes('light')) rule.deleteMedium('(prefers-color-scheme: light)')
             if (rule.mediaText.includes('original')) rule.deleteMedium('original-prefers-color-scheme')
             break
           default:
