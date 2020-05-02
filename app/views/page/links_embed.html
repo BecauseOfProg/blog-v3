@@ -1,9 +1,9 @@
 {% if params.title_card %}
 <div class="col {{ params.columns }}">
   <div class="card shadow-elem primary">
-    <div class="card-content white-text">
-      <span class="card-title">{{ params.name }}</span>
-      <p>{{ params.description }}</p>
+    <div class="card-content">
+      <span class="card-title white-text">{{ params.name }}</span>
+      <p class="white-text">{{ params.description }}</p>
     </div>
     <div class="card-action white-text">
       {% for button in params.buttons %}
