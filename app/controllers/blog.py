@@ -137,4 +137,4 @@ class BlogController:
 
   @staticmethod
   def get_devblog():
-    return requests.get('https://api.becauseofprog.fr/v1/posts/last').json()['post']
+    return requests.get('https://api.becauseofprog.fr/v1/posts/last').json()['data']

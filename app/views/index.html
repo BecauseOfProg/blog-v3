@@ -101,6 +101,7 @@
     <li><a href="/page/projects"><i class="material-icons left"><span class="iconify" data-icon="mdi-package-variant"></span></i>Projets</a></li>
     <li><a href="/page/links"><i class="material-icons left"><span class="iconify" data-icon="mdi-link"></span></i>Liens</a></li>
     <li><a href="/page/about"><i class="material-icons left"><span class="iconify" data-icon="mdi-information-outline"></span></i>À propos</a></li>
+    <li><a href="/page/app"><i class="material-icons left"><span class="iconify" data-icon="mdi-cellphone-iphone"></span></i>Application</a></li>
     <li class="divider"></li>
     <span class="subheader">Thème</span>
     <li onclick="setTheme('auto')"><a href="#!"><i class="material-icons left"><span class="iconify" data-icon="mdi-theme-light-dark"/></i>Automatique</a></li>
@@ -127,11 +128,10 @@
           </i>
         </a>
         <ul class="row right hide-on-med-and-down">
-          <div id='navbar-links-container'>
+          <div id="navbar-links-container">
             <li class="divided">
               <a
-                class="primary--text dropdown-trigger account-button"
-                href="#!"
+                class="primary--text dropdown-trigger"
                 data-target="theme-dropdown">
                 <i
                   class="material-icons tooltipped"
@@ -141,9 +141,9 @@
                 </i>
               </a>
             </li>
-            <ul id='theme-dropdown' class='dropdown-content' style="width: auto">
+            <ul id="theme-dropdown" class="dropdown-content" style="width: auto">
               <li>
-                <a href="#!" class="primary--text" onclick="setTheme('auto')">
+                <a class="primary--text" onclick="setTheme('auto')">
                   <i class="material-icons">
                     <span class="iconify" data-icon="mdi-theme-light-dark"></span>
                   </i>
@@ -152,7 +152,7 @@
               </li>
               <li class="divider" tabindex="-1"></li>
               <li>
-                <a href="#!" class="primary--text" onclick="setTheme('light')">
+                <a class="primary--text" onclick="setTheme('light')">
                   <i class="material-icons">
                     <span class="iconify" data-icon="mdi-weather-sunny"></span>
                   </i>
@@ -192,6 +192,14 @@
                 Liens
               </a>
             </li>
+            <li class="waves-effect waves-light divided">
+              <a href="/page/app" class="primary--text">
+                <i class="material-icons left">
+                  <span class="iconify" data-icon="mdi-cellphone-iphone"></span>
+                </i>
+                Application
+              </a>
+            </li>
             <li>
               <a id="search-field-open" class="primary--text">
                 <i class="material-icons">
@@ -201,7 +209,7 @@
             </li>
             <li>
               <a
-                class="account-button primary--text"
+                class="primary--text"
                 href="/account">
                 <i
                   class="material-icons tooltipped"

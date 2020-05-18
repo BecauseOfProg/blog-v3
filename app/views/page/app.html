@@ -6,94 +6,210 @@
 {% block author %}Équipe BecauseOfProg{% endblock %}
 
 {% block content %}
-  <div class="welcome parallax-container h250px">
+  <div class="welcome parallax-container">
     <div class="parallax primary"></div>
-    <h4 class="header white-text">
-      <i class="material-icons md-48">
-        <span class="iconify" data-icon="mdi-cellphone-iphone"></span>
-      </i>
-      <br/>
-      Application - BecauseOfProg
-    </h4>
-  </div>
-
-  <div class="section white">
-    <div class="row container">
-      {{ breadcrumb(['Application'])|safe }}
+    <img
+      src="https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/logos/bop.min.svg"
+      alt="Logo BecauseOfProg"
+      width="200">
+    <h3 class="header white-text">
+      L'appli de la BecauseOfProg
+    </h3>
+    <h4 class="white-text">Restez connecté à notre actualité</h4>
+  <div class="row">
+      <a class="btn light-green">
+        <i class="material-icons left">
+          <span class="iconify" data-icon="mdi-google-play"></span>
+        </i>
+        Google Play
+      </a>
+      <a class="btn cyan lighten-1">
+        <i class="material-icons left">
+          <span class="iconify" data-icon="mdi-android-debug-bridge"></span>
+        </i>
+        F-Droid
+      </a>
+      <a class="btn light-blue">
+        <i class="material-icons left">
+          <span class="iconify" data-icon="mdi-apple"></span>
+        </i>
+        App Store
+      </a>
     </div>
   </div>
 
-  <div class="section white" id="presentation">
-    <div class="row container center">
-      <h3>Comment ça marche ?</h3>
+  <div class="container">
+    {{ breadcrumb(['Application'])|safe }}
+  </div>
 
-      <p>
-        Nous avons intégré le site web dans une applicaton web : c'est un icône sur votre smartphone qui vous
-        permet d'accéder au site, comme si c'était une vraie application.
-        Nous ne stockons pas les données de l'application sur votre smartphone, c'est donc très léger ! Pour l'installer,
-        vous devez posséder juste posséder un navigateur web récent.
+  <div class="section container row valign-wrapper no-padding">
+    <div class="col s12 m4 no-padding">
+      <img
+        src="/img/app_home_light.png"
+        alt="Capture d'écran de l'accueil en thème clair"
+        width="100%">
+    </div>
+    <div class="col s12 m8 no-padding">
+      <h4 class="normal-text">Accédez rapidement aux derniers titres</h4>
+      <p class="justified">
+        Notre application est simple d'utilisation : accédez en un tapotement à toutes les catégories d'articles.
+        Les bannières renforcent le contenu et permettent de connaître le contenu de l'article sans même lire le titre.
+      </p>
+      <p class="justified">
+        Nous avons optimisé les performances de l'application pour un <strong>chargement rapide</strong> et une
+        <strong>utilisation fluide</strong>.
+        Le contenu essentiel est gardé en cache pour le retrouver efficacement dès le chargement suivant.
       </p>
     </div>
   </div>
 
-  <div class="section grey lighten-4" id="procedure">
-    <div class="row container">
-
-      <h3 class="center">Procédure</h3>
-
-      <ul class="collection">
-        <li class="collection-item avatar hoverable">
-          <span class="iconify circle primary--text" data-icon="mdi:google-chrome" data-inline="false"></span>
-          <span class="title">Sur Chrome</span>
-          <p><b>Si vous êtes sur mobile / tablette :</b> Allez dans les 3 petits points en haut à droite de l'écran et
-            touchez "Ajouter à l'écran d'accueil".</p>
-          <p><b>Si vous êtes sur PC :</b> Allez dans les 3 petits points en haut à droite de l'écran, allez dans "Plus
-            d'outils" et cliquez sur "Ajouter au bureau". N'oubliez pas de cocher la case "Ouvrir dans une
-            fenêtre".<br/>
-            Retrouvez-y même sur chrome://apps</p>
-        </li>
-
-        <li class="collection-item avatar hoverable">
-          <span class="iconify circle primary--text" data-icon="mdi:android" data-inline="false"></span>
-          <span class="title">Sur le navigateur android 4.2+</span>
-          <p>Ce navigateur ne supporte pas les applications web !</p>
-        </li>
-
-        <li class="collection-item avatar hoverable">
-          <span class="iconify circle primary--text" data-icon="whh:dolphinsoftware" data-inline="false"></span>
-          <span class="title">Sur Dolphin</span>
-          <p>Ce navigateur ne supporte pas encore les fonctionnalités les plus récentes, utilisez plutôt Chrome ou
-            Opera. Allez dans vos favoris et appuyez longuement sur BecauseOfProg. Sur le menu qui s'affiche cliquez sur
-            "Ajouter un raccourci sur l'écran d'accueil"</p>
-        </li>
-
-        <li class="collection-item avatar hoverable">
-          <span class="iconify circle primary--text" data-icon="mdi:firefox" data-inline="false"></span>
-          <span class="title">Sur Firefox</span>
-          <p>Ce navigateur ne supporte pas encore les fonctionnalités les plus récentes, utilisez plutôt Chrome ou
-            Opera. Appuyez longuement sur l'URL et cliquez sur "Ajouter à l'écran d'accueil"</p>
-        </li>
-
-        <li class="collection-item avatar hoverable">
-          <span class="iconify circle primary--text" data-icon="mdi:opera" data-inline="false"></span>
-          <span class="title">Sur Opera Mini </span>
-          <p>Ce navigateur ne supporte pas les applications web. Toutefois, vous pouvez prendre la version complète
-            d'Opera (instructions juste en dessous).</p>
-        </li>
-
-        <li class="collection-item avatar hoverable">
-          <span class="iconify circle primary--text" data-icon="mdi:opera" data-inline="false"></span>
-          <span class="title">Sur Opera</span>
-          <p>Allez dans les 3 petits points en haut à droite de l'écran et touchez "Ecran d'accueil" tout en bas.</p>
-        </li>
-
-        <li class="collection-item avatar hoverable">
-          <span class="iconify circle primary--text" data-icon="mdi:apple-safari" data-inline="false"></span>
-          <span class="title">Sur iOS (avec Safari)</span>
-          <p>Appuyez sur le bouton du milieu en bas de l'écran, et appuyez sur "Ajouter à l'écran d'accueil".</p>
-        </li>
-      </ul>
-
+  <div class="section sheet no-padding">
+    <div class="container fluid row valign-wrapper">
+      <div class="col s12 m8 no-padding">
+        <h4 class="normal-text">Lisez confortablement nos articles</h4>
+        <p class="justified">
+          La présentation des articles est claire et va à l'essentiel : pas de popups agaçantes, de boutons de réseaux
+          sociaux...
+          <strong>Concentrez-vous sur la lecture de votre article</strong> dans une page optimisée uniquement pour cela.
+          <br>
+          <i>En plus, nos articles sont écrits avec amour pour vous proposer le meilleur contenu <3</i>
+        </p>
+      </div>
+      <div class="col s12 m4 no-padding">
+        <img
+          src="/img/app_home_light.png"
+          alt="Capture d'écran de l'accueil en thème clair"
+          width="100%">
+      </div>
     </div>
+  </div>
+
+  <div class="section container row valign-wrapper no-padding">
+    <div class="col s12 m4 no-padding">
+      <img
+        src="/img/app_home_light.png"
+        alt="Capture d'écran de l'accueil en thème clair"
+        width="100%">
+    </div>
+    <div class="col s12 m8 no-padding">
+      <h4 class="normal-text">En clair... comme en foncé</h4>
+      <p class="justified">
+        Vous aimez les journées ensoleillées d'été ? Nous disposons d'un thème clair.
+        Vous préférez les cavernes sombres ? Nous avons également un thème sombre.
+        Choisissez <strong>l'apparence qui vous plaît</strong> parmis nos deux magnifiques thèmes, et lisez vos articles
+        confortablement.
+      </p>
+      <p class="justified">
+        Si vous le souhaitez, le thème peut s'adapter à celui de votre système. Fini les bidouillages indépendants dans
+        chaque application pour ne pas vous détruire les yeux à l'ouverture.
+      </p>
+    </div>
+  </div>
+
+  <div class="section sheet">
+    <div class="container center">
+      <h3 class="normal-text">Pas de publicités. Pas de traçage. C'est aussi simple que ça.</h3>
+      <p class="justified">
+        Étant nous-mêmes utilisateurs de nombreuses applications de lecture sur nos téléphones, nous avons souhaité
+        reproduire leurs avantages sans porter leurs inconvénients.
+        C'est pour cela qu'<strong>aucune publicité</strong> n'est affichée dans l'application.
+        De plus, nous ne récoltons <strong>aucune donnée</strong>, pas même anonymes. La statistique est loin d'être
+        notre domaine de spécialité, croyez-nous.
+      </p>
+      <p class="justified">
+        Vous souhaitez le vérifier par vous-mêmes ? Aucun problème, l'application est
+        <a href="https://github.com/BecauseOfProg/app">distribuée en open-source</a> sous licence GNU GPL v3. Par
+        ailleurs, n'hésitez-pas à contribuer à son développement!
+      </p>
+    </div>
+  </div>
+
+  <div class="section primary valign-wrapper" style="height: 450px">
+    <div class="center" style="width: 100%">
+      <h2 class="white-text">Prêts à utiliser notre application ?</h2>
+      <h4 class="white-text">Téléchargez-la sur votre téléphone dès maintenant!</h4>
+      <div class="row">
+        <a class="btn light-green">
+          <i class="material-icons left">
+            <span class="iconify" data-icon="mdi-google-play"></span>
+          </i>
+          Google Play
+        </a>
+        <a class="btn cyan lighten-1">
+          <i class="material-icons left">
+            <span class="iconify" data-icon="mdi-android-debug-bridge"></span>
+          </i>
+          F-Droid
+        </a>
+        <a class="btn light-blue">
+          <i class="material-icons left">
+            <span class="iconify" data-icon="mdi-apple"></span>
+          </i>
+          App Store
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section container row">
+    <h3 class="normal-text center">Installer une application vous incomode?</h3>
+    <p class="justified">
+      Pas de panique. Grâce à notre application web progressive (PWA) directement installée sur le site becauseofprog.fr,
+      vous pouvez ajouter le site sur votre écran d'accueil pour un accès facile à tous les articles.
+      Vous ne profiterez cependant pas de futures fonctionnalités, telles que les notifications à la publication de
+      nouveaux contenus.
+    </p>
+    <ul class="collection">
+      <li class="collection-item avatar hoverable">
+        <span class="iconify circle primary--text" data-icon="mdi-google-chrome" data-inline="false"></span>
+        <span class="title">Sur Chrome</span>
+        <p><b>Si vous êtes sur mobile / tablette :</b> Allez dans les 3 petits points en haut à droite de l'écran et
+          touchez "Ajouter à l'écran d'accueil".</p>
+        <p><b>Si vous êtes sur PC :</b> Allez dans les 3 petits points en haut à droite de l'écran, allez dans "Plus
+          d'outils" et cliquez sur "Ajouter au bureau". N'oubliez pas de cocher la case "Ouvrir dans une
+          fenêtre".<br/>
+          Retrouvez-y même sur chrome://apps</p>
+      </li>
+
+      <li class="collection-item avatar hoverable">
+        <span class="iconify circle primary--text" data-icon="mdi-android" data-inline="false"></span>
+        <span class="title">Sur le navigateur android 4.2+</span>
+        <p>Ce navigateur ne supporte pas les applications web !</p>
+      </li>
+
+      <li class="collection-item avatar hoverable">
+        <span class="iconify circle primary--text" data-icon="whh-dolphinsoftware" data-inline="false"></span>
+        <span class="title">Sur Dolphin</span>
+        <p>Ce navigateur ne supporte pas encore les fonctionnalités les plus récentes, utilisez plutôt Chrome ou
+          Opera. Allez dans vos favoris et appuyez longuement sur BecauseOfProg. Sur le menu qui s'affiche cliquez sur
+          "Ajouter un raccourci sur l'écran d'accueil"</p>
+      </li>
+
+      <li class="collection-item avatar hoverable">
+        <span class="iconify circle primary--text" data-icon="mdi-firefox" data-inline="false"></span>
+        <span class="title">Sur Firefox</span>
+        <p>Ce navigateur ne supporte pas encore les fonctionnalités les plus récentes, utilisez plutôt Chrome ou
+          Opera. Appuyez longuement sur l'URL et cliquez sur "Ajouter à l'écran d'accueil"</p>
+      </li>
+
+      <li class="collection-item avatar hoverable">
+        <span class="iconify circle primary--text" data-icon="mdi-opera" data-inline="false"></span>
+        <span class="title">Sur Opera Mini</span>
+        <p>Ce navigateur ne supporte pas les applications web. Toutefois, vous pouvez prendre la version complète
+          d'Opera (instructions juste en dessous).</p>
+      </li>
+
+      <li class="collection-item avatar hoverable">
+        <span class="iconify circle primary--text" data-icon="mdi-opera" data-inline="false"></span>
+        <span class="title">Sur Opera</span>
+        <p>Allez dans les 3 petits points en haut à droite de l'écran et touchez "Ecran d'accueil" tout en bas.</p>
+      </li>
+
+      <li class="collection-item avatar hoverable">
+        <span class="iconify circle primary--text" data-icon="mdi-apple-safari" data-inline="false"></span>
+        <span class="title">Sur iOS (avec Safari)</span>
+        <p>Appuyez sur le bouton du milieu en bas de l'écran, et appuyez sur "Ajouter à l'écran d'accueil".</p>
+      </li>
+    </ul>
   </div>
 {% endblock %}
