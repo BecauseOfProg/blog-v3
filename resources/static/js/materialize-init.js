@@ -25,20 +25,20 @@ document.addEventListener("DOMContentLoaded",function(){
     indicators: true
   })
 
-  let tooltip = document.querySelectorAll('.account-button .tooltipped')
+  let tooltip = document.querySelectorAll('.tooltipped')
   let tooltipInstance = M.Tooltip.init(tooltip, {
     margin: 0
   })
 
-  var elems = document.querySelectorAll('.sidenav')
-  var instances = M.Sidenav.init(elems)
+  let sidenav = document.querySelectorAll('.sidenav')
+  let sidenavInstance = M.Sidenav.init(sidenav)
 
-  var elems = document.querySelectorAll('.modal');
-  var instances = M.Modal.init(elems);
+  let modal = document.querySelectorAll('.modal')
+  let modalInstance = M.Modal.init(modal)
 
-  var elems = document.querySelectorAll('.parallax');
-  var instances = M.Parallax.init(elems);
+  let parallax = document.querySelectorAll('.parallax')
+  let parallaxInstance = M.Parallax.init(parallax)
 
-  var elems = document.querySelectorAll('.dropdown-trigger');
-  var instances = M.Dropdown.init(elems);
-});
+  let dropdown = document.querySelectorAll('.dropdown-trigger')
+  let dropdownInstance = M.Dropdown.init(dropdown)
+})
