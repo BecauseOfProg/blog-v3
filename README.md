@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="100" src="https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/logos/bop.min.svg"/>
+  <img width="400" src="resources/docs/pwa.png" alt="PWA screen"/>
   <h1>BecauseOfProg's blog</h1>
   <a href="https://becauseofprog.fr">Website</a> &mdash; <a href="https://discord.becauseofprog.fr">Discord chat</a><br>
   <a href="./LICENSE">
