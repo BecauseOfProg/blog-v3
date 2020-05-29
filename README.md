@@ -1,12 +1,18 @@
 <div align="center">
   <img width="400" src="resources/docs/pwa.png" alt="PWA screen"/>
   <h1>BecauseOfProg's blog</h1>
-  <a href="https://becauseofprog.fr">Website</a> &mdash; <a href="https://discord.becauseofprog.fr">Discord chat</a><br>
-  <a href="./LICENSE">
-    <img src="https://img.shields.io/github/license/BecauseOfProg/blog" alt="License">
+  <a href="https://becauseofprog.fr">Website</a> &mdash; <a href="https://beta.becauseofprog.fr">Beta website</a> &mdash; <a href="https://trello.com/b/4ef4jlfC/blog-v3">Trello</a> &mdash; <a href="https://discord.becauseofprog.fr">Discord</a><br>
+  <a href="https://discord.becauseofprog.fr">
+    <img src="https://img.shields.io/discord/272454426038370304?color=blue&label=discord" alt="Chat on Discord">
+  </a>
+  <a href="https://github.com/BecauseOfProg/blog/issues">
+    <img src="https://img.shields.io/github/issues/BecauseOfProg/blog" alt="Open issues">
   </a>
   <a href="https://github.com/BecauseOfProg/blog/releases">
     <img src="https://img.shields.io/github/v/release/BecauseOfProg/blog" alt="Latest release">
+  </a>
+  <a href="./LICENSE">
+    <img src="https://img.shields.io/github/license/BecauseOfProg/blog" alt="License">
   </a>
 </div>
 
@@ -46,6 +52,7 @@ Thanks for being involved in the grow of our project! Please read these few line
 ## 📜 Credits
 
 - Maintainers: [Gildas GH](https://github.com/Gildas-GH), [Théo Vidal (exybore)](https://github.com/exybore)
+- Library and services used: [here](https://becauseofprog.fr/page/about)
 - Special thanks to [Noéwen (kernoeb)](https://github.com/kernoeb) (BecauseOfProg)
 
 ## 🔐 License
