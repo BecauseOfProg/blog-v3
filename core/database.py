@@ -1,3 +1,4 @@
+from app.models import article, user, post
 from pony.orm import Database
 from config.database import database_config
 
@@ -11,6 +12,5 @@ db = Database()
 db.bind(provider='mysql', host=database_config['host'], port=database_config['port'],
         user=database_config['user'], passwd=database_config['password'], db=database_config['database'])
 
-from app.models import article, user, post
 
 db.generate_mapping(create_tables=False)
