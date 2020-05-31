@@ -8,31 +8,29 @@
 {% block content %}
 <!-- Categories bar -->
 <div id="categories-bar" class="navbar-fixed no-mobile">
-  <nav class="semitransparent">
-    <div class="nav-wrapper semitransparent">
-      <ul class="center hide-on-med-and-down">
-        {% for url, category in categories.items() %}
-          <li class="waves-effect waves-light">
-            <a href="/categorie/{{url}}">
-              <i class="material-icons left">
-                <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
-              </i>
-              {{category.name}}
-            </a>
-          </li>
-        {% endfor %}
-        {% for url, type in types.items() %}
-          <li class="waves-effect waves-light">
-            <a href="/type/{{url}}">
-              <i class="material-icons left">
-                <span class="iconify" data-icon="mdi-{{type.icon}}"></span>
-              </i>
-              {{type.name}}
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
+  <nav class="nav-wrapper" style="background-color: rgba(var(--sheets), 0.4) !important; backdrop-filter: blur(30px);">
+    <ul class="center hide-on-med-and-down">
+      {% for url, category in categories.items() %}
+        <li class="waves-effect waves-light">
+          <a href="/categorie/{{url}}" class="normal-text">
+            <i class="material-icons left">
+              <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
+            </i>
+            {{category.name}}
+          </a>
+        </li>
+      {% endfor %}
+      {% for url, type in types.items() %}
+        <li class="waves-effect waves-light">
+          <a href="/type/{{url}}" class="normal-text">
+            <i class="material-icons left">
+              <span class="iconify" data-icon="mdi-{{type.icon}}"></span>
+            </i>
+            {{type.name}}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
   </nav>
 </div>
 
