@@ -4,8 +4,9 @@ __pycache__/
 node_modules/
 
 config/database.py
-static/bundle.js
-static/bundle.css
+resources/static/build/bundle.js
+resources/static/build/bundle.css
+resources/static/build/bundle.css.map
 .pyc
 *.pyc
 .cpython-37.pyc
