@@ -1,7 +1,7 @@
-'''
-This is the file where the MySQL database credentials are defined.
-They are all stored in this `database` dict.
-'''
+"""
+    This is the file where the MySQL database credentials are defined.
+    They are all stored in this `database` dict.
+"""
 
 database_config = {
     # This is the host of your database : it can be a URL or a IP address

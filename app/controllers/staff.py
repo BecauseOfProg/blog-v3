@@ -17,22 +17,24 @@ class StaffController:
     @staticmethod
     @db_session
     def new_post():
-        '''Checks if user is allowed to access the new post page'''
-        u = checklogin()
-        if u is not False:
-            return StaffController.create_post(u)
+        """
+            Checks if user is allowed to access the new post page
+        """
+        user = checklogin()
+        if user is not False:
+            return StaffController.create_post(user)
         else:
             return redirect('/login')
 
     @staticmethod
-    def create_post(u):
-        perms = str(u.permissions)
-        username = str(u.username)
-        if perms.find("BLOG_WRITE") != -1:
+    def create_post(user):
+        permissions = str(user.permissions)
+        username = str(user.username)
+        if permissions.find("BLOG_WRITE") != -1:
             if request.method == 'POST':
-                # Un utilisateur autorisé souhaite poster un article
-                # On envoie les données à MySQL
-                a = Articles(
+                # An authorized user wants to submit a new article.
+                # Send the data to MySQL
+                article = Articles(
                     title=request.form['title'],
                     type=request.form['type'],
                     category=request.form['category'],
@@ -50,5 +52,5 @@ class StaffController:
             return render_template(
                 'members/new-article.html', types=TYPES, categories=CATEGORIES)
 
-        erreur = "Vous n'avez pas la permission de visiter cette page (403)"
-        return render_template('components/erreur.html', erreur=erreur), 403
+        error = "Vous n'avez pas la permission de visiter cette page (403)"
+        return render_template('components/erreur.html', erreur=error), 403

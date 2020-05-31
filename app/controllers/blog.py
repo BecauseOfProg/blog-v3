@@ -1,5 +1,5 @@
 from core.utils.fill_informations import fill_informations
-from pony.orm import db_session, select, desc
+from pony.orm import db_session, select, desc, count
 from app.models.article import Articles
 from app.models.user import User
 from flask import render_template
@@ -29,7 +29,9 @@ class BlogController:
     @staticmethod
     @db_session
     def show_home():
-        '''Homepage of your blog-old'''
+        """
+          Homepage of the blog
+        """
         last = Articles.select().order_by(desc(Articles.timestamp)).first()
         lasts_art = Articles.select().order_by(desc(Articles.timestamp))[1:4]
         list_of_dict = []
@@ -46,14 +48,16 @@ class BlogController:
     @staticmethod
     @db_session
     def show_blog(page):
-        '''Displays list.html with the lasts articles'''
+        """
+          Displays the list page with lasts articles
+        """
         data = select(a for a in Articles).order_by(desc(Articles.timestamp))[
             page * 10: page * 10 + 10
         ]
-        if data == []:
-            erreur = "La page recherchée n'existe pas! (404)"
+        if not data:
+            error = "La page recherchée n'existe pas! (404)"
             return render_template(
-                'components/erreur.html', erreur=erreur), 404
+                'components/erreur.html', erreur=error), 404
         articles = []
         for item in data:
             articles.append(fill_informations(item))
@@ -62,6 +66,7 @@ class BlogController:
                                type='Tous les articles',
                                name='Tous les articles',
                                articles=articles,
+                               total_articles=count(a for a in Articles),
                                icon="file-document-box-multiple-outline",
                                page=page,
                                types=TYPES,
@@ -71,8 +76,10 @@ class BlogController:
     @staticmethod
     @db_session
     def show_category(category, page):
-        '''Displays list.html with the lasts articles of a given category.
-        Returns an error if the page is empty or if category does not exists.'''
+        """
+          Displays the list page with the lasts articles of a given category.
+          Returns an error if the page is empty or if category doesn't exists.
+        """
         if category not in CATEGORIES:
             return render_template(
                 'components/erreur.html',
@@ -98,6 +105,8 @@ class BlogController:
                                name=category_data['name'],
                                icon=category_data['icon'],
                                articles=articles,
+                               total_articles=count(
+                                   a for a in Articles if a.category == category),
                                page=page,
                                types=TYPES,
                                categories=CATEGORIES,
@@ -106,8 +115,10 @@ class BlogController:
     @staticmethod
     @db_session
     def show_type(type, page):
-        '''Displays list.html with the lasts articles of a given type.
-            Returns an error if the page is empty or if type does not exists.'''
+        """
+          Displays list.html with the lasts articles of a given type.
+          Returns an error if the page is empty or if type doesn't exists.
+        """
         if type not in TYPES:
             return render_template('components/erreur.html',
                                    erreur="Le type souhaité est invalide !")
@@ -132,6 +143,8 @@ class BlogController:
                                icon=type_data['icon'],
                                name=type_data['name'],
                                articles=articles,
+                               total_articles=count(
+                                   a for a in Articles if a.type == type),
                                page=page,
                                types=TYPES,
                                categories=CATEGORIES,
@@ -140,7 +153,9 @@ class BlogController:
     @staticmethod
     @db_session
     def show_article(url):
-        '''Displays an article with a given url'''
+        """
+          Displays an article using a given URL
+        """
         try:
             article = Articles.get(url=url)
             author = User.get(username=article.author)
@@ -161,9 +176,9 @@ class BlogController:
                                    types=TYPES)
         except Exception as e:
             print(e)
-            erreur = "La page recherchée n'existe pas! (404)"
+            error = "La page recherchée n'existe pas! (404)"
             return render_template('components/erreur.html',
-                                   erreur=erreur), 404
+                                   erreur=error), 404
 
     @staticmethod
     def get_devblog():

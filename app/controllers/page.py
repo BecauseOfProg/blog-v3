@@ -35,7 +35,9 @@ class PageController:
     @staticmethod
     @db_session
     def about():
-        '''Displays the 'about' page with a list of the staff'''
+        """
+            Displays the "about" page with a list of the staff
+        """
         roles = {
             "POST_WRITE": "Membre",
             "BLOG_WRITE": "Rédacteur",
@@ -46,22 +48,28 @@ class PageController:
 
     @staticmethod
     def app():
-        '''Returns a static file'''
+        """
+            Returns a static file
+        """
         return render_template('page/app.html')
 
     @staticmethod
     def rss_embed(source):
-        '''Returns a small HTML file, inserted into the home page with some JS. Source parameter can be links, twitter, mastodon, instagram'''
+        """
+            Returns a small HTML file, inserted into the home page with some JS. Source parameter can be links,
+            Twitter, Mastodon, Instagram
+        """
         params = EMBED_PARAMS[source]
         feed = links_list(params["source"], 8, "false")
-        len_l = len(feed['entries'])
 
         return render_template('page/links_embed.html',
-                               links=feed, len_l=len_l, params=params)
+                               links=feed, params=params)
 
     @staticmethod
     def js_embed():
-        '''Returns json data'''
+        """
+            Returns json data
+        """
         RSS_URLS = []
         for source in EMBED_PARAMS:
             RSS_URLS.append(EMBED_PARAMS[source]["source"])
@@ -75,21 +83,27 @@ class PageController:
 
     @staticmethod
     def links():
-        '''Displays links from an RSS feed (see function links_list(). )'''
+        """
+            Displays links from an RSS feed (see function links_list())
+        """
         links = links_list("links", 20, "true")
-        len_links = len(links['entries'])
+        links_number = len(links['entries'])
         return render_template(
-            'page/liens.html', links=links, len_links=len_links, blogroll=BLOGROLL)
+            'page/liens.html', links=links, links_number=links_number, blogroll=BLOGROLL)
 
     @staticmethod
     def projects():
-        '''Returns a static file'''
+        """
+            Returns a static file
+        """
         return render_template('page/projects.html', projects=PROJECTS)
 
     @staticmethod
     @db_session
     def show_search(keyword, page):
-        '''Search into articles'''
+        """
+            Search into articles
+        """
         if keyword is None:
             keyword = request.args.get('q', default="", type=str)
         if page == 0:
@@ -99,18 +113,34 @@ class PageController:
         else:
             lasts = Articles.get_articles_in_range(0, 3)
             return render_template(
-                'page/search.html', categories=CATEGORIES, types=TYPES, lasts=lasts)
+                'page/search.html',
+                categories=CATEGORIES,
+                types=TYPES,
+                lasts=lasts
+            )
 
     @staticmethod
     def process_search(keyword, page):
-        '''Process the search when a keyword is given'''
+        """
+            Process the search when a keyword is given
+        """
         try:
-            articles = Articles.search_articles(keyword, page)
+            articles, total_articles = Articles.search_articles(keyword, page)
         except NoArticlesFound:
-            erreur = "Votre recherche n'a donné aucun résultat. Vous pouvez entrer un autre mot clé :"
+            error = "Votre recherche n'a donné aucun résultat. Vous pouvez entrer un autre mot clé :"
             lasts = Articles.get_articles_in_range(0, 3)
             return render_template(
-                'page/search.html', error=erreur, categories=CATEGORIES, types=TYPES, lasts=lasts)
-        return render_template('blog/list.html', articles=articles, template="site",
-                               type="Recherche", name="Recherche", icon="magnify", keyword=keyword, page=page,
-                               types=TYPES, categories=CATEGORIES, devblog=BlogController.get_devblog())
+                'page/search.html', error=error, categories=CATEGORIES, types=TYPES, lasts=lasts)
+        return render_template('blog/list.html',
+                               articles=articles,
+                               total_articles=total_articles,
+                               template="site",
+                               type="Recherche",
+                               name="Recherche",
+                               icon="magnify",
+                               keyword=keyword,
+                               page=page,
+                               types=TYPES,
+                               categories=CATEGORIES,
+                               devblog=BlogController.get_devblog()
+                               )

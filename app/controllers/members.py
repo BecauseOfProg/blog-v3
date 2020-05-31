@@ -9,8 +9,9 @@ class MembersController:
     @staticmethod
     @db_session
     def show_account():
-        '''Shows the account page (a static page for now) or
-        redirects the user to the login form'''
+        """
+            Shows the account page (a static page for now) or redirects the user to the login form
+        """
         user = checklogin()
         if user is not False:
             return render_template('members/account.html', user=user)
@@ -19,7 +20,9 @@ class MembersController:
 
     @staticmethod
     def logout():
-        '''Logs out the user, removes cookies'''
+        """
+            Logs out the user, removing cookies
+        """
         session.pop('username', None)
         session.pop('token', None)
         return redirect('/')
@@ -27,8 +30,9 @@ class MembersController:
     @staticmethod
     @db_session
     def show_login():
-        '''Display the login form if request is GET,
-        logs in the user with the given informations if request is POST'''
+        """
+            Display the login form if request is GET, logs in the user with the given information if request is POST
+        """
         if 'token' in session:
             return redirect('/')
         if request.method == 'POST':
@@ -46,6 +50,8 @@ class MembersController:
     @staticmethod
     @db_session
     def show_user_page(username):
-        '''User profile page'''
+        """
+            User profile page
+        """
         user = User.get(username=username)
         return render_template('members/user.html', user=user)
