@@ -5,4 +5,5 @@ from config import routes
 from config import bundler
 
 if __name__ == '__main__':
-  application.run(host='localhost', port=5001, debug=True)
+    db.generate_mapping(create_tables=False)
+    application.run(host='localhost', port=5001, debug=True)
