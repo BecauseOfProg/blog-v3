@@ -35,15 +35,17 @@ class Articles(db.Entity):
     @db_session
     def search_articles(keyword, page):
         keyword = keyword.lower()
-        data = Articles.select(
+        all_data = Articles.select(
             lambda a: keyword in a.title.lower() or keyword in a.description.lower()
         ).order_by(
             desc(Articles.timestamp)
-        )[page * 10:page * 10 + 10]
+        )
+        total_articles = len(all_data)
+        data = all_data[page * 10:page * 10 + 10]
         if data == []:
             raise NoArticlesFound
         else:
             articles = []
             for item in data:
                 articles.append(fill_informations(item))
-            return articles
+            return articles, total_articles

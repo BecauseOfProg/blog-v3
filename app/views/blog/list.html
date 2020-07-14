@@ -11,12 +11,14 @@
 {% block image %}https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/logos/bop.min.svg{% endblock %}
 {% block author %}Équipe BecauseOfProg{% endblock %}
 
+{% set pages_number = (total_articles / 10)|abs|int %}
+
 {% block content %}
 <div class="welcome parallax-container h250px">
   <div class="parallax primary"></div>
   <h4 class="header white-text">
     <i class="material-icons md-48">
-      <span class="iconify" data-icon="mdi-{{icon}}"></span>
+      <span class="iconify" data-icon="mdi-{{ icon }}"></span>
     </i>
     <br/>
     {{ template.title() }} - {{ name }}
@@ -24,9 +26,39 @@
 </div>
 
 <div class="container">
-  {{ breadcrumb([template.title(), name])|safe }}
+  {{ breadcrumb([template.title(), name])|safe }}<br>
   <div class="row">
     <div class="col m9">
+      <ul class="pagination center">
+        {% for i in range(pages_number + 1) %}
+          <li class="waves-effect">
+            <a
+              {% if template == "Blog" %}
+                href="{{ i }}"
+              {% elif template == "site" %}
+                {% if page == 0 %}
+                  href="../{{ keyword }}/{{ i }}"
+                {% else %}
+                  href="../../{{ keyword }}/{{ i }}"
+                {% endif %}
+              {% else %}
+                {% if page == 0 %}
+                  href="{{ type }}/{{ i }}"
+                {% else %}
+                  href="../{{ type }}/{{ i }}"
+                {% endif %}
+              {% endif %}
+
+              {% if i == page %}
+                class="primary--text"
+              {% else %}
+                class="normal-text"
+              {% endif %}>
+              {{ i + 1 }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
       {% for article in articles %}
         <div class="card hoverable">
           <div class="card-image">
@@ -66,14 +98,6 @@
           </div>
         </div>
       {% endfor %}
-      {% if articles|length > 9 %}
-        <a class="waves-effect waves-light btn primary" href="{{ page + 1 }}">
-          Page suivante
-          <i class="material-icons right">
-            <span class="iconify" data-icon="mdi-chevron-right"></span>
-          </i>
-        </a>
-      {% endif %}
     </div>
     <div class="col m3">
       <ul class="card collection">
