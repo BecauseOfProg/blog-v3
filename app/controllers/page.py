@@ -1,34 +1,19 @@
-from pony.orm import db_session, desc
 from flask import render_template, request, jsonify
+from pony.orm import db_session, desc
+import json
+import feedparser
+
 from core.exceptions import NoArticlesFound
 from core.utils.fill_informations import fill_informations
 from core.utils.links import links_list
+
+from core.data.blogroll import blogroll
+from core.data.projects import projects
+from core.data.embeds import embeds
+
 from app.models.article import Articles
 from app.models.user import User
 from app.controllers.blog import BlogController
-import json
-
-import feedparser
-
-BLOGROLL = json.loads(open('resources/data/blogroll.json', 'r').read())
-PROJECTS = json.loads(
-    open(
-        'resources/data/projects.json',
-        'r',
-        encoding='utf-8').read())
-
-TYPES = json.loads(open('resources/data/types.json', 'r').read())
-CATEGORIES = json.loads(
-    open(
-        'resources/data/categories.json',
-        'r',
-        encoding="utf-8").read())
-
-EMBED_PARAMS = json.loads(
-    open(
-        'resources/data/embeds.json',
-        'r',
-        encoding='utf-8').read())
 
 
 class PageController:
@@ -59,7 +44,7 @@ class PageController:
             Returns a small HTML file, inserted into the home page with some JS. Source parameter can be links,
             Twitter, Mastodon, Instagram
         """
-        params = EMBED_PARAMS[source]
+        params = embeds[source]
         feed = links_list(params["source"], 8, "false")
 
         return render_template('page/links_embed.html',
@@ -70,12 +55,12 @@ class PageController:
         """
             Returns json data
         """
-        RSS_URLS = []
-        for source in EMBED_PARAMS:
-            RSS_URLS.append(EMBED_PARAMS[source]["source"])
+        rss_urls = []
+        for source in embeds:
+            rss_urls.append(embeds[source]["source"])
 
         posts = []
-        for url in RSS_URLS:
+        for url in rss_urls:
             posts.extend(feedparser.parse(url).entries)
 
         return jsonify(
@@ -89,14 +74,14 @@ class PageController:
         links = links_list("links", 20, "true")
         links_number = len(links['entries'])
         return render_template(
-            'page/liens.html', links=links, links_number=links_number, blogroll=BLOGROLL)
+            'page/liens.html', links=links, links_number=links_number, blogroll=blogroll)
 
     @staticmethod
     def projects():
         """
             Returns a static file
         """
-        return render_template('page/projects.html', projects=PROJECTS)
+        return render_template('page/projects.html', projects=projects)
 
     @staticmethod
     @db_session
@@ -114,8 +99,6 @@ class PageController:
             lasts = Articles.get_articles_in_range(0, 3)
             return render_template(
                 'page/search.html',
-                categories=CATEGORIES,
-                types=TYPES,
                 lasts=lasts
             )
 
@@ -130,7 +113,7 @@ class PageController:
             error = "Votre recherche n'a donné aucun résultat. Vous pouvez entrer un autre mot clé :"
             lasts = Articles.get_articles_in_range(0, 3)
             return render_template(
-                'page/search.html', error=error, categories=CATEGORIES, types=TYPES, lasts=lasts)
+                'page/search.html', error=error, lasts=lasts)
         return render_template('blog/list.html',
                                articles=articles,
                                total_articles=total_articles,
@@ -139,8 +122,4 @@ class PageController:
                                name="Recherche",
                                icon="magnify",
                                keyword=keyword,
-                               page=page,
-                               types=TYPES,
-                               categories=CATEGORIES,
-                               devblog=BlogController.get_devblog()
-                               )
+                               page=page)

@@ -1,28 +1,17 @@
-from core.utils.fill_informations import fill_informations
-from pony.orm import db_session, select, desc, count
-from app.models.article import Articles
-from app.models.user import User
 from flask import render_template
 from flask import Markup
+from pony.orm import db_session, select, desc, count
 import requests
 import markdown
 import json
 
-TYPES = json.loads(
-    open(
-        'resources/data/types.json',
-        'r',
-        encoding='utf-8').read())
-CATEGORIES = json.loads(
-    open(
-        'resources/data/categories.json',
-        'r',
-        encoding='utf-8').read())
-SOCIALS = json.loads(
-    open(
-        'resources/data/socials.json',
-        'r',
-        encoding='utf-8').read())
+from core.utils.fill_informations import fill_informations
+from core.data.categories import categories
+from core.data.types import types
+from core.data.socials import socials
+
+from app.models.article import Articles
+from app.models.user import User
 
 
 class BlogController:
@@ -40,10 +29,7 @@ class BlogController:
         return render_template('blog/home.html',
                                last=last,
                                lasts=list_of_dict,
-                               types=TYPES,
-                               categories=CATEGORIES,
-                               socials=SOCIALS,
-                               devblog=BlogController.get_devblog())
+                               socials=socials)
 
     @staticmethod
     @db_session
@@ -68,10 +54,7 @@ class BlogController:
                                articles=articles,
                                total_articles=count(a for a in Articles),
                                icon="file-document-box-multiple-outline",
-                               page=page,
-                               types=TYPES,
-                               categories=CATEGORIES,
-                               devblog=BlogController.get_devblog())
+                               page=page)
 
     @staticmethod
     @db_session
@@ -80,12 +63,12 @@ class BlogController:
           Displays the list page with the lasts articles of a given category.
           Returns an error if the page is empty or if category doesn't exists.
         """
-        if category not in CATEGORIES:
+        if category not in categories:
             return render_template(
                 'components/erreur.html',
                 erreur="La catégorie souhaitée est invalide !")
 
-        category_data = CATEGORIES[category]
+        category_data = categories[category]
         data = Articles.select(
             lambda a: a.category == category).order_by(
             desc(
@@ -107,10 +90,7 @@ class BlogController:
                                articles=articles,
                                total_articles=count(
                                    a for a in Articles if a.category == category),
-                               page=page,
-                               types=TYPES,
-                               categories=CATEGORIES,
-                               devblog=BlogController.get_devblog())
+                               page=page)
 
     @staticmethod
     @db_session
@@ -119,11 +99,11 @@ class BlogController:
           Displays list.html with the lasts articles of a given type.
           Returns an error if the page is empty or if type doesn't exists.
         """
-        if type not in TYPES:
+        if type not in types:
             return render_template('components/erreur.html',
                                    erreur="Le type souhaité est invalide !")
 
-        type_data = TYPES[type]
+        type_data = types[type]
 
         data = Articles.select(
             lambda a: a.type == type).order_by(
@@ -145,10 +125,7 @@ class BlogController:
                                articles=articles,
                                total_articles=count(
                                    a for a in Articles if a.type == type),
-                               page=page,
-                               types=TYPES,
-                               categories=CATEGORIES,
-                               devblog=BlogController.get_devblog())
+                               page=page)
 
     @staticmethod
     @db_session
@@ -168,19 +145,11 @@ class BlogController:
             else:
                 htmlarticle = ''
             return render_template('blog/article.html',
-                                   devblog=BlogController.get_devblog(),
                                    article=article,
                                    author=author,
-                                   htmlarticle=htmlarticle,
-                                   categories=CATEGORIES,
-                                   types=TYPES)
+                                   htmlarticle=htmlarticle)
         except Exception as e:
             print(e)
             error = "La page recherchée n'existe pas! (404)"
             return render_template('components/erreur.html',
                                    erreur=error), 404
-
-    @staticmethod
-    def get_devblog():
-        return requests.get(
-            'https://api.becauseofprog.fr/v1/posts/last').json()['data']
