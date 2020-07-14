@@ -10,23 +10,13 @@
 <div id="categories-bar" class="navbar-fixed no-mobile">
   <nav class="nav-wrapper" style="background-color: rgba(var(--sheets), 0.4) !important; backdrop-filter: blur(30px);">
     <ul class="center hide-on-med-and-down">
-      {% for url, category in categories.items() %}
+      {% for url, category in CATEGORIES.items() %}
         <li class="waves-effect waves-light">
-          <a href="/categorie/{{url}}" class="normal-text">
+          <a href="/categorie/{{url}}" class="white-text">
             <i class="material-icons left">
-              <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
+              <span class="iconify" data-icon="mdi-{{ category.icon }}"></span>
             </i>
-            {{category.name}}
-          </a>
-        </li>
-      {% endfor %}
-      {% for url, type in types.items() %}
-        <li class="waves-effect waves-light">
-          <a href="/type/{{url}}" class="normal-text">
-            <i class="material-icons left">
-              <span class="iconify" data-icon="mdi-{{type.icon}}"></span>
-            </i>
-            {{type.name}}
+            {{ category.name }}
           </a>
         </li>
       {% endfor %}
@@ -87,7 +77,7 @@
           </a>
           <a href="/type/{{ lasts[i].type }}" class="btn-floating halfway-fab waves-effect waves-light primary">
             <i class="material-icons">
-              <span class="iconify" data-icon="mdi-{{types[lasts[i].type].icon}}"></span>
+              <span class="iconify" data-icon="mdi-{{ TYPES[lasts[i].type].icon }}"></span>
             </i>
           </a>
         </div>
@@ -110,7 +100,7 @@
           <div class="chip">{{ lasts[i].timestamp.strftime('%d/%m/%Y') }}</div>
           <a href="/categorie/{{ lasts[i].category }}">
             <div class="chip waves-effect">
-                {{ categories[lasts[i].category].name }}
+                {{ CATEGORIES[lasts[i].category].name }}
             </div>
           </a>
         </div>
@@ -141,7 +131,7 @@
           <div class="chip">{{ lasts[2].timestamp.strftime('%d/%m/%Y') }}</div>
           <div class="chip waves-effect">
             <a class="no-style-link normal-text" href="/categorie/{{ lasts[2].category }}">
-              {{ categories[lasts[2].category].name }}
+              {{ CATEGORIES[lasts[2].category].name }}
             </a>
           </div>
         </div>

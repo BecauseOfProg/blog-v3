@@ -82,14 +82,14 @@
               {% if template != "type" %}
                 <a class="no-style-link" href="/type/{{ article.type }}">
                   <div class="chip waves-effect">
-                    {{ types[article.type].name }}
+                    {{ TYPES[article.type].name }}
                   </div>
                 </a>
               {% endif %}
               {% if template != "Catégorie" %}
                 <a class="no-style-link" href="/categorie/{{ article.category }}">
                   <div class="chip waves-effect">
-                    {{ categories[article.category].name }}
+                    {{ CATEGORIES[article.category].name }}
                   </div>
                 </a>
               {% endif %}
@@ -101,7 +101,7 @@
     </div>
     <div class="col m3">
       <ul class="card collection">
-        {% for url, category in categories.items() %}
+        {% for url, category in CATEGORIES.items() %}
           <li class="collection-item">
             <a class="collection-link primary--text" href="/categorie/{{ url }}">
               <i class="material-icons left">
@@ -111,13 +111,13 @@
             </a>
           </li>
         {% endfor %}
-        {% for url, type in types.items() %}
+        {% for url, type in TYPES.items() %}
           <li class="collection-item">
             <a class="collection-link primary--text" href="/type/{{ url }}">
               <i class="material-icons left">
                 <span class="iconify" data-icon="mdi-{{ type.icon }}"></span>
               </i>
-              {{type.name}}
+              {{ type.name }}
             </a>
           </li>
         {% endfor %}

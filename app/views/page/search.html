@@ -50,7 +50,7 @@
               </div>
             </form>
             <h5 class="primary--text">Catégories suggérées</h5>
-            {% for url, category in categories.items() %}
+            {% for url, category in CATEGORIES.items() %}
             <a class="chip" href="/categorie/{{url}}">
               <i class="material-icons left icon-chip">
                 <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
@@ -73,7 +73,7 @@
               </a>
               <a href="/type/{{ post.type }}" class="btn-floating halfway-fab waves-effect waves-light primary">
                 <i class="material-icons">
-                  <span class="iconify" data-icon="mdi-{{ types[post.type].icon }}"></span>
+                  <span class="iconify" data-icon="mdi-{{ TYPES[post.type].icon }}"></span>
                 </i>
               </a>
             </div>
@@ -94,7 +94,7 @@
               <div class="chip">{{ post.timestamp.strftime('%d/%m/%Y') }}</div>
               <div class="chip">
                 <a class="no-style-link normal-text" href="/categorie/{{ post.category }}">
-                  {{ categories[post.category].name }}
+                  {{ CATEGORIES[post.category].name }}
                 </a>
               </div>
             </div>

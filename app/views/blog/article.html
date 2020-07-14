@@ -78,8 +78,8 @@
           </a>
           <br>
           <h5 class="normal-text">Publié dans</h5>
-          <a class="black-text chip" href="/categorie/{{ article.category }}">{{ categories[article.category].name }}</a>
-          <a class="black-text chip" href="/type/{{ article.type }}">{{ types[article.type].name }}</a>
+          <a class="black-text chip" href="/categorie/{{ article.category }}">{{ CATEGORIES[article.category].name }}</a>
+          <a class="black-text chip" href="/type/{{ article.type }}">{{ TYPES[article.type].name }}</a>
           {% for label in article.labels %}
             <a class="black-text chip">{{ label }}</a>
           {% endfor %}
@@ -144,18 +144,18 @@
           <span class="card-title">Catégories</span>
         </div>
         <div class="card-action card-action-bop-links">
-          {% for url, category in categories.items() %}
-            <a href="/categorie/{{url}}" class="chip shadow-elem">
+          {% for url, category in CATEGORIES.items() %}
+            <a href="/categorie/{{ url }}" class="chip shadow-elem">
               <i class="material-icons left icon-chip">
-                <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
-              </i>{{category.name}}
+                <span class="iconify" data-icon="mdi-{{ category.icon }}"></span>
+              </i>{{ category.name }}
             </a><br/>
           {% endfor %}
-          {% for url, type in types.items() %}
-            <a href="/categorie/{{url}}" class="chip shadow-elem">
+          {% for url, type in TYPES.items() %}
+            <a href="/categorie/{{ url }}" class="chip shadow-elem">
               <i class="material-icons left icon-chip">
-                <span class="iconify" data-icon="mdi-{{type.icon}}"></span>
-              </i>{{type.name}}
+                <span class="iconify" data-icon="mdi-{{ type.icon }}"></span>
+              </i>{{ type.name }}
             </a><br/>
           {% endfor %}
         </div>
