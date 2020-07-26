@@ -30,6 +30,9 @@ document.addEventListener("DOMContentLoaded",function(){
     margin: 0
   })
 
+  let dropdown = document.querySelectorAll('.dropdown-trigger')
+  let dropdownInstance = M.Dropdown.init(dropdown)
+
   let sidenav = document.querySelectorAll('.sidenav')
   let sidenavInstance = M.Sidenav.init(sidenav)
 
@@ -38,7 +41,4 @@ document.addEventListener("DOMContentLoaded",function(){
 
   let parallax = document.querySelectorAll('.parallax')
   let parallaxInstance = M.Parallax.init(parallax)
-
-  let dropdown = document.querySelectorAll('.dropdown-trigger')
-  let dropdownInstance = M.Dropdown.init(dropdown)
 })
