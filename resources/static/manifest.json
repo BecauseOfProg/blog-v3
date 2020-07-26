@@ -3,60 +3,60 @@
   "name": "BecauseOfProg",
   "icons": [
     {
-      "src": "/static/manifest/images/logos/bop-512px.png",
+      "src": "/manifest/images/logos/bop-512px.png",
       "type": "image/png",
       "sizes": "512x512"
     },
     {
-      "src": "/static/manifest/images/logos/bop-192px.png",
+      "src": "/manifest/images/logos/bop-192px.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/static/manifest/images/logos/bop-180px.png",
+      "src": "/manifest/images/logos/bop-180px.png",
       "type": "image/png",
       "sizes": "180x180"
     },
     {
-      "src": "/static/manifest/images/logos/bop-152px.png",
+      "src": "/manifest/images/logos/bop-152px.png",
       "type": "image/png",
       "sizes": "152x152"
     },
     {
-      "src": "/static/manifest/images/logos/bop-144px.png",
+      "src": "/manifest/images/logos/bop-144px.png",
       "type": "image/png",
       "sizes": "144x144"
     },
     {
-      "src": "/static/manifest/images/logos/bop-120px.png",
+      "src": "/manifest/images/logos/bop-120px.png",
       "type": "image/png",
       "sizes": "120x120"
     },
     {
-      "src": "/static/manifest/images/logos/bop-96px.png",
+      "src": "/manifest/images/logos/bop-96px.png",
       "type": "image/png",
       "sizes": "96x96"
     },
     {
-      "src": "/static/manifest/images/logos/bop-76px.png",
+      "src": "/manifest/images/logos/bop-76px.png",
       "type": "image/png",
       "sizes": "76x76"
     },
     {
-      "src": "/static/manifest/images/logos/bop-72px.png",
+      "src": "/manifest/images/logos/bop-72px.png",
       "type": "image/png",
       "sizes": "72x72"
     },
     {
-      "src": "/static/manifest/images/logos/bop-48px.png",
+      "src": "/manifest/images/logos/bop-48px.png",
       "type": "image/png",
       "sizes": "48x48"
     }
   ],
   "start_url": "/",
   "background_color": "#f5f5f5",
-  "display": "standalone",
+  "display": "fullscreen",
   "theme_color": "#CF0A1D",
   "lang": "fr",
-  "description": "Blog d'actualités et de trouvailles de la BecauseOfProg"
+  "description": "Blog d'actualités et de programmation de la BecauseOfProg"
 }
