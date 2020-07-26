@@ -1,0 +1,27 @@
+{% set architectures = ['armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'] %}
+<div class="row">
+  <a
+    style="margin-right: 16px"
+    class="waves-effect waves-light btn green darken-1"
+    href="https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/app/app-universal-release.apk">
+    <i class="material-icons left">
+      <span class="iconify" data-icon="mdi-android"/>
+    </i>
+    Télécharger (Android) ≈18Mo
+  </a>
+
+  <!-- Dropdown Trigger -->
+  <a class="dropdown-trigger btn green lighten-2" href='#!' data-target="app-dropdown">Autres architectures ≈9Mo</a>
+
+  <!-- Dropdown Structure -->
+  <ul id="app-dropdown" class="dropdown-content">
+    {% for arch in architectures %}
+    <li>
+      <a
+        href="https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/app/app-{{ arch }}-release.apk"
+        class="primary--text">{{ arch }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+ 
