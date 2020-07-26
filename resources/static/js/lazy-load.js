@@ -26,8 +26,8 @@ function lazyLoad (selector) {
   }
 
   function isScrolledIntoView (el) {
-    var rect = el.getBoundingClientRect()
-    var isVisible = (rect.top >= 0) && (rect.bottom <= (window.innerHeight + rect.height))
+    let rect = el.getBoundingClientRect()
+    let isVisible = (rect.top >= 0) && (rect.bottom <= (window.innerHeight + rect.height))
     return isVisible
   }
 }

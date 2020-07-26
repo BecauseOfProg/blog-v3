@@ -11,12 +11,14 @@
 {% block image %}https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/logos/bop.min.svg{% endblock %}
 {% block author %}Équipe BecauseOfProg{% endblock %}
 
+{% set pages_number = (total_articles / 10)|abs|int %}
+
 {% block content %}
 <div class="welcome parallax-container h250px">
   <div class="parallax primary"></div>
   <h4 class="header white-text">
     <i class="material-icons md-48">
-      <span class="iconify" data-icon="mdi-{{icon}}"></span>
+      <span class="iconify" data-icon="mdi-{{ icon }}"></span>
     </i>
     <br/>
     {{ template.title() }} - {{ name }}
@@ -24,9 +26,39 @@
 </div>
 
 <div class="container">
-  {{ breadcrumb([template.title(), name])|safe }}
+  {{ breadcrumb([template.title(), name])|safe }}<br>
   <div class="row">
     <div class="col m9">
+      <ul class="pagination center">
+        {% for i in range(pages_number + 1) %}
+          <li class="waves-effect">
+            <a
+              {% if template == "Blog" %}
+                href="{{ i }}"
+              {% elif template == "site" %}
+                {% if page == 0 %}
+                  href="../{{ keyword }}/{{ i }}"
+                {% else %}
+                  href="../../{{ keyword }}/{{ i }}"
+                {% endif %}
+              {% else %}
+                {% if page == 0 %}
+                  href="{{ type }}/{{ i }}"
+                {% else %}
+                  href="../{{ type }}/{{ i }}"
+                {% endif %}
+              {% endif %}
+
+              {% if i == page %}
+                class="primary--text"
+              {% else %}
+                class="normal-text"
+              {% endif %}>
+              {{ i + 1 }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
       {% for article in articles %}
         <div class="card hoverable">
           <div class="card-image">
@@ -37,7 +69,7 @@
           <div class="card-stacked">
             <div class="card-content">
             <span class="card-title grey-text text-darken-4">
-              <a class="black-text" href="/article/{{ article.url }}">
+              <a class="normal-text" href="/article/{{ article.url }}">
                 {{ article.title }}
               </a>
             </span>
@@ -50,14 +82,14 @@
               {% if template != "type" %}
                 <a class="no-style-link" href="/type/{{ article.type }}">
                   <div class="chip waves-effect">
-                    {{ types[article.type].name }}
+                    {{ TYPES[article.type].name }}
                   </div>
                 </a>
               {% endif %}
               {% if template != "Catégorie" %}
                 <a class="no-style-link" href="/categorie/{{ article.category }}">
                   <div class="chip waves-effect">
-                    {{ categories[article.category].name }}
+                    {{ CATEGORIES[article.category].name }}
                   </div>
                 </a>
               {% endif %}
@@ -66,79 +98,69 @@
           </div>
         </div>
       {% endfor %}
-      {% if articles|length > 9 %}
-        <a class="waves-effect waves-light btn primary" href="{{ page + 1 }}">
-          Page suivante
-          <i class="material-icons right">
-            <span class="iconify" data-icon="mdi-chevron-right"></span>
-          </i>
-        </a>
-      {% endif %}
     </div>
     <div class="col m3">
-      <div class="card">
-        <ul class="collection">
-          {% for url, category in categories.items() %}
-            <li class="collection-item">
-              <a class="collection-link primary--text" href="/categorie/{{ url }}">
-                <i class="material-icons left">
-                  <span class="iconify" data-icon="mdi-{{ category.icon }}"></span>
-                </i>
-                {{ category.name }}
-              </a>
-            </li>
-          {% endfor %}
-          {% for url, type in types.items() %}
-            <li class="collection-item">
-              <a class="collection-link primary--text" href="/type/{{ url }}">
-                <i class="material-icons left">
-                  <span class="iconify" data-icon="mdi-{{ type.icon }}"></span>
-                </i>
-                {{type.name}}
-              </a>
-            </li>
-          {% endfor %}
+      <ul class="card collection">
+        {% for url, category in CATEGORIES.items() %}
           <li class="collection-item">
-            <h5 class="primary--text">Nous suivre</h5>
-            <div class="row">
-              <div class="s12">
-                <a class="blue-text text-lighten-2" href="https://twitter.com/BecauseOfProg">
-                  <i class="material-icons large">
-                    <span class="iconify" data-icon="mdi-twitter"></span>
-                  </i>
-                </a>
-                <a class="blue-text text-darken-1" href="https://discord.becauseofprog.fr">
-                  <i class="material-icons large">
-                    <span class="iconify" data-icon="mdi-discord"></span>
-                  </i>
-                </a>
-              </div>
-              <div class="s12">
-                <a class="teal-text" href="https://mstdn.io/@bop">
-                  <i class="material-icons large">
-                    <span class="iconify" data-icon="mdi-mastodon"></span>
-                  </i>
-                </a>
-                <a class="black-text" href="https://github.com/BecauseOfProg">
-                  <i class="material-icons large">
-                    <span class="iconify" data-icon="mdi-github-circle"></span>
-                  </i>
-                </a>
-              </div>
-            </div>
-          </li>
-          <li class="collection-item">
-            <h5 class="primary--text">À propos</h5>
-            <p>BecauseOfProg, c'est des développeurs rassemblés autour de projets communs tels que le blog. </p>
-            <a class="btn-flat waves-effect primary--text" href="/page/about">
-              <i class="material-icons right">
-                <span class="iconify" data-icon="mdi-info-outline"></span>
+            <a class="collection-link primary--text" href="/categorie/{{ url }}">
+              <i class="material-icons left">
+                <span class="iconify" data-icon="mdi-{{ category.icon }}"></span>
               </i>
-              En savoir plus
+              {{ category.name }}
             </a>
           </li>
-        </ul>
-      </div>
+        {% endfor %}
+        {% for url, type in TYPES.items() %}
+          <li class="collection-item">
+            <a class="collection-link primary--text" href="/type/{{ url }}">
+              <i class="material-icons left">
+                <span class="iconify" data-icon="mdi-{{ type.icon }}"></span>
+              </i>
+              {{ type.name }}
+            </a>
+          </li>
+        {% endfor %}
+        <li class="collection-item">
+          <h5 class="primary--text">Nous suivre</h5>
+          <div class="row">
+            <div class="s12">
+              <a class="blue-text text-lighten-2" href="https://twitter.com/BecauseOfProg">
+                <i class="material-icons large">
+                  <span class="iconify" data-icon="mdi-twitter"></span>
+                </i>
+              </a>
+              <a class="blue-text text-darken-1" href="https://discord.becauseofprog.fr">
+                <i class="material-icons large">
+                  <span class="iconify" data-icon="mdi-discord"></span>
+                </i>
+              </a>
+            </div>
+            <div class="s12">
+              <a class="teal-text" href="https://mstdn.io/@bop">
+                <i class="material-icons large">
+                  <span class="iconify" data-icon="mdi-mastodon"></span>
+                </i>
+              </a>
+              <a class="black-text" href="https://github.com/BecauseOfProg">
+                <i class="material-icons large">
+                  <span class="iconify" data-icon="mdi-github-circle"></span>
+                </i>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="collection-item">
+          <h5 class="primary--text">À propos</h5>
+          <p>BecauseOfProg, c'est des développeurs rassemblés autour de projets communs tels que le blog. </p>
+          <a class="btn-flat waves-effect primary--text" href="/page/about">
+            <i class="material-icons right">
+              <span class="iconify" data-icon="mdi-info-outline"></span>
+            </i>
+            En savoir plus
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

@@ -41,8 +41,8 @@
       <div class="input-field col s12 center">
         <select name="category" id="category" class="browser-default">
           <option value="" disabled selected>Catégorie</option>
-          {% for url, category in categories.items() %}
-            <option value="{{url}}">{{category.name}}</option>
+          {% for url, category in CATEGORIES.items() %}
+            <option value="{{ url }}">{{ category.name }}</option>
           {% endfor %}
         </select>
       </div>
@@ -57,8 +57,8 @@
       <div class="input-field col s12 center">
         <select name="type" id="type" class="browser-default">
           <option value="" disabled selected>Type</option>
-          {% for url, type in types.items() %}
-            <option value="{{url}}">{{type.name}}</option>
+          {% for url, type in TYPES.items() %}
+            <option value="{{ url }}">{{ type.name }}</option>
           {% endfor %}
         </select>
       </div>

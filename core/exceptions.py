@@ -1,2 +1,2 @@
 class NoArticlesFound(Exception):
-  pass
+    pass

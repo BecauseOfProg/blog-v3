@@ -23,7 +23,7 @@
     <div class="col l1 no-mobile"></div>
     <div class="col l7 upper-content">
       <div class="card section article-content">
-        <h5>{{ article.description }}</h5>
+        <h5 class="normal-text">{{ article.description }}</h5>
         <hr/>
         {% if htmlarticle %}
           <div class="markdown-body">{{ htmlarticle | safe }}</div>
@@ -33,7 +33,7 @@
         <br/>
         <hr/>
         <div class="tx-center">
-          <h5>Partager l'article sur</h5>
+          <h5 class="normal-text">Partager l'article sur</h5>
           <a
             class="waves-effect waves-light btn blue lighten-2 btn-share"
             href="https://twitter.com/intent/tweet?url=https://becauseofprog.fr/article/{{ article.url }}&text={{ article.title }}">
@@ -77,9 +77,9 @@
              Mail
           </a>
           <br>
-          <h5>Publié dans</h5>
-          <a class="black-text chip" href="/categorie/{{ article.category }}">{{ categories[article.category].name }}</a>
-          <a class="black-text chip" href="/type/{{ article.type }}">{{ types[article.type].name }}</a>
+          <h5 class="normal-text">Publié dans</h5>
+          <a class="black-text chip" href="/categorie/{{ article.category }}">{{ CATEGORIES[article.category].name }}</a>
+          <a class="black-text chip" href="/type/{{ article.type }}">{{ TYPES[article.type].name }}</a>
           {% for label in article.labels %}
             <a class="black-text chip">{{ label }}</a>
           {% endfor %}
@@ -129,11 +129,11 @@
         </div>
       </div>
       <div class="card shadow-elem primary">
-        <div class="card-content white-text">
-          <span class="card-title">Les liens BecauseOfProg</span>
-          <p>Nous partageons des liens vers des ressources, des blogs ou des articles intéressants, afin que vous puissiez vous aussi les découvrir.</p>
+        <div class="card-content">
+          <span class="card-title white-text">Les liens BecauseOfProg</span>
+          <p class="white-text">Nous partageons des liens vers des ressources, des blogs ou des articles intéressants, afin que vous puissiez vous aussi les découvrir.</p>
         </div>
-        <div class="card-action white-text">
+        <div class="card-action">
           <a href="https://twitter.com/BecauseOfProg/" class="white-text">Twitter</a>
           <a href="#" class="white-text">RSS</a>
         </div>
@@ -144,18 +144,18 @@
           <span class="card-title">Catégories</span>
         </div>
         <div class="card-action card-action-bop-links">
-          {% for url, category in categories.items() %}
-            <a href="/categorie/{{url}}" class="black-text chip shadow-elem">
+          {% for url, category in CATEGORIES.items() %}
+            <a href="/categorie/{{ url }}" class="chip shadow-elem">
               <i class="material-icons left icon-chip">
-                <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
-              </i>{{category.name}}
+                <span class="iconify" data-icon="mdi-{{ category.icon }}"></span>
+              </i>{{ category.name }}
             </a><br/>
           {% endfor %}
-          {% for url, type in types.items() %}
-            <a href="/categorie/{{url}}" class="black-text chip shadow-elem">
+          {% for url, type in TYPES.items() %}
+            <a href="/categorie/{{ url }}" class="chip shadow-elem">
               <i class="material-icons left icon-chip">
-                <span class="iconify" data-icon="mdi-{{type.icon}}"></span>
-              </i>{{type.name}}
+                <span class="iconify" data-icon="mdi-{{ type.icon }}"></span>
+              </i>{{ type.name }}
             </a><br/>
           {% endfor %}
         </div>

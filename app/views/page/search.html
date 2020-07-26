@@ -21,7 +21,14 @@
         <div class="card">
           <div class="card-content">
             {% if error %}
-              <p>{{ error }}</p>
+              <div style="margin-bottom: 5px">
+                <strong class="normal-text">
+                  <i class="material-icons left">
+                    <span class="iconify" data-icon="mdi-error-outline"></span>
+                  </i>
+                  {{ error }}<br>
+                </strong>
+              </div>
             {% endif %}
             <form action="/page/search">
               <div class="input-field">
@@ -43,7 +50,7 @@
               </div>
             </form>
             <h5 class="primary--text">Catégories suggérées</h5>
-            {% for url, category in categories.items() %}
+            {% for url, category in CATEGORIES.items() %}
             <a class="chip" href="/categorie/{{url}}">
               <i class="material-icons left icon-chip">
                 <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
@@ -61,18 +68,18 @@
         <div class="col s12 m6 l4 xl4">
           <div class="card sticky-action hoverable">
             <div class="card-image">
-              <a class="black-text" href="/article/{{ post.url }}">
+              <a class="normal-text" href="/article/{{ post.url }}">
                 <img class="border-radius-top" lazy="{{ image_proxy(post.banner, 800, 449.7) }}" alt="Illustration de {{ post.title }} ">
               </a>
               <a href="/type/{{ post.type }}" class="btn-floating halfway-fab waves-effect waves-light primary">
                 <i class="material-icons">
-                  <span class="iconify" data-icon="mdi-{{ types[post.type].icon }}"></span>
+                  <span class="iconify" data-icon="mdi-{{ TYPES[post.type].icon }}"></span>
                 </i>
               </a>
             </div>
             <div class="card-content">
               <span class="card-title grey-text text-darken-4">
-                <a class="black-text" href="/article/{{ post.url }}">
+                <a class="normal-text" href="/article/{{ post.url }}">
                   {{ post.title }}
                 </a>
               </span>
@@ -86,8 +93,8 @@
               </a>
               <div class="chip">{{ post.timestamp.strftime('%d/%m/%Y') }}</div>
               <div class="chip">
-                <a class="no-style-link" href="/categorie/{{ post.category }}">
-                  {{ categories[post.category].name }}
+                <a class="no-style-link normal-text" href="/categorie/{{ post.category }}">
+                  {{ CATEGORIES[post.category].name }}
                 </a>
               </div>
             </div>

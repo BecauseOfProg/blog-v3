@@ -89,37 +89,35 @@
   <!-- Mobile drawer -->
   <ul id="mobile-demo" class="sidenav">
     <li class="header">
-      <div class="user-view">
-        <div class="background primary"></div>
-        <a href="/">
-          <img
-            width="64px"
-            src="https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/logos/bop.min.svg"
-            alt="Logo BecauseOfProg"/>
+      <a href="/" style="display: inline; padding: 0">
+        <img lazy="{{ image_proxy('https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/new-banner.png', 724.167, 0) }}" height="100px"/>
+      </a>
+    </li>
+    <li><a class="waves-effect waves-light btn primary" href="/account" style="color: white !important">Mon compte</a></li>
+    <span class="subheader">Catégories</span>
+    {% for url, category in CATEGORIES.items() %}
+      <li>
+        <a href="/categorie/{{ url }}">
+          <i class="material-icons left">
+            <span class="iconify" data-icon="mdi-{{ category.icon }}"></span>
+          </i>
+          {{ category.name }}
         </a>
-        <span class="white-text name">BecauseOfProg</span>
-        <span class="white-text email">Menu de navigation</span>
-      </div>
-    </li>
-    <li><a href="/categorie/software"><i class="material-icons left"><span class="iconify" data-icon="mdi-web"></span></i>Software</a></li>
-    <li><a href="/categorie/security"><i class="material-icons left"><span class="iconify" data-icon="mdi-lock-outline"></span></i>Sécurité</a></li>
-    <li><a href="/categorie/web"><i class="material-icons left"><span class="iconify" data-icon="mdi-public"></span></i>Web</a></li>
-    <li><a href="/categorie/hardware"><i class="material-icons left"><span class="iconify" data-icon="mdi-sim"></span></i>Hardware</a></li>
-    <li><a href="/categorie/programming"><i class="material-icons left"><span class="iconify" data-icon="mdi-code-tags"></span></i>Programmation</a></li>
-    <li><a href="/categorie/android"><i class="material-icons left"><span class="iconify" data-icon="mdi-android"></span></i>Android</a></li>
-    <li><a href="/categorie/linux"><i class="material-icons left"><span class="iconify" data-icon="mdi-linux"></span></i>Linux</a></li>
-    <li><a href="/categorie/windows"><i class="material-icons left"><span class="iconify" data-icon="mdi-windows"></span></i>Windows</a></li>
-    <li><a href="/categorie/apple"><i class="material-icons left"><span class="iconify" data-icon="mdi-apple"></span></i>Apple</a></li>
-    <li>
-      <div class="divider"></div>
-    </li>
+      </li>
+    {% endfor %}
+    <li class="divider"></li>
+    <span class="subheader">Pages</span>
     <li><a href="/blog"><i class="material-icons left"><span class="iconify" data-icon="mdi-file-document-box-multiple-outline"></span></i>Tous les articles</a></li>
     <li><a href="/page/search"><i class="material-icons left"><span class="iconify" data-icon="mdi-magnify"></span></i>Rechercher</a></li>
     <li><a href="/page/projects"><i class="material-icons left"><span class="iconify" data-icon="mdi-package-variant"></span></i>Projets</a></li>
     <li><a href="/page/links"><i class="material-icons left"><span class="iconify" data-icon="mdi-link"></span></i>Liens</a></li>
     <li><a href="/page/about"><i class="material-icons left"><span class="iconify" data-icon="mdi-information-outline"></span></i>À propos</a></li>
-    <li><a class="waves-effect waves-light btn primary" href="/login">Connexion</a></li>
-    <li>&nbsp;</li>
+    <li><a href="/page/app"><i class="material-icons left"><span class="iconify" data-icon="mdi-cellphone-iphone"></span></i>Application</a></li>
+    <li class="divider"></li>
+    <span class="subheader">Thème</span>
+    <li onclick="setTheme('auto')"><a href="#!"><i class="material-icons left"><span class="iconify" data-icon="mdi-theme-light-dark"/></i>Automatique</a></li>
+    <li onclick="setTheme('light')"><a href="#!"><i class="material-icons left"><span class="iconify" data-icon="mdi-weather-sunny"/></i>Clair</a></li>
+    <li onclick="setTheme('dark')"><a href="#!"><i class="material-icons left"><span class="iconify" data-icon="mdi-weather-night"/></i>Sombre</a></li>
   </ul>
   <div class="navbar-fixed topbar">
     <nav class="primary"></nav>
@@ -141,13 +139,52 @@
           </i>
         </a>
         <ul class="row right hide-on-med-and-down">
-          <div id='navbar-links-container'>
+          <div id="navbar-links-container">
+            <li class="divided">
+              <a
+                class="primary--text dropdown-trigger"
+                data-target="theme-dropdown">
+                <i
+                  class="material-icons tooltipped"
+                  data-position="bottom"
+                  data-tooltip="Thème">
+                  <span class="iconify" data-icon="mdi-theme-light-dark"></span>
+                </i>
+              </a>
+            </li>
+            <ul id="theme-dropdown" class="dropdown-content" style="width: auto">
+              <li>
+                <a class="primary--text" onclick="setTheme('auto')">
+                  <i class="material-icons">
+                    <span class="iconify" data-icon="mdi-theme-light-dark"></span>
+                  </i>
+                  Automatique
+                </a>
+              </li>
+              <li class="divider" tabindex="-1"></li>
+              <li>
+                <a class="primary--text" onclick="setTheme('light')">
+                  <i class="material-icons">
+                    <span class="iconify" data-icon="mdi-weather-sunny"></span>
+                  </i>
+                  Clair
+                </a>
+              </li>
+              <li>
+                <a href="#!" class="primary--text" onclick="setTheme('dark')">
+                  <i class="material-icons">
+                    <span class="iconify" data-icon="mdi-weather-night"></span>
+                  </i>
+                  Sombre
+                </a>
+              </li>
+            </ul>
             <li class="waves-effect waves-light">
               <a href="/blog" class="primary--text">
                 <i class="material-icons left">
                   <span class="iconify" data-icon="mdi-file-document-box-multiple-outline"></span>
                 </i>
-                Tous les articles
+                Articles
               </a>
             </li>
             <li class="waves-effect waves-light">
@@ -158,12 +195,20 @@
                 Projets
               </a>
             </li>
-            <li class="waves-effect waves-light">
+            <li class="waves-effect waves-light divided">
               <a href="/page/links" class="primary--text">
                 <i class="material-icons left">
                   <span class="iconify" data-icon="mdi-link"></span>
                 </i>
                 Liens
+              </a>
+            </li>
+            <li class="waves-effect waves-light divided">
+              <a href="/page/app" class="primary--text">
+                <i class="material-icons left">
+                  <span class="iconify" data-icon="mdi-cellphone-iphone"></span>
+                </i>
+                Application
               </a>
             </li>
             <li>
@@ -175,7 +220,7 @@
             </li>
             <li>
               <a
-                class="account-button primary--text"
+                class="primary--text"
                 href="/account">
                 <i
                   class="material-icons tooltipped"
@@ -234,7 +279,5 @@
 
 <script src="https://cdn.becauseofprog.fr/v2/libs/materialize/materialize.min.js"></script>
 <script src="/build/bundle.js"></script>
-<!--<script src="/js/lazy-load.js"></script>-->
-<!--<script src="/js/search-bar.js"></script>-->
 </body>
 </html>

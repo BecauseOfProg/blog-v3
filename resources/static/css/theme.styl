@@ -1,0 +1,83 @@
+@css {
+  :root {
+    color-scheme: light dark;
+
+    --background: #fafafa;
+    --sheets: #fff;
+    --text: #000;
+    --chips: #e4e4e4;
+    --borders: #e0e0e0;
+    --shadows: rgba(146,125,160,0.2);
+    --shadows-hover: rgba(0,0,0,0.2);
+    --codes: #f6f8fa;
+    --nav: var(--sheets);
+    --transparent: rgba(0,0,0,0.1);
+    --list-hover: #eee;
+    --subheader: rgba(0,0,0,.6);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #000 !important;
+      --sheets: #2E2E2E !important;
+      --text: #fff !important;
+      --chips: #383838 !important;
+      --borders: hsla(0,0%,100%,.12) !important;
+      --shadows: rgba(0,0,0,0.2) !important;
+      --shadows-hover: rgba(146,125,160,0.2) !important;
+      --codes: #242424 !important;
+      --nav: var(--sheets) !important;
+      --transparent: rgba(0,0,0,0.3) !important;
+      --list-hover: #2e2e2e !important;
+      --subheader: hsla(0,0%,100%,.7);
+    }
+  }
+
+  body {
+    background-color: var(--background) !important;
+  }
+  .nav-wrapper:not(.semitransparent) {
+    background-color: var(--nav) !important;
+  }
+  .semitransparent {
+    background: var(--transparent);
+  }
+
+  .card:not(.primary), .collection-item, ul.dropdown-content, ul.sidenav, .sheet {
+    background-color: var(--sheets) !important;
+  }
+  ul.dropdown-content li:hover {
+    background-color: var(--list-hover);
+  }
+
+  .hoverable {
+    box-shadow: 0.25rem 0.25rem 1.25rem var(--shadows);
+  }
+  .hoverable:hover {
+    box-shadow: 0 8px 17px 0 var(--shadows-hover), 0 6px 20px 0 var(--shadows-hover);
+  }
+
+  .divider {
+    background-color: var(--borders) !important;
+  }
+
+  .collection, .collection-item, .article-content {
+    border-color: var(--borders) !important;
+  }
+
+  p, span, .normal-text, .markdown-body, .chip, .icon-chip svg path, input, .sidenav li * {
+    color: var(--text) !important;
+  }
+
+  .chip {
+    background-color: var(--chips) !important;
+  }
+
+  input:focus {
+    background-color: inherit !important;
+  }
+
+  pre {
+    background-color: var(--codes) !important;
+  }
+}

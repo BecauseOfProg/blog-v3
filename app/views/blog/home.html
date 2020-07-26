@@ -7,32 +7,20 @@
 
 {% block content %}
 <!-- Categories bar -->
-<div class="navbar-fixed no-mobile">
-  <nav class="semitransparent">
-    <div class="nav-wrapper semitransparent">
-      <ul class="center hide-on-med-and-down">
-        {% for url, category in categories.items() %}
-          <li class="waves-effect waves-light">
-            <a href="/categorie/{{url}}">
-              <i class="material-icons left">
-                <span class="iconify" data-icon="mdi-{{category.icon}}"></span>
-              </i>
-              {{category.name}}
-            </a>
-          </li>
-        {% endfor %}
-        {% for url, type in types.items() %}
-          <li class="waves-effect waves-light">
-            <a href="/type/{{url}}">
-              <i class="material-icons left">
-                <span class="iconify" data-icon="mdi-{{type.icon}}"></span>
-              </i>
-              {{type.name}}
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
+<div id="categories-bar" class="navbar-fixed no-mobile">
+  <nav class="nav-wrapper" style="background-color: rgba(var(--sheets), 0.4) !important; backdrop-filter: blur(30px);">
+    <ul class="center hide-on-med-and-down">
+      {% for url, category in CATEGORIES.items() %}
+        <li class="waves-effect waves-light">
+          <a href="/categorie/{{url}}" class="white-text">
+            <i class="material-icons left">
+              <span class="iconify" data-icon="mdi-{{ category.icon }}"></span>
+            </i>
+            {{ category.name }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
   </nav>
 </div>
 
@@ -47,6 +35,11 @@
     <h3 class="carousel-bop-homepage-title">Nos outils</h3>
     <h5 class="light grey-text text-lighten-3">Nous proposons plusieurs outils et services gratuits</h5>
     <a class="waves-effect waves-light btn primary center white-text" href="/page/projects">En savoir plus</a>
+  </div>
+  <div class="carousel-item white-text" lazy="/img/android_wallpaper.png">
+    <h3 class="carousel-bop-homepage-title">Notre application</h3>
+    <h5 class="light grey-text text-lighten-3">La BecauseOfProg arrive sur vos écrans d'accueil : téléchargez notre application Android!</h5>
+    <a class="waves-effect waves-light btn primary center white-text" href="/page/app">Télécharger!</a>
   </div>
 </div>
 
@@ -68,7 +61,7 @@
               </i>
               Nouveau!
             </a>
-            <a class="black-text" href="/article/{{ last.url }}">
+            <a class="normal-text" href="/article/{{ last.url }}">
               <h2 class="main-title">{{ last.title }}</h2>
             </a>
             <p>{{ last.description }}</p>
@@ -84,18 +77,18 @@
     <div class="col s12 m6 l6 xl6">
       <div class="card sticky-action hoverable">
         <div class="card-image">
-          <a class="black-text" href="/article/{{ lasts[i].url }}">
+          <a class="normal-text" href="/article/{{ lasts[i].url }}">
             <img class="border-radius-top" lazy="{{ image_proxy(lasts[i].banner, 617, 347) }}" alt="Illustration de l'article">
           </a>
           <a href="/type/{{ lasts[i].type }}" class="btn-floating halfway-fab waves-effect waves-light primary">
             <i class="material-icons">
-              <span class="iconify" data-icon="mdi-{{types[lasts[i].type].icon}}"></span>
+              <span class="iconify" data-icon="mdi-{{ TYPES[lasts[i].type].icon }}"></span>
             </i>
           </a>
         </div>
         <div class="card-content">
           <span class="card-title grey-text text-darken-4">
-            <a class="black-text" href="/article/{{ lasts[i].url }}">
+            <a class="normal-text" href="/article/{{ lasts[i].url }}">
               {{ lasts[i].title }}
             </a>
           </span>
@@ -112,7 +105,7 @@
           <div class="chip">{{ lasts[i].timestamp.strftime('%d/%m/%Y') }}</div>
           <a href="/categorie/{{ lasts[i].category }}">
             <div class="chip waves-effect">
-                {{ categories[lasts[i].category].name }}
+                {{ CATEGORIES[lasts[i].category].name }}
             </div>
           </a>
         </div>
@@ -129,7 +122,7 @@
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <a class="black-text card-title" href="/article/{{ lasts[2].url }}">
+          <a class="normal-text card-title" href="/article/{{ lasts[2].url }}">
             {{ lasts[2].title }}
           </a>
           <a class="no-style-link" href="/user/{{ lasts[2].author.username }}">
@@ -142,8 +135,8 @@
           </a>
           <div class="chip">{{ lasts[2].timestamp.strftime('%d/%m/%Y') }}</div>
           <div class="chip waves-effect">
-            <a class="no-style-link grey-text text-darken-4" href="/categorie/{{ lasts[2].category }}">
-              {{ categories[lasts[2].category].name }}
+            <a class="no-style-link normal-text" href="/categorie/{{ lasts[2].category }}">
+              {{ CATEGORIES[lasts[2].category].name }}
             </a>
           </div>
         </div>
@@ -212,7 +205,7 @@
       <div class="card">
         <div class="card-image">
           <img lazy="{{ image_proxy('https://cdn.becauseofprog.fr/v2/sites/becauseofprog.fr/assets/new-banner.png', 724.167, 0) }}" class="border-radius-top">
-          <span class="card-title shadow no-mobile">À propos de nous</span>
+          <span class="card-title white-text shadow no-mobile">À propos de nous</span>
         </div>
         <div class="card-content justified">
           <p>La BecauseOfProg, c'est plusieurs développeurs rassemblés autour de projets communs, dont ce blog, depuis février 2017.
